@@ -43,9 +43,9 @@ medidas iniciales del gobierno).
 
 Permite que los usuarios inscritos puedan configurar donaciones de forma
 periódica (mensual, trimestral o anual) por el importe que quieran (desde 5 a
-50 €). Permite que esta colaboración se produzca a través de transferencia
-bancaria o con tarjeta de crédito (conexión con Redsys). Es uno de las
-principales formas de ingresos de Podemos (más de € 300.000).
+50€). Permite que esta colaboración se produzca a través de transferencia
+bancaria o con tarjeta de crédito (conexión con Redsys). Es una de las
+principales formas de ingresos de Podemos (más de 300.000€).
 
 * http://transparencia.podemos.info/cuentas-claras/partido/ingresos
 * http://transparencia.podemos.info/preguntas-frecuentes
@@ -54,7 +54,7 @@ principales formas de ingresos de Podemos (más de € 300.000).
 
 Permite que usuarios (inscritos o no) den de alta préstamos a la organización
 de forma puntual. Ha servido para financiar la campaña electoral del año 2015
-de Podemos en todas las Comunidades Autonómicas (más de € 1.500.000).
+de Podemos en todas las Comunidades Autonómicas (más de 1.500.000€).
 
 * http://transparencia.podemos.info/preguntas-frecuentes
 * http://www.bolsamania.com/noticias/politica/como-funcionan-los-microcreditos-con-los-que-podemos-ha-financiado-la-campana-electoral--743443.html
