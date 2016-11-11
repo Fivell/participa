@@ -143,11 +143,10 @@ carteles y canciones).
 
 Es una aplicación Ruby On Rails hecha con Rails 4.1 / Ruby 2.0. Se recomienda
 hacerla en sistemas operativos GNU/Linux (nosotros usamos Ubuntu). Para manejar
-las gemas recomendamos rvm o rbenv. Para la BBDD recomendamos postgres, pero se
-puede usar también mysql/sqlite3.
+las gemas usamos `bundler`. Para la BBDD recomendamos postgres, pero se puede
+usar también mysql/sqlite3.
 
-Una vez se tenga configurado el rvm o rbenv los pasos a seguir serían los
-siguientes:
+Una vez se tenga configurado ruby, los pasos a seguir serían los siguientes:
 
 ```
 bundle install
