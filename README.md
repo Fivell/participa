@@ -142,7 +142,7 @@ carteles y canciones).
 ## Dependencias
 
 Para ejecutar la aplicación en su totalidad hay que tener los siguientes
-servicios en funcionamiento:
+paquetes instalados:
 
 ```
 sudo apt-get install postgresql                     # para la base de datos
