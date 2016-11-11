@@ -176,7 +176,13 @@ trabajos asincronos.
 
 ## Tests
 
-Se pueden comprobar los tests con
+Para correr los tests hay que preparar primero la base de datos de test
+
+```
+RAILS_ENV=test bin/rake db:migrate
+```
+
+Después se pueden comprobar con
 
 ```
 bin/rake test
