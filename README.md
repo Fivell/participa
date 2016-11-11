@@ -139,6 +139,20 @@ carteles y canciones).
 
 * https://laexpresiondelcambio.info/board/550096f30ee95e0000000007
 
+## Dependencias
+
+Para ejecutar la aplicación en su totalidad hay que tener los siguientes
+servicios en funcionamiento:
+
+```
+sudo apt-get install postgresql                     # para la base de datos
+sudo apt-get install imagemagick                    # para la generación del captcha
+sudo apt-get install redis-server                   # para la gestión de las colas de trabajo (resque)
+sudo apt-get install libpq-dev                      # para la gema pg
+sudo apt-get install qt5-default libqt5webkit5-dev  # para capybara (tests)
+sudo apt-get install wkhtmltopdf                    # para generación de PDFs (microcreditos)
+```
+
 ## Instalación
 
 Es una aplicación Ruby On Rails hecha con Rails 4.1 / Ruby 2.0. Se recomienda
@@ -146,7 +160,8 @@ hacerla en sistemas operativos GNU/Linux (nosotros usamos Ubuntu). Para manejar
 las gemas usamos `bundler`. Para la BBDD recomendamos postgres, pero se puede
 usar también mysql/sqlite3.
 
-Una vez se tenga configurado ruby, los pasos a seguir serían los siguientes:
+Una vez se tengan instaladas las dependencias y configurado ruby, los pasos a
+seguir serían los siguientes:
 
 ```
 bundle install
@@ -211,20 +226,6 @@ programarlo). Una vez se libere el código se integrará con
 
 * Para descargar las últimas iniciativas ciudadanas en Plaza Podemos ejecutamos
   el comando: `bin/rake podemos:reddit`
-
-## Dependencias
-
-Para ejecutar la aplicación en su totalidad hay que tener los siguientes
-servicios en funcionamiento:
-
-```
-sudo apt-get install postgresql                     # para la base de datos
-sudo apt-get install imagemagick                    # para la generación del captcha
-sudo apt-get install redis-server                   # para la gestión de las colas de trabajo (resque)
-sudo apt-get install libpq-dev                      # para la gema pg
-sudo apt-get install qt5-default libqt5webkit5-dev  # para capybara (tests)
-sudo apt-get install wkhtmltopdf                    # para generación de PDFs (microcreditos)
-```
 
 ## Configuraciones
 
