@@ -1,5 +1,5 @@
-namespace :podemos do
-  desc "[podemos] Add extra geographical information"
+namespace :encomu do
+  desc "[encomu] Add extra geographical information"
   task :geoextra_extract => :environment do
 
 	geoextra_filename = "config/initializers/geoextra.rb"

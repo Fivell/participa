@@ -1,6 +1,6 @@
-namespace :podemos do
+namespace :encomu do
 
-  desc "[podemos] Generate orders for collaborations for a specific month"
+  desc "[encomu] Generate orders for collaborations for a specific month"
   task :generate_orders, [:month, :year] => :environment do |t, args|
     args.with_defaults(:month => Date.today.month, :year => Date.today.year)
     date = DateTime.new(args.year.to_i, args.month.to_i, Rails.application.secrets.orders["creation_day"].to_i)
