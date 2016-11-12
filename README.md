@@ -189,8 +189,7 @@ bin/rake test
 ```
 
 Todos deberían dar OK o SKIP (significa que se pasa por alto, y que hay que
-programarlo). Una vez se libere el código se integrará con
-[travis-ci](http://travis-ci.org/).
+programarlo). CI is also implemented using [travis-ci](http://travis-ci.org/).
 
 ## APIs externas
 
