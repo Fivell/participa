@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210190215) do
+ActiveRecord::Schema.define(version: 20170106131451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,21 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
+
+  create_table "catalan_towns", primary_key: "code", id: :string, force: :cascade do |t|
+    t.string  "name",              null: false
+    t.integer "comarca_code",      null: false
+    t.string  "comarca_name",      null: false
+    t.string  "amb"
+    t.string  "vegueria_code",     null: false
+    t.string  "vegueria_name",     null: false
+    t.integer "province_code",     null: false
+    t.string  "province_name",     null: false
+    t.integer "male_population"
+    t.integer "female_population"
+    t.integer "total_population"
+    t.index ["name"], name: "index_catalan_towns_on_name", unique: true, using: :btree
   end
 
   create_table "categories", force: :cascade do |t|

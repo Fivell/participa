@@ -1,0 +1,949 @@
+code	name	comarca_code	comarca_name	amb	vegueria_code	vegueria_name	province_code	province_name	male_population	female_population	total_population
+250019	Abella de la Conca	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	93 	77 	170 
+80018	Abrera	11	Baix Llobregat		AT01	Metropolità	8	Barcelona	6.118 	5.953 	12.071 
+250024	Àger	23	Noguera		AT05	Ponent	25	Lleida	325 	288 	613 
+250030	Agramunt	38	Urgell		AT05	Ponent	25	Lleida	2.775 	2.716 	5.491 
+80023	Aguilar de Segarra	7	Bages		AT06	Comarques Centrals	8	Barcelona	131 	115 	246 
+170010	Agullana	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	418 	410 	828 
+80142	Aiguafreda	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	1.175 	1.290 	2.465 
+430017	Aiguamúrcia	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	486 	426 	912 
+170025	Aiguaviva	20	Gironès		AT02	Comarques Gironines	17	Girona	391 	384 	775 
+250387	Aitona	33	Segrià		AT05	Ponent	25	Lleida	1.249 	1.207 	2.456 
+250045	Alamús, els	33	Segrià		AT05	Ponent	25	Lleida	404 	374 	778 
+250058	Alàs i Cerc	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	182 	174 	356 
+250061	Albagés, l'	18	Garrigues		AT05	Ponent	25	Lleida	222 	197 	419 
+170031	Albanyà	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	85 	64 	149 
+250077	Albatàrrec	33	Segrià		AT05	Ponent	25	Lleida	1.156 	1.058 	2.214 
+250083	Albesa	23	Noguera		AT05	Ponent	25	Lleida	874 	750 	1.624 
+250096	Albi, l'	18	Garrigues		AT05	Ponent	25	Lleida	426 	393 	819 
+430022	Albinyana	12	Baix Penedès		AT08	Penedès	43	Tarragona	1.171 	1.149 	2.320 
+430038	Albiol, l'	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	228 	220 	448 
+170046	Albons	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	382 	363 	745 
+430043	Alcanar	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	4.863 	4.740 	9.603 
+250100	Alcanó	33	Segrià		AT05	Ponent	25	Lleida	123 	123 	246 
+250117	Alcarràs	33	Segrià		AT05	Ponent	25	Lleida	4.863 	4.509 	9.372 
+250122	Alcoletge	33	Segrià		AT05	Ponent	25	Lleida	1.716 	1.569 	3.285 
+430056	Alcover	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	2.535 	2.538 	5.073 
+439044	Aldea, l'	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	2.239 	2.006 	4.245 
+430069	Aldover	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	459 	459 	918 
+430075	Aleixar, l'	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	448 	437 	885 
+80039	Alella	21	Maresme		AT01	Metropolità	8	Barcelona	4.726 	4.934 	9.660 
+430081	Alfara de Carles	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	202 	176 	378 
+250138	Alfarràs	33	Segrià		AT05	Ponent	25	Lleida	1.558 	1.418 	2.976 
+250143	Alfés	33	Segrià		AT05	Ponent	25	Lleida	164 	162 	326 
+430094	Alforja	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	956 	927 	1.883 
+250156	Algerri	23	Noguera		AT05	Ponent	25	Lleida	229 	193 	422 
+250169	Alguaire	33	Segrià		AT05	Ponent	25	Lleida	1.571 	1.431 	3.002 
+250175	Alins	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	153 	135 	288 
+430108	Alió	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	202 	217 	419 
+250194	Almacelles	33	Segrià		AT05	Ponent	25	Lleida	3.534 	3.232 	6.766 
+250208	Almatret	33	Segrià		AT05	Ponent	25	Lleida	172 	154 	326 
+250215	Almenar	33	Segrià		AT05	Ponent	25	Lleida	1.879 	1.646 	3.525 
+430115	Almoster	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	702 	708 	1.410 
+250220	Alòs de Balaguer	23	Noguera		AT05	Ponent	25	Lleida	69 	54 	123 
+170062	Alp	15	Cerdanya		AT07	Alt Pirineu i Aran	17	Girona	835 	760 	1.595 
+80044	Alpens	24	Osona		AT06	Comarques Centrals	8	Barcelona	156 	134 	290 
+250236	Alpicat	33	Segrià		AT05	Ponent	25	Lleida	3.146 	3.129 	6.275 
+250241	Alt Àneu	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	232 	175 	407 
+430120	Altafulla	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	2.482 	2.570 	5.052 
+170078	Amer	34	Selva		AT02	Comarques Gironines	17	Girona	1.095 	1.155 	2.250 
+430136	Ametlla de Mar, l'	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	3.617 	3.566 	7.183 
+80057	Ametlla del Vallès, l'	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	4.178 	4.125 	8.303 
+439060	Ampolla, l'	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	1.766 	1.707 	3.473 
+430141	Amposta	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	10.564 	10.388 	20.952 
+170084	Anglès	34	Selva		AT02	Comarques Gironines	17	Girona	2.748 	2.792 	5.540 
+250273	Anglesola	38	Urgell		AT05	Ponent	25	Lleida	688 	690 	1.378 
+250292	Arbeca	18	Garrigues		AT05	Ponent	25	Lleida	1.156 	1.122 	2.278 
+430167	Arboç, l'	12	Baix Penedès		AT08	Penedès	43	Tarragona	71 	52 	123 
+430154	Arbolí	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	2.853 	2.660 	5.513 
+170097	Arbúcies	34	Selva		AT02	Comarques Gironines	17	Girona	3.259 	3.038 	6.297 
+80060	Arenys de Mar	21	Maresme		AT01	Metropolità	8	Barcelona	7.491 	7.798 	15.289 
+80076	Arenys de Munt	21	Maresme		AT01	Metropolità	8	Barcelona	4.408 	4.328 	8.736 
+170101	Argelaguer	19	Garrotxa		AT02	Comarques Gironines	17	Girona	221 	191 	412 
+80082	Argençola	6	Anoia		AT08	Penedès	8	Barcelona	118 	105 	223 
+430173	Argentera, l'	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	82 	65 	147 
+80095	Argentona	21	Maresme		AT01	Metropolità	8	Barcelona	5.899 	6.079 	11.978 
+170118	Armentera, l'	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	451 	456 	907 
+430189	Arnes	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	242 	232 	474 
+250313	Arres	39	Aran		AT07	Alt Pirineu i Aran	25	Lleida	42 	25 	67 
+250328	Arsèguel	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	46 	33 	79 
+80109	Artés	7	Bages		AT06	Comarques Centrals	8	Barcelona	2.861 	2.804 	5.665 
+250334	Artesa de Lleida	33	Segrià		AT05	Ponent	25	Lleida	793 	724 	1.517 
+250349	Artesa de Segre	23	Noguera		AT05	Ponent	25	Lleida	1.840 	1.774 	3.614 
+430192	Ascó	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	877 	805 	1.682 
+250365	Aspa	33	Segrià		AT05	Ponent	25	Lleida	110 	108 	218 
+250371	Avellanes i Santa Linya, les	23	Noguera		AT05	Ponent	25	Lleida	269 	204 	473 
+80116	Avià	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	1.102 	1.123 	2.225 
+80121	Avinyó	7	Bages		AT06	Comarques Centrals	8	Barcelona	1.112 	1.136 	2.248 
+170123	Avinyonet de Puigventós	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	795 	770 	1.565 
+80137	Avinyonet del Penedès	3	Alt Penedès		AT08	Penedès	8	Barcelona	863 	789 	1.652 
+80155	Badalona	13	Barcelonès	AM01	AT01	Metropolità	8	Barcelona	106.424 	109.230 	215.654 
+89045	Badia del Vallès	40	Vallès Occidental	AM01	AT01	Metropolità	8	Barcelona	6.571 	6.931 	13.502 
+80168	Bagà	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	1.080 	1.108 	2.188 
+250390	Baix Pallars	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	187 	163 	350 
+250404	Balaguer	23	Noguera		AT05	Ponent	25	Lleida	8.323 	8.156 	16.479 
+80174	Balenyà	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.863 	1.848 	3.711 
+80180	Balsareny	7	Bages		AT06	Comarques Centrals	8	Barcelona	1.636 	1.688 	3.324 
+430206	Banyeres del Penedès	12	Baix Penedès		AT08	Penedès	43	Tarragona	1.561 	1.542 	3.103 
+170157	Banyoles	28	Pla de l'Estany		AT02	Comarques Gironines	17	Girona	9.652 	9.647 	19.299 
+250411	Barbens	27	Pla d'Urgell		AT05	Ponent	25	Lleida	477 	423 	900 
+430213	Barberà de la Conca	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	267 	238 	505 
+82520	Barberà del Vallès	40	Vallès Occidental	AM01	AT01	Metropolità	8	Barcelona	16.091 	16.454 	32.545 
+80193	Barcelona	13	Barcelonès	AM01	AT01	Metropolità	8	Barcelona	759.520 	845.035 	1.604.555 
+250426	Baronia de Rialb, la	23	Noguera		AT05	Ponent	25	Lleida	128 	117 	245 
+170160	Bàscara	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	479 	464 	943 
+250447	Bassella	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	117 	117 	234 
+430228	Batea	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	966 	979 	1.945 
+250450	Bausen	39	Aran		AT07	Alt Pirineu i Aran	25	Lleida	32 	26 	58 
+80207	Begues	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	3.317 	3.353 	6.670 
+170139	Begur	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	2.019 	1.966 	3.985 
+250463	Belianes	38	Urgell		AT05	Ponent	25	Lleida	274 	281 	555 
+251706	Bellaguarda	18	Garrigues		AT05	Ponent	25	Lleida	161 	147 	308 
+170182	Bellcaire d'Empordà	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	316 	336 	652 
+250479	Bellcaire d'Urgell	23	Noguera		AT05	Ponent	25	Lleida	659 	637 	1.296 
+250485	Bell-lloc d'Urgell	27	Pla d'Urgell		AT05	Ponent	25	Lleida	1.156 	1.173 	2.329 
+430234	Bellmunt del Priorat	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	93 	95 	188 
+250498	Bellmunt d'Urgell	23	Noguera		AT05	Ponent	25	Lleida	153 	150 	303 
+80214	Bellprat	6	Anoia		AT08	Penedès	8	Barcelona	46 	28 	74 
+250501	Bellpuig	38	Urgell		AT05	Ponent	25	Lleida	2.590 	2.399 	4.989 
+430249	Bellvei	12	Baix Penedès		AT08	Penedès	43	Tarragona	1.140 	1.045 	2.185 
+250518	Bellver de Cerdanya	15	Cerdanya		AT07	Alt Pirineu i Aran	25	Lleida	1.051 	977 	2.028 
+250523	Bellvís	27	Pla d'Urgell		AT05	Ponent	25	Lleida	1.141 	1.129 	2.270 
+250539	Benavent de Segrià	33	Segrià		AT05	Ponent	25	Lleida	780 	726 	1.506 
+430252	Benifallet	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	356 	361 	717 
+430265	Benissanet	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	683 	568 	1.251 
+80229	Berga	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	7.952 	8.286 	16.238 
+170195	Besalú	19	Garrotxa		AT02	Comarques Gironines	17	Girona	1.154 	1.283 	2.437 
+170209	Bescanó	20	Gironès		AT02	Comarques Gironines	17	Girona	2.411 	2.396 	4.807 
+170216	Beuda	19	Garrotxa		AT02	Comarques Gironines	17	Girona	100 	93 	193 
+80235	Bigues i Riells	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	4.524 	4.334 	8.858 
+250557	Biosca	32	Segarra		AT05	Ponent	25	Lleida	104 	95 	199 
+430271	Bisbal de Falset, la	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	5.370 	5.389 	10.759 
+430287	Bisbal del Penedès, la	12	Baix Penedès		AT08	Penedès	43	Tarragona	120 	101 	221 
+170221	Bisbal d'Empordà, la	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	1.838 	1.636 	3.474 
+172348	Biure	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	129 	113 	242 
+430290	Blancafort	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	211 	202 	413 
+170237	Blanes	34	Selva		AT02	Comarques Gironines	17	Girona	19.561 	19.571 	39.132 
+170293	Boadella i les Escaules	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	134 	127 	261 
+170242	Bolvir	15	Cerdanya		AT07	Alt Pirineu i Aran	17	Girona	195 	185 	380 
+430304	Bonastre	12	Baix Penedès		AT08	Penedès	43	Tarragona	329 	312 	641 
+250576	Bòrdes, Es	39	Aran		AT07	Alt Pirineu i Aran	25	Lleida	136 	101 	237 
+170255	Bordils	20	Gironès		AT02	Comarques Gironines	17	Girona	844 	866 	1.710 
+250582	Borges Blanques, les	18	Garrigues		AT05	Ponent	25	Lleida	3.051 	2.968 	6.019 
+430311	Borges del Camp, les	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	1.043 	1.044 	2.087 
+170268	Borrassà	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	368 	343 	711 
+80240	Borredà	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	280 	223 	503 
+250595	Bossòst	39	Aran		AT07	Alt Pirineu i Aran	25	Lleida	555 	582 	1.137 
+430326	Bot	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	320 	298 	618 
+430332	Botarell	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	576 	525 	1.101 
+250560	Bovera	18	Garrigues		AT05	Ponent	25	Lleida	152 	123 	275 
+430347	Bràfim	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	334 	331 	665 
+170274	Breda	34	Selva		AT02	Comarques Gironines	17	Girona	1.862 	1.866 	3.728 
+80253	Bruc, el	6	Anoia		AT08	Penedès	8	Barcelona	1.097 	935 	2.032 
+80266	Brull, el	24	Osona		AT06	Comarques Centrals	8	Barcelona	138 	116 	254 
+170280	Brunyola	34	Selva		AT02	Comarques Gironines	17	Girona	199 	195 	394 
+430350	Cabacés	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	166 	164 	330 
+250609	Cabanabona	23	Noguera		AT05	Ponent	25	Lleida	38 	44 	82 
+170314	Cabanelles	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	130 	107 	237 
+170307	Cabanes	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	499 	432 	931 
+80272	Cabanyes, les	3	Alt Penedès		AT08	Penedès	8	Barcelona	501 	466 	967 
+250616	Cabó	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	48 	46 	94 
+430363	Cabra del Camp	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	578 	531 	1.109 
+80288	Cabrera d'Anoia	6	Anoia		AT08	Penedès	8	Barcelona	715 	633 	1.348 
+80291	Cabrera de Mar	21	Maresme		AT01	Metropolità	8	Barcelona	2.277 	2.245 	4.522 
+80305	Cabrils	21	Maresme		AT01	Metropolità	8	Barcelona	3.590 	3.660 	7.250 
+170329	Cadaqués	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	1.371 	1.469 	2.840 
+80312	Calaf	6	Anoia		AT06	Comarques Centrals	8	Barcelona	1.749 	1.677 	3.426 
+430379	Calafell	12	Baix Penedès		AT08	Penedès	43	Tarragona	12.191 	12.065 	24.256 
+80348	Calders	42	Moianès		AT06	Comarques Centrals	8	Barcelona	496 	472 	968 
+170335	Caldes de Malavella	34	Selva		AT02	Comarques Gironines	17	Girona	1.316 	1.401 	2.717 
+80333	Caldes de Montbui	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	3.559 	3.607 	7.166 
+80327	Caldes d'Estrac	21	Maresme		AT01	Metropolità	8	Barcelona	8.521 	8.577 	17.098 
+80351	Calella	21	Maresme		AT01	Metropolità	8	Barcelona	8.886 	9.340 	18.226 
+80370	Calldetenes	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.240 	1.187 	2.427 
+80386	Callús	7	Bages		AT06	Comarques Centrals	8	Barcelona	994 	1.030 	2.024 
+170340	Calonge	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	5.272 	5.248 	10.520 
+80364	Calonge de Segarra	6	Anoia		AT06	Comarques Centrals	8	Barcelona	99 	98 	197 
+250621	Camarasa	23	Noguera		AT05	Ponent	25	Lleida	461 	442 	903 
+439039	Camarles	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	1.780 	1.696 	3.476 
+430385	Cambrils	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	16.170 	16.745 	32.915 
+170353	Camós	28	Pla de l'Estany		AT02	Comarques Gironines	17	Girona	346 	337 	683 
+170366	Campdevànol	31	Ripollès		AT02	Comarques Gironines	17	Girona	1.653 	1.699 	3.352 
+170372	Campelles	31	Ripollès		AT02	Comarques Gironines	17	Girona	64 	63 	127 
+80399	Campins	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	249 	242 	491 
+170388	Campllong	20	Gironès		AT02	Comarques Gironines	17	Girona	247 	252 	499 
+170391	Camprodon	31	Ripollès		AT02	Comarques Gironines	17	Girona	1.126 	1.173 	2.299 
+250637	Canejan	39	Aran		AT07	Alt Pirineu i Aran	25	Lleida	56 	44 	100 
+170405	Canet d'Adri	20	Gironès		AT02	Comarques Gironines	17	Girona	340 	331 	671 
+80403	Canet de Mar	21	Maresme		AT01	Metropolità	8	Barcelona	6.884 	7.293 	14.177 
+439076	Canonja, la	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	2.891 	2.948 	5.839 
+80410	Canovelles	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	8.205 	7.701 	15.906 
+80425	Cànoves i Samalús	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	1.473 	1.424 	2.897 
+170412	Cantallops	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	166 	162 	328 
+80431	Canyelles	17	Garraf		AT08	Penedès	8	Barcelona	2.235 	2.140 	4.375 
+430398	Capafonts	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	58 	53 	111 
+430402	Capçanes	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	204 	209 	413 
+80446	Capellades	6	Anoia		AT08	Penedès	8	Barcelona	2.592 	2.676 	5.268 
+170427	Capmany	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	307 	283 	590 
+80459	Capolat	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	44 	48 	92 
+80462	Cardedeu	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	8.799 	9.139 	17.938 
+80478	Cardona	7	Bages		AT06	Comarques Centrals	8	Barcelona	2.404 	2.494 	4.898 
+80484	Carme	6	Anoia		AT08	Penedès	8	Barcelona	411 	381 	792 
+430419	Caseres	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	131 	127 	258 
+170448	Cassà de la Selva	20	Gironès		AT02	Comarques Gironines	17	Girona	5.132 	4.898 	10.030 
+80497	Casserres	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	764 	777 	1.541 
+80575	Castell de l'Areny	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	41 	32 	73 
+259046	Castell de Mur	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	101 	87 	188 
+250642	Castellar de la Ribera	35	Solsonès		AT06	Comarques Centrals	25	Lleida	76 	74 	150 
+80522	Castellar de n'Hug	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	86 	73 	159 
+80500	Castellar del Riu	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	96 	79 	175 
+80517	Castellar del Vallès	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	11.561 	11.881 	23.442 
+80538	Castellbell i el Vilar	7	Bages		AT06	Comarques Centrals	8	Barcelona	1.820 	1.746 	3.566 
+80543	Castellbisbal	40	Vallès Occidental	AM01	AT01	Metropolità	8	Barcelona	6.272 	6.092 	12.364 
+80556	Castellcir	42	Moianès		AT01	Metropolità	8	Barcelona	345 	349 	694 
+250674	Castelldans	18	Garrigues		AT05	Ponent	25	Lleida	534 	447 	981 
+80569	Castelldefels	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	31.500 	32.391 	63.891 
+80581	Castellet i la Gornal	3	Alt Penedès		AT08	Penedès	8	Barcelona	1.115 	1.097 	2.212 
+170464	Castellfollit de la Roca	19	Garrotxa		AT02	Comarques Gironines	17	Girona	498 	494 	992 
+80608	Castellfollit de Riubregós	6	Anoia		AT06	Comarques Centrals	8	Barcelona	96 	71 	167 
+80594	Castellfollit del Boix	7	Bages		AT06	Comarques Centrals	8	Barcelona	220 	214 	434 
+80615	Castellgalí	7	Bages		AT06	Comarques Centrals	8	Barcelona	1.044 	952 	1.996 
+80620	Castellnou de Bages	7	Bages		AT06	Comarques Centrals	8	Barcelona	638 	628 	1.266 
+250680	Castellnou de Seana	27	Pla d'Urgell		AT05	Ponent	25	Lleida	391 	345 	736 
+250693	Castelló de Farfanya	23	Noguera		AT05	Ponent	25	Lleida	5.502 	5.368 	10.870 
+170470	Castelló d'Empúries	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	294 	253 	547 
+80636	Castellolí	6	Anoia		AT08	Penedès	8	Barcelona	280 	294 	574 
+170486	Castell-Platja d'Aro	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	5.251 	5.338 	10.589 
+250707	Castellserà	38	Urgell		AT05	Ponent	25	Lleida	530 	514 	1.044 
+80641	Castellterçol	42	Moianès		AT01	Metropolità	8	Barcelona	1.192 	1.176 	2.368 
+430424	Castellvell del Camp	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	1.448 	1.449 	2.897 
+80654	Castellví de la Marca	3	Alt Penedès		AT08	Penedès	8	Barcelona	769 	771 	1.540 
+80667	Castellví de Rosanes	11	Baix Llobregat		AT01	Metropolità	8	Barcelona	868 	903 	1.771 
+430430	Catllar, el	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	2.176 	2.039 	4.215 
+250714	Cava	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	35 	25 	60 
+171899	Cellera de Ter, la	34	Selva		AT02	Comarques Gironines	17	Girona	1.028 	1.043 	2.071 
+170499	Celrà	20	Gironès		AT02	Comarques Gironines	17	Girona	2.591 	2.564 	5.155 
+80673	Centelles	24	Osona		AT06	Comarques Centrals	8	Barcelona	3.601 	3.771 	7.372 
+82687	Cercs	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	602 	607 	1.209 
+82665	Cerdanyola del Vallès	40	Vallès Occidental	AM01	AT01	Metropolità	8	Barcelona	28.124 	29.289 	57.413 
+80689	Cervelló	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	4.426 	4.425 	8.851 
+250729	Cervera	32	Segarra		AT05	Ponent	25	Lleida	4.483 	4.473 	8.956 
+250735	Cervià de les Garrigues	18	Garrigues		AT05	Ponent	25	Lleida	364 	331 	695 
+170502	Cervià de Ter	20	Gironès		AT02	Comarques Gironines	17	Girona	468 	458 	926 
+170519	Cistella	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	146 	157 	303 
+250740	Ciutadilla	38	Urgell		AT05	Ponent	25	Lleida	117 	100 	217 
+250753	Clariana de Cardener	35	Solsonès		AT06	Comarques Centrals	25	Lleida	71 	69 	140 
+250766	Cogul, el	18	Garrigues		AT05	Ponent	25	Lleida	97 	84 	181 
+170545	Colera	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	270 	263 	533 
+250772	Coll de Nargó	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	293 	282 	575 
+80692	Collbató	11	Baix Llobregat		AT01	Metropolità	8	Barcelona	2.263 	2.126 	4.389 
+430458	Colldejou	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	94 	78 	172 
+80706	Collsuspina	42	Moianès		AT06	Comarques Centrals	8	Barcelona	181 	162 	343 
+170558	Colomers	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	91 	98 	189 
+251636	Coma i la Pedra, la	35	Solsonès		AT06	Comarques Centrals	25	Lleida	165 	105 	270 
+251615	Conca de Dalt	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	233 	213 	446 
+430461	Conesa	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	58 	62 	120 
+430477	Constantí	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	3.337 	3.079 	6.416 
+80713	Copons	6	Anoia		AT08	Penedès	8	Barcelona	157 	150 	307 
+80728	Corbera de Llobregat	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	572 	523 	1.095 
+430483	Corbera d'Ebre	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	7.127 	7.113 	14.240 
+250788	Corbins	33	Segrià		AT05	Ponent	25	Lleida	744 	650 	1.394 
+170577	Corçà	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	628 	616 	1.244 
+80734	Cornellà de Llobregat	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	42.093 	44.283 	86.376 
+170561	Cornellà del Terri	28	Pla de l'Estany		AT02	Comarques Gironines	17	Girona	1.147 	1.089 	2.236 
+430496	Cornudella de Montsant	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	539 	442 	981 
+430509	Creixell	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	1.771 	1.721 	3.492 
+170583	Crespià	28	Pla de l'Estany		AT02	Comarques Gironines	17	Girona	133 	123 	256 
+179011	Cruïlles, Monells i Sant Sadurní de l'Heura	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	664 	640 	1.304 
+80749	Cubelles	17	Garraf		AT08	Penedès	8	Barcelona	7.325 	7.095 	14.420 
+250791	Cubells	23	Noguera		AT05	Ponent	25	Lleida	200 	178 	378 
+430516	Cunit	12	Baix Penedès		AT08	Penedès	43	Tarragona	5.889 	5.994 	11.883 
+170600	Darnius	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	282 	272 	554 
+170617	Das	15	Cerdanya		AT07	Alt Pirineu i Aran	17	Girona	122 	100 	222 
+439018	Deltebre	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	5.901 	5.775 	11.676 
+80752	Dosrius	21	Maresme		AT01	Metropolità	8	Barcelona	2.644 	2.571 	5.215 
+430537	Duesaigües	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	128 	108 	236 
+170622	Escala, l'	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	5.210 	5.066 	10.276 
+80765	Esparreguera	11	Baix Llobregat		AT01	Metropolità	8	Barcelona	10.975 	10.726 	21.701 
+170638	Espinelves	24	Osona		AT06	Comarques Centrals	17	Girona	95 	101 	196 
+250812	Espluga Calba, l'	18	Garrigues		AT05	Ponent	25	Lleida	192 	195 	387 
+430542	Espluga de Francolí, l'	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	1.846 	1.972 	3.818 
+80771	Esplugues de Llobregat	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	21.965 	23.661 	45.626 
+170643	Espolla	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	205 	210 	415 
+170656	Esponellà	28	Pla de l'Estany		AT02	Comarques Gironines	17	Girona	221 	223 	444 
+250827	Espot	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	196 	166 	362 
+80787	Espunyola, l'	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	129 	123 	252 
+82541	Esquirol, l'	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.077 	1.073 	2.150 
+250886	Estamariu	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	71 	53 	124 
+80790	Estany, l'	42	Moianès		AT06	Comarques Centrals	8	Barcelona	199 	199 	398 
+250851	Estaràs	32	Segarra		AT05	Ponent	25	Lleida	95 	81 	176 
+250864	Esterri d'Àneu	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	386 	418 	804 
+250870	Esterri de Cardós	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	35 	38 	73 
+430555	Falset	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	1.435 	1.432 	2.867 
+170059	Far d'Empordà, el	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	279 	273 	552 
+250899	Farrera	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	69 	49 	118 
+430568	Fatarella, la	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	512 	516 	1.028 
+430574	Febró, la	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	28 	11 	39 
+81347	Figaró-Montmany	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	549 	545 	1.094 
+80804	Fígols	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	23 	20 	43 
+259084	Fígols i Alinyà	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	147 	114 	261 
+430580	Figuera, la	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	66 	51 	117 
+170669	Figueres	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	22.471 	22.875 	45.346 
+430593	Figuerola del Camp	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	167 	182 	349 
+170675	Flaçà	20	Gironès		AT02	Comarques Gironines	17	Girona	506 	554 	1.060 
+430607	Flix	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	1.868 	1.886 	3.754 
+250925	Floresta, la	18	Garrigues		AT05	Ponent	25	Lleida	89 	71 	160 
+80826	Fogars de la Selva	34	Selva		AT02	Comarques Gironines	8	Barcelona	755 	715 	1.470 
+80811	Fogars de Montclús	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	248 	229 	477 
+170681	Foixà	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	157 	149 	306 
+80832	Folgueroles	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.156 	1.129 	2.285 
+250931	Fondarella	27	Pla d'Urgell		AT05	Ponent	25	Lleida	413 	418 	831 
+80847	Fonollosa	7	Bages		AT06	Comarques Centrals	8	Barcelona	726 	667 	1.393 
+170694	Fontanals de Cerdanya	15	Cerdanya		AT07	Alt Pirineu i Aran	17	Girona	237 	213 	450 
+170708	Fontanilles	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	86 	58 	144 
+170715	Fontcoberta	28	Pla de l'Estany		AT02	Comarques Gironines	17	Girona	709 	739 	1.448 
+80850	Font-rubí	3	Alt Penedès		AT08	Penedès	8	Barcelona	692 	656 	1.348 
+250946	Foradada	23	Noguera		AT05	Ponent	25	Lleida	99 	75 	174 
+179026	Forallac	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	832 	873 	1.705 
+430614	Forès	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	27 	24 	51 
+170736	Fornells de la Selva	20	Gironès		AT02	Comarques Gironines	17	Girona	1.244 	1.284 	2.528 
+170741	Fortià	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	347 	376 	723 
+80863	Franqueses del Vallès, les	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	9.894 	9.552 	19.446 
+430629	Freginals	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	214 	185 	399 
+250962	Fuliola, la	38	Urgell		AT05	Ponent	25	Lleida	653 	638 	1.291 
+250978	Fulleda	18	Garrigues		AT05	Ponent	25	Lleida	47 	47 	94 
+80902	Gaià	7	Bages		AT06	Comarques Centrals	8	Barcelona	91 	77 	168 
+430635	Galera, la	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	397 	373 	770 
+80879	Gallifa	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	103 	94 	197 
+430640	Gandesa	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	1.536 	1.473 	3.009 
+430653	Garcia	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	299 	284 	583 
+430666	Garidells, els	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	92 	96 	188 
+80885	Garriga, la	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	7.646 	8.094 	15.740 
+170754	Garrigàs	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	220 	203 	423 
+170767	Garrigoles	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	88 	72 	160 
+170773	Garriguella	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	419 	423 	842 
+80898	Gavà	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	22.851 	23.554 	46.405 
+250984	Gavet de la Conca	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	142 	145 	287 
+80919	Gelida	3	Alt Penedès		AT08	Penedès	8	Barcelona	3.629 	3.624 	7.253 
+170789	Ger	15	Cerdanya		AT07	Alt Pirineu i Aran	17	Girona	230 	200 	430 
+259123	Gimenells i el Pla de la Font	33	Segrià		AT05	Ponent	25	Lleida	589 	562 	1.151 
+430672	Ginestar	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	418 	384 	802 
+170792	Girona	20	Gironès		AT02	Comarques Gironines	17	Girona	46.761 	50.825 	97.586 
+80924	Gironella	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	2.422 	2.503 	4.925 
+80930	Gisclareny	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	16 	11 	27 
+430688	Godall	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	311 	321 	632 
+250997	Golmés	27	Pla d'Urgell		AT05	Ponent	25	Lleida	882 	888 	1.770 
+170806	Gombrèn	31	Ripollès		AT02	Comarques Gironines	17	Girona	92 	93 	185 
+251001	Gósol	14	Berguedà		AT06	Comarques Centrals	25	Lleida	131 	95 	226 
+80945	Granada, la	3	Alt Penedès		AT08	Penedès	8	Barcelona	1.070 	1.015 	2.085 
+251018	Granadella, la	18	Garrigues		AT05	Ponent	25	Lleida	369 	343 	712 
+80958	Granera	42	Moianès		AT01	Metropolità	8	Barcelona	53 	27 	80 
+251023	Granja d'Escarp, la	33	Segrià		AT05	Ponent	25	Lleida	528 	473 	1.001 
+80961	Granollers	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	29.712 	30.389 	60.101 
+251039	Granyanella	32	Segarra		AT05	Ponent	25	Lleida	81 	65 	146 
+251057	Granyena de les Garrigues	18	Garrigues		AT05	Ponent	25	Lleida	96 	65 	161 
+251044	Granyena de Segarra	32	Segarra		AT05	Ponent	25	Lleida	70 	69 	139 
+430691	Gratallops	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	131 	112 	243 
+80977	Gualba	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	722 	692 	1.414 
+170813	Gualta	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	203 	165 	368 
+80996	Guardiola de Berguedà	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	493 	437 	930 
+430705	Guiamets, els	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	129 	148 	277 
+170828	Guils de Cerdanya	15	Cerdanya		AT07	Alt Pirineu i Aran	17	Girona	275 	248 	523 
+251095	Guimerà	38	Urgell		AT05	Ponent	25	Lleida	152 	125 	277 
+259031	Guingueta d'Àneu, la	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	169 	146 	315 
+251109	Guissona	32	Segarra		AT05	Ponent	25	Lleida	3.637 	3.225 	6.862 
+251116	Guixers	35	Solsonès		AT06	Comarques Centrals	25	Lleida	89 	53 	142 
+81000	Gurb	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.318 	1.227 	2.545 
+430712	Horta de Sant Joan	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	632 	585 	1.217 
+81017	Hospitalet de Llobregat, l'	13	Barcelonès	AM01	AT01	Metropolità	8	Barcelona	122.224 	129.947 	252.171 
+81629	Hostalets de Pierola, els	6	Anoia		AT08	Penedès	8	Barcelona	1.491 	1.396 	2.887 
+170834	Hostalric	34	Selva		AT02	Comarques Gironines	17	Girona	2.017 	1.988 	4.005 
+81022	Igualada	6	Anoia		AT08	Penedès	8	Barcelona	18.950 	19.801 	38.751 
+251155	Isona i Conca Dellà	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	558 	506 	1.064 
+170849	Isòvol	15	Cerdanya		AT07	Alt Pirineu i Aran	17	Girona	156 	125 	281 
+251121	Ivars de Noguera	23	Noguera		AT05	Ponent	25	Lleida	831 	760 	1.591 
+251137	Ivars d'Urgell	27	Pla d'Urgell		AT05	Ponent	25	Lleida	177 	169 	346 
+251142	Ivorra	32	Segarra		AT05	Ponent	25	Lleida	55 	51 	106 
+170852	Jafre	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	208 	179 	387 
+170865	Jonquera, la	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	1.615 	1.605 	3.220 
+81038	Jorba	6	Anoia		AT08	Penedès	8	Barcelona	422 	416 	838 
+259101	Josa i Tuixén	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	74 	55 	129 
+170871	Juià	20	Gironès		AT02	Comarques Gironines	17	Girona	177 	161 	338 
+251180	Juncosa	18	Garrigues		AT05	Ponent	25	Lleida	230 	191 	421 
+251193	Juneda	18	Garrigues		AT05	Ponent	25	Lleida	1.757 	1.627 	3.384 
+251214	Les	39	Aran		AT07	Alt Pirineu i Aran	25	Lleida	476 	477 	953 
+251229	Linyola	27	Pla d'Urgell		AT05	Ponent	25	Lleida	1.339 	1.313 	2.652 
+81043	Llacuna, la	6	Anoia		AT08	Penedès	8	Barcelona	476 	407 	883 
+170887	Lladó	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	380 	387 	767 
+251235	Lladorre	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	111 	118 	229 
+251240	Lladurs	35	Solsonès		AT06	Comarques Centrals	25	Lleida	103 	90 	193 
+81056	Llagosta, la	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	6.531 	6.721 	13.252 
+170890	Llagostera	20	Gironès		AT02	Comarques Gironines	17	Girona	4.214 	4.010 	8.224 
+170904	Llambilles	20	Gironès		AT02	Comarques Gironines	17	Girona	374 	359 	733 
+170911	Llanars	31	Ripollès		AT02	Comarques Gironines	17	Girona	267 	245 	512 
+170926	Llançà	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	2.466 	2.519 	4.985 
+251253	Llardecans	33	Segrià		AT05	Ponent	25	Lleida	253 	238 	491 
+251266	Llavorsí	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	179 	175 	354 
+251207	Lleida	33	Segrià		AT05	Ponent	25	Lleida	68.412 	70.130 	138.542 
+170932	Llers	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	605 	604 	1.209 
+251272	Lles de Cerdanya	15	Cerdanya		AT07	Alt Pirineu i Aran	25	Lleida	148 	109 	257 
+81075	Lliçà d'Amunt	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	7.498 	7.244 	14.742 
+81081	Lliçà de Vall	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	3.254 	3.129 	6.383 
+251288	Llimiana	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	91 	67 	158 
+81069	Llinars del Vallès	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	4.742 	4.828 	9.570 
+170947	Llívia	15	Cerdanya		AT07	Alt Pirineu i Aran	17	Girona	787 	669 	1.456 
+430727	Lloar, el	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	66 	55 	121 
+251291	Llobera	35	Solsonès		AT06	Comarques Centrals	25	Lleida	109 	93 	202 
+430733	Llorac	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	61 	50 	111 
+430748	Llorenç del Penedès	12	Baix Penedès		AT08	Penedès	43	Tarragona	1.152 	1.171 	2.323 
+170950	Lloret de Mar	34	Selva		AT02	Comarques Gironines	17	Girona	19.338 	18.280 	37.618 
+170963	Llosses, les	31	Ripollès		AT02	Comarques Gironines	17	Girona	129 	97 	226 
+81094	Lluçà	24	Osona		AT06	Comarques Centrals	8	Barcelona	139 	141 	280 
+171024	Maçanet de Cabrenys	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	379 	376 	755 
+171030	Maçanet de la Selva	34	Selva		AT02	Comarques Gironines	17	Girona	3.527 	3.360 	6.887 
+170979	Madremanya	20	Gironès		AT02	Comarques Gironines	17	Girona	138 	138 	276 
+170985	Maià de Montcal	19	Garrotxa		AT02	Comarques Gironines	17	Girona	229 	217 	446 
+251333	Maials	33	Segrià		AT05	Ponent	25	Lleida	500 	441 	941 
+251305	Maldà	38	Urgell		AT05	Ponent	25	Lleida	117 	111 	228 
+81108	Malgrat de Mar	21	Maresme		AT01	Metropolità	8	Barcelona	9.183 	9.188 	18.371 
+81115	Malla	24	Osona		AT06	Comarques Centrals	8	Barcelona	132 	130 	262 
+81120	Manlleu	24	Osona		AT06	Comarques Centrals	8	Barcelona	10.096 	10.132 	20.228 
+81136	Manresa	7	Bages		AT06	Comarques Centrals	8	Barcelona	36.397 	38.258 	74.655 
+430764	Marçà	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	314 	282 	596 
+430751	Margalef	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	64 	42 	106 
+82423	Marganell	7	Bages		AT06	Comarques Centrals	8	Barcelona	132 	148 	280 
+81141	Martorell	11	Baix Llobregat		AT01	Metropolità	8	Barcelona	14.149 	13.545 	27.694 
+81154	Martorelles	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	2.370 	2.386 	4.756 
+430770	Mas de Barberans	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	297 	307 	604 
+171002	Masarac	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	154 	140 	294 
+430786	Masdenverge	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	565 	531 	1.096 
+81167	Masies de Roda, les	24	Osona		AT06	Comarques Centrals	8	Barcelona	354 	361 	715 
+81173	Masies de Voltregà, les	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.554 	1.611 	3.165 
+430799	Masllorenç	12	Baix Penedès		AT08	Penedès	43	Tarragona	271 	230 	501 
+81189	Masnou, el	21	Maresme		AT01	Metropolità	8	Barcelona	11.062 	11.861 	22.923 
+430803	Masó, la	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	155 	135 	290 
+430810	Maspujols	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	403 	383 	786 
+81192	Masquefa	6	Anoia		AT08	Penedès	8	Barcelona	4.214 	4.121 	8.335 
+430825	Masroig, el	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	280 	231 	511 
+251312	Massalcoreig	33	Segrià		AT05	Ponent	25	Lleida	301 	263 	564 
+171019	Massanes	34	Selva		AT02	Comarques Gironines	17	Girona	381 	341 	722 
+251327	Massoteres	32	Segarra		AT05	Ponent	25	Lleida	105 	84 	189 
+81206	Matadepera	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	4.461 	4.439 	8.900 
+81213	Mataró	21	Maresme		AT01	Metropolità	8	Barcelona	62.045 	62.822 	124.867 
+171045	Medinyà	20	Gironès		AT02	Comarques Gironines	17	Girona	..	..	..
+81228	Mediona	3	Alt Penedès		AT08	Penedès	8	Barcelona	1.147 	1.126 	2.273 
+251348	Menàrguens	23	Noguera		AT05	Ponent	25	Lleida	471 	378 	849 
+170998	Meranges	15	Cerdanya		AT07	Alt Pirineu i Aran	17	Girona	58 	42 	100 
+171058	Mieres	19	Garrotxa		AT02	Comarques Gironines	17	Girona	169 	161 	330 
+430831	Milà, el	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	88 	90 	178 
+251351	Miralcamp	27	Pla d'Urgell		AT05	Ponent	25	Lleida	695 	695 	1.390 
+430846	Miravet	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	402 	345 	747 
+81385	Moià	42	Moianès		AT06	Comarques Centrals	8	Barcelona	2.942 	2.923 	5.865 
+430859	Molar, el	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	156 	135 	291 
+81234	Molins de Rei	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	12.255 	12.900 	25.155 
+251370	Mollerussa	27	Pla d'Urgell		AT05	Ponent	25	Lleida	7.612 	7.288 	14.900 
+171061	Mollet de Peralada	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	95 	85 	180 
+81249	Mollet del Vallès	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	25.648 	26.002 	51.650 
+171077	Molló	31	Ripollès		AT02	Comarques Gironines	17	Girona	160 	170 	330 
+251364	Molsosa, la	35	Solsonès		AT06	Comarques Centrals	25	Lleida	56 	57 	113 
+81287	Monistrol de Calders	42	Moianès		AT06	Comarques Centrals	8	Barcelona	361 	336 	697 
+81271	Monistrol de Montserrat	7	Bages		AT06	Comarques Centrals	8	Barcelona	1.473 	1.428 	2.901 
+171096	Montagut i Oix	19	Garrotxa		AT02	Comarques Gironines	17	Girona	498 	451 	949 
+430862	Montblanc	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	3.684 	3.599 	7.283 
+430884	Montbrió del Camp	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	1.382 	1.311 	2.693 
+81252	Montcada i Reixac	40	Vallès Occidental	AM01	AT01	Metropolità	8	Barcelona	16.941 	17.436 	34.377 
+81304	Montclar	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	60 	60 	120 
+251399	Montellà i Martinet	15	Cerdanya		AT07	Alt Pirineu i Aran	25	Lleida	320 	266 	586 
+81311	Montesquiu	24	Osona		AT06	Comarques Centrals	8	Barcelona	480 	463 	943 
+251403	Montferrer i Castellbò	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	546 	464 	1.010 
+430897	Montferri	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	207 	171 	378 
+251386	Montgai	23	Noguera		AT05	Ponent	25	Lleida	347 	316 	663 
+81265	Montgat	21	Maresme	AM01	AT01	Metropolità	8	Barcelona	5.721 	5.780 	11.501 
+81326	Montmajor	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	238 	238 	476 
+81332	Montmaneu	6	Anoia		AT08	Penedès	8	Barcelona	83 	73 	156 
+430901	Montmell, el	12	Baix Penedès		AT08	Penedès	43	Tarragona	749 	624 	1.373 
+81350	Montmeló	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	4.331 	4.504 	8.835 
+251425	Montoliu de Lleida	33	Segrià		AT05	Ponent	25	Lleida	260 	254 	514 
+251410	Montoliu de Segarra	32	Segarra		AT05	Ponent	25	Lleida	107 	87 	194 
+251431	Montornès de Segarra	32	Segarra		AT05	Ponent	25	Lleida	50 	51 	101 
+81363	Montornès del Vallès	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	8.210 	7.962 	16.172 
+430918	Mont-ral	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	98 	78 	176 
+171100	Mont-ras	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	859 	851 	1.710 
+430923	Mont-roig del Camp	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	6.202 	5.675 	11.877 
+81379	Montseny	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	166 	153 	319 
+430939	Móra d'Ebre	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	2.699 	2.778 	5.477 
+430944	Móra la Nova	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	1.600 	1.585 	3.185 
+430957	Morell, el	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	1.808 	1.716 	3.524 
+430960	Morera de Montsant, la	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	86 	61 	147 
+81290	Muntanyola	24	Osona		AT06	Comarques Centrals	8	Barcelona	313 	293 	606 
+81398	Mura	7	Bages		AT06	Comarques Centrals	8	Barcelona	109 	94 	203 
+251459	Nalec	38	Urgell		AT05	Ponent	25	Lleida	49 	46 	95 
+250254	Naut Aran	39	Aran		AT07	Alt Pirineu i Aran	25	Lleida	890 	870 	1.760 
+81402	Navarcles	7	Bages		AT06	Comarques Centrals	8	Barcelona	2.936 	3.076 	6.012 
+81419	Navàs	7	Bages		AT06	Comarques Centrals	8	Barcelona	3.049 	3.054 	6.103 
+171117	Navata	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	652 	671 	1.323 
+251462	Navès	35	Solsonès		AT06	Comarques Centrals	25	Lleida	136 	145 	281 
+81424	Nou de Berguedà, la	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	74 	79 	153 
+430976	Nou de Gaià, la	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	264 	273 	537 
+430982	Nulles	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	233 	215 	448 
+251484	Odèn	35	Solsonès		AT06	Comarques Centrals	25	Lleida	145 	108 	253 
+81430	Òdena	6	Anoia		AT08	Penedès	8	Barcelona	1.848 	1.775 	3.623 
+171122	Ogassa	31	Ripollès		AT02	Comarques Gironines	17	Girona	136 	96 	232 
+81458	Olèrdola	3	Alt Penedès		AT08	Penedès	8	Barcelona	1.823 	1.695 	3.518 
+81461	Olesa de Bonesvalls	3	Alt Penedès		AT08	Penedès	8	Barcelona	881 	834 	1.715 
+81477	Olesa de Montserrat	11	Baix Llobregat		AT01	Metropolità	8	Barcelona	11.791 	11.745 	23.536 
+251497	Oliana	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	923 	919 	1.842 
+251500	Oliola	23	Noguera		AT05	Ponent	25	Lleida	128 	105 	233 
+251517	Olius	35	Solsonès		AT06	Comarques Centrals	25	Lleida	475 	435 	910 
+81483	Olivella	17	Garraf		AT08	Penedès	8	Barcelona	1.895 	1.674 	3.569 
+81496	Olost	24	Osona		AT06	Comarques Centrals	8	Barcelona	596 	586 	1.182 
+171143	Olot	19	Garrotxa		AT02	Comarques Gironines	17	Girona	16.845 	17.099 	33.944 
+251522	Oluges, les	32	Segarra		AT05	Ponent	25	Lleida	85 	76 	161 
+81445	Olvan	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	423 	433 	856 
+251538	Omellons, els	18	Garrigues		AT05	Ponent	25	Lleida	118 	108 	226 
+251543	Omells de na Gaia, els	38	Urgell		AT05	Ponent	25	Lleida	73 	63 	136 
+171156	Ordis	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	208 	181 	389 
+251556	Organyà	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	418 	427 	845 
+81509	Orís	24	Osona		AT06	Comarques Centrals	8	Barcelona	154 	154 	308 
+81516	Oristà	24	Osona		AT06	Comarques Centrals	8	Barcelona	275 	284 	559 
+81521	Orpí	6	Anoia		AT08	Penedès	8	Barcelona	76 	63 	139 
+81537	Òrrius	21	Maresme		AT01	Metropolità	8	Barcelona	356 	332 	688 
+251569	Os de Balaguer	23	Noguera		AT05	Ponent	25	Lleida	501 	494 	995 
+171169	Osor	34	Selva		AT02	Comarques Gironines	17	Girona	217 	204 	421 
+251575	Ossó de Sió	38	Urgell		AT05	Ponent	25	Lleida	109 	104 	213 
+81542	Pacs del Penedès	3	Alt Penedès		AT08	Penedès	8	Barcelona	451 	442 	893 
+81555	Palafolls	21	Maresme		AT01	Metropolità	8	Barcelona	4.550 	4.582 	9.132 
+171175	Palafrugell	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	11.313 	11.420 	22.733 
+171181	Palamós	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	8.751 	9.160 	17.911 
+251581	Palau d'Anglesola, el	27	Pla d'Urgell		AT05	Ponent	25	Lleida	1.051 	1.085 	2.136 
+171194	Palau de Santa Eulàlia	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	54 	34 	88 
+171215	Palau-sator	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	157 	141 	298 
+171208	Palau-saverdera	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	742 	743 	1.485 
+81568	Palau-solità i Plegamans	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	7.087 	7.370 	14.457 
+431009	Pallaresos, els	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	2.298 	2.249 	4.547 
+81574	Pallejà	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	5.634 	5.664 	11.298 
+89058	Palma de Cervelló, la	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	178 	198 	376 
+430995	Palma d'Ebre, la	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	1.492 	1.474 	2.966 
+171236	Palol de Revardit	28	Pla de l'Estany		AT02	Comarques Gironines	17	Girona	240 	226 	466 
+171241	Pals	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	1.265 	1.236 	2.501 
+81580	Papiol, el	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	2.033 	2.038 	4.071 
+171254	Pardines	31	Ripollès		AT02	Comarques Gironines	17	Girona	87 	68 	155 
+81593	Parets del Vallès	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	9.495 	9.406 	18.901 
+171267	Parlavà	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	208 	190 	398 
+431016	Passanant i Belltall	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	100 	73 	173 
+171289	Pau	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	276 	281 	557 
+431021	Paüls	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	285 	297 	582 
+171292	Pedret i Marzà	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	106 	87 	193 
+251641	Penelles	23	Noguera		AT05	Ponent	25	Lleida	277 	205 	482 
+171306	Pera, la	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	210 	231 	441 
+81607	Perafita	24	Osona		AT06	Comarques Centrals	8	Barcelona	212 	207 	419 
+431037	Perafort	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	697 	623 	1.320 
+171328	Peralada	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	920 	921 	1.841 
+251654	Peramola	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	175 	168 	343 
+431042	Perelló, el	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	1.500 	1.425 	2.925 
+81614	Piera	6	Anoia		AT08	Penedès	8	Barcelona	7.621 	7.370 	14.991 
+431055	Piles, les	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	112 	97 	209 
+81635	Pineda de Mar	21	Maresme		AT01	Metropolità	8	Barcelona	12.986 	12.982 	25.968 
+431068	Pinell de Brai, el	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	533 	520 	1.053 
+251667	Pinell de Solsonès	35	Solsonès		AT06	Comarques Centrals	25	Lleida	119 	88 	207 
+251673	Pinós	35	Solsonès		AT06	Comarques Centrals	25	Lleida	167 	138 	305 
+431074	Pira	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	262 	232 	494 
+431080	Pla de Santa Maria, el	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	1.212 	1.121 	2.333 
+81640	Pla del Penedès, el	3	Alt Penedès		AT08	Penedès	8	Barcelona	614 	616 	1.230 
+171334	Planes d'Hostoles, les	19	Garrotxa		AT02	Comarques Gironines	17	Girona	848 	826 	1.674 
+171349	Planoles	31	Ripollès		AT02	Comarques Gironines	17	Girona	161 	137 	298 
+259118	Plans de Sió, els	32	Segarra		AT05	Ponent	25	Lleida	281 	247 	528 
+251689	Poal, el	27	Pla d'Urgell		AT05	Ponent	25	Lleida	348 	320 	668 
+251692	Pobla de Cérvoles, la	18	Garrigues		AT05	Ponent	25	Lleida	124 	98 	222 
+81653	Pobla de Claramunt, la	6	Anoia		AT08	Penedès	8	Barcelona	1.089 	1.061 	2.150 
+81666	Pobla de Lillet, la	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	561 	578 	1.139 
+431093	Pobla de Mafumet, la	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	1.897 	1.778 	3.675 
+431107	Pobla de Massaluca, la	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	182 	159 	341 
+431114	Pobla de Montornès, la	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	1.518 	1.343 	2.861 
+251713	Pobla de Segur, la	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	1.499 	1.517 	3.016 
+431129	Poboleda	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	196 	167 	363 
+81672	Polinyà	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	4.180 	4.046 	8.226 
+431135	Pont d'Armentera, el	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	277 	268 	545 
+250306	Pont de Bar, el	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	88 	71 	159 
+171352	Pont de Molins	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	251 	261 	512 
+251734	Pont de Suert, el	5	Alta Ribagorça		AT07	Alt Pirineu i Aran	25	Lleida	1.167 	1.147 	2.314 
+81825	Pont de Vilomara i Rocafort, el	7	Bages		AT06	Comarques Centrals	8	Barcelona	1.901 	1.814 	3.715 
+431418	Pontils	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	69 	52 	121 
+81688	Pontons	3	Alt Penedès		AT08	Penedès	8	Barcelona	273 	210 	483 
+171365	Pontós	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	131 	100 	231 
+251728	Ponts	23	Noguera		AT05	Ponent	25	Lleida	1.305 	1.327 	2.632 
+171371	Porqueres	28	Pla de l'Estany		AT02	Comarques Gironines	17	Girona	2.253 	2.268 	4.521 
+431140	Porrera	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	243 	205 	448 
+171404	Port de la Selva, el	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	533 	469 	1.002 
+171387	Portbou	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	579 	588 	1.167 
+251749	Portella, la	33	Segrià		AT05	Ponent	25	Lleida	398 	333 	731 
+431153	Pradell de la Teixeta	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	82 	101 	183 
+431166	Prades	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	319 	304 	623 
+431172	Prat de Comte	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	89 	76 	165 
+81691	Prat de Llobregat, el	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	30.931 	32.083 	63.014 
+431188	Pratdip	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	368 	329 	697 
+81712	Prats de Lluçanès	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.294 	1.286 	2.580 
+81705	Prats de Rei, els	6	Anoia		AT06	Comarques Centrals	8	Barcelona	280 	256 	536 
+251752	Prats i Sansor	15	Cerdanya		AT07	Alt Pirineu i Aran	25	Lleida	131 	120 	251 
+251765	Preixana	38	Urgell		AT05	Ponent	25	Lleida	204 	203 	407 
+251771	Preixens	23	Noguera		AT05	Ponent	25	Lleida	234 	224 	458 
+82303	Premià de Dalt	21	Maresme		AT01	Metropolità	8	Barcelona	5.231 	5.161 	10.392 
+81727	Premià de Mar	21	Maresme		AT01	Metropolità	8	Barcelona	13.667 	14.277 	27.944 
+171390	Preses, les	19	Garrotxa		AT02	Comarques Gironines	17	Girona	873 	891 	1.764 
+251790	Prullans	15	Cerdanya		AT07	Alt Pirineu i Aran	25	Lleida	105 	101 	206 
+171411	Puigcerdà	15	Cerdanya		AT07	Alt Pirineu i Aran	17	Girona	4.412 	4.413 	8.825 
+81748	Puigdàlber	3	Alt Penedès		AT08	Penedès	8	Barcelona	266 	273 	539 
+251804	Puiggròs	18	Garrigues		AT05	Ponent	25	Lleida	153 	142 	295 
+431191	Puigpelat	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	577 	542 	1.119 
+81751	Puig-reig	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	2.022 	2.145 	4.167 
+251811	Puigverd d'Agramunt	38	Urgell		AT05	Ponent	25	Lleida	140 	104 	244 
+251826	Puigverd de Lleida	33	Segrià		AT05	Ponent	25	Lleida	725 	680 	1.405 
+81764	Pujalt	6	Anoia		AT06	Comarques Centrals	8	Barcelona	109 	89 	198 
+81770	Quar, la	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	28 	24 	52 
+171426	Quart	20	Gironès		AT02	Comarques Gironines	17	Girona	1.734 	1.714 	3.448 
+170433	Queralbs	31	Ripollès		AT02	Comarques Gironines	17	Girona	100 	73 	173 
+431205	Querol	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	312 	251 	563 
+171432	Rabós	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	90 	92 	182 
+81786	Rajadell	7	Bages		AT06	Comarques Centrals	8	Barcelona	268 	256 	524 
+431212	Rasquera	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	430 	434 	864 
+171447	Regencós	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	148 	137 	285 
+81799	Rellinars	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	388 	360 	748 
+431227	Renau	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	79 	72 	151 
+431233	Reus	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	50.011 	53.183 	103.194 
+251832	Rialp	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	340 	315 	655 
+431248	Riba, la	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	325 	280 	605 
+431251	Riba-roja d'Ebre	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	618 	554 	1.172 
+259059	Ribera d'Ondara	32	Segarra		AT05	Ponent	25	Lleida	225 	204 	429 
+251850	Ribera d'Urgellet	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	514 	464 	978 
+171450	Ribes de Freser	31	Ripollès		AT02	Comarques Gironines	17	Girona	896 	922 	1.818 
+171463	Riells i Viabrea	34	Selva		AT02	Comarques Gironines	17	Girona	2.042 	1.903 	3.945 
+431264	Riera de Gaià, la	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	841 	838 	1.679 
+251863	Riner	35	Solsonès		AT06	Comarques Centrals	25	Lleida	131 	136 	267 
+171479	Ripoll	31	Ripollès		AT02	Comarques Gironines	17	Girona	5.217 	5.415 	10.632 
+81803	Ripollet	40	Vallès Occidental	AM01	AT01	Metropolità	8	Barcelona	18.544 	18.901 	37.445 
+259139	Riu de Cerdanya	15	Cerdanya		AT07	Alt Pirineu i Aran	25	Lleida	60 	44 	104 
+171485	Riudarenes	34	Selva		AT02	Comarques Gironines	17	Girona	1.091 	1.029 	2.120 
+171498	Riudaura	19	Garrotxa		AT02	Comarques Gironines	17	Girona	225 	236 	461 
+431270	Riudecanyes	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	600 	551 	1.151 
+431286	Riudecols	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	636 	580 	1.216 
+171501	Riudellots de la Selva	34	Selva		AT02	Comarques Gironines	17	Girona	1.030 	992 	2.022 
+431299	Riudoms	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	3.409 	3.224 	6.633 
+171518	Riumors	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	122 	123 	245 
+81810	Roca del Vallès, la	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	5.278 	5.226 	10.504 
+431303	Rocafort de Queralt	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	133 	118 	251 
+431310	Roda de Berà	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	3.288 	3.064 	6.352 
+81831	Roda de Ter	24	Osona		AT06	Comarques Centrals	8	Barcelona	3.006 	3.116 	6.122 
+431325	Rodonyà	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	258 	243 	501 
+431331	Roquetes	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	4.246 	3.988 	8.234 
+171523	Roses	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	9.806 	9.769 	19.575 
+251898	Rosselló	33	Segrià		AT05	Ponent	25	Lleida	1.538 	1.505 	3.043 
+431346	Rourell, el	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	207 	197 	404 
+81846	Rubí	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	36.985 	37.551 	74.536 
+81859	Rubió	6	Anoia		AT08	Penedès	8	Barcelona	125 	104 	229 
+171539	Rupià	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	125 	123 	248 
+89019	Rupit i Pruit	24	Osona		AT06	Comarques Centrals	8	Barcelona	145 	136 	281 
+81878	Sabadell	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	101.118 	106.696 	207.814 
+81884	Sagàs	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	85 	72 	157 
+251902	Salàs de Pallars	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	193 	166 	359 
+81901	Saldes	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	162 	126 	288 
+171544	Sales de Llierca	19	Garrotxa		AT02	Comarques Gironines	17	Girona	68 	71 	139 
+81918	Sallent	7	Bages		AT06	Comarques Centrals	8	Barcelona	3.215 	3.454 	6.669 
+431359	Salomó	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	275 	264 	539 
+439057	Salou	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	13.863 	12.596 	26.459 
+171557	Salt	20	Gironès		AT02	Comarques Gironines	17	Girona	15.461 	13.881 	29.342 
+251919	Sanaüja	32	Segarra		AT05	Ponent	25	Lleida	219 	208 	427 
+81944	Sant Adrià de Besòs	13	Barcelonès	AM01	AT01	Metropolità	8	Barcelona	17.638 	18.176 	35.814 
+81957	Sant Agustí de Lluçanès	24	Osona		AT06	Comarques Centrals	8	Barcelona	45 	45 	90 
+81960	Sant Andreu de la Barca	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	13.717 	13.623 	27.340 
+81976	Sant Andreu de Llavaneres	21	Maresme		AT01	Metropolità	8	Barcelona	5.166 	5.327 	10.493 
+171576	Sant Andreu Salou	20	Gironès		AT02	Comarques Gironines	17	Girona	79 	70 	149 
+171833	Sant Aniol de Finestres	19	Garrotxa		AT02	Comarques Gironines	17	Girona	196 	177 	373 
+81982	Sant Antoni de Vilamajor	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	2.896 	2.893 	5.789 
+81995	Sant Bartomeu del Grau	24	Osona		AT06	Comarques Centrals	8	Barcelona	447 	416 	863 
+82009	Sant Boi de Llobregat	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	40.327 	41.868 	82.195 
+82016	Sant Boi de Lluçanès	24	Osona		AT06	Comarques Centrals	8	Barcelona	264 	280 	544 
+431362	Sant Carles de la Ràpita	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	7.259 	7.501 	14.760 
+82037	Sant Cebrià de Vallalta	21	Maresme		AT01	Metropolità	8	Barcelona	1.734 	1.592 	3.326 
+82021	Sant Celoni	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	8.582 	8.735 	17.317 
+82042	Sant Climent de Llobregat	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	2.011 	2.002 	4.013 
+171582	Sant Climent Sescebes	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	346 	255 	601 
+82055	Sant Cugat del Vallès	40	Vallès Occidental	AM01	AT01	Metropolità	8	Barcelona	42.743 	45.087 	87.830 
+82068	Sant Cugat Sesgarrigues	3	Alt Penedès		AT08	Penedès	8	Barcelona	482 	496 	978 
+251961	Sant Esteve de la Sarga	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	89 	55 	144 
+82074	Sant Esteve de Palautordera	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	1.272 	1.296 	2.568 
+82080	Sant Esteve Sesrovires	11	Baix Llobregat		AT01	Metropolità	8	Barcelona	3.805 	3.808 	7.613 
+171595	Sant Feliu de Buixalleu	34	Selva		AT02	Comarques Gironines	17	Girona	411 	376 	787 
+82107	Sant Feliu de Codines	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	2.977 	2.931 	5.908 
+171609	Sant Feliu de Guíxols	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	10.668 	10.918 	21.586 
+82114	Sant Feliu de Llobregat	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	21.259 	22.541 	43.800 
+171616	Sant Feliu de Pallerols	19	Garrotxa		AT02	Comarques Gironines	17	Girona	654 	678 	1.332 
+82129	Sant Feliu Sasserra	7	Bages		AT06	Comarques Centrals	8	Barcelona	330 	298 	628 
+171621	Sant Ferriol	19	Garrotxa		AT02	Comarques Gironines	17	Girona	135 	104 	239 
+82093	Sant Fost de Campsentelles	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	4.298 	4.305 	8.603 
+82135	Sant Fruitós de Bages	7	Bages		AT06	Comarques Centrals	8	Barcelona	4.165 	4.186 	8.351 
+171637	Sant Gregori	20	Gironès		AT02	Comarques Gironines	17	Girona	1.762 	1.736 	3.498 
+251924	Sant Guim de Freixenet	32	Segarra		AT05	Ponent	25	Lleida	557 	521 	1.078 
+251977	Sant Guim de la Plana	32	Segarra		AT05	Ponent	25	Lleida	94 	80 	174 
+171642	Sant Hilari Sacalm	34	Selva		AT02	Comarques Gironines	17	Girona	2.843 	2.765 	5.608 
+82153	Sant Hipòlit de Voltregà	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.697 	1.732 	3.429 
+81939	Sant Iscle de Vallalta	21	Maresme		AT01	Metropolità	8	Barcelona	672 	636 	1.308 
+82166	Sant Jaume de Frontanyà	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	1.801 	1.737 	3.538 
+171655	Sant Jaume de Llierca	19	Garrotxa		AT02	Comarques Gironines	17	Girona	16 	10 	26 
+431378	Sant Jaume dels Domenys	12	Baix Penedès		AT08	Penedès	43	Tarragona	412 	429 	841 
+439023	Sant Jaume d'Enveja	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	1.299 	1.222 	2.521 
+171674	Sant Joan de les Abadesses	31	Ripollès		AT02	Comarques Gironines	17	Girona	1.676 	1.707 	3.383 
+171680	Sant Joan de Mollet	20	Gironès		AT02	Comarques Gironines	17	Girona	240 	257 	497 
+82188	Sant Joan de Vilatorrada	7	Bages		AT06	Comarques Centrals	8	Barcelona	5.383 	5.385 	10.768 
+82172	Sant Joan Despí	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	16.264 	17.000 	33.264 
+171851	Sant Joan les Fonts	19	Garrotxa		AT02	Comarques Gironines	17	Girona	1.451 	1.486 	2.937 
+171668	Sant Jordi Desvalls	20	Gironès		AT02	Comarques Gironines	17	Girona	349 	371 	720 
+89030	Sant Julià de Cerdanyola	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	134 	108 	242 
+171693	Sant Julià de Ramis	20	Gironès		AT02	Comarques Gironines	17	Girona	1.724 	1.691 	3.415 
+82205	Sant Julià de Vilatorta	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.518 	1.586 	3.104 
+179032	Sant Julià del Llor i Bonmatí	34	Selva		AT02	Comarques Gironines	17	Girona	654 	618 	1.272 
+82212	Sant Just Desvern	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	7.918 	8.713 	16.631 
+171714	Sant Llorenç de la Muga	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	1.284 	1.273 	2.557 
+251930	Sant Llorenç de Morunys	35	Solsonès		AT06	Comarques Centrals	25	Lleida	129 	126 	255 
+82227	Sant Llorenç d'Hortons	3	Alt Penedès		AT08	Penedès	8	Barcelona	478 	499 	977 
+82233	Sant Llorenç Savall	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	1.208 	1.172 	2.380 
+82251	Sant Martí d'Albars	24	Osona		AT06	Comarques Centrals	8	Barcelona	54 	56 	110 
+82248	Sant Martí de Centelles	24	Osona		AT06	Comarques Centrals	8	Barcelona	562 	541 	1.103 
+171729	Sant Martí de Llémena	20	Gironès		AT02	Comarques Gironines	17	Girona	319 	286 	605 
+259025	Sant Martí de Riucorb	38	Urgell		AT05	Ponent	25	Lleida	368 	321 	689 
+82264	Sant Martí de Tous	6	Anoia		AT08	Penedès	8	Barcelona	599 	587 	1.186 
+82270	Sant Martí Sarroca	3	Alt Penedès		AT08	Penedès	8	Barcelona	1.509 	1.583 	3.092 
+82286	Sant Martí Sesgueioles	6	Anoia		AT06	Comarques Centrals	8	Barcelona	189 	189 	378 
+171735	Sant Martí Vell	20	Gironès		AT02	Comarques Gironines	17	Girona	131 	117 	248 
+82299	Sant Mateu de Bages	7	Bages		AT06	Comarques Centrals	8	Barcelona	314 	306 	620 
+171740	Sant Miquel de Campmajor	28	Pla de l'Estany		AT02	Comarques Gironines	17	Girona	115 	104 	219 
+171753	Sant Miquel de Fluvià	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	395 	361 	756 
+171766	Sant Mori	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	96 	80 	176 
+171772	Sant Pau de Segúries	31	Ripollès		AT02	Comarques Gironines	17	Girona	336 	346 	682 
+82310	Sant Pere de Ribes	17	Garraf		AT08	Penedès	8	Barcelona	14.906 	14.760 	29.666 
+82325	Sant Pere de Riudebitlles	3	Alt Penedès		AT08	Penedès	8	Barcelona	1.191 	1.183 	2.374 
+82331	Sant Pere de Torelló	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.255 	1.178 	2.433 
+82346	Sant Pere de Vilamajor	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	2.134 	2.147 	4.281 
+171788	Sant Pere Pescador	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	1.159 	984 	2.143 
+81897	Sant Pere Sallavinera	6	Anoia		AT06	Comarques Centrals	8	Barcelona	93 	74 	167 
+82359	Sant Pol de Mar	21	Maresme		AT01	Metropolità	8	Barcelona	2.486 	2.526 	5.012 
+82362	Sant Quintí de Mediona	3	Alt Penedès		AT08	Penedès	8	Barcelona	1.074 	1.042 	2.116 
+82378	Sant Quirze de Besora	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.050 	1.082 	2.132 
+82384	Sant Quirze del Vallès	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	9.619 	9.983 	19.602 
+82397	Sant Quirze Safaja	42	Moianès		AT01	Metropolità	8	Barcelona	332 	290 	622 
+251945	Sant Ramon	32	Segarra		AT05	Ponent	25	Lleida	273 	233 	506 
+82401	Sant Sadurní d'Anoia	3	Alt Penedès		AT08	Penedès	8	Barcelona	6.234 	6.455 	12.689 
+82418	Sant Sadurní d'Osormort	24	Osona		AT06	Comarques Centrals	8	Barcelona	50 	36 	86 
+80983	Sant Salvador de Guardiola	7	Bages		AT06	Comarques Centrals	8	Barcelona	1.583 	1.543 	3.126 
+82628	Sant Vicenç de Castellet	7	Bages		AT06	Comarques Centrals	8	Barcelona	4.584 	4.662 	9.246 
+82649	Sant Vicenç de Montalt	21	Maresme		AT01	Metropolità	8	Barcelona	3.053 	2.996 	6.049 
+82652	Sant Vicenç de Torelló	24	Osona		AT06	Comarques Centrals	8	Barcelona	988 	1.013 	2.001 
+82634	Sant Vicenç dels Horts	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	13.952 	14.031 	27.983 
+431384	Santa Bàrbara	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	1.904 	1.830 	3.734 
+82439	Santa Cecília de Voltregà	24	Osona		AT06	Comarques Centrals	8	Barcelona	94 	85 	179 
+82444	Santa Coloma de Cervelló	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	3.945 	4.077 	8.022 
+171805	Santa Coloma de Farners	34	Selva		AT02	Comarques Gironines	17	Girona	6.447 	6.234 	12.681 
+82457	Santa Coloma de Gramenet	13	Barcelonès	AM01	AT01	Metropolità	8	Barcelona	58.265 	58.685 	116.950 
+431397	Santa Coloma de Queralt	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	1.414 	1.436 	2.850 
+171812	Santa Cristina d'Aro	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	2.570 	2.519 	5.089 
+82460	Santa Eugènia de Berga	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.131 	1.073 	2.204 
+82476	Santa Eulàlia de Riuprimer	24	Osona		AT06	Comarques Centrals	8	Barcelona	645 	639 	1.284 
+82482	Santa Eulàlia de Ronçana	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	3.560 	3.520 	7.080 
+82495	Santa Fe del Penedès	3	Alt Penedès		AT08	Penedès	8	Barcelona	190 	188 	378 
+171827	Santa Llogaia d'Àlguema	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	178 	161 	339 
+82508	Santa Margarida de Montbui	6	Anoia		AT08	Penedès	8	Barcelona	4.822 	4.826 	9.648 
+82515	Santa Margarida i els Monjos	3	Alt Penedès		AT08	Penedès	8	Barcelona	3.732 	3.600 	7.332 
+82536	Santa Maria de Besora	24	Osona		AT06	Comarques Centrals	8	Barcelona	548 	515 	1.063 
+82567	Santa Maria de Martorelles	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	79 	79 	158 
+82554	Santa Maria de Merlès	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	425 	428 	853 
+82573	Santa Maria de Miralles	6	Anoia		AT08	Penedès	8	Barcelona	91 	94 	185 
+82592	Santa Maria de Palautordera	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	68 	62 	130 
+82589	Santa Maria d'Oló	42	Moianès		AT06	Comarques Centrals	8	Barcelona	4.584 	4.519 	9.103 
+431401	Santa Oliva	12	Baix Penedès		AT08	Penedès	43	Tarragona	1.674 	1.609 	3.283 
+171848	Santa Pau	19	Garrotxa		AT02	Comarques Gironines	17	Girona	796 	766 	1.562 
+82606	Santa Perpètua de Mogoda	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	12.899 	12.567 	25.466 
+82613	Santa Susanna	21	Maresme		AT01	Metropolità	8	Barcelona	1.662 	1.613 	3.275 
+81923	Santpedor	7	Bages		AT06	Comarques Centrals	8	Barcelona	3.721 	3.738 	7.459 
+431423	Sarral	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	806 	779 	1.585 
+171864	Sarrià de Ter	20	Gironès		AT02	Comarques Gironines	17	Girona	2.474 	2.499 	4.973 
+252017	Sarroca de Bellera	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	79 	46 	125 
+252000	Sarroca de Lleida	33	Segrià		AT05	Ponent	25	Lleida	213 	174 	387 
+171870	Saus, Camallera i Llampaies	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	413 	417 	830 
+431439	Savallà del Comtat	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	31 	31 	62 
+431444	Secuita, la	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	839 	831 	1.670 
+171886	Selva de Mar, la	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	103 	81 	184 
+431457	Selva del Camp, la	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	2.797 	2.762 	5.559 
+431460	Senan	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	31 	16 	47 
+430445	Sénia, la	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	2.912 	2.887 	5.799 
+252022	Senterada	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	80 	53 	133 
+250352	Sentiu de Sió, la	23	Noguera		AT05	Ponent	25	Lleida	234 	225 	459 
+82671	Sentmenat	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	4.387 	4.265 	8.652 
+171903	Serinyà	28	Pla de l'Estany		AT02	Comarques Gironines	17	Girona	585 	545 	1.130 
+252043	Seròs	33	Segrià		AT05	Ponent	25	Lleida	1.025 	861 	1.886 
+171910	Serra de Daró	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	114 	95 	209 
+171925	Setcases	31	Ripollès		AT02	Comarques Gironines	17	Girona	100 	80 	180 
+252038	Seu d'Urgell, la	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	5.896 	6.353 	12.249 
+82690	Seva	24	Osona		AT06	Comarques Centrals	8	Barcelona	1.750 	1.684 	3.434 
+252056	Sidamon	27	Pla d'Urgell		AT05	Ponent	25	Lleida	379 	353 	732 
+171931	Sils	34	Selva		AT02	Comarques Gironines	17	Girona	2.932 	2.865 	5.797 
+82704	Sitges	17	Garraf		AT08	Penedès	8	Barcelona	14.082 	14.187 	28.269 
+170524	Siurana	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	73 	79 	152 
+82711	Sobremunt	24	Osona		AT06	Comarques Centrals	8	Barcelona	35 	47 	82 
+252069	Soleràs, el	18	Garrigues		AT05	Ponent	25	Lleida	176 	166 	342 
+431476	Solivella	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	313 	316 	629 
+252075	Solsona	35	Solsonès		AT06	Comarques Centrals	25	Lleida	4.505 	4.499 	9.004 
+82726	Sora	24	Osona		AT06	Comarques Centrals	8	Barcelona	104 	80 	184 
+252081	Soriguera	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	206 	179 	385 
+252094	Sort	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	1.089 	1.110 	2.199 
+252108	Soses	33	Segrià		AT05	Ponent	25	Lleida	899 	829 	1.728 
+82732	Subirats	3	Alt Penedès		AT08	Penedès	8	Barcelona	1.543 	1.445 	2.988 
+252115	Sudanell	33	Segrià		AT05	Ponent	25	Lleida	473 	374 	847 
+252120	Sunyer	33	Segrià		AT05	Ponent	25	Lleida	180 	145 	325 
+82747	Súria	7	Bages		AT06	Comarques Centrals	8	Barcelona	2.858 	3.069 	5.927 
+171946	Susqueda	34	Selva		AT02	Comarques Gironines	17	Girona	55 	37 	92 
+82763	Tagamanent	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	170 	149 	319 
+82779	Talamanca	7	Bages		AT06	Comarques Centrals	8	Barcelona	108 	81 	189 
+252154	Talarn	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	363 	219 	582 
+252167	Talavera	32	Segarra		AT05	Ponent	25	Lleida	146 	116 	262 
+171959	Tallada d'Empordà, la	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	237 	221 	458 
+82785	Taradell	24	Osona		AT06	Comarques Centrals	8	Barcelona	3.126 	3.136 	6.262 
+431482	Tarragona	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	63.920 	67.335 	131.255 
+252173	Tàrrega	38	Urgell		AT05	Ponent	25	Lleida	8.152 	8.292 	16.444 
+252189	Tarrés	18	Garrigues		AT05	Ponent	25	Lleida	57 	46 	103 
+252192	Tarroja de Segarra	32	Segarra		AT05	Ponent	25	Lleida	91 	87 	178 
+82750	Tavèrnoles	24	Osona		AT06	Comarques Centrals	8	Barcelona	165 	154 	319 
+82802	Tavertet	24	Osona		AT06	Comarques Centrals	8	Barcelona	70 	54 	124 
+82819	Teià	21	Maresme		AT01	Metropolità	8	Barcelona	3.078 	3.160 	6.238 
+252206	Térmens	23	Noguera		AT05	Ponent	25	Lleida	767 	764 	1.531 
+171962	Terrades	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	145 	149 	294 
+82798	Terrassa	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	106.067 	109.147 	215.214 
+82824	Tiana	21	Maresme	AM01	AT01	Metropolità	8	Barcelona	4.035 	4.376 	8.411 
+252213	Tírvia	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	76 	77 	153 
+252228	Tiurana	23	Noguera		AT05	Ponent	25	Lleida	35 	37 	72 
+431495	Tivenys	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	443 	425 	868 
+431508	Tivissa	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	876 	875 	1.751 
+82830	Tona	24	Osona		AT06	Comarques Centrals	8	Barcelona	3.961 	4.060 	8.021 
+252234	Torà	32	Segarra		AT05	Ponent	25	Lleida	613 	619 	1.232 
+82845	Tordera	21	Maresme		AT01	Metropolità	8	Barcelona	8.325 	8.108 	16.433 
+82858	Torelló	24	Osona		AT06	Comarques Centrals	8	Barcelona	6.816 	7.065 	13.881 
+252249	Torms, els	18	Garrigues		AT05	Ponent	25	Lleida	82 	65 	147 
+252252	Tornabous	38	Urgell		AT05	Ponent	25	Lleida	467 	418 	885 
+252271	Torre de Cabdella, la	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	390 	372 	762 
+82861	Torre de Claramunt, la	6	Anoia		AT08	Penedès	8	Barcelona	1.925 	1.842 	3.767 
+431515	Torre de Fontaubella, la	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	67 	62 	129 
+431520	Torre de l'Espanyol, la	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	338 	306 	644 
+252265	Torrebesses	33	Segrià		AT05	Ponent	25	Lleida	151 	135 	286 
+431536	Torredembarra	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	7.528 	7.843 	15.371 
+252287	Torrefarrera	33	Segrià		AT05	Ponent	25	Lleida	2.333 	2.278 	4.611 
+259078	Torrefeta i Florejacs	32	Segarra		AT05	Ponent	25	Lleida	319 	285 	604 
+252304	Torregrossa	27	Pla d'Urgell		AT05	Ponent	25	Lleida	1.143 	1.112 	2.255 
+252311	Torrelameu	23	Noguera		AT05	Ponent	25	Lleida	400 	306 	706 
+82877	Torrelavit	3	Alt Penedès		AT08	Penedès	8	Barcelona	741 	660 	1.401 
+82883	Torrelles de Foix	3	Alt Penedès		AT08	Penedès	8	Barcelona	1.184 	1.062 	2.246 
+82896	Torrelles de Llobregat	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	2.902 	2.981 	5.883 
+171978	Torrent	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	91 	78 	169 
+252326	Torres de Segre	33	Segrià		AT05	Ponent	25	Lleida	1.172 	1.099 	2.271 
+252332	Torre-serona	33	Segrià		AT05	Ponent	25	Lleida	190 	189 	379 
+171984	Torroella de Fluvià	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	387 	345 	732 
+171997	Torroella de Montgrí	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	5.778 	5.610 	11.388 
+431541	Torroja del Priorat	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	92 	72 	164 
+172001	Tortellà	19	Garrotxa		AT02	Comarques Gironines	17	Girona	377 	398 	775 
+431554	Tortosa	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	16.964 	16.900 	33.864 
+172018	Toses	31	Ripollès		AT02	Comarques Gironines	17	Girona	92 	63 	155 
+172023	Tossa de Mar	34	Selva		AT02	Comarques Gironines	17	Girona	2.857 	2.766 	5.623 
+252347	Tremp	25	Pallars Jussà		AT07	Alt Pirineu i Aran	25	Lleida	3.062 	3.113 	6.175 
+172044	Ullà	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	593 	475 	1.068 
+82900	Ullastrell	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	1.023 	1.020 	2.043 
+172057	Ullastret	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	144 	151 	295 
+431567	Ulldecona	22	Montsià		AT04	Terres de l'Ebre	43	Tarragona	3.394 	3.243 	6.637 
+431573	Ulldemolins	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	228 	176 	404 
+172039	Ultramort	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	111 	89 	200 
+172060	Urús	15	Cerdanya		AT07	Alt Pirineu i Aran	17	Girona	83 	93 	176 
+82917	Vacarisses	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	3.175 	2.968 	6.143 
+170144	Vajol, la	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	50 	38 	88 
+172082	Vall de Bianya, la	19	Garrotxa		AT02	Comarques Gironines	17	Girona	1.480 	1.486 	2.966 
+250432	Vall de Boí, la	5	Alta Ribagorça		AT07	Alt Pirineu i Aran	25	Lleida	661 	636 	1.297 
+259010	Vall de Cardós	26	Pallars Sobirà		AT07	Alt Pirineu i Aran	25	Lleida	532 	472 	1.004 
+172076	Vall d'en Bas, la	19	Garrotxa		AT02	Comarques Gironines	17	Girona	196 	172 	368 
+82922	Vallbona d'Anoia	6	Anoia		AT08	Penedès	8	Barcelona	732 	685 	1.417 
+252385	Vallbona de les Monges	38	Urgell		AT05	Ponent	25	Lleida	136 	120 	256 
+82938	Vallcebre	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	146 	109 	255 
+431589	Vallclara	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	62 	47 	109 
+252402	Vallfogona de Balaguer	23	Noguera		AT05	Ponent	25	Lleida	925 	955 	1.880 
+171707	Vallfogona de Ripollès	31	Ripollès		AT02	Comarques Gironines	17	Girona	111 	94 	205 
+431592	Vallfogona de Riucorb	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	58 	37 	95 
+82943	Vallgorguina	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	1.409 	1.340 	2.749 
+82956	Vallirana	11	Baix Llobregat		AT01	Metropolità	8	Barcelona	7.307 	7.326 	14.633 
+172095	Vall-llobrega	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	458 	457 	915 
+431606	Vallmoll	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	836 	815 	1.651 
+82969	Vallromanes	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	1.295 	1.248 	2.543 
+431613	Valls	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	12.127 	12.194 	24.321 
+259062	Valls d'Aguilar, les	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	164 	138 	302 
+252398	Valls de Valira, les	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	428 	417 	845 
+431628	Vandellòs i l'Hospitalet de l'Infant	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	3.019 	3.031 	6.050 
+259097	Vansa i Fórnols, la	4	Alt Urgell		AT07	Alt Pirineu i Aran	25	Lleida	111 	99 	210 
+82975	Veciana	6	Anoia		AT06	Comarques Centrals	8	Barcelona	97 	78 	175 
+431634	Vendrell, el	12	Baix Penedès		AT08	Penedès	43	Tarragona	18.229 	18.329 	36.558 
+172109	Ventalló	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	429 	401 	830 
+252424	Verdú	38	Urgell		AT05	Ponent	25	Lleida	452 	495 	947 
+172116	Verges	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	578 	619 	1.197 
+431649	Vespella de Gaià	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	232 	193 	425 
+82981	Vic	24	Osona		AT06	Comarques Centrals	8	Barcelona	21.146 	21.352 	42.498 
+172121	Vidrà	24	Osona		AT06	Comarques Centrals	17	Girona	89 	84 	173 
+172137	Vidreres	34	Selva		AT02	Comarques Gironines	17	Girona	4.006 	3.735 	7.741 
+252430	Vielha e Mijaran	39	Aran		AT07	Alt Pirineu i Aran	25	Lleida	2.767 	2.683 	5.450 
+431652	Vilabella	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	421 	382 	803 
+172142	Vilabertran	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	460 	442 	902 
+172155	Vilablareix	20	Gironès		AT02	Comarques Gironines	17	Girona	1.256 	1.303 	2.559 
+82994	Vilada	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	227 	200 	427 
+172174	Viladamat	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	229 	212 	441 
+172168	Viladasens	20	Gironès		AT02	Comarques Gironines	17	Girona	114 	107 	221 
+83015	Viladecans	11	Baix Llobregat	AM01	AT01	Metropolità	8	Barcelona	32.541 	33.008 	65.549 
+83008	Viladecavalls	40	Vallès Occidental		AT01	Metropolità	8	Barcelona	3.685 	3.680 	7.365 
+172180	Vilademuls	28	Pla de l'Estany		AT02	Comarques Gironines	17	Girona	436 	398 	834 
+172207	Viladrau	24	Osona		AT06	Comarques Centrals	17	Girona	527 	508 	1.035 
+172214	Vilafant	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	2.720 	2.823 	5.543 
+83054	Vilafranca del Penedès	3	Alt Penedès		AT08	Penedès	8	Barcelona	19.282 	19.942 	39.224 
+252445	Vilagrassa	38	Urgell		AT05	Ponent	25	Lleida	270 	252 	522 
+172235	Vilajuïga	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	577 	592 	1.169 
+431750	Vilalba dels Arcs	37	Terra Alta		AT04	Terres de l'Ebre	43	Tarragona	341 	328 	669 
+83067	Vilalba Sasserra	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	352 	357 	709 
+252458	Vilaller	5	Alta Ribagorça		AT07	Alt Pirineu i Aran	25	Lleida	303 	263 	566 
+172240	Vilallonga de Ter	31	Ripollès		AT02	Comarques Gironines	17	Girona	205 	193 	398 
+431665	Vilallonga del Camp	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	1.138 	1.090 	2.228 
+172253	Vilamacolum	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	150 	144 	294 
+172266	Vilamalla	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	581 	552 	1.133 
+172272	Vilamaniscle	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	97 	82 	179 
+252477	Vilamòs	39	Aran		AT07	Alt Pirineu i Aran	25	Lleida	92 	72 	164 
+172288	Vilanant	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	198 	201 	399 
+252483	Vilanova de Bellpuig	27	Pla d'Urgell		AT05	Ponent	25	Lleida	288 	250 	538 
+252542	Vilanova de la Barca	33	Segrià		AT05	Ponent	25	Lleida	604 	571 	1.175 
+252496	Vilanova de l'Aguda	23	Noguera		AT05	Ponent	25	Lleida	108 	110 	218 
+252509	Vilanova de Meià	23	Noguera		AT05	Ponent	25	Lleida	546 	553 	1.099 
+431687	Vilanova de Prades	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	233 	191 	424 
+83036	Vilanova de Sau	24	Osona		AT06	Comarques Centrals	8	Barcelona	61 	60 	121 
+252516	Vilanova de Segrià	33	Segrià		AT05	Ponent	25	Lleida	157 	155 	312 
+83020	Vilanova del Camí	6	Anoia		AT08	Penedès	8	Barcelona	497 	443 	940 
+89024	Vilanova del Vallès	41	Vallès Oriental		AT01	Metropolità	8	Barcelona	6.250 	6.202 	12.452 
+431671	Vilanova d'Escornalbou	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	2.661 	2.580 	5.241 
+83073	Vilanova i la Geltrú	17	Garraf		AT08	Penedès	8	Barcelona	31.821 	33.863 	65.684 
+431690	Vilaplana	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	316 	308 	624 
+431704	Vila-rodona	1	Alt Camp		AT03	Camp de Tarragona	43	Tarragona	647 	629 	1.276 
+172305	Vila-sacra	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	319 	351 	670 
+252521	Vila-sana	27	Pla d'Urgell		AT05	Ponent	25	Lleida	359 	359 	718 
+431711	Vila-seca	36	Tarragonès		AT03	Camp de Tarragona	43	Tarragona	11.314 	11.018 	22.332 
+82140	Vilassar de Dalt	21	Maresme		AT01	Metropolità	8	Barcelona	4.406 	4.558 	8.964 
+82191	Vilassar de Mar	21	Maresme		AT01	Metropolità	8	Barcelona	9.860 	10.587 	20.447 
+172229	Vilaür	2	Alt Empordà		AT02	Comarques Gironines	17	Girona	80 	79 	159 
+431726	Vilaverd	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	246 	223 	469 
+431732	Vilella Alta, la	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	70 	65 	135 
+431747	Vilella Baixa, la	29	Priorat		AT03	Camp de Tarragona	43	Tarragona	109 	88 	197 
+83041	Vilobí del Penedès	3	Alt Penedès		AT08	Penedès	8	Barcelona	1.647 	1.519 	3.166 
+172333	Vilobí d'Onyar	34	Selva		AT02	Comarques Gironines	17	Girona	564 	521 	1.085 
+172327	Vilopriu	10	Baix Empordà		AT02	Comarques Gironines	17	Girona	107 	92 	199 
+252537	Vilosell, el	18	Garrigues		AT05	Ponent	25	Lleida	91 	96 	187 
+431763	Vimbodí i Poblet	16	Conca de Barberà		AT03	Camp de Tarragona	43	Tarragona	542 	424 	966 
+252555	Vinaixa	18	Garrigues		AT05	Ponent	25	Lleida	268 	258 	526 
+431779	Vinebre	30	Ribera d'Ebre		AT04	Terres de l'Ebre	43	Tarragona	219 	216 	435 
+431785	Vinyols i els Arcs	8	Baix Camp		AT03	Camp de Tarragona	43	Tarragona	993 	938 	1.931 
+83089	Viver i Serrateix	14	Berguedà		AT06	Comarques Centrals	8	Barcelona	90 	78 	168 
+430521	Xerta	9	Baix Ebre		AT04	Terres de l'Ebre	43	Tarragona	589 	620 	1.209 
