@@ -107,7 +107,7 @@ namespace :encomu do
     # extract all the municipalities for that province.
 
     municipies = municipies_for number_province
-    prefix = get_prefix_province number_province.to_s
+    prefix = get_prefix_province number_province
 
     province_name = Carmen::Country.coded("ES").subregions.coded(prefix).name
     sendy_lists.add_list "B - #{province_name}", "m_#{number_province}"
@@ -122,7 +122,7 @@ namespace :encomu do
     # Given a number (first column) like 01 or 52 parse the CSV file and
     # extract all the municipalities for that province.
 
-    prefix = get_prefix_province number_province.to_s
+    prefix = get_prefix_province number_province
     municipies = municipies_for number_province
 
     # Dump them on Carmen format
