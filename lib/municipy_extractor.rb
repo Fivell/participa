@@ -84,6 +84,28 @@ class MunicipyExtractor
     municipies
   end
 
+  def extract
+    data_file.puts "---"
+
+    i18n_file.puts "---
+es:
+  world:
+    es:
+      #{province}:
+"
+    municipies.each do |mun|
+      c = mun[0]
+      data_file.puts "- code: #{c.downcase}
+  type: municipality"
+      i18n_file.puts "        #{c.downcase}:
+          name: \"#{mun[1]}\""
+    end
+    data_file.close
+    i18n_file.close
+  end
+
+  private
+
   def province
     prefix.downcase
   end
@@ -115,25 +137,5 @@ class MunicipyExtractor
   def truncate_for_appending filename
     File.delete(filename) if File.exist?(filename)
     File.open(filename, 'a')
-  end
-
-  def extract
-    data_file.puts "---"
-
-    i18n_file.puts "---
-es:
-  world:
-    es:
-      #{province}:
-"
-    municipies.each do |mun|
-      c = mun[0]
-      data_file.puts "- code: #{c.downcase}
-  type: municipality"
-      i18n_file.puts "        #{c.downcase}:
-          name: \"#{mun[1]}\""
-    end
-    data_file.close
-    i18n_file.close
   end
 end
