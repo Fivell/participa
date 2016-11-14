@@ -88,12 +88,10 @@ namespace :encomu do
     end
   end
 
-  def sendy_province number_province, sendy_lists
-    # Given a number (first column) like 01 or 52 parse the CSV file and 
-    # extract all the municipalities for that province. 
-    
+  def municipies_for number_province
     # Extract all municipies on a list like 
     # [ ["m_01_001_4", "Alegría-Dulantzi"], ["m_01_002_9", "Amurrio"] ... ]
+
     municipies = []
     raw = CSV.read("db/ine/14codmun.csv")
     raw.each do |a|
@@ -101,6 +99,14 @@ namespace :encomu do
         municipies << [ "m_#{a[0]}_#{a[1]}_#{a[2]}" , a[3] ]
       end
     end
+    municipies
+  end
+
+  def sendy_province number_province, sendy_lists
+    # Given a number (first column) like 01 or 52 parse the CSV file and
+    # extract all the municipalities for that province.
+
+    municipies = municipies_for number_province
     prefix = get_prefix_province number_province.to_s
 
     province_name = Carmen::Country.coded("ES").subregions.coded(prefix).name
@@ -113,19 +119,11 @@ namespace :encomu do
   end
 
   def carmen_province number_province
-    # Given a number (first column) like 01 or 52 parse the CSV file and 
-    # extract all the municipalities for that province. 
-    
-    # Extract all municipies on a list like 
-    # [ ["m_01_001_4", "Alegría-Dulantzi"], ["m_01_002_9", "Amurrio"] ... ]
-    municipies = []
-    raw = CSV.read("db/ine/14codmun.csv")
-    raw.each do |a|
-      if a[0] == number_province
-        municipies << [ "m_#{a[0]}_#{a[1]}_#{a[2]}" , a[3] ]
-      end
-    end
+    # Given a number (first column) like 01 or 52 parse the CSV file and
+    # extract all the municipalities for that province.
+
     prefix = get_prefix_province number_province.to_s
+    municipies = municipies_for number_province
 
     # Dump them on Carmen format
     carmen_db_iso_file = "db/iso_data/base/world/es/#{prefix.downcase}.yml"
