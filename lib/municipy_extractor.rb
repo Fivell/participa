@@ -85,23 +85,8 @@ class MunicipyExtractor
   end
 
   def extract
-    data_file.puts "---"
-
-    i18n_file.puts "---
-es:
-  world:
-    es:
-      #{province}:
-"
-    municipies.each do |mun|
-      c = mun[0]
-      data_file.puts "- code: #{c.downcase}
-  type: municipality"
-      i18n_file.puts "        #{c.downcase}:
-          name: \"#{mun[1]}\""
-    end
-    data_file.close
-    i18n_file.close
+    File.open(data_filename, "w") { |f| f.write(data_file_content) }
+    File.open(i18n_filename, "w") { |f| f.write(i18n_file_content) }
   end
 
   private
@@ -110,32 +95,53 @@ es:
     prefix.downcase
   end
 
-  def data_file
-    @data_file ||= truncate_for_appending data_filename
-  end
-
   def data_filename
-    File.join(base_data_dir, "#{province}.yml")
+    File.join(base_data_dirname, "#{province}.yml")
   end
 
   def base_data_dirname
     "db/iso_data/base/world/es"
   end
 
-  def i18n_file
-    @i18n_file ||= truncate_for_appending i18n_filename
-  end
-
   def i18n_filename
-    File.join(base_i18n_dir, "#{province}.yml")
+    File.join(base_i18n_dirname, "#{province}.yml")
   end
 
   def base_i18n_dirname
     "config/locales/carmen/es"
   end
 
-  def truncate_for_appending filename
-    File.delete(filename) if File.exist?(filename)
-    File.open(filename, 'a')
+  def data_file_content
+    "---\n#{municipies_data_chunk.join}"
+  end
+
+  def i18n_file_content
+    common = <<~YAML
+      ---
+      es:
+        world:
+          es:
+            #{province}:
+    YAML
+
+    common + municipies_i18n_chunk.join.gsub(/^/, " " * 8)
+  end
+
+  def municipies_data_chunk
+    municipies.map do |m|
+      <<~YAML
+        - code: #{m[0].downcase}
+          type: municipality
+      YAML
+    end
+  end
+
+  def municipies_i18n_chunk
+    municipies.map do |m|
+      <<~YAML
+        #{m[0].downcase}:
+          name: "#{m[1]}"
+      YAML
+    end
   end
 end
