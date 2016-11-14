@@ -93,7 +93,11 @@ class MunicipyExtractor
   end
 
   def data_filename
-    "db/iso_data/base/world/es/#{province}.yml"
+    File.join(base_data_dir, "#{province}.yml")
+  end
+
+  def base_data_dirname
+    "db/iso_data/base/world/es"
   end
 
   def i18n_file
@@ -101,7 +105,11 @@ class MunicipyExtractor
   end
 
   def i18n_filename
-    "config/locales/carmen/es/#{province}.yml"
+    File.join(base_i18n_dir, "#{province}.yml")
+  end
+
+  def base_i18n_dirname
+    "config/locales/carmen/es"
   end
 
   def truncate_for_appending filename
