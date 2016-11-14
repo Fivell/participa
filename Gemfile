@@ -80,6 +80,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rails-perftest'
+  gem 'rubocop'
   gem 'ruby-prof'
   gem 'simplecov'
   gem 'webmock'
