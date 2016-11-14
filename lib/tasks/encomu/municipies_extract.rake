@@ -81,8 +81,8 @@ namespace :encomu do
       when "46" then "V"
       when "47" then "VA"
       when "48" then "BI"
-      when "49" then "Z"
-      when "50" then "ZA"
+      when "49" then "ZA"
+      when "50" then "Z"
       when "51" then "CE"
       when "52" then "ML"
     end
