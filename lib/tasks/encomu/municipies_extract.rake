@@ -102,6 +102,31 @@ namespace :encomu do
     municipies
   end
 
+  def province_code_for prefix
+    prefix.downcase
+  end
+
+  def data_file_for prefix
+    truncate_for_appending data_filename_for(prefix)
+  end
+
+  def data_filename_for prefix
+    "db/iso_data/base/world/es/#{province_code_for(prefix)}.yml"
+  end
+
+  def i18n_file_for prefix
+    truncate_for_appending i18n_filename_for(prefix)
+  end
+
+  def i18n_filename_for prefix
+    "config/locales/carmen/es/#{province_code_for(prefix)}.yml"
+  end
+
+  def truncate_for_appending filename
+    File.delete(filename) if File.exist?(filename)
+    File.open(filename, 'a')
+  end
+
   def sendy_province number_province, sendy_lists
     # Given a number (first column) like 01 or 52 parse the CSV file and
     # extract all the municipalities for that province.
@@ -126,19 +151,15 @@ namespace :encomu do
     municipies = municipies_for number_province
 
     # Dump them on Carmen format
-    carmen_db_iso_file = "db/iso_data/base/world/es/#{prefix.downcase}.yml"
-    File.delete(carmen_db_iso_file) if File.exist?(carmen_db_iso_file)
-    data_file = File.open(carmen_db_iso_file, 'a')
+    data_file = data_file_for prefix
     data_file.puts "---"
 
-    carmen_i18n_file = "config/locales/carmen/es/#{prefix.downcase}.yml"
-    File.delete(carmen_i18n_file) if File.exist?(carmen_i18n_file)
-    i18n_file = File.open(carmen_i18n_file, 'a')
+    i18n_file = i18n_file_for prefix
     i18n_file.puts "---
 es:
   world:
     es:
-      #{prefix.downcase}:
+      #{province_code_for prefix}:
 "
     municipies.each do |mun|
       c = mun[0]
