@@ -167,6 +167,7 @@ seguir serían los siguientes:
 bundle install
 cp config/database.yml.example config/database.yml
 cp config/secrets.yml.example config/secrets.yml
+sudo -u postgres psql -c "CREATE USER participa WITH NOSUPERUSER CREATEDB NOCREATEROLE PASSWORD 'participa'"
 bin/rake db:migrate
 bin/rails server
 ```

@@ -4,13 +4,18 @@
 USER=vagrant
 
 sudo apt-get update
-sudo apt-get install -y postgresql imagemagick redis-server curl git-core libpq-dev build-essential sqlite3 qt5-default libqt5webkit5-dev wkhtmltopdf
+sudo apt-get install -y postgresql imagemagick redis-server curl git-core libpq-dev build-essential qt5-default libqt5webkit5-dev wkhtmltopdf
 
 rm -rf /usr/local/rvm
 
 cat > /home/vagrant/.gemrc <<EOF
 gem: --no-ri --no-rdoc
 EOF
+
+sudo -u postgres psql -c "CREATE USER participa WITH NOSUPERUSER \
+                                                     CREATEDB \
+                                                    NOCREATEROLE \
+                                                    PASSWORD 'participa'"
 
 # TODO create postgres DB and config/database.yml
 
