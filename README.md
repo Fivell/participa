@@ -155,7 +155,7 @@ sudo apt-get install wkhtmltopdf                    # para generación de PDFs (
 
 ## Instalación
 
-Es una aplicación Ruby On Rails hecha con Rails 4.1 / Ruby 2.0. Se recomienda
+Es una aplicación Ruby On Rails hecha con Rails 4.2 / Ruby 2.3. Se recomienda
 hacerla en sistemas operativos GNU/Linux (nosotros usamos Ubuntu). Para manejar
 las gemas usamos `bundler`. Para la BBDD recomendamos postgres, pero se puede
 usar también mysql/sqlite3.
