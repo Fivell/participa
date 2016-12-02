@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3'
+ruby RUBY_VERSION
 
 # @todo Revisit the warnings fixed by this in Bundler 2, I guess they will be
 # fixed and this won't be needed
