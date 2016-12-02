@@ -17,8 +17,6 @@ sudo -u postgres psql -c "CREATE USER participa WITH NOSUPERUSER \
                                                     NOCREATEROLE \
                                                     PASSWORD 'participa'"
 
-# TODO create postgres DB
-
 cat > /home/vagrant/deploy.sh <<EOF
 #!/usr/bin/env bash
 
@@ -40,6 +38,7 @@ bundle install
 cp config/database.yml.example config/database.yml
 cp config/secrets.yml.example config/secrets.yml
 
+bundle exec rake db:create
 bin/rake db:migrate
 bin/mailcatcher
 bin/rails server -b 0.0.0.0 
