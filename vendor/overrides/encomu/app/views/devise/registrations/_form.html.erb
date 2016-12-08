@@ -183,7 +183,7 @@
         <legend> </legend>
 
         <div class="inputlabel-box">
-          <% if resource.errors.include?(:over_18) %>
+          <% if resource.errors.include?(:inscription) %>
               <%= field_notice_box %>
           <% end %>
           <%= f.label :inscription %>
