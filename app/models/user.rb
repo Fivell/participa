@@ -630,7 +630,13 @@ class User < ActiveRecord::Base
 
   def self.get_location(current_user, params)
     # params from edit page
-    user_location = { country: params[:user_country], province: params[:user_province], town: params[:user_town], vote_town: params[:user_vote_town], vote_province: params[:user_vote_province] }
+    user_location = {
+      country: params[:user_country],
+      province: params[:user_province],
+      town: params[:user_town],
+      vote_town: params[:user_vote_town],
+      vote_province: params[:user_vote_province]
+    }
 
     # params from create page
     if params[:user]
