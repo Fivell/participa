@@ -4,7 +4,8 @@
   <% end %>  
   <% provinces = get_provinces(country) %>
   <% if provinces.length>0 %>
-      <%= select_tag "user[#{field}]", "<option></option>".html_safe+options_from_collection_for_select(provinces, "code", "name", province), {required: "required", data: {placeholder: "-- Elige una provincia --", allowClear: true} } %>
+      <% placeholder = "-- Elige una provincia --" %>
+      <%= select_tag "user[#{field}]", options_from_collection_for_select(provinces, "code", "name", province), {required: "required", data: {placeholder: placeholder, allowClear: true}, prompt: placeholder } %>
   <% else %>
     <%= text_field(:user, field, class: "form-control input-xl") %>
   <% end %></li>

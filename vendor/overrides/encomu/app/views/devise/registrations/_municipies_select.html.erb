@@ -6,7 +6,8 @@
     <span class="form-wrapper">
     <% towns = get_towns(@user_location[:country], @user_location[:province]) %>
     <% if towns.length>0 %>
-        <%= select_tag "user[town]", "<option></option>".html_safe+options_from_collection_for_select(towns, "code", "name", @user_location[:town]), {required: "required", data: {placeholder: "-- Elige un municipio --"} } %>
+        <% placeholder = "-- Elige un municipio --" %>
+        <%= select_tag "user[town]", options_from_collection_for_select(towns, "code", "name", @user_location[:town]), {required: "required", data: {placeholder: placeholder}, prompt: placeholder } %>
     <% else %>
       <%= text_field(:user, :town, class: "input-xl form-control") %>
     <% end %>
