@@ -131,7 +131,7 @@ es:
         wants_newsletter: 'Newsletter'
         terms_of_service: "He leído y acepto la Política de Privacidad, Aviso Legal y Política de Cookies"
         inscription: "Acepto incribirme en la candidatura"
-        over_18: "Declaro ser mayor de 16 años"
+        over_18: "Declaro ser mayor de 18 años"
         captcha: "Escribe el siguiente texto o número"
         current_password: "Contraseña actual"
 
@@ -568,7 +568,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           <li>
           <a class="cd-faq-trigger" href="#0">10. ¿Quién puede votar?</a>
           <div class="cd-faq-content">
-            <p>Cualquier persona que haya realizado la inscripción en <a href="https://participa.barcelonaencomu.cat" target="_blank">participa.barcelonaencomu.cat</a>, y se haya verificado presencialmente aportando los documentos que se solicitan y tenga más de 16 años.</p>
+            <p>Cualquier persona que haya realizado la inscripción en <a href="https://participa.barcelonaencomu.cat" target="_blank">participa.barcelonaencomu.cat</a>, y se haya verificado presencialmente aportando los documentos que se solicitan y tenga más de 18 años.</p>
           </div> <!-- cd-faq-content -->
           </li>
           <li>
@@ -713,7 +713,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
     step1: Pedir documentos
     step2: Pedir correo electrónico
     step3: Comprobar
-    welcome_html: "<p>Pídele amablemente al usuario/a los documentos que debe haber traído y comprueba que sea <b>mayor de 16 años y que la dirección sea de Barcelona</b>. En caso de que el DNI o NIE no tenga dirección en Barcelona, o en le caso de pasaporte y carnet de conducir, que no pone dirección, se deberá aportar: <ul>
+    welcome_html: "<p>Pídele amablemente al usuario/a los documentos que debe haber traído y comprueba que sea <b>mayor de 18 años y que la dirección sea de Barcelona</b>. En caso de que el DNI o NIE no tenga dirección en Barcelona, o en le caso de pasaporte y carnet de conducir, que no pone dirección, se deberá aportar: <ul>
       <li>
    -Algún documento que acredite dirección en Barcelona:
      </li>
@@ -781,7 +781,7 @@ Gracias por inscribirte en Barcelona en Comú."
 <p>Gracias por inscribirte en Barcelona en Comú.</p>"
     form:
       document: He verificado el documento original del inscrito/a
-      age: El inscrito/a es mayor de 16 años - nacido/a antes de %{date}
+      age: El inscrito/a es mayor de 18 años - nacido/a antes de %{date}
       town: He verificado un documento (DNI/NIE/Pasaporte, recibo de un suministro) que acredita que el inscrito/a vive en Barcelona
   podemos:
     error:

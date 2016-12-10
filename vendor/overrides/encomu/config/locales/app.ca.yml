@@ -112,7 +112,7 @@ ca:
         wants_newsletter: 'Butlletí'
         terms_of_service: "He llegit i accepto les condicions generals"
         inscription: "Accepto incriure'm a Barcelona en Comú"
-        over_18: "Declaro ser major de 16 anys"
+        over_18: "Declaro ser major de 18 anys"
         captcha: "Captcha"
         current_password: "Contrasenya actual"
   formtastic:
@@ -529,7 +529,7 @@ Amb tres passos molt senzills:
       <li>
       <a class='cd-faq-trigger' href='#0'>10. Qui pot votar?</a>
       <div class='cd-faq-content'>
-        <p>Qualsevol  persona inscrita a Barcelona En Comú a través de  http://participa.barcelonaencomu.cat que tingui més de 16 anys i visqui a  Barcelona i hagi realitzat la verificació presencial.</p>
+        <p>Qualsevol  persona inscrita a Barcelona En Comú a través de  http://participa.barcelonaencomu.cat que tingui més de 18 anys i visqui a  Barcelona i hagi realitzat la verificació presencial.</p>
       </div> <!-- cd-faq-content -->
       </li>
       <li>
@@ -714,6 +714,6 @@ Amb tres passos molt senzills:
         message: "Has sigut verificat i ja formes part de la comunitat de Barcelona en Comú. A partir d'ara ja no necessites verificar-te més i podràs participar a les consultes futures. Cada cop que hi hagi una consulta t'avisarem per coreru electrònic perquè puguis participar. Recorda que ara formes part de la comunitat de Barcelona en Comú."
     form:
       document: "He verificat el document original de l'inscrit/a"
-      age: "L'inscrit/a és major de 16 anys - nascut abans de %{date}"
+      age: "L'inscrit/a és major de 18 anys - nascut abans de %{date}"
       town: "He verificat un document (DNI/NIE/Passaport, rebut d'un subministrament) que acredita que l'inscrit/a viu a Barcelona."
 

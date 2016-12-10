@@ -95,7 +95,7 @@ Método de verificación utilizado por Barcelona En Comú. Una vez el usuario se
 inscribe digitalmente debe ir a verificarse presencialmente. Por otro lado un
 grupo de usuarios de confianza para la organización se encarga de verificar
 presencialmente los documentos con los requisitos mínimos que debe cumplir (ser
-mayor de 16 años y con domicilio en Barcelona).
+mayor de 18 años y con domicilio en Barcelona).
 
 * https://barcelonaencomu.cat/es/post/inscribete-bcomu-hagamos-juntos-otra-barcelona
 
