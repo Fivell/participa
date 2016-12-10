@@ -287,6 +287,13 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
 <p> <b> Barcelona En Comú </b></p>
 <p> <b>Versió 28 de febrer de 2015 16:01 </b> </p> "
     registration:
+      legends:
+        inscription_html: TODO
+        legal1: TODO
+        legal2: TODO
+        legal3: TODO
+        password_limits: TODO
+        cant_modify: TODO
       message:
         dni: "El format ha de ser 8 xifres i una lletra, sense guions ni espais."
         nie: "El format ha de ser una lletra, 7 xifres i una lletra, sense guions ni espais."
