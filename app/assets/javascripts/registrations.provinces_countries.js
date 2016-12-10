@@ -26,12 +26,14 @@ function show_towns(parent, field, country_code, province_code, prefix){
   if (province_code=='-')
     return;
 
+  var url, has_towns;
+
   if (province_code && country_code == 'ES') {
-    var url = '/registrations/'+prefix+'/municipies?no_profile=1&user_country=ES&'+parent+'=' + province_code;
-    var has_towns = true;
+    url = '/registrations/'+prefix+'/municipies?no_profile=1&user_country=ES&'+parent+'=' + province_code;
+    has_towns = true;
   } else {
-    var url = '/registrations/'+prefix+'/municipies?no_profile=1';
-    var has_towns = false;
+    url = '/registrations/'+prefix+'/municipies?no_profile=1';
+    has_towns = false;
   }
 
   if (!has_towns && no_towns_html) {
