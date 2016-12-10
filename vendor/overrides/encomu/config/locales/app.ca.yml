@@ -252,22 +252,9 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
         token: Codi SMS
         button: "Comprova"
         captcha_invalid: "Captcha invàlid"
-    registration:
-      message:
-        dni: "El format ha de ser 8 xifres i una lletra, sense guions ni espais."
-        nie: "El format ha de ser una lletra, 7 xifres i una lletra, sense guions ni espais."
-        passport: "El format ha de ser sense guions ni espais."
-        welcome_html: " <span>
-        Per formar part de Barcelona en Comú has de seguir els passos següents:
-      </span>
-      <ol>
-         <li><span class='welcome-number'>1</span><span  class='welcome-thumb'>%{logo_inscription}</span><span  class='welcome-text'><b>Inscripció a través d' Internet</b>:  Emplena el següent formulari. Revisa el teu correu, confirma'l amb l'enllaç que t'enviarem.</span></li>
-         <li><span class='welcome-number'>2</span><span  class='welcome-thumb'>%{logo_verification}</span><span  class='welcome-text'><b>Verificació presencial</b>:  Hauràs de portar documentació que acrediti la teva identitat i residència a Barcelona ciutat a algun dels punts de verificació.</span></li>
-         <li><span class='welcome-number'>3</span><span  class='welcome-thumb'>%{logo_voting}</span><span  class='welcome-text'><b>Votació por Internet</b>: T'avisarem per correu electrònic perquè puguis participar a les properes consultes.</span></li>
-      </ol>"
-  terms_of_service:
-    title: 'Condicions generals'
-    p1_html: " <h2>Condicions generals d'inscripció i política de privacitat</h2>
+      terms_of_service:
+        title: 'Condicions generals'
+        p1_html: " <h2>Condicions generals d'inscripció i política de privacitat</h2>
 <p><b> 1. Condicions legals de la inscripció a Barcelona En Comú Partit Polític</b></p>
 <p>
 Quan s'emplena i envia el formulari d'inscripció l'interessat passarà a ser membre de Barcelona En Comú Partit Polític amb CIF G66476136 i serà titular dels drets i obligacions reconeguts per la legislació espanyola a tots els inscrits en partits polítics.
@@ -299,6 +286,19 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
 </p>
 <p> <b> Barcelona En Comú </b></p>
 <p> <b>Versió 28 de febrer de 2015 16:01 </b> </p> "
+    registration:
+      message:
+        dni: "El format ha de ser 8 xifres i una lletra, sense guions ni espais."
+        nie: "El format ha de ser una lletra, 7 xifres i una lletra, sense guions ni espais."
+        passport: "El format ha de ser sense guions ni espais."
+        welcome_html: " <span>
+        Per formar part de Barcelona en Comú has de seguir els passos següents:
+      </span>
+      <ol>
+         <li><span class='welcome-number'>1</span><span  class='welcome-thumb'>%{logo_inscription}</span><span  class='welcome-text'><b>Inscripció a través d' Internet</b>:  Emplena el següent formulari. Revisa el teu correu, confirma'l amb l'enllaç que t'enviarem.</span></li>
+         <li><span class='welcome-number'>2</span><span  class='welcome-thumb'>%{logo_verification}</span><span  class='welcome-text'><b>Verificació presencial</b>:  Hauràs de portar documentació que acrediti la teva identitat i residència a Barcelona ciutat a algun dels punts de verificació.</span></li>
+         <li><span class='welcome-number'>3</span><span  class='welcome-thumb'>%{logo_voting}</span><span  class='welcome-text'><b>Votació por Internet</b>: T'avisarem per correu electrònic perquè puguis participar a les properes consultes.</span></li>
+      </ol>"
     legacy:
       password:
         title: "Canviar contrasenya antiga"
