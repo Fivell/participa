@@ -47,16 +47,16 @@ function show_towns(parent, field, country_code, province_code, prefix){
             formatNoMatches: 'No se encontraron resultados'
           });
 
-          if (field=='user_town') {
-            var options = town_select.children('option');
-            if (options.length>1) {
-              var postal_code = $('#user_postal_code').val();
-              var prefix = options[1].value.substr(2,2);
-              if (postal_code.length<5 || postal_code.substr(0, 2) != prefix) {
-                $('#user_postal_code').val(prefix);
-              }
+        if (field=='user_town') {
+          var options = town_select.children('option');
+          if (options.length>1) {
+            var postal_code = $('#user_postal_code').val();
+            var prefix = options[1].value.substr(2,2);
+            if (postal_code.length<5 || postal_code.substr(0, 2) != prefix) {
+              $('#user_postal_code').val(prefix);
             }
           }
+        }
       } else
         no_towns_html = response;
     });
