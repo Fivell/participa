@@ -264,11 +264,6 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
          <li><span class='welcome-number'>2</span><span  class='welcome-thumb'>%{logo_verification}</span><span  class='welcome-text'><b>Verificació presencial</b>:  Hauràs de portar documentació que acrediti la teva identitat i residència a Barcelona ciutat a algun dels punts de verificació.</span></li>
          <li><span class='welcome-number'>3</span><span  class='welcome-thumb'>%{logo_voting}</span><span  class='welcome-text'><b>Votació por Internet</b>: T'avisarem per correu electrònic perquè puguis participar a les properes consultes.</span></li>
       </ol>"
-  legacy:
-    password:
-      title: "Canviar contrasenya antiga"
-      explain: "Per motius de seguretat has de canviar la contrasenya."
-      changed: "Has canviat la teva contrasenya"
   terms_of_service:
     title: 'Condicions generals'
     p1_html: " <h2>Condicions generals d'inscripció i política de privacitat</h2>
@@ -305,7 +300,7 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
 <p> <b>Versió 28 de febrer de 2015 16:01 </b> </p> "
     legacy:
       password:
-        title: "Canvia contrasenya antiga"
+        title: "Canviar contrasenya antiga"
         explain: "Per motius de seguretat has de canviar la contrasenya."
         changed: "Has canviat la teva contrasenya"
     legal:
