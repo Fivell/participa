@@ -1,4 +1,3 @@
-
 document_change = (document_type) ->
   $('.js-registration-document-wrapper').removeClass('invisible')
   $('.js-registration-document-wrapper label').html("#{document_type} <abbr title='required'>*</abbr>")
@@ -39,4 +38,3 @@ $(window).bind 'page:change', ->
 
 $ ->
   init_registrations()
-

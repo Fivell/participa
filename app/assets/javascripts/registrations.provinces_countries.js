@@ -1,4 +1,3 @@
-
 function show_provinces(country_code){
   // change to provinces for a given country
   var select_wrapper = $('#js-registration-user_province-wrapper');
@@ -94,7 +93,7 @@ $(function() {
     if ($('select#user_province').is(':disabled')) {
       country_selector.trigger('change');
     }
-    
+
     if (can_change_vote_location) {
       toggle_vote_town(country_selector.val());
       $('select#user_vote_province').on('change', function() {
@@ -104,8 +103,7 @@ $(function() {
         $('select#user_vote_province').trigger('change');
       }
     } else {
-      toggle_vote_town(false);  
+      toggle_vote_town(false);
     }
   }
 });
-
