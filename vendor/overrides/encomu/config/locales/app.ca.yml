@@ -264,8 +264,6 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
          <li><span class='welcome-number'>2</span><span  class='welcome-thumb'>%{logo_verification}</span><span  class='welcome-text'><b>Verificació presencial</b>:  Hauràs de portar documentació que acrediti la teva identitat i residència a Barcelona ciutat a algun dels punts de verificació.</span></li>
          <li><span class='welcome-number'>3</span><span  class='welcome-thumb'>%{logo_voting}</span><span  class='welcome-text'><b>Votació por Internet</b>: T'avisarem per correu electrònic perquè puguis participar a les properes consultes.</span></li>
       </ol>"
-        dni: "El format ha de ser de 8 números i una lletra, sense guions ni espais."
-        nie: "El format ha de ser de 7 números i una lletra, sense guions ni espais."
   legacy:
     password:
       title: "Canviar contrasenya antiga"
