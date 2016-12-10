@@ -252,6 +252,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
         token: Codi SMS
         button: "Comprova"
         captcha_invalid: "Captcha invàlid"
+    registration:
       message:
         dni: "El format ha de ser 8 xifres i una lletra, sense guions ni espais."
         nie: "El format ha de ser una lletra, 7 xifres i una lletra, sense guions ni espais."
