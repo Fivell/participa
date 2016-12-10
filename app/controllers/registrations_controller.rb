@@ -9,19 +9,49 @@ class RegistrationsController < Devise::RegistrationsController
   def regions_provinces
     # Dropdownw for AJAX on registrations edit/new
     #
-    render partial: 'subregion_select', locals:{country: @user_location[:country], province: @user_location[:province], disabled: false, required: true, field: :province, title:"Provincia", options_filter:((!current_user or current_user.can_change_vote_location?) ? User.blocked_provinces : nil) }
+    render \
+      partial: 'subregion_select',
+      locals: {
+        country: @user_location[:country],
+        province: @user_location[:province],
+        disabled: false,
+        required: true,
+        field: :province,
+        title: "Provincia",
+        options_filter: ((!current_user or current_user.can_change_vote_location?) ? User.blocked_provinces : nil)
+      }
   end
 
   def regions_municipies
     # Dropdownw for AJAX on registrations edit/new
     #
-    render partial: 'municipies_select', locals:{country: @user_location[:country], province: @user_location[:province], town: @user_location[:town], disabled: false, required: true, field: :town, title:"Municipio"}
+    render \
+      partial: 'municipies_select',
+      locals: {
+        country: @user_location[:country],
+        province: @user_location[:province],
+        town: @user_location[:town],
+        disabled: false,
+        required: true,
+        field: :town,
+        title: "Municipio"
+      }
   end
 
   def vote_municipies
     # Dropdownw for AJAX on registrations edit/new
     #
-    render partial: 'municipies_select', locals:{country: "ES", province: @user_location[:vote_province], town: @user_location[:vote_town], disabled: false, required: false, field: :vote_town, title:"Municipio de participación"}
+    render \
+      partial: 'municipies_select',
+      locals: {
+        country: "ES",
+        province: @user_location[:vote_province],
+        town: @user_location[:vote_town],
+        disabled: false,
+        required: false,
+        field: :vote_town,
+        title: "Municipio de participación"
+      }
   end
 
   def new
