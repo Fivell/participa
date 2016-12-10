@@ -1,5 +1,13 @@
 
 ca:
+  enumerize:
+    user:
+      gender_identity:
+        cis_man: Home cis
+        cis_woman: Dona cis
+        trans_man: Home trans
+        trans_woman: Dona trans
+        fluid: Gènere fluid
   errors:
     show:
       "404":
@@ -100,6 +108,7 @@ ca:
         document_type: "Tipus de document"
         document_vatid: "Núm. de document"
         born_at: "Data de naixement"
+        gender_identity: "Identitat de gènere"
         email: "Correu electrònic"
         email_confirmation: "Correu electrònic (repetir)"
         phone: "Telèfon mòbil"
@@ -292,6 +301,12 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
         legal3: TODO
         password_limits: TODO
         cant_modify: TODO
+        cis_title: CIS (cisgènere)
+        cis_definition: persona que s'identifica amb el gènere que li va ser assignat al néixer
+        trans_key: TRANS (transgènere)
+        trans_definition: persona que no s'identifica amb el gènere que li va ser assignat al néixer i per tant viu en una altra identitat de gènere
+        fluid_key: Gènere fluid
+        fluid_definition: persona que no s'identifica amb cap dels dos gènere binaris establerts de forma única
       message:
         dni: "El format ha de ser 8 xifres i una lletra, sense guions ni espais."
         nie: "El format ha de ser una lletra, 7 xifres i una lletra, sense guions ni espais."

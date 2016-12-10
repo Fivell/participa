@@ -103,6 +103,28 @@
                   start_year: 1999,
                   end_year: 1900 %>
     </div>
+
+    <div class="inputlabel-box">
+      <% if resource.errors.include?(:gender_identity) %>
+          <%= field_notice_box %>
+      <% end %>
+
+      <%= f.input :gender_identity %>
+    </div>
+
+    <div class="inputlabel-box">
+      <label class="control-label"></label>
+      <div class="form-wrapper">
+        <ul>
+          <% %w(cis trans fluid).each do |term| %>
+            <li class="text-xl">
+              <strong><%= t("bec.registration.legends.#{term}_key") %></strong>:
+              <%= t("bec.registration.legends.#{term}_definition") %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </fieldset>
 
   <fieldset>

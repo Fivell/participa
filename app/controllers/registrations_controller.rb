@@ -174,6 +174,7 @@ class RegistrationsController < Devise::RegistrationsController
       password
       password_confirmation
       born_at
+      gender_identity
       wants_newsletter
       country
       province
