@@ -9,6 +9,7 @@ function show_provinces(country_code, catalonia_resident){
   }
 
   $('#user_town').disable_control();
+  $('#user_postal_code').val('');
   $select_wrapper.load(url + ' ' + select_id + '> *', function() {
     var $prov_select = $('select#user_province');
     if ($prov_select.length > 0 && $prov_select.select2)
@@ -24,6 +25,7 @@ function show_towns(parent, field, country_code, province_code, prefix){
   var $select_wrapper = $(select_id);
 
   $('#' + field).disable_control();
+  $('#user_postal_code').val('');
   if (province_code == '' || country_code != 'ES')
     return;
 
