@@ -1,6 +1,7 @@
 // change to provinces for a given country
 function show_provinces(country_code, catalonia_resident){
-  var $select_wrapper = $('#js-registration-user_province-wrapper');
+  var select_id = '#js-registration-user_province-wrapper';
+  var $select_wrapper = $(select_id);
   var url = '/registrations/regions/provinces?no_profile=1&user_country=' + country_code;
 
   if (!(catalonia_resident === undefined)) {
@@ -9,7 +10,7 @@ function show_provinces(country_code, catalonia_resident){
 
   $('#user_town').disable_control();
   $('#user_province').disable_control();
-  $select_wrapper.load(url, function() {
+  $select_wrapper.load(url + ' ' + select_id + '> *', function() {
     var $prov_select = $('select#user_province');
     if ($prov_select.length > 0 && $prov_select.select2)
       $prov_select.select2({
@@ -23,7 +24,8 @@ function show_provinces(country_code, catalonia_resident){
 var no_towns_html = '';
 // change to provinces for a given country
 function show_towns(parent, field, country_code, province_code, prefix){
-  var $select_wrapper = $('#js-registration-' + field + '-wrapper');
+  var select_id = '#js-registration-' + field + '-wrapper';
+  var $select_wrapper = $(select_id);
 
   $('#' + field).disable_control();
   if (province_code == '-')
@@ -42,7 +44,7 @@ function show_towns(parent, field, country_code, province_code, prefix){
   if (!has_towns && no_towns_html) {
     $select_wrapper.html(no_towns_html);
   } else {
-    $select_wrapper.load(url, function(response) {
+    $select_wrapper.load(url + ' ' + select_id + '> *', function(response) {
       if (has_towns) {
         var $town_select = $('select#' + field);
         if ($town_select.select2)
