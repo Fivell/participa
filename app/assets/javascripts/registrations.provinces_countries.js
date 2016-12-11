@@ -1,5 +1,5 @@
+// change to provinces for a given country
 function show_provinces(country_code){
-  // change to provinces for a given country
   var $select_wrapper = $('#js-registration-user_province-wrapper');
   var url = '/registrations/regions/provinces?no_profile=1&user_country=' + country_code;
 
@@ -17,8 +17,8 @@ function show_provinces(country_code){
 }
 
 var no_towns_html='';
+// change to provinces for a given country
 function show_towns(parent, field, country_code, province_code, prefix){
-  // change to provinces for a given country
   var $select_wrapper = $('#js-registration-'+field+'-wrapper');
 
   $('#'+field).disable_control();
