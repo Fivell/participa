@@ -9,7 +9,6 @@ function show_provinces(country_code, catalonia_resident){
   }
 
   $('#user_town').disable_control();
-  $('#user_province').disable_control();
   $select_wrapper.load(url + ' ' + select_id + '> *', function() {
     var $prov_select = $('select#user_province');
     if ($prov_select.length > 0 && $prov_select.select2)
