@@ -15,8 +15,6 @@ function show_provinces(country_code, catalonia_resident){
       $prov_select.select2({
         formatNoMatches: 'No se encontraron resultados'
       });
-    else
-      show_towns(null);
   });
 }
 
