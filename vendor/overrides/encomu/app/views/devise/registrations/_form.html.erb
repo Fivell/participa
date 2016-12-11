@@ -1,10 +1,6 @@
 <%= errors_in_form resource %>
 <%= semantic_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {novalidate: true}) do |f| %>
   <fieldset>
-    <legend class="invisible">
-      <span>Completar perfil</span>
-    </legend>
-
     <% if action == "new" %>
       <div class="subtitle-welcome">
         <%= t('bec.registration.message.welcome_html',
@@ -110,6 +106,7 @@
   </fieldset>
 
   <fieldset>
+    <legend><span><%= t('domicilio') %></span></legend>
 
     <div class="inputlabel-box">
       <%= label_tag :catalonia_resident,
@@ -156,6 +153,7 @@
   </fieldset>
 
   <fieldset>
+    <legend><span><%= t('access_data') %></span></legend>
 
     <% if action == "new" %>
     <div class="inputlabel-box">
@@ -194,8 +192,7 @@
       </fieldset>
 
       <fieldset class="with-tos">
-
-        <legend> </legend>
+        <legend><span><%= t('consentimiento') %></span></legend>
 
         <div class="inputlabel-box">
           <% if resource.errors.include?(:inscription) %>

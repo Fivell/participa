@@ -667,6 +667,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           </div> <!-- cd-faq-content -->'
   domicilio: "Domicilio"
   consentimiento: "Consentimiento"
+  access_data: "Datos de acceso"
   accepto1_html: 'Acepto la Política de Privacidad, Aviso Legal y Política de Cookies<br />
   <a target="_blank" href="https://barcelonaencomu.cat/es/politica-de-privacidad">Véase la política de privacidad</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/es/aviso-legal">Véase el aviso legal</a><br>

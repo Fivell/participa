@@ -637,6 +637,7 @@ Amb tres passos molt senzills:
       </div> <!-- cd-faq-content -->"
   domicilio: "Domicili"
   consentimiento: "Consentiment"
+  access_data: "Dades d'accés"
   accepto1_html: 'Accepto la Política de Privacitat, Avís Legal i Politica de Cookies<br />
   <a target="_blank" href="https://barcelonaencomu.cat/ca/politica-de-privacitat">Mira la política de privacitat</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/ca/avis-legal">Mira avís legal</a><br>
