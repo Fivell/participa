@@ -81,9 +81,9 @@ $(function() {
     };
 
     $country_selector.on('change', function() {
-      var country = $(this).val();
-      if (can_change_vote_location) toggle_vote_town(country);
-      show_provinces( country );
+      var country_code = $(this).val();
+      if (can_change_vote_location) toggle_vote_town(country_code);
+      show_provinces( country_code );
     });
 
     $(document.body).on('change', 'select#user_province', function() {
