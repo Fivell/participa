@@ -1,7 +1,11 @@
 // change to provinces for a given country
-function show_provinces(country_code){
+function show_provinces(country_code, catalonia_resident){
   var $select_wrapper = $('#js-registration-user_province-wrapper');
   var url = '/registrations/regions/provinces?no_profile=1&user_country=' + country_code;
+
+  if (!(catalonia_resident === undefined)) {
+    url = url + '&catalonia_resident=' + catalonia_resident;
+  }
 
   $('#user_town').disable_control();
   $('#user_province').disable_control();
@@ -67,10 +71,28 @@ function toggle_vote_town(country) {
 }
 
 var can_change_vote_location;
+
+$.fn.flag_catalonian_residence = function() {
+  this.each(function() {
+    var $country = $('#user_country');
+    var $country_group = $country.parents('.inputlabel-box');
+
+    if (this.checked) {
+      show_provinces( 'ES', '1' );
+      $country_group.hide();
+    } else {
+      show_provinces( $country.find(':selected').val(), '0' );
+      $country_group.show();
+    }
+  });
+};
+
 $(function() {
   can_change_vote_location = !$('select#user_vote_province').is(':disabled');
 
   var $country = $('select#user_country');
+  var $catalonia_resident = $('#catalonia_resident');
+
   if ($country.length) {
     $.fn.disable_control = function( ) {
       if (this.data('select2'))
@@ -83,7 +105,7 @@ $(function() {
     $country.on('change', function() {
       var country_code = $(this).val();
       if (can_change_vote_location) toggle_vote_town(country_code);
-      show_provinces( country_code );
+      show_provinces( country_code, $catalonia_resident.is(':checked') ? '1' : '0' );
     });
 
     $(document.body).on('change', 'select#user_province', function() {
@@ -106,4 +128,10 @@ $(function() {
       toggle_vote_town(false);
     }
   }
+
+  $catalonia_resident.flag_catalonian_residence();
+
+  $catalonia_resident.click(function() {
+    $(this).flag_catalonian_residence();
+  });
 });

@@ -284,6 +284,7 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
 <p> <b> Barcelona En Comú </b></p>
 <p> <b>Versió 28 de febrer de 2015 16:01 </b> </p> "
     registration:
+      catalonia_resident: Resideixo a Catalunya
       legends:
         inscription_html: TODO
         legal1: TODO

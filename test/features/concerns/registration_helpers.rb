@@ -9,16 +9,26 @@ module Participa
 
       def fill_in_user_registration(user, document_vatid, email)
         fill_in_personal_data(user, document_vatid)
-        fill_in_location_data
+        fill_in_location_data(province: 'Barcelona',
+                              town: 'Barcelona',
+                              postal_code: '08021')
         fill_in_login_data(user, email)
         acknowledge_stuff
       end
 
-      def fill_in_location_data
-        select('Barcelona', :from=>'Provincia')
-        select("Barcelona", from: "Municipio")
-        fill_in('Código postal', :with => '08021')
-        fill_in('Dirección', :with => 'C/El Muro, S/N')
+      def fill_in_location_data(country: nil,
+                                province:,
+                                town: nil,
+                                postal_code: '08021')
+        if country
+          uncheck 'Resido en Cataluña'
+          select(country, from: 'País')
+        end
+
+        select(province, from: 'Provincia')
+        select(town, from: 'Municipio') if town
+        fill_in('Código postal', with: postal_code)
+        fill_in('Dirección', with: 'C/El Muro, S/N')
       end
 
       def acknowledge_stuff

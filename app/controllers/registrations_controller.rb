@@ -12,6 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
     render \
       partial: 'subregion_select',
       locals: {
+        catalonia_resident: @user_location[:catalonia_resident],
         country: @user_location[:country],
         province: @user_location[:province],
         disabled: false,
@@ -174,6 +175,9 @@ class RegistrationsController < Devise::RegistrationsController
       password_confirmation
       born_at
       wants_newsletter
+      country
+      province
+      town
       address
       postal_code
     )

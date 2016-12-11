@@ -612,6 +612,7 @@ class User < ActiveRecord::Base
   def self.get_location(current_user, params)
     # params from edit page
     user_location = {
+      catalonia_resident: cast_catalonia_resident(params[:catalonia_resident]),
       country: params[:user_country],
       province: params[:user_province],
       town: params[:user_town],
@@ -643,10 +644,19 @@ class User < ActiveRecord::Base
       end
     end
 
-    # default country
+    # defaults
     user_location[:country] ||= "ES"
+    if user_location[:catalonia_resident].nil?
+      user_location[:catalonia_resident] = true
+    end
 
     user_location
+  end
+
+  def self.cast_catalonia_resident(param)
+    return unless param
+
+    param == "1" ? true : false
   end
 
   def self.ban_users ids, value
