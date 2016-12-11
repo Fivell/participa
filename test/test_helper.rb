@@ -8,6 +8,8 @@ require 'minitest/reporters'
 require 'minitest/rails/capybara'
 require 'capybara/poltergeist'
 
+require 'support/database_cleaner'
+
 SimpleCov.start
 WebMock.disable_net_connect!(allow_localhost: true)
 Minitest::Reporters.use!
@@ -27,19 +29,6 @@ def with_blocked_change_location
     Rails.application.secrets.users["allows_location_change"] = true
   end
 end
-
-# FIX Capybara error: SQLite3::BusyException: database is locked
-# http://atlwendy.ghost.io/capybara-database-locked/
-class ActiveRecord::Base
-  mattr_accessor :shared_connection
-  @@shared_connection = nil
-
-  def self.connection
-    @@shared_connection || retrieve_connection
-  end
-end
-
-ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
 
 # Poltergeist customization
 Capybara.register_driver :poltergeist do |app|
