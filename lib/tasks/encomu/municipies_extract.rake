@@ -1,5 +1,5 @@
-namespace :podemos do
-  desc "[podemos] Generate SQL commands for lists creation in Sendy"
+namespace :encomu do
+  desc "[encomu] Generate SQL commands for lists creation in Sendy"
   task :generate_sendy_lists => :environment do
     sendy_lists = SendyListsUpdater.new Rails.application.secrets.sendy["appID"], Rails.application.secrets.sendy["userID"]
 
@@ -12,7 +12,7 @@ namespace :podemos do
     sendy_lists.close
   end
 
-  desc "[podemos] Extract municipies information from INE"
+  desc "[encomu] Extract municipies information from INE"
   # http://www.ine.es/jaxi/menu.do?type=pcaxis&path=/t20/e245/codmun&file=inebase 
   #    Relación de municipios y códigos por provincias a 01-01-2014
   #    http://www.ine.es/daco/daco42/codmun/codmunmapa.htm

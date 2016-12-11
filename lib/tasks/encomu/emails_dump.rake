@@ -1,8 +1,8 @@
 require 'csv'
 
-namespace :podemos do
+namespace :encomu do
 
-  desc "[podemos] Dump users emails with location information to create lists"
+  desc "[encomu] Dump users emails with location information to create lists"
   task :dump_emails => :environment do
     FileUtils.mkdir_p("tmp/sendy") unless File.directory?("tmp/sendy")
     CSV.open( "tmp/sendy/users.csv", 'w', { force_quotes: true } ) do |writer|

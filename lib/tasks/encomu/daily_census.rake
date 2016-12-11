@@ -3,10 +3,10 @@ require 'podemos_export'
 UNKNOWN = "Desconocido"
 FOREIGN = "Extranjeros"
 
-namespace :podemos do
+namespace :encomu do
 
     
-  desc "[podemos] Dump counters for users attributes"
+  desc "[encomu] Dump counters for users attributes"
   task :daily_census, [:year,:month,:day] => :environment do |t, args|
     args.with_defaults(:year => nil, :month=>nil, :day=>nil)
 
