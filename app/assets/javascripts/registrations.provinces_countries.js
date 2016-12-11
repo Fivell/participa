@@ -7,7 +7,7 @@ function show_provinces(country_code){
   $('#user_province').disable_control();
   $select_wrapper.load(url, function() {
     var $prov_select = $('select#user_province');
-    if ($prov_select.length>0 && $prov_select.select2)
+    if ($prov_select.length > 0 && $prov_select.select2)
       $prov_select.select2({
         formatNoMatches: 'No se encontraron resultados'
       });
@@ -16,22 +16,22 @@ function show_provinces(country_code){
   });
 }
 
-var no_towns_html='';
+var no_towns_html = '';
 // change to provinces for a given country
 function show_towns(parent, field, country_code, province_code, prefix){
-  var $select_wrapper = $('#js-registration-'+field+'-wrapper');
+  var $select_wrapper = $('#js-registration-' + field + '-wrapper');
 
-  $('#'+field).disable_control();
-  if (province_code=='-')
+  $('#' + field).disable_control();
+  if (province_code == '-')
     return;
 
   var url, has_towns;
 
   if (province_code && country_code == 'ES') {
-    url = '/registrations/'+prefix+'/municipies?no_profile=1&user_country=ES&'+parent+'=' + province_code;
+    url = '/registrations/' + prefix + '/municipies?no_profile=1&user_country=ES&' + parent + '=' + province_code;
     has_towns = true;
   } else {
-    url = '/registrations/'+prefix+'/municipies?no_profile=1';
+    url = '/registrations/' + prefix + '/municipies?no_profile=1';
     has_towns = false;
   }
 
@@ -40,18 +40,18 @@ function show_towns(parent, field, country_code, province_code, prefix){
   } else {
     $select_wrapper.load(url, function(response) {
       if (has_towns) {
-        var $town_select = $('select#'+field);
+        var $town_select = $('select#' + field);
         if ($town_select.select2)
           $town_select.select2({
             formatNoMatches: 'No se encontraron resultados'
           });
 
-        if (field=='user_town') {
+        if (field == 'user_town') {
           var options = $town_select.children('option');
-          if (options.length>1) {
+          if (options.length > 1) {
             var postal_code = $('#user_postal_code').val();
             var prefix = options[1].value.substr(2,2);
-            if (postal_code.length<5 || postal_code.substr(0, 2) != prefix) {
+            if (postal_code.length < 5 || postal_code.substr(0, 2) != prefix) {
               $('#user_postal_code').val(prefix);
             }
           }
@@ -99,7 +99,7 @@ $(function() {
       $('select#user_vote_province').on('change', function() {
         show_towns( 'user_vote_province', 'user_vote_town', 'ES', $(this).val(), 'vote' );
       });
-      if ($('select#user_vote_province').val()=='-'||$('select#user_vote_town').is(':disabled')) {
+      if ($('select#user_vote_province').val() == '-' || $('select#user_vote_town').is(':disabled')) {
         $('select#user_vote_province').trigger('change');
       }
     } else {
