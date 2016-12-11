@@ -134,14 +134,49 @@ class RegistrationsController < Devise::RegistrationsController
   # http://www.jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html
 
   def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :born_at, :wants_newsletter, :document_type, :document_vatid, :terms_of_service, :over_18, :inscription, :address, :district, :vote_town, :vote_province, :postal_code, :captcha, :captcha_key)
+    params.require(:user).permit(*sign_up_permitted_list)
   end
 
   def account_update_params
+    params.require(:user).permit(*account_update_permitted_list)
+  end
+
+  def account_update_permitted_list
     if current_user.can_change_vote_location?
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password, :born_at, :wants_newsletter, :address, :postal_code, :district, :vote_province, :vote_town)
+      common_permitted_list + %i(current_password vote_province vote_town)
     else
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password, :born_at, :wants_newsletter, :address, :postal_code, :district)
+      common_permitted_list + %i(current_password)
     end
+  end
+
+  def sign_up_permitted_list
+    common_permitted_list +
+      %i(
+        document_type
+        document_vatid
+        terms_of_service
+        over_18
+        inscription
+        vote_town
+        vote_province
+        captcha
+        catcha_key
+      )
+  end
+
+  def common_permitted_list
+    %i(
+      first_name
+      last_name
+      email
+      email_confirmation
+      password
+      password_confirmation
+      born_at
+      wants_newsletter
+      address
+      district
+      postal_code
+    )
   end
 end
