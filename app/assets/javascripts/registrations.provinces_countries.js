@@ -70,8 +70,8 @@ var can_change_vote_location;
 $(function() {
   can_change_vote_location = !$('select#user_vote_province').is(':disabled');
 
-  var $country_selector = $('select#user_country');
-  if ($country_selector.length) {
+  var $country = $('select#user_country');
+  if ($country.length) {
     $.fn.disable_control = function( ) {
       if (this.data('select2'))
         this.select2('enable', false).select2('val', '').attr('data-placeholder', '-').select2();
@@ -80,22 +80,22 @@ $(function() {
       return this;
     };
 
-    $country_selector.on('change', function() {
+    $country.on('change', function() {
       var country_code = $(this).val();
       if (can_change_vote_location) toggle_vote_town(country_code);
       show_provinces( country_code );
     });
 
     $(document.body).on('change', 'select#user_province', function() {
-      show_towns( 'user_province', 'user_town', $country_selector.val(), $(this).val(), 'regions' );
+      show_towns( 'user_province', 'user_town', $country.val(), $(this).val(), 'regions' );
     });
 
     if ($('select#user_province').is(':disabled')) {
-      $country_selector.trigger('change');
+      $country.trigger('change');
     }
 
     if (can_change_vote_location) {
-      toggle_vote_town($country_selector.val());
+      toggle_vote_town($country.val());
       $('select#user_vote_province').on('change', function() {
         show_towns( 'user_vote_province', 'user_vote_town', 'ES', $(this).val(), 'vote' );
       });
