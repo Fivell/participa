@@ -18,51 +18,35 @@ function show_provinces(country_code, catalonia_resident){
   });
 }
 
-var no_towns_html = '';
 // change to provinces for a given country
 function show_towns(parent, field, country_code, province_code, prefix){
   var select_id = '#js-registration-' + field + '-wrapper';
   var $select_wrapper = $(select_id);
 
   $('#' + field).disable_control();
-  if (province_code == '-')
+  if (province_code == '' || country_code != 'ES')
     return;
 
-  var url, has_towns;
+  var url = '/registrations/' + prefix + '/municipies?no_profile=1&user_country=ES&' + parent + '=' + province_code;
 
-  if (province_code && country_code == 'ES') {
-    url = '/registrations/' + prefix + '/municipies?no_profile=1&user_country=ES&' + parent + '=' + province_code;
-    has_towns = true;
-  } else {
-    url = '/registrations/' + prefix + '/municipies?no_profile=1';
-    has_towns = false;
-  }
+  $select_wrapper.load(url + ' ' + select_id + '> *', function() {
+    var $town_select = $('select#' + field);
+    if ($town_select.select2)
+      $town_select.select2({
+        formatNoMatches: 'No se encontraron resultados'
+      });
 
-  if (!has_towns && no_towns_html) {
-    $select_wrapper.html(no_towns_html);
-  } else {
-    $select_wrapper.load(url + ' ' + select_id + '> *', function(response) {
-      if (has_towns) {
-        var $town_select = $('select#' + field);
-        if ($town_select.select2)
-          $town_select.select2({
-            formatNoMatches: 'No se encontraron resultados'
-          });
-
-        if (field == 'user_town') {
-          var options = $town_select.children('option');
-          if (options.length > 1) {
-            var postal_code = $('#user_postal_code').val();
-            var prefix = options[1].value.substr(2,2);
-            if (postal_code.length < 5 || postal_code.substr(0, 2) != prefix) {
-              $('#user_postal_code').val(prefix);
-            }
-          }
+    if (field == 'user_town') {
+      var options = $town_select.children('option');
+      if (options.length > 1) {
+        var postal_code = $('#user_postal_code').val();
+        var prefix = options[1].value.substr(2,2);
+        if (postal_code.length < 5 || postal_code.substr(0, 2) != prefix) {
+          $('#user_postal_code').val(prefix);
         }
-      } else
-        no_towns_html = response;
-    });
-  }
+      }
+    }
+  });
 }
 
 function toggle_vote_town(country) {
