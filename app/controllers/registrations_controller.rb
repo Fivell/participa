@@ -64,7 +64,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource(sign_up_params)
-    if resource.valid_with_captcha?
+    if resource.is_captcha_valid?
       super do
         result, status = user_already_exists? resource, :document_vatid
         if status and result.errors.empty?
