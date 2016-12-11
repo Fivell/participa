@@ -1,9 +1,17 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby RUBY_VERSION
+
+# @todo Revisit the warnings fixed by this in Bundler 2, I guess they will be
+# fixed and this won't be needed
+#
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+
+  "https://github.com/#{repo_name}.git"
+end
 
 gem 'rails', '~> 4.2.2'
-gem 'sqlite3'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -32,7 +40,7 @@ gem 'esendex'
 gem 'activeadmin'
 gem 'active_skin'
 gem 'mailcatcher' # for staging too
-gem 'resque', github: 'resque/resque', branch: '1-x-stable', require: 'resque/server'
+gem 'resque', github: 'resque/resque', require: 'resque/server'
 gem 'aws-ses', '~> 0.6.0', :require => 'aws/ses'
 gem 'kaminari'
 gem 'pushmeup'
@@ -72,6 +80,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rails-perftest'
+  gem 'rubocop'
   gem 'ruby-prof'
   gem 'simplecov'
   gem 'webmock'

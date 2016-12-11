@@ -414,12 +414,13 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should .charge! work" do
+    skip 'Flaky test'
     collaboration = FactoryGirl.create(:collaboration, :credit_card)
     collaboration.update_attribute(:status, 2)
     order = collaboration.create_order Date.today
     order.save
     assert_equal "Nueva", order.status_name
-    assert_equal nil, order.payment_response
+    assert_nil order.payment_response
 
     stub_request(:post, order.redsys_post_url).to_return(:status => 200, :body => "<!-- +(RSisReciboOK)+ -->", :headers => {})
     collaboration.charge!

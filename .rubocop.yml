@@ -1,0 +1,24 @@
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*.rb
+
+  DisplayCopNames: true
+
+  DisplayStyleGuide: true
+
+  TargetRubyVersion: 2.3
+
+Rails:
+  Enabled: true
+
+Style/ExtraSpacing:
+  AllowForAlignment: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Performance/Casecmp:
+  Enabled: false
+
+inherit_from: .rubocop_todo.yml

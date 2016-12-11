@@ -4,7 +4,7 @@
 USER=vagrant
 
 sudo apt-get update
-sudo apt-get install -y postgresql-9.3 imagemagick redis-server curl git-core libpq-dev build-essential sqlite3 qt5-default libqt5webkit5-dev wkhtmltopdf
+sudo apt-get install -y postgresql imagemagick redis-server curl git libpq-dev build-essential qt5-default libqt5webkit5-dev wkhtmltopdf
 
 rm -rf /usr/local/rvm
 
@@ -12,7 +12,10 @@ cat > /home/vagrant/.gemrc <<EOF
 gem: --no-ri --no-rdoc
 EOF
 
-# TODO create postgres DB and config/database.yml
+sudo -u postgres psql -c "CREATE USER participa WITH NOSUPERUSER \
+                                                     CREATEDB \
+                                                    NOCREATEROLE \
+                                                    PASSWORD 'participa'"
 
 cat > /home/vagrant/deploy.sh <<EOF
 #!/usr/bin/env bash
@@ -35,13 +38,13 @@ bundle install
 cp config/database.yml.example config/database.yml
 cp config/secrets.yml.example config/secrets.yml
 
-rake db:migrate
-mailcatcher
-rails server -b 0.0.0.0 
+bundle exec rake db:create
+bin/rake db:migrate
+bin/mailcatcher
+bin/rails server -b 0.0.0.0 
 EOF
 
 # TODO: start resque
-# TODO: start mailcatcher
 
 chmod +x /home/vagrant/deploy.sh 
 

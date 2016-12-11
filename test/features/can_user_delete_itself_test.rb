@@ -1,21 +1,18 @@
 require "test_helper"
 
 def create_resource_and_delete_itself klass, factory, final_count
-  # Collaboration, :collaboration, 0
-  scenario "a logged in user should delete itself after making a #{klass}", js: true do
-    assert_equal 0, klass.all.count 
-    resource = FactoryGirl.create(factory)
-    assert_equal 1, klass.all.count 
+  assert_equal 0, klass.all.count 
+  resource = FactoryGirl.create(factory)
+  assert_equal 1, klass.all.count
 
-    login_as(resource.user)
-    visit edit_user_registration_path
-    click_link "Darme de baja" # change tab
-    click_button "Darme de baja"
-    page.must_have_content "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
+  login_as(resource.user)
+  visit edit_user_registration_path
+  click_link "Darme de baja" # change tab
+  click_button "Darme de baja"
+  page.must_have_content "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
 
-    # resource should be deleted
-    assert_equal final_count, klass.all.count 
-  end
+  # resource should be deleted
+  assert_equal final_count, klass.all.count 
 end
 
 feature "CanUserDeleteItselfTest" do
@@ -57,13 +54,15 @@ feature "CanUserDeleteItselfTest" do
     assert_equal 0, Support.all.count 
   end
 
-  # a user should delete itself and delete their collaboration
-  create_resource_and_delete_itself Collaboration, :collaboration, 0
+  scenario "a logged in user should delete itself after making a collaboration", js: true do
+    create_resource_and_delete_itself Collaboration, :collaboration, 0
+  end
 
-  # a user should delete itself and keep their microcredit loan
-  create_resource_and_delete_itself MicrocreditLoan, :microcredit_loan, 1
+  scenario "a logged in user should delete itself after making a microcredit", js: true do
+    create_resource_and_delete_itself MicrocreditLoan, :microcredit_loan, 1
+  end
 
-  # a user should delete itself and delete their vote
-  create_resource_and_delete_itself Vote, :vote, 0
-
+  scenario "a logged in user should delete itself after making a vote", js: true do
+    create_resource_and_delete_itself Vote, :vote, 0
+  end
 end 

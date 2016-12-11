@@ -272,7 +272,7 @@ ActiveAdmin.register User do
     column :last_sign_in_ip
   end
 
-  action_item :only => :show do
+  action_item(:edit, :only => :show) do
     unless user.is_verified?
       msg = "¿Estas segura de querer verificar a este usuario?"
       if Rails.application.secrets.features["verification_presencial"]
@@ -283,7 +283,7 @@ ActiveAdmin.register User do
   end
 
   if Rails.application.secrets.features["verification_presencial"]
-    action_item :only => :show do
+    action_item(:edit, :only => :show) do
       if user.verifications_admin?
         link_to('Quitar de Equipo de Verificación', verification_unteam_admin_user_path(user), method: :post, data: { confirm: "¿Estas segura de querer que este usuario ya no verifique a otros?" })
       else
