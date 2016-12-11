@@ -123,7 +123,6 @@ es:
         email_confirmation: "Correo electrónico (repetir)"
         phone: "Teléfono móvil"
         unconfirmed_phone: "Teléfono móvil"
-        district: "Distrito"
         address: "Dirección"
         postal_code: "Código postal"
         password: "Contraseña"

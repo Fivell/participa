@@ -41,8 +41,6 @@ ca:
             born_at:
               blank: "La teva data de naixement no pot estar en blanc"
               not_a_date: "No és una data vàlida. Comprova que el format amb el qual estàs escrivint la data sigui el correcte"
-            district:
-              blank: "Has d'especificar un districte"
             address:
               blank: "La teva adreça no pot estar en blanc"
             postal_code:
@@ -106,7 +104,6 @@ ca:
         email_confirmation: "Correu electrònic (repetir)"
         phone: "Telèfon mòbil"
         unconfirmed_phone: "Telèfon mòbil"
-        district: "Districte"
         address: "Adreça"
         postal_code: "Codi postal"
         password: "Contrasenya"

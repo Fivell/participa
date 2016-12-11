@@ -175,7 +175,6 @@ class RegistrationsController < Devise::RegistrationsController
       born_at
       wants_newsletter
       address
-      district
       postal_code
     )
   end

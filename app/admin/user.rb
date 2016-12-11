@@ -29,7 +29,7 @@ ActiveAdmin.register User do
     scope :verified
   end
 
-  permit_params :email, :password, :password_confirmation, :first_name, :last_name, :document_type, :document_vatid, :born_at, :address, :town, :postal_code, :province, :country, :vote_province, :vote_town, :wants_newsletter, :vote_district, :phone, :unconfirmed_phone
+  permit_params :email, :password, :password_confirmation, :first_name, :last_name, :document_type, :document_vatid, :born_at, :address, :town, :postal_code, :province, :country, :vote_province, :vote_town, :wants_newsletter, :phone, :unconfirmed_phone
 
   index do
     selectable_column
@@ -114,7 +114,6 @@ ActiveAdmin.register User do
       row :full_name
       row :first_name
       row :last_name
-      row :district_name
       row :document_type do
         user.document_type_name
       end
@@ -145,8 +144,7 @@ ActiveAdmin.register User do
         end
       end
       row :vote_place do
-        district = user.vote_district ? " / distrito #{user.vote_district}" : ""
-        "#{user.vote_autonomy_name} / #{user.vote_province_name} / #{user.vote_town_name}#{district}"
+        "#{user.vote_autonomy_name} / #{user.vote_province_name} / #{user.vote_town_name}"
       end
       row :vote_in_spanish_island? do
         if user.vote_in_spanish_island?
@@ -227,7 +225,6 @@ ActiveAdmin.register User do
   filter :admin
   filter :first_name
   filter :last_name
-  filter :district, as: :select, collection: User::DISTRICT
   filter :phone
   filter :created_at
   filter :born_at
@@ -264,7 +261,6 @@ ActiveAdmin.register User do
     column("Nombre") { |u| u.full_name }
     column :email
     column :document_vatid
-    column :district_name
     column :address
     column :postal_code
     column :phone

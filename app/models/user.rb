@@ -1,14 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :verified_by, class_name: "User", foreign_key: "verified_by_id" #, counter_cache: :verified_by_id
 
-  validates :district, presence: true
   validates :inscription, acceptance: '1'
-
-  DISTRICT = [["Ciutat Vella", 1], ["Eixample", 2], ["Sants-Montjuïc", 3], ["Les Corts", 4], ["Sarrià-Sant Gervasi", 5], ["Gràcia", 6], ["Horta-Guinardó", 7], ["Nou Barris", 8], ["Sant Andreu", 9], ["Sant Martí", 0]]
-
-  def district_name
-    User::DISTRICT.select{|v| v[1] == self.district }[0][0]
-  end
 
   validates :born_at, inclusion: { in: Date.civil(1900, 1, 1)..Date.today-16.years,
     message: "debes ser mayor de 16 años" }, allow_blank: true
@@ -19,18 +12,6 @@ class User < ActiveRecord::Base
     self.country = "ES" if self.country.nil?
     self.province = "B" if self.province.nil?
     self.town = "m_08_019_3" if self.town.nil?
-  end
-
-  def vote_district_numeric
-    "%02d" % + self.district
-  end
-
-  def vote_district_name
-    self.district_name
-  end
-
-  def vote_district_code
-    "d_%02d" % + self.district
   end
 
   apply_simple_captcha
@@ -678,7 +659,6 @@ class User < ActiveRecord::Base
       # Spanish users can't set a different town for vote, except when blocked
       if self.in_spain? and self.can_change_vote_location?
         self.vote_town = self.town
-        self.vote_district = nil if self.vote_town_changed? # remove this when the user is allowed to choose district 
       end
     end
   end
