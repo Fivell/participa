@@ -64,6 +64,7 @@ $.fn.flag_catalonian_residence = function() {
 
     if (this.checked) {
       show_provinces( 'ES', '1' );
+      $country.val('ES');
       $country_group.hide();
     } else {
       show_provinces( $country.find(':selected').val(), '0' );
