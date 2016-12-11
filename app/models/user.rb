@@ -97,7 +97,7 @@ class User < ActiveRecord::Base
       if (self.postal_code =~ /^\d{5}$/) != 0
         self.errors.add(:postal_code, "El código postal debe ser un número de 5 cifras")
       else
-        province = Carmen::Country.coded("ES").subregions.coded(self.province)
+        province = spain.subregions.coded(self.province)
         if province and self.postal_code[0...2] != province.subregions[0].code[2...4]
           self.errors.add(:postal_code, "El código postal no coincide con la provincia indicada")
         end
@@ -201,14 +201,13 @@ class User < ActiveRecord::Base
   scope :has_collaboration_bank_international, -> { joins(:collaboration).where('collaborations.payment_type' => 3) }
 
   ransacker :vote_province, formatter: proc { |value|
-    Carmen::Country.coded("ES").subregions[(value[2..3].to_i-1)].subregions.map {|r| r.code }
+    spanish_subregion_for(value).subregions.map {|r| r.code }
   } do |parent|
     parent.table[:vote_town]
   end
 
   ransacker :vote_autonomy, formatter: proc { |value|
-    spain = Carmen::Country.coded("ES")
-    Podemos::GeoExtra::AUTONOMIES.map { |k,v| spain.subregions[k[2..3].to_i-1].subregions.map {|r| r.code } if v[0]==value } .compact.flatten
+    Podemos::GeoExtra::AUTONOMIES.map { |k,v| spanish_subregion_for(k).subregions.map {|r| r.code } if v[0]==value } .compact.flatten
   } do |parent|
     parent.table[:vote_town]
   end
@@ -303,6 +302,15 @@ class User < ActiveRecord::Base
     Rails.application.secrets.users["blocked_provinces"]
   end
 
+  #
+  # Region in Spain whose code matches xx in a +code+ of the form ..xx.*
+  #
+  def self.spanish_subregion_for(code)
+    spain.subregions[code[2..3].to_i-1]
+  end
+
+  delegate :spanish_subregion_for, to: :class
+
   def can_change_vote_location?
     # use database version if vote_town has changed
     !self.has_verified_vote_town? or !self.persisted? or
@@ -394,6 +402,12 @@ class User < ActiveRecord::Base
   def document_type_name
     User::DOCUMENTS_TYPE.select{|v| v[1] == self.document_type }[0][0]
   end
+
+  def self.spain
+    Carmen::Country.coded("ES")
+  end
+
+  delegate :spain, to: :class
 
   def in_spain?
     self.country=="ES"
@@ -507,7 +521,7 @@ class User < ActiveRecord::Base
     prov = _vote_province
     if self.vote_town_changed?
       begin
-        previous_province = Carmen::Country.coded("ES").subregions[self.vote_town_was[2,2].to_i-1]
+        previous_province = spanish_subregion_for(self.vote_town_was)
         prov = previous_province if previous_province
       rescue
       end
@@ -532,7 +546,7 @@ class User < ActiveRecord::Base
     if value.nil? or value.empty? or value == "-"
       self.vote_town = nil
     else
-      prefix = "m_%02d_"% (Carmen::Country.coded("ES").subregions.coded(value).index)
+      prefix = "m_%02d_"% (spain.subregions.coded(value).index)
       if self.vote_town.nil? or not self.vote_town.starts_with? prefix then
         self.vote_town = prefix
       end
@@ -635,7 +649,7 @@ class User < ActiveRecord::Base
 
       if current_user.has_vote_town?
         user_location[:vote_town] ||= current_user.vote_town
-        user_location[:vote_province] ||= Carmen::Country.coded("ES").subregions.coded(current_user.vote_province).code
+        user_location[:vote_province] ||= spain.subregions.coded(current_user.vote_province).code
       else
         user_location[:vote_town] ||= "-"
         user_location[:vote_province] ||= "-"
@@ -686,7 +700,7 @@ class User < ActiveRecord::Base
   def _province
     @province_cache = begin
       prov = nil
-      prov = _country.subregions[self.town[2,2].to_i-1] if self.in_spain? and self.town and self.town.downcase.starts_with? "m_"
+      prov = spanish_subregion_for(self.town) if self.in_spain? and self.town and self.town.downcase.starts_with? "m_"
       prov = _country.subregions.coded(self.province) if prov.nil? and _country and self.province and not _country.subregions.empty?
       prov
     end if not defined? @province_cache
@@ -706,7 +720,7 @@ class User < ActiveRecord::Base
     @vote_province_cache = begin
       prov = nil
       if self.has_vote_town?
-        prov = Carmen::Country.coded("ES").subregions[self.vote_town[2,2].to_i-1]
+        prov = spanish_subregion_for(self.vote_town)
       elsif self.country=="ES"
         prov = _province
       else
