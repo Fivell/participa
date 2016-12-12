@@ -37,6 +37,18 @@ feature "UserRegistrations" do
     assert_location 'Alabama, Estados Unidos', User.first
   end
 
+  scenario "create a user with gender identity information", js: true do
+    visit new_user_registration_path
+    fill_in_user_registration(@user, @user.document_vatid, @user.email)
+    select 'Mujer cis', from: 'Identidad de género'
+    click_button 'Inscribirse'
+
+    page.must_have_content \
+      I18n.t("devise.registrations.signed_up_but_unconfirmed")
+
+    assert_equal true, User.first.gender_identity.cis_woman?
+  end
+
   private
 
   def base_register(user)

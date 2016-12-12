@@ -1,4 +1,12 @@
 es:
+  enumerize:
+    user:
+      gender_identity:
+        cis_man: Hombre cis
+        cis_woman: Mujer cis
+        trans_man: Hombre trans
+        trans_woman: Mujer trans
+        fluid: Género fluido
   errors:
     show:
       "404":
@@ -119,6 +127,7 @@ es:
         document_type: "Tipo de documento"
         document_vatid: "Nº de documento"
         born_at: "Fecha de nacimiento"
+        gender_identity: "Identidad de género"
         email: "Correo electrónico"
         email_confirmation: "Correo electrónico (repetir)"
         phone: "Teléfono móvil"
@@ -245,6 +254,12 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
         legal3: Véase la política de Cookies
         password_limits: Mínimo 6 caracteres
         cant_modify: No puedes modificarlo
+        cis_key: CIS (cisgénero)
+        cis_definition: persona que se identifica con el género que le fue asignado al nacer
+        trans_key: TRANS (transgénero)
+        trans_definition: persona que no se identifica con el género que le fue asignado al nacer y por tanto vive en otra identidad de género
+        fluid_key: Género fluido
+        fluid_definition: persona que no se identifica con ninguno de los dos género binarios establecidos de forma única
       message:
         welcome_html: " <span>
         Para pasar a formar parte de Barcelona en Comú debes seguir los siguientes pasos:

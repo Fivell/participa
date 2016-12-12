@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
   has_many :microcredit_loans
   has_many :verificated_users, class_name: "User", foreign_key: "verified_by_id"
 
+  extend Enumerize
+  enumerize :gender_identity,
+            in: %i(cis_man cis_woman trans_man trans_woman fluid)
+
   validates :first_name, :last_name, :document_type, :document_vatid, presence: true
   validates :address, :postal_code, :town, :province, :country, :born_at, presence: true
   validates :email, confirmation: true, on: :create, :email => true

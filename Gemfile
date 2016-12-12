@@ -58,6 +58,7 @@ gem 'minitest-rails'
 gem 'rake-progressbar'
 gem 'rails_autolink'
 gem 'flag_shih_tzu'
+gem 'enumerize'
 gem 'wicked_pdf'
 gem "font-awesome-rails"
 gem 'friendly_id', '~> 5.1.0'

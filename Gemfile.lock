@@ -168,6 +168,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     docile (1.1.5)
+    enumerize (2.0.1)
+      activesupport (>= 3.2)
     erubis (2.7.0)
     esendex (0.3.2)
       nestful (~> 0.0.8)
@@ -475,6 +477,7 @@ DEPENDENCIES
   database_cleaner
   date_validator
   devise
+  enumerize
   esendex
   factory_girl_rails
   ffi-icu
