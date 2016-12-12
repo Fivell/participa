@@ -23,7 +23,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'sprockets-rails', '2.3.3' # http://stackoverflow.com/a/34344602
 
-gem 'unicorn'
 gem 'pg'
 gem 'rb-readline'
 gem 'airbrake'
@@ -72,7 +71,6 @@ gem 'sepa_king' # for generate SEPA XML files
 
 group :development, :test do
   gem 'capistrano', '~> 3.4.0'
-  gem 'capistrano-rvm'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
@@ -85,7 +83,6 @@ group :development, :test do
   gem 'ruby-prof'
   gem 'simplecov'
   gem 'webmock'
-  gem 'minitest-reporters'
   gem 'capybara'
   gem 'poltergeist'
   gem 'launchy'
