@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
 
   validates :inscription, acceptance: '1'
 
+  validates :born_at, inclusion: { in: Date.civil(1900, 1, 1)..Date.today-16.years,
+    message: "debes ser mayor de 16 años" }, allow_blank: true
+
   before_validation :set_location
 
   def set_location
