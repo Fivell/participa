@@ -123,7 +123,6 @@ es:
         email_confirmation: "Correo electrónico (repetir)"
         phone: "Teléfono móvil"
         unconfirmed_phone: "Teléfono móvil"
-        district: "Distrito"
         address: "Dirección"
         postal_code: "Código postal"
         password: "Contraseña"
@@ -238,6 +237,7 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
 <p> <b>Versión 7 de octubre de 2014 16:01 </b> </p>
 '
     registration:
+      catalonia_resident: "Resido en Cataluña"
       legends:
         inscription_html: "Inscribirse en Barcelona en Comú te da derecho a participar en todas las consultas y procesos participativos que se lancen en esta aplicación. No supone ninguna obligación económica, aunque puedes colaborar en este sentido si lo deseas. Aceptando, recibirás nuestros newsletters informativos. También puedes participar más, aquí puedes ver cómo hacerlo. <a href='https://barcelonaencomu.cat/es/participa' target='_blank' >https://barcelonaencomu.cat/es/participa </a> <br><br> BARCELONA EN COMÚ con personalidad jurídica propia, de acuerdo con la Ley Orgánica 6/2002, de 27 de junio, de Partidos Políticos, e inscrita en el Registro de Partidos Políticos con fecha 5 de febrero de 2015, Folio 488, Tomo VIII, CIF G66476136. Domicilio social: C. Castillejos, 233 (CP 08013 BARCELONA). Telèfon: 935.321.796. "
         legal1: Véase la política de privacidad
@@ -667,6 +667,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           </div> <!-- cd-faq-content -->'
   domicilio: "Domicilio"
   consentimiento: "Consentimiento"
+  access_data: "Datos de acceso"
   accepto1_html: 'Acepto la Política de Privacidad, Aviso Legal y Política de Cookies<br />
   <a target="_blank" href="https://barcelonaencomu.cat/es/politica-de-privacidad">Véase la política de privacidad</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/es/aviso-legal">Véase el aviso legal</a><br>

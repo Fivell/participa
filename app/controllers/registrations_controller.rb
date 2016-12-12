@@ -12,6 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
     render \
       partial: 'subregion_select',
       locals: {
+        catalonia_resident: @user_location[:catalonia_resident],
         country: @user_location[:country],
         province: @user_location[:province],
         disabled: false,
@@ -64,7 +65,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource(sign_up_params)
-    if resource.valid_with_captcha?
+    if resource.is_captcha_valid?
       super do
         result, status = user_already_exists? resource, :document_vatid
         if status and result.errors.empty?
@@ -174,8 +175,10 @@ class RegistrationsController < Devise::RegistrationsController
       password_confirmation
       born_at
       wants_newsletter
+      country
+      province
+      town
       address
-      district
       postal_code
     )
   end

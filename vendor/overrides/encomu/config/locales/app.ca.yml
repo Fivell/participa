@@ -41,8 +41,6 @@ ca:
             born_at:
               blank: "La teva data de naixement no pot estar en blanc"
               not_a_date: "No és una data vàlida. Comprova que el format amb el qual estàs escrivint la data sigui el correcte"
-            district:
-              blank: "Has d'especificar un districte"
             address:
               blank: "La teva adreça no pot estar en blanc"
             postal_code:
@@ -106,7 +104,6 @@ ca:
         email_confirmation: "Correu electrònic (repetir)"
         phone: "Telèfon mòbil"
         unconfirmed_phone: "Telèfon mòbil"
-        district: "Districte"
         address: "Adreça"
         postal_code: "Codi postal"
         password: "Contrasenya"
@@ -287,6 +284,7 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
 <p> <b> Barcelona En Comú </b></p>
 <p> <b>Versió 28 de febrer de 2015 16:01 </b> </p> "
     registration:
+      catalonia_resident: Resideixo a Catalunya
       legends:
         inscription_html: TODO
         legal1: TODO
@@ -639,6 +637,7 @@ Amb tres passos molt senzills:
       </div> <!-- cd-faq-content -->"
   domicilio: "Domicili"
   consentimiento: "Consentiment"
+  access_data: "Dades d'accés"
   accepto1_html: 'Accepto la Política de Privacitat, Avís Legal i Politica de Cookies<br />
   <a target="_blank" href="https://barcelonaencomu.cat/ca/politica-de-privacitat">Mira la política de privacitat</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/ca/avis-legal">Mira avís legal</a><br>

@@ -280,7 +280,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should .set_sms_token! work" do
-    u = User.new
+    u = FactoryGirl.create(:user)
     assert(u.sms_confirmation_token.nil?)
     u.set_sms_token!
     assert(u.sms_confirmation_token?)
@@ -293,7 +293,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should .check_sms_token and ActiveAdmin::Comment work" do
-    u = User.new
+    u = FactoryGirl.create(:user)
     u.set_sms_token!
     token = u.sms_confirmation_token
     assert(u.check_sms_token(token))
@@ -301,7 +301,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should .check_sms_token work ban user with spam data" do
-    u = User.new
+    u = FactoryGirl.create(:user)
     u.set_sms_token!
     spam = FactoryGirl.create(:spam_filter)
     u.unconfirmed_phone = "0034661234567"
@@ -530,4 +530,25 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test 'catalonia_resident flag & .get_location: nil case' do
+    user_location = User.get_location(nil, no_profile: "1", user_country: "ES")
+
+    assert_equal true, user_location[:catalonia_resident]
+  end
+
+  test 'catalonia_resident flag & .get_location: true case' do
+    user_location = User.get_location(nil, no_profile: "1",
+                                           user_country: "ES",
+                                           catalonia_resident: "1")
+
+    assert_equal true, user_location[:catalonia_resident]
+  end
+
+  test 'catalonia_resident flag & .get_location: false case' do
+    user_location = User.get_location(nil, no_profile: "1",
+                                           user_country: "ES",
+                                           catalonia_resident: "0")
+
+    assert_equal false, user_location[:catalonia_resident]
+  end
 end

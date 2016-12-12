@@ -1,65 +1,54 @@
 // change to provinces for a given country
-function show_provinces(country_code){
-  var $select_wrapper = $('#js-registration-user_province-wrapper');
+function show_provinces(country_code, catalonia_resident){
+  var select_id = '#js-registration-user_province-wrapper';
+  var $select_wrapper = $(select_id);
   var url = '/registrations/regions/provinces?no_profile=1&user_country=' + country_code;
 
+  if (!(catalonia_resident === undefined)) {
+    url = url + '&catalonia_resident=' + catalonia_resident;
+  }
+
   $('#user_town').disable_control();
-  $('#user_province').disable_control();
-  $select_wrapper.load(url, function() {
+  $('#user_postal_code').val('');
+  $select_wrapper.load(url + ' ' + select_id + '> *', function() {
     var $prov_select = $('select#user_province');
     if ($prov_select.length > 0 && $prov_select.select2)
       $prov_select.select2({
         formatNoMatches: 'No se encontraron resultados'
       });
-    else
-      show_towns(null);
   });
 }
 
-var no_towns_html = '';
 // change to provinces for a given country
 function show_towns(parent, field, country_code, province_code, prefix){
-  var $select_wrapper = $('#js-registration-' + field + '-wrapper');
+  var select_id = '#js-registration-' + field + '-wrapper';
+  var $select_wrapper = $(select_id);
 
   $('#' + field).disable_control();
-  if (province_code == '-')
+  $('#user_postal_code').val('');
+  if (province_code == '' || country_code != 'ES')
     return;
 
-  var url, has_towns;
+  var url = '/registrations/' + prefix + '/municipies?no_profile=1&user_country=ES&' + parent + '=' + province_code;
 
-  if (province_code && country_code == 'ES') {
-    url = '/registrations/' + prefix + '/municipies?no_profile=1&user_country=ES&' + parent + '=' + province_code;
-    has_towns = true;
-  } else {
-    url = '/registrations/' + prefix + '/municipies?no_profile=1';
-    has_towns = false;
-  }
+  $select_wrapper.load(url + ' ' + select_id + '> *', function() {
+    var $town_select = $('select#' + field);
+    if ($town_select.select2)
+      $town_select.select2({
+        formatNoMatches: 'No se encontraron resultados'
+      });
 
-  if (!has_towns && no_towns_html) {
-    $select_wrapper.html(no_towns_html);
-  } else {
-    $select_wrapper.load(url, function(response) {
-      if (has_towns) {
-        var $town_select = $('select#' + field);
-        if ($town_select.select2)
-          $town_select.select2({
-            formatNoMatches: 'No se encontraron resultados'
-          });
-
-        if (field == 'user_town') {
-          var options = $town_select.children('option');
-          if (options.length > 1) {
-            var postal_code = $('#user_postal_code').val();
-            var prefix = options[1].value.substr(2,2);
-            if (postal_code.length < 5 || postal_code.substr(0, 2) != prefix) {
-              $('#user_postal_code').val(prefix);
-            }
-          }
+    if (field == 'user_town') {
+      var options = $town_select.children('option');
+      if (options.length > 1) {
+        var postal_code = $('#user_postal_code').val();
+        var prefix = options[1].value.substr(2,2);
+        if (postal_code.length < 5 || postal_code.substr(0, 2) != prefix) {
+          $('#user_postal_code').val(prefix);
         }
-      } else
-        no_towns_html = response;
-    });
-  }
+      }
+    }
+  });
 }
 
 function toggle_vote_town(country) {
@@ -67,10 +56,29 @@ function toggle_vote_town(country) {
 }
 
 var can_change_vote_location;
+
+$.fn.flag_catalonian_residence = function() {
+  this.each(function() {
+    var $country = $('#user_country');
+    var $country_group = $country.parents('.inputlabel-box');
+
+    if (this.checked) {
+      show_provinces( 'ES', '1' );
+      $country.val('ES');
+      $country_group.hide();
+    } else {
+      show_provinces( $country.find(':selected').val(), '0' );
+      $country_group.show();
+    }
+  });
+};
+
 $(function() {
   can_change_vote_location = !$('select#user_vote_province').is(':disabled');
 
   var $country = $('select#user_country');
+  var $catalonia_resident = $('#catalonia_resident');
+
   if ($country.length) {
     $.fn.disable_control = function( ) {
       if (this.data('select2'))
@@ -83,7 +91,7 @@ $(function() {
     $country.on('change', function() {
       var country_code = $(this).val();
       if (can_change_vote_location) toggle_vote_town(country_code);
-      show_provinces( country_code );
+      show_provinces( country_code, $catalonia_resident.is(':checked') ? '1' : '0' );
     });
 
     $(document.body).on('change', 'select#user_province', function() {
@@ -106,4 +114,10 @@ $(function() {
       toggle_vote_town(false);
     }
   }
+
+  $catalonia_resident.flag_catalonian_residence();
+
+  $catalonia_resident.click(function() {
+    $(this).flag_catalonian_residence();
+  });
 });

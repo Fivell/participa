@@ -11,12 +11,18 @@ module RegistrationsHelper
     Carmen::Country.all.sort &RegistrationsHelper.region_comparer
   end
 
-  def get_provinces country
+  def get_provinces country, catalonia_only = false
     c = Carmen::Country.coded(country)
     if not (c and c.subregions)
       []
     else
-      c.subregions.sort &RegistrationsHelper.region_comparer
+      subregions = c.subregions.sort &RegistrationsHelper.region_comparer
+
+      if catalonia_only && country == "ES"
+        subregions.select { |r| %w(B T L GI).include?(r.code) }
+      else
+        subregions
+      end
     end
   end
 
