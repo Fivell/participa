@@ -72,7 +72,6 @@ gem 'sepa_king' # for generate SEPA XML files
 
 group :development, :test do
   gem 'capistrano', '~> 3.4.0'
-  gem 'capistrano-rvm'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-passenger'

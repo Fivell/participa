@@ -2,7 +2,6 @@ role :app, %w{capistrano@catsiqueespot.podemos.info}
 role :web, %w{capistrano@catsiqueespot.podemos.info}
 role :db,  %w{capistrano@catsiqueespot.podemos.info}
 
-set :rvm_ruby_version, '2.2.2'
 set :repo_url, 'git@github.com:podemos-info/participa.git'
 set :branch, :catsiqueespot
 set :rails_env, :production
