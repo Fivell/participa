@@ -1,8 +1,8 @@
-role :app, %w{participa@participa.barcelonaencomu.cat}
-role :web, %w{participa@participa.barcelonaencomu.cat}
-role :db,  %w{participa@participa.barcelonaencomu.cat}
+role :app, %w{participa@participa.unpaisencomu.cat}
+role :web, %w{participa@participa.unpaisencomu.cat}
+role :db,  %w{participa@participa.unpaisencomu.cat}
 
 set :branch, ENV['BRANCH'] || :master
-set :deploy_to, '/srv/rails/betaparticipa.barcelonaencomu.cat'
+set :deploy_to, '/home/participa/betaparticipa.unpaisencomu.cat'
 
 after 'deploy:publishing', 'deploy:restart'
