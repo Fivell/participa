@@ -23,7 +23,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'sprockets-rails', '2.3.3' # http://stackoverflow.com/a/34344602
 
-gem 'unicorn'
 gem 'pg'
 gem 'rb-readline'
 gem 'airbrake'
