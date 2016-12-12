@@ -1,6 +1,4 @@
-role :app, %w{participa@participa.unpaisencomu.cat}
-role :web, %w{participa@participa.unpaisencomu.cat}
-role :db,  %w{participa@participa.unpaisencomu.cat}
+server 'participa.unpaisencomu.cat', roles: %w(db web app)
 
 set :branch, ENV['BRANCH'] || :master
 set :deploy_to, '/home/participa/participa.unpaisencomu.cat'
