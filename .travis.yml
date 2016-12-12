@@ -3,6 +3,8 @@ language: ruby
 rvm:
   - 2.3.3
 cache: bundler
+before_install:
+  - source bin/phantomjs.sh
 before_script:
   - cp config/secrets.yml.example config/secrets.yml
   - cp config/database.yml.travis config/database.yml
