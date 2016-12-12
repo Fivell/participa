@@ -5,13 +5,14 @@
   <span class="form-wrapper">
   <% provinces = get_provinces(country) %>
   <% if provinces.length>0 
+      placeholder = "-- %s --" % t('microcredit.common.choose_province')
       first_options = if required
-                        "<option></option>"
+                        ""
                       else  
-                        "<option></option><option value='-' %s>-- %s --</option>" % [(province=='-'? ' selected="selected"':''),t('microcredit.common.no_province')]
+                        "<option value='-' %s>-- %s --</option>" % [(province=='-'? ' selected="selected"':''),t('microcredit.common.no_province')]
                       end
       %>
-      <%= select_tag "microcredit_loan[province]", first_options.html_safe+options_from_collection_for_select(provinces, "code", "name", province), {disabled: disabled, required: required, data: {placeholder: "-- %s --" % t('microcredit.common.choose_province'), allowClear: true} } %>
+      <%= select_tag "microcredit_loan[province]", first_options.html_safe+options_from_collection_for_select(provinces, "code", "name", province), {disabled: disabled, required: required, data: {placeholder: placeholder, allowClear: true}, prompt: placeholder } %>
   <% else %>
     <%= text_field(:microcredit_loan, :province, class: "form-control input-xl") %>
   <% end %>

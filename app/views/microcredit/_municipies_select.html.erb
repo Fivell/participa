@@ -5,7 +5,8 @@
     <span class="form-wrapper">
     <% towns = get_towns(country, province) %>
     <% if province=="-" || towns.length>0 %>
-        <%= select_tag "microcredit_loan[town]", "<option></option>".html_safe+options_from_collection_for_select(towns, "code", "name", town), {disabled: disabled, required: required, data: {placeholder: "-- %s --"%t('microcredit.common.choose_town')} } %>
+        <% placeholder = "-- %s --"%t('microcredit.common.choose_town') %>
+        <%= select_tag "microcredit_loan[town]", options_from_collection_for_select(towns, "code", "name", town), {disabled: disabled, required: required, data: {placeholder: placeholder}, prompt: placeholder } %>
     <% else %>
       <%= text_field(:microcredit_loan, :town, class: "input-xl form-control") %>
     <% end %>

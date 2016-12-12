@@ -52,7 +52,7 @@
 
       <div class="inputlabel-box">
         <label class="control-label"></label>
-        <span class="form-wrapper">
+        <div class="form-wrapper">
           <p class="js-registration-document-dni text-m invisible">
             <%= t('bec.registration.message.dni') %>
           </p>
@@ -64,7 +64,7 @@
           <p class="js-registration-document-passport text-m invisible">
             <%= t('bec.registration.message.passport') %>
           </p>
-        </span>
+        </div>
       </div>
     <% end %>
 
@@ -80,9 +80,9 @@
 
       <div class="inputlabel-box">
         <label class="control-label"></label>
-        <span class="form-wrapper">
+        <div class="form-wrapper">
           <p class="text-m"> <%= t('bec.registration.legends.cant_modify') %></p>
-        </span>
+        </div>
       </div>
 
       <div class="inputlabel-box inputlabel-box-hint">
@@ -91,9 +91,9 @@
 
       <div class="inputlabel-box">
         <label class="control-label"></label>
-        <span class="form-wrapper">
+        <div class="form-wrapper">
           <p class="text-m"> <%= t('bec.registration.legends.cant_modify') %></p>
-        </span>
+        </div>
       </div>
     <% end %>
 
@@ -164,9 +164,9 @@
 
     <div class="inputlabel-box">
       <label class="control-label"></label>
-      <span class="form-wrapper">
+      <div class="form-wrapper">
         <p class="text-m"> <%= t('bec.registration.legends.password_limits') %> </p>
-      </span>
+      </div>
     </div>
 
     <div class="inputlabel-box">
@@ -175,19 +175,6 @@
       <% end %>
       <%= f.input :password_confirmation, required: true, input_html: {required: true, class: 'input-m'} %>
     </div>
-    <% end %>
-    <!-- div class="inputlabel-box">
-      <% if resource.errors.include?(:wants_newsletter) %>
-          <%= field_notice_box %>
-      <% end %>
-      <div class="input-box">
-        <%= f.label :wants_newsletter %>
-        <%= f.check_box :wants_newsletter, checked: true, class: 'checkbox' %>
-        <p class="text-xl">Desmarca esta casilla si no quieres recibir nuestra newsletter. Sólo enviamos información importante</p>
-      </div>
-    </div -->
-
-    <% if action == "new" %>
 
       </fieldset>
 
@@ -196,7 +183,7 @@
         <legend> </legend>
 
         <div class="inputlabel-box">
-          <% if resource.errors.include?(:over_18) %>
+          <% if resource.errors.include?(:inscription) %>
               <%= field_notice_box %>
           <% end %>
           <%= f.label :inscription %>
