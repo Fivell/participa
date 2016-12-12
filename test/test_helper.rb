@@ -4,7 +4,6 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'simplecov'
 require 'webmock/minitest'
-require 'minitest/reporters'
 require 'minitest/rails/capybara'
 require 'capybara/poltergeist'
 
@@ -12,7 +11,6 @@ require 'support/database_cleaner'
 
 SimpleCov.start
 WebMock.disable_net_connect!(allow_localhost: true)
-Minitest::Reporters.use!
 include Warden::Test::Helpers
 Warden.test_mode!
 

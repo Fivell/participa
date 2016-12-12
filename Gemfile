@@ -83,7 +83,6 @@ group :development, :test do
   gem 'ruby-prof'
   gem 'simplecov'
   gem 'webmock'
-  gem 'minitest-reporters'
   gem 'capybara'
   gem 'poltergeist'
   gem 'launchy'

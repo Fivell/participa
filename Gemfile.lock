@@ -79,7 +79,6 @@ GEM
     airbrake (4.3.0)
       builder
       multi_json
-    ansi (1.5.0)
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.3)
@@ -253,11 +252,6 @@ GEM
       minitest-capybara (~> 0.7.0)
       minitest-metadata (~> 0.5.0)
       minitest-rails (~> 2.1)
-    minitest-reporters (1.0.17)
-      ansi
-      builder
-      minitest (>= 5.0)
-      ruby-progressbar
     mono_logger (1.1.0)
     multi_json (1.11.1)
     multi_xml (0.5.5)
@@ -482,7 +476,6 @@ DEPENDENCIES
   mailcatcher
   minitest-rails
   minitest-rails-capybara
-  minitest-reporters
   newrelic_rpm
   norma43!
   paper_trail
