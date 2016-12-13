@@ -226,7 +226,8 @@ programarlo). CI is also implemented using [travis-ci](http://travis-ci.org/).
 * En desarrollo, para comprobar el envio de correos, utilizamos
   [mailcatcher](http://mailcatcher.me/), una gema que levanta un servidor SMTP
   en el puerto 1025 y una interfaz web para ver los correos que se envían en el
-  puerto 1080. Para levantarlo ejecutar el comando `bin/mailcatcher`
+  puerto 1080. Para levantarlo instalar la gema (`gem install mailcatcher`) y
+  ejecutar el comando `mailcatcher`.
 
 * Para el envío de correo en producción usamos
   [Amazon SES](http://aws.amazon.com/es/ses/). La configuración va en

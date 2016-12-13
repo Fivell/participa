@@ -37,7 +37,6 @@ gem 'esendex'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'active_skin'
-gem 'mailcatcher' # for staging too
 gem 'resque', github: 'resque/resque', require: 'resque/server'
 gem 'aws-ses', '~> 0.6.0', :require => 'aws/ses'
 gem 'kaminari'
