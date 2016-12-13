@@ -34,14 +34,6 @@ GIT
     norma43 (0.3.2)
 
 GIT
-  remote: https://github.com/radar/paranoia.git
-  revision: 3b6ff6ec3125c57025c07838ad85fcd8e93c211a
-  branch: rails4
-  specs:
-    paranoia (2.1.3)
-      activerecord (~> 4.0)
-
-GIT
   remote: https://github.com/resque/resque.git
   revision: 20d885065ac19e7f7d7a982f4ed1296083db0300
   specs:
@@ -269,6 +261,8 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    paranoia (2.2.0)
+      activerecord (>= 4.0, < 5.1)
     parser (2.3.3.1)
       ast (~> 2.2)
     pg (0.18.2)
@@ -463,7 +457,7 @@ DEPENDENCIES
   norma43!
   paper_trail
   paperclip
-  paranoia!
+  paranoia
   pg
   phone
   poltergeist
