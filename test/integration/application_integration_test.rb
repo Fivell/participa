@@ -46,7 +46,7 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     test "should set_phone if non sms confirmed user, but allow access to profile" do
       @user.update_attribute(:sms_confirmed_at, nil)
       login @user
-      assert_equal("Por seguridad, debes confirmar tu teléfono.", flash[:alert])
+      assert_text "Por seguridad, debes confirmar tu teléfono."
       get '/es'
       assert_response :redirect
       assert_redirected_to sms_validator_step1_path, "User without confirmed phone should be redirected to verify it"
@@ -60,72 +60,58 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     @user.update_attribute(:has_legacy_password, true)
     @user.update_attribute(:sms_confirmed_at, nil)
     login @user
-    assert_equal("Debes indicar tu fecha de nacimiento.", flash[:alert])
-    get '/es'
-    assert_response :redirect
-    assert_redirected_to edit_user_registration_url, "User with issues should be redirected to fix them"
+    assert_text "Debes indicar tu fecha de nacimiento."
+    assert_landed_in_profile_edition
   end
 
   test "should set_new_password if legacy password, but allow access to profile" do
     @user.update_attribute(:has_legacy_password, true)
     login @user
-    assert_equal("Por seguridad, debes cambiar tu contraseña.", flash[:alert])
-    get "/es"
-    assert_response :redirect
-    assert_redirected_to new_legacy_password_path, "User with legacy password should be redirected to update it"
-    get '/es/users/edit'
-    assert_response :success, "User with legacy password should be allowed to access the profile page"
+    assert_text "Por seguridad, debes cambiar tu contraseña."
+    assert_equal new_legacy_password_path(locale: 'es'), current_path, "User with legacy password should be redirected to update it"
+    click_link 'Perfil'
+    assert_landed_in_profile_edition
   end
 
   test "should check_born_at if born_at is null" do
     @user.update_attribute(:born_at, nil)
     login @user
-    assert_equal("Debes indicar tu fecha de nacimiento.", flash[:alert])
-    get '/es'
-    assert_response :redirect
-    assert_redirected_to edit_user_registration_url
+    assert_text "Debes indicar tu fecha de nacimiento."
+    assert_landed_in_profile_edition
   end
 
   test "should check_born_at if born_at 1900,1,1" do
     @user.update_attribute(:born_at, Date.civil(1900,1,1))
     login @user
-    assert_equal("Debes indicar tu fecha de nacimiento.", flash[:alert])
-    get '/es'
-    assert_response :redirect
-    assert_redirected_to edit_user_registration_url
+    assert_text "Debes indicar tu fecha de nacimiento."
+    assert_landed_in_profile_edition
   end
 
   test "should redirect to profile with invalid country data" do
     @user.update_attribute(:country, "España")
     login @user
-    assert_equal("Debes indicar el país donde resides.", flash[:alert])
-    get '/es'
-    assert_response :redirect
-    assert_redirected_to edit_user_registration_url
+    assert_text "Debes indicar el país donde resides."
+    assert_landed_in_profile_edition
   end
 
   test "should redirect to profile with invalid province data" do
     @user.update_attribute(:province, "Madrid")
     login @user
-    assert_equal("Debes indicar la provincia donde resides.", flash[:alert])
-    get '/es'
-    assert_response :redirect
-    assert_redirected_to edit_user_registration_url
+    assert_text "Debes indicar la provincia donde resides."
+    assert_landed_in_profile_edition
   end
 
   test "should redirect to profile with invalid town data" do
     @user.update_attribute(:town, "Madrid")
     login @user
-    assert_equal("Debes indicar el municipio donde resides.", flash[:alert])
-    get '/es'
-    assert_response :redirect
-    assert_redirected_to edit_user_registration_url
+    assert_text "Debes indicar el municipio donde resides."
+    assert_landed_in_profile_edition
   end
 
   test "should redirect to profile and allow to change vote town to foreign users" do
     @user_foreign.update_attribute(:vote_town, "NOTICE")
     login @user_foreign
-    assert_equal("Si lo deseas, puedes indicar el municipio en España donde deseas votar.", flash[:notice])
+    assert_text "Si lo deseas, puedes indicar el municipio en España donde deseas votar."
     get '/es'
     assert_response :success
   end
@@ -134,9 +120,7 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     @user.update_attribute(:has_legacy_password, true)
     @user.update_attribute(:postal_code, "as")
     login @user
-    get '/es'
-    assert_response :redirect
-    assert_redirected_to edit_user_registration_url
+    assert_landed_in_profile_edition
   end
 
   test "should not redirect to profile when has invalid profile but no issues" do
@@ -146,5 +130,10 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-    
+  private
+
+  def assert_landed_in_profile_edition
+    assert_title 'Datos personales'
+    assert_equal edit_user_registration_path(locale: 'es'), current_path
+  end
 end
