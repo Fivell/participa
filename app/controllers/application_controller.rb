@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :banned_user
   before_filter :unresolved_issues
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_sign_in_params, if: :devise_controller?
   before_action :set_locale
   before_filter :allow_iframe_requests
   before_filter :admin_logger
@@ -121,7 +121,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def configure_permitted_parameters
+  def configure_sign_in_params
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :document_vatid, :email, :password, :remember_me) }
   end
 
