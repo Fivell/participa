@@ -151,6 +151,7 @@ sudo apt-get install redis-server                   # para la gestión de las co
 sudo apt-get install libpq-dev                      # para la gema pg
 sudo apt-get install qt5-default libqt5webkit5-dev  # para capybara (tests)
 sudo apt-get install wkhtmltopdf                    # para generación de PDFs (microcreditos)
+sudo apt-get install nodejs                         # para la compilación de assets
 ```
 
 ## Instalación

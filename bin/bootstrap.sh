@@ -4,7 +4,17 @@
 USER=vagrant
 
 sudo apt-get update
-sudo apt-get install -y postgresql imagemagick redis-server curl git libpq-dev build-essential qt5-default libqt5webkit5-dev wkhtmltopdf
+sudo apt-get install -y postgresql \
+                        imagemagick \
+                        redis-server \
+                        curl \
+                        git \
+                        libpq-dev \
+                        build-essential \
+                        qt5-default \
+                        libqt5webkit5-dev \
+                        wkhtmltopdf \
+                        nodejs
 
 rm -rf /usr/local/rvm
 
