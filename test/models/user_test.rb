@@ -514,14 +514,6 @@ class UserTest < ActiveSupport::TestCase
     assert_not_equal v3.voter_id, v5.voter_id, "Diferente municipio de voto debería implicar diferente voter_id"
   end
 
-  test "should in_participation_team? work" do
-    p = ParticipationTeam.create
-    assert_not @user.in_participation_team? p.id
-    @user.participation_team << p 
-    @user.save
-    assert @user.in_participation_team? p.id
-  end
-
   test "should not change vote location to a user without old user" do
     with_blocked_change_location do
       new_user = FactoryGirl.create(:user, town: "m_03_003_6" )

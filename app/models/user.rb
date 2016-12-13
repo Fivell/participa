@@ -674,10 +674,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def in_participation_team? team_id
-    self.participation_team_ids.member? team_id
-  end
-
   def admin_permalink
     admin_user_path(self)
   end
