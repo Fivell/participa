@@ -6,7 +6,7 @@ module ActiveSupport
   # Base class for unit testing
   #
   class TestCase
-    self.use_transactional_fixtures = false
+    self.use_transactional_tests = false
 
     def setup
       DatabaseCleaner.start
