@@ -1,14 +1,12 @@
 require 'test_helper'
+require 'integration/concerns/login_helpers'
 
 class PasswordsIntegrationTest < ActionDispatch::IntegrationTest
+  include Participa::Test::LoginHelpers
 
   setup do
     @user = FactoryGirl.create(:user)
     @legacy_password_user = FactoryGirl.create(:user, :legacy_password_user)
-  end
-
-  def login user
-    post_via_redirect user_session_path, 'user[login]' => user.email, 'user[password]' => user.password 
   end
 
   test "should login with password as user" do

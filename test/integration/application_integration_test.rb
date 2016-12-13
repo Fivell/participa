@@ -1,14 +1,12 @@
 require 'test_helper'
+require 'integration/concerns/login_helpers'
 
 class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
+  include Participa::Test::LoginHelpers
 
   setup do
     @user = FactoryGirl.create(:user)
     @user_foreign = FactoryGirl.create(:user, :foreign_address)
-  end
-
-  def login user
-    post_via_redirect user_session_path, 'user[login]' => user.email, 'user[password]' => user.password 
   end
 
   test "should default_url_options locale" do
