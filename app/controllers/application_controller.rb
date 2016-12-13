@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :banned_user
-  before_filter :unresolved_issues
+  before_action :banned_user
+  before_action :unresolved_issues
   before_action :configure_sign_in_params, if: :devise_controller?
   before_action :set_locale
-  before_filter :allow_iframe_requests
-  before_filter :admin_logger
+  before_action :allow_iframe_requests
+  before_action :admin_logger
 
   def allow_iframe_requests
     response.headers.delete('X-Frame-Options')

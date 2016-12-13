@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: :create
   before_action :configure_account_update_params, only: :update
 
-  prepend_before_filter :load_user_location
+  prepend_before_action :load_user_location
 
   def load_user_location
     @user_location = User.get_location(current_user, params)
