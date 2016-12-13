@@ -11,7 +11,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 4.2.2'
+gem 'rails', '~> 5.0'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -37,7 +37,10 @@ gem 'esendex'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'active_skin'
+
 gem 'resque', github: 'resque/resque', require: 'resque/server'
+gem 'sinatra', '>= 2.0.0.beta2'
+
 gem 'aws-ses', '~> 0.6.0', :require => 'aws/ses'
 gem 'kaminari'
 gem 'pushmeup'
