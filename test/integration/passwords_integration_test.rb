@@ -26,7 +26,7 @@ class PasswordsIntegrationTest < ActionDispatch::IntegrationTest
 
   test "should not have legacy password if legacy_password_user changes it through devise" do
     password = 'lalalilo'
-    put "/es/users/password", user: {reset_password_token: @legacy_password_user.reset_password_token, password: password, password_confirmation: password} 
+    put "/es/users/password", params: { user: {reset_password_token: @legacy_password_user.reset_password_token, password: password, password_confirmation: password} } 
     post_via_redirect user_session_path, 'user[email]' => @legacy_password_user.email, 'user[password]' => password 
     get '/es'
     assert_response :success

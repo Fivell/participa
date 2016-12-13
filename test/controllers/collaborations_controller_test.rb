@@ -25,7 +25,7 @@ class CollaborationsControllerTest < ActionController::TestCase
     user = FactoryGirl.create(:user)
     sign_in user
     assert_difference('Collaboration.count') do
-      post :create, collaboration: { amount: 500, frequency: 12, payment_type: 1, terms_of_service: 1, minimal_year_old: 1 }
+      post :create, params: { collaboration: { amount: 500, frequency: 12, payment_type: 1, terms_of_service: 1, minimal_year_old: 1 } }
     end
     assert_redirected_to confirm_collaboration_path
   end
@@ -101,7 +101,7 @@ class CollaborationsControllerTest < ActionController::TestCase
   test "should destroy collaboration" do
     sign_in @user
     assert_difference('Collaboration.count', -1) do
-      delete :destroy, id: @collaboration
+      delete :destroy, params: { id: @collaboration }
     end
 
     assert_redirected_to new_collaboration_path

@@ -55,7 +55,7 @@ if Rails.application.secrets.features["verification_sms"]
     test "should set phone on step1 save it and go to step2" do
       phone = '666666666'
       sign_in @user
-      post :phone, user: { unconfirmed_phone: phone } 
+      post :phone, params: { user: { unconfirmed_phone: phone } } 
       @user = User.find @user.id # relaod @user data
       assert_equal "0034#{phone}", @user.unconfirmed_phone
       assert_redirected_to sms_validator_step2_path
@@ -64,7 +64,7 @@ if Rails.application.secrets.features["verification_sms"]
     test "should set phone on step1 on update save it as unconfirmed and go to step2" do
       phone = '666666666'
       sign_in @user
-      post :phone, user: { unconfirmed_phone: phone }
+      post :phone, params: { user: { unconfirmed_phone: phone } }
       @user = User.find @user.id # relaod @user data
       assert_equal "0034#{phone}", @user.unconfirmed_phone
       assert_redirected_to sms_validator_step2_path
@@ -107,7 +107,7 @@ if Rails.application.secrets.features["verification_sms"]
       token = 'AAA123'
       @user.update_attribute(:sms_confirmation_token, token)
       sign_in @user
-      post :valid, user: { sms_user_token_given: token } 
+      post :valid, params: { user: { sms_user_token_given: token } } 
       assert_response :redirect
       assert_redirected_to root_path
     end
@@ -116,7 +116,7 @@ if Rails.application.secrets.features["verification_sms"]
       token = 'AAA123'
       @user.update_attribute(:sms_confirmation_token, 'BBB123')
       sign_in @user
-      post :valid, user: { sms_user_token_given: token } 
+      post :valid, params: { user: { sms_user_token_given: token } } 
       assert_response :success
       assert_equal "El código que has puesto no corresponde con el que te enviamos por SMS.", flash[:error]
     end
@@ -131,7 +131,7 @@ if Rails.application.secrets.features["verification_sms"]
         new_user = FactoryGirl.create(:user, :sms_non_confirmed_user, town: "m_03_003_6", document_vatid: old_user.document_vatid, 
                                                                       sms_confirmation_token: token, unconfirmed_phone: old_user.phone)
         sign_in new_user
-        post :valid, user: { sms_user_token_given: token }
+        post :valid, params: { user: { sms_user_token_given: token } }
         new_user = User.where(phone: old_user.phone).last
         assert_equal old_user.vote_town, new_user.vote_town, "New user vote location should be the same of the old user"
         # XXX pasca - comento linea para saltar de momento validacion. Asegurar

@@ -23,7 +23,7 @@ class MicrocreditControllerTest < ActionController::TestCase
   end
 
   test "should get new_loan" do
-    get :new_loan, id: @microcredit.id
+    get :new_loan, params: { id: @microcredit.id }
     assert_response :success
   end
 
