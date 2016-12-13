@@ -443,8 +443,8 @@ ActiveAdmin.register ImpulsaProject do
   end
 
   controller do
-    before_filter :update_scopes, :only => :index
-    before_filter :multiple_id_search, :only => :index
+    before_action :update_scopes, :only => :index
+    before_action :multiple_id_search, :only => :index
 
     def multiple_id_search
       params[:q][:id_in] = params[:q][:id_in].split unless params[:q].nil? or params[:q][:id_in].nil?
