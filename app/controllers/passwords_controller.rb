@@ -8,7 +8,7 @@ class PasswordsController < Devise::PasswordsController
   def update
     self.resource = resource_class.reset_password_by_token(resource_params)
     yield resource if block_given?
-    if not resource.errors.include? :password and not resource.errors.include? :password_confirmation
+    if resource.errors.empty?
       resource.update_attribute(:has_legacy_password, false) if resource.has_legacy_password?
       resource.unlock_access! if unlockable?(resource)
       flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
