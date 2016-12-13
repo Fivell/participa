@@ -1,4 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_action :configure_sign_up_params, only: :create
+  before_action :configure_account_update_params, only: :update
 
   prepend_before_filter :load_user_location
 
@@ -132,14 +134,16 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  # http://www.jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html
-
-  def sign_up_params
-    params.require(:user).permit(*sign_up_permitted_keys)
+  def configure_sign_up_params
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(*sign_up_permitted_keys)
+    end
   end
 
-  def account_update_params
-    params.require(:user).permit(*account_update_permitted_keys)
+  def configure_account_update_params
+    devise_parameter_sanitizer.for(:account_update) do |u|
+      u.permit(*account_update_permitted_keys)
+    end
   end
 
   def account_update_permitted_keys
