@@ -135,23 +135,23 @@ class RegistrationsController < Devise::RegistrationsController
   # http://www.jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html
 
   def sign_up_params
-    params.require(:user).permit(*sign_up_permitted_list)
+    params.require(:user).permit(*sign_up_permitted_keys)
   end
 
   def account_update_params
-    params.require(:user).permit(*account_update_permitted_list)
+    params.require(:user).permit(*account_update_permitted_keys)
   end
 
-  def account_update_permitted_list
+  def account_update_permitted_keys
     if current_user.can_change_vote_location?
-      common_permitted_list + %i(current_password vote_province vote_town)
+      common_permitted_keys + %i(current_password vote_province vote_town)
     else
-      common_permitted_list + %i(current_password)
+      common_permitted_keys + %i(current_password)
     end
   end
 
-  def sign_up_permitted_list
-    common_permitted_list +
+  def sign_up_permitted_keys
+    common_permitted_keys +
       %i(
         document_type
         document_vatid
@@ -165,7 +165,7 @@ class RegistrationsController < Devise::RegistrationsController
       )
   end
 
-  def common_permitted_list
+  def common_permitted_keys
     %i(
       first_name
       last_name
