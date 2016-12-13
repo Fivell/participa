@@ -146,15 +146,15 @@ class UserTest < ActiveSupport::TestCase
 
     u = User.new(document_type: 1)
     u.valid? 
-    assert(u.errors[:document_type], [])
+    assert_empty u.errors[:document_type]
 
     u = User.new(document_type: 2)
     u.valid? 
-    assert(u.errors[:document_type], [])
+    assert_empty u.errors[:document_type]
 
     u = User.new(document_type: 3)
     u.valid? 
-    assert(u.errors[:document_type], [])
+    assert_empty u.errors[:document_type]
   end
 
   test "should .full_name work" do
