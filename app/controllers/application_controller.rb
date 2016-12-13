@@ -122,9 +122,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_sign_in_params
-    devise_parameter_sanitizer.for(:sign_in) do |u|
-      u.permit(*sign_in_permitted_keys)
-    end
+    devise_parameter_sanitizer.permit(:sign_in, keys: sign_in_permitted_keys)
   end
 
   def sign_in_permitted_keys

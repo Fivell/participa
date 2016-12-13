@@ -135,15 +135,12 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.for(:sign_up) do |u|
-      u.permit(*sign_up_permitted_keys)
-    end
+    devise_parameter_sanitizer.permit(:sign_up, keys: sign_up_permitted_keys)
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(*account_update_permitted_keys)
-    end
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: account_update_permitted_keys)
   end
 
   def account_update_permitted_keys
