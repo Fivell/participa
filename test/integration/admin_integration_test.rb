@@ -7,10 +7,6 @@ class AdminIntegrationTest < ActionDispatch::IntegrationTest
     @admin = FactoryGirl.create(:user, :admin)
   end
 
-  def login user
-    post_via_redirect user_session_path, 'user[login]' => user.email, 'user[password]' => user.password 
-  end
-
   test "should not get /admin as anon" do
     get '/admin'
     assert_response :redirect
@@ -25,7 +21,7 @@ class AdminIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test "should not get /admin as normal user" do
-    login @user
+    login_as @user
     get '/admin'
     assert_response :redirect
     assert_redirected_to authenticated_root_path
@@ -33,27 +29,27 @@ class AdminIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test "should not get /admin/resque as normal user" do
-    login @user
+    login_as @user
     assert_raises(ActionController::RoutingError) do
       get '/admin/resque'
     end
   end
 
   test "should get /admin as admin user" do
-    login @admin
+    login_as @admin
     get '/admin'
     assert_response :success
   end
 
   test "should get /admin/resque as admin user" do
-    login @admin
+    login_as @admin
     get '/admin/resque'
     assert_response :redirect
     assert_redirected_to '/admin/resque/overview'
   end
 
   test "should not download newsletter CSV as user" do
-    login @user
+    login_as @user
     get '/admin/users/download_newsletter_csv'
     assert_response :redirect
     assert_redirected_to root_path
@@ -61,7 +57,7 @@ class AdminIntegrationTest < ActionDispatch::IntegrationTest
   end
     
   #test "should download newsletter CSV as admin and not download wants_newsletter = false" do
-  #  login @admin
+  #  login_as @admin
   #  get '/admin/users/download_newsletter_csv'
   #  assert_response :success
   #  assert response["Content-Type"].include? "text/csv"
