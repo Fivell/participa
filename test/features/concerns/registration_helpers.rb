@@ -41,8 +41,20 @@ module Participa
       end
 
       def acknowledge_stuff
+        acknowledge_inscription
+        acknowledge_terms
+        acknowledge_age
+      end
+
+      def acknowledge_inscription
         check('user_inscription')
+      end
+
+      def acknowledge_terms
         check('user_terms_of_service')
+      end
+
+      def acknowledge_age
         # XXX: the cookie policy gets in the middle here, so check won't work.
         # Investigate and fix
         find('input[type=checkbox]#user_age_restriction').trigger('click')
