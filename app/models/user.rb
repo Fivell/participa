@@ -54,13 +54,13 @@ class User < ActiveRecord::Base
   validates :email, confirmation: true, on: :create, :email => true
   validates :email_confirmation, presence: true, on: :create
   validates :terms_of_service, acceptance: true
-  validates :over_18, acceptance: true
+  validates :age_restriction, acceptance: true
   validates :document_type, inclusion: { in: [1, 2, 3], message: "Tipo de documento no válido" }
   validates :document_vatid, valid_nif: true, if: :is_document_dni?
   validates :document_vatid, valid_nie: true, if: :is_document_nie?
   validates :born_at, date: true, allow_blank: true # gem date_validator
-  validates :born_at, inclusion: { in: Date.civil(1900, 1, 1)..Date.today-18.years,
-    message: "debes ser mayor de 18 años" }, allow_blank: true
+  validates :born_at, inclusion: { in: Date.civil(1900, 1, 1)..Date.today-16.years,
+    message: "debes ser mayor de 16 años" }, allow_blank: true
   validates :phone, numericality: true, allow_blank: true
   validates :unconfirmed_phone, numericality: true, allow_blank: true
 

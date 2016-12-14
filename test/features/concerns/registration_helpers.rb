@@ -36,7 +36,7 @@ module Participa
         check('user_terms_of_service')
         # XXX: the cookie policy gets in the middle here, so check won't work.
         # Investigate and fix
-        find('input[type=checkbox]#user_over_18').trigger('click')
+        find('input[type=checkbox]#user_age_restriction').trigger('click')
       end
 
       def fill_in_login_data(user, email)

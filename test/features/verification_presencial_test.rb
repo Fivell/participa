@@ -51,7 +51,7 @@ feature "VerificationPresencial" do
     page.must_have_content I18n.t('verification.form.document')
     check('user_document')
     check('user_town')
-    check('user_over_18')
+    check('user_age_restriction')
     click_button('Siguiente')
     fill_in(:user_email, with: user2.email)
     click_button('Siguiente')

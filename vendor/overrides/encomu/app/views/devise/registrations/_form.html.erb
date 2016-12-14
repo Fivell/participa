@@ -249,12 +249,12 @@
         </div>
 
         <div class="inputlabel-box">
-          <% if resource.errors.include?(:over_18) %>
+          <% if resource.errors.include?(:age_restriction) %>
               <%= field_notice_box %>
           <% end %>
-          <%= f.label :over_18 %>
+          <%= f.label :age_restriction %>
           <div class="input-box">
-            <%= f.check_box :over_18, class: 'checkbox' %>
+            <%= f.check_box :age_restriction, class: 'checkbox' %>
           </div>
         </div>
 
