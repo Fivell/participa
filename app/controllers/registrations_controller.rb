@@ -69,16 +69,16 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     if resource.is_captcha_valid?
       super do
-        result, status = user_already_exists? resource, :document_vatid
-        if status and result.errors.empty?
-          UsersMailer.remember_email(:document_vatid, result.document_vatid).deliver_now
+        status = user_already_exists? :document_vatid
+        if status and resource.errors.empty?
+          UsersMailer.remember_email(:document_vatid, resource.document_vatid).deliver_now
           redirect_to(root_path, notice: t("devise.registrations.signed_up_but_unconfirmed"))
           return
         end
 
-        result, status = user_already_exists? resource, :email
-        if status and result.errors.empty?
-          UsersMailer.remember_email(:email, result.email).deliver_now
+        status = user_already_exists? :email
+        if status and resource.errors.empty?
+          UsersMailer.remember_email(:email, resource.email).deliver_now
           redirect_to(root_path, notice: t("devise.registrations.signed_up_but_unconfirmed"))
           return
         end
@@ -106,7 +106,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def user_already_exists?(resource, type)
+  def user_already_exists?(type)
     # FIX for https://github.com/plataformatec/devise/issues/3540
     # Devise paranoid only works for passwords resets.
     # With the uniqueness validation on user.document_vatid and user.email
@@ -122,9 +122,9 @@ class RegistrationsController < Devise::RegistrationsController
     if resource.errors.added? type, :taken
       resource.errors.messages[type] -= [ t('activerecord.errors.models.user.attributes.' + type.to_s + '.taken') ]
       resource.errors.delete(type) if resource.errors.messages[type].empty?
-      return resource, true
+      return true
     else
-      return resource, false
+      return false
     end
   end
 
