@@ -151,7 +151,7 @@ class RegistrationsController < Devise::RegistrationsController
         document_type
         document_vatid
         terms_of_service
-        over_18
+        age_restriction
         inscription
         vote_town
         vote_province

@@ -140,7 +140,7 @@ es:
         wants_newsletter: 'Newsletter'
         terms_of_service: "He leído y acepto la Política de Privacidad, Aviso Legal y Política de Cookies"
         inscription: "Acepto incribirme en la candidatura"
-        over_18: "Declaro ser mayor de 16 años"
+        age_restriction: "Declaro ser mayor de 16 años"
         captcha: "Escribe el siguiente texto o número"
         current_password: "Contraseña actual"
 

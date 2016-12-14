@@ -121,7 +121,7 @@ ca:
         wants_newsletter: 'Butlletí'
         terms_of_service: "He llegit i accepto les condicions generals"
         inscription: "Accepto incriure'm a Barcelona en Comú"
-        over_18: "Declaro ser major de 16 anys"
+        age_restriction: "Declaro ser major de 16 anys"
         captcha: "Captcha"
         current_password: "Contrasenya actual"
   formtastic:

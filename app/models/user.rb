@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
   validates :email, confirmation: true, on: :create, :email => true
   validates :email_confirmation, presence: true, on: :create
   validates :terms_of_service, acceptance: true
-  validates :over_18, acceptance: true
+  validates :age_restriction, acceptance: true
   validates :document_type, inclusion: { in: [1, 2, 3], message: "Tipo de documento no válido" }
   validates :document_vatid, valid_nif: true, if: :is_document_dni?
   validates :document_vatid, valid_nie: true, if: :is_document_nie?
