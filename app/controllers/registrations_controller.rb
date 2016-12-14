@@ -69,17 +69,11 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     if resource.is_captcha_valid?
       super do
-        if valid_with_dup?(:document_vatid)
-          UsersMailer.remember_email(:document_vatid, resource.document_vatid).deliver_now
-          redirect_to(root_path, notice: t("devise.registrations.signed_up_but_unconfirmed"))
-          return
-        end
+        redirect_if_valid_dup(:document_vatid)
+        return if performed?
 
-        if valid_with_dup?(:email)
-          UsersMailer.remember_email(:email, resource.email).deliver_now
-          redirect_to(root_path, notice: t("devise.registrations.signed_up_but_unconfirmed"))
-          return
-        end
+        redirect_if_valid_dup(:email)
+        return if performed?
 
         # If the user already had a location but deleted itslet, he should have
         # his previous location
@@ -103,6 +97,13 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
+  def redirect_if_valid_dup(type)
+    if valid_with_dup?(type)
+      UsersMailer.remember_email(type, resource.public_send(type)).deliver_now
+      redirect_to(root_path, notice: t("devise.registrations.signed_up_but_unconfirmed"))
+    end
+  end
 
   def valid_with_dup?(type)
     return false unless user_already_exists?(type)
