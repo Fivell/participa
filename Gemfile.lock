@@ -28,6 +28,13 @@ GIT
       responders
 
 GIT
+  remote: https://github.com/deivid-rodriguez/spanish_vat_validators.git
+  revision: d4d39a0bb656e9102ca67966580cb846b51ac343
+  branch: rails_5_deprecations
+  specs:
+    spanish_vat_validators (0.0.5)
+
+GIT
   remote: https://github.com/podemos-info/norma43.git
   revision: 98e537e2e5a60394e53b7447221187d0e497cf2c
   specs:
@@ -373,7 +380,6 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0.beta2)
       tilt (~> 2.0)
-    spanish_vat_validators (0.0.4)
     spring (2.0.0)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
@@ -482,7 +488,7 @@ DEPENDENCIES
   simple_captcha2
   simplecov
   sinatra (>= 2.0.0.beta2)
-  spanish_vat_validators
+  spanish_vat_validators!
   spring
   sprockets-rails (= 2.3.3)
   turbolinks
