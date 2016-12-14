@@ -69,15 +69,13 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     if resource.is_captcha_valid?
       super do
-        status = user_already_exists? :document_vatid
-        if status and resource.errors.empty?
+        if valid_with_dup?(:document_vatid)
           UsersMailer.remember_email(:document_vatid, resource.document_vatid).deliver_now
           redirect_to(root_path, notice: t("devise.registrations.signed_up_but_unconfirmed"))
           return
         end
 
-        status = user_already_exists? :email
-        if status and resource.errors.empty?
+        if valid_with_dup?(:email)
           UsersMailer.remember_email(:email, resource.email).deliver_now
           redirect_to(root_path, notice: t("devise.registrations.signed_up_but_unconfirmed"))
           return
@@ -105,6 +103,12 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
+  def valid_with_dup?(type)
+    return false unless user_already_exists?(type)
+
+    resource.errors.empty?
+  end
 
   def user_already_exists?(type)
     # FIX for https://github.com/plataformatec/devise/issues/3540
