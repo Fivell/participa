@@ -4,8 +4,6 @@ require "features/concerns/registration_helpers"
 feature "UsersAreParanoid" do
   include Participa::Test::RegistrationHelpers
 
-  before { @user = FactoryGirl.build(:user) }
-
   scenario "regular registration", js: true do
     # first creation attempt, receive OK message and create it
     assert_equal 0, User.all.count
