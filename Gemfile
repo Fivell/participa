@@ -11,14 +11,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 4.2.2'
+gem 'rails', '~> 5.0'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'therubyracer',  platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'sprockets-rails', '2.3.3' # http://stackoverflow.com/a/34344602
@@ -32,14 +30,18 @@ gem 'cancancan', '~> 1.9'
 gem 'bootstrap-sass'
 gem 'formtastic'
 gem 'formtastic-bootstrap'
-gem 'spanish_vat_validators'
+gem 'spanish_vat_validators', github: 'deivid-rodriguez/spanish_vat_validators',
+                              branch: 'rails_5_deprecations'
 gem 'simple_captcha2', require: 'simple_captcha'
 gem 'carmen-rails'
 gem 'esendex'
-gem 'activeadmin'
+gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'active_skin'
-gem 'mailcatcher' # for staging too
+
 gem 'resque', github: 'resque/resque', require: 'resque/server'
+gem 'sinatra', '>= 2.0.0.beta2'
+
 gem 'aws-ses', '~> 0.6.0', :require => 'aws/ses'
 gem 'kaminari'
 gem 'pushmeup'
@@ -47,7 +49,6 @@ gem 'date_validator'
 gem 'phone'
 gem 'iban-tools'
 gem 'paper_trail'
-gem 'newrelic_rpm'
 gem 'ffi-icu'
 gem 'unicode'
 gem 'rack-openid'
@@ -62,7 +63,7 @@ gem 'wicked_pdf'
 gem "font-awesome-rails"
 gem 'friendly_id', '~> 5.1.0'
 gem 'auto_html'
-gem "paranoia", :github => "radar/paranoia", :branch => "rails4"
+gem "paranoia"
 gem 'cocoon'
 gem 'paperclip'
 gem 'validate_url'
@@ -78,7 +79,6 @@ group :development, :test do
   gem 'byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'rails-perftest'
   gem 'rubocop'
   gem 'ruby-prof'
   gem 'simplecov'

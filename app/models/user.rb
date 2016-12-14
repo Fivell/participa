@@ -674,10 +674,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def in_participation_team? team_id
-    self.participation_team_ids.member? team_id
-  end
-
   def admin_permalink
     admin_user_path(self)
   end
@@ -790,6 +786,6 @@ class User < ActiveRecord::Base
     self.verified_at = DateTime.now
     self.verified_by = user
     self.save
-    VerificationMailer.verified(self).deliver
+    VerificationMailer.verified(self).deliver_now
   end
 end

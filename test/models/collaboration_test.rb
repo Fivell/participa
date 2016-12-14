@@ -326,12 +326,15 @@ class CollaborationTest < ActiveSupport::TestCase
     @collaboration.payment_processed! order
     assert_equal 1, @collaboration.status
 
-    credit_card = FactoryGirl.create(:collaboration, :credit_card)
-    credit_card_order = credit_card.create_order Date.today
-    credit_card_order.save
-    credit_card.payment_processed! credit_card_order
-    assert_equal credit_card_order.payment_identifier, credit_card.redsys_identifier
-    assert_equal credit_card_order.redsys_expiration, credit_card.redsys_expiration
+    if Rails.application.secrets.features["collaborations_redsys"]
+      credit_card = FactoryGirl.create(:collaboration, :credit_card)
+      credit_card_order = credit_card.create_order Date.today
+      credit_card_order.save
+      credit_card.payment_processed! credit_card_order
+
+      assert_equal credit_card_order.payment_identifier, credit_card.redsys_identifier
+      assert_equal credit_card_order.redsys_expiration, credit_card.redsys_expiration
+    end
   end
 
   test "should .has_warnings? work" do
@@ -413,21 +416,22 @@ class CollaborationTest < ActiveSupport::TestCase
     assert_equal @collaboration.ko_url, "http://localhost/colabora/KO"
   end
 
-  test "should .charge! work" do
-    skip 'Flaky test'
-    collaboration = FactoryGirl.create(:collaboration, :credit_card)
-    collaboration.update_attribute(:status, 2)
-    order = collaboration.create_order Date.today
-    order.save
-    assert_equal "Nueva", order.status_name
-    assert_nil order.payment_response
+  if Rails.application.secrets.features["collaborations_redsys"]
+    test "should .charge! work" do
+      collaboration = FactoryGirl.create(:collaboration, :credit_card)
+      collaboration.update_attribute(:status, 2)
+      order = collaboration.create_order Date.today
+      order.save
+      assert_equal "Nueva", order.status_name
+      assert_nil order.payment_response
 
-    stub_request(:post, order.redsys_post_url).to_return(:status => 200, :body => "<!-- +(RSisReciboOK)+ -->", :headers => {})
-    collaboration.charge!
-    assert_requested :post, order.redsys_post_url
-    order.reload
-    assert_equal "OK", order.status_name
-    assert_equal "[\"RSisReciboOK\"]", order.payment_response
+      stub_request(:post, order.redsys_post_url).to_return(:status => 200, :body => "<!-- +(RSisReciboOK)+ -->", :headers => {})
+      collaboration.charge!
+      assert_requested :post, order.redsys_post_url
+      order.reload
+      assert_equal "OK", order.status_name
+      assert_equal "[\"RSisReciboOK\"]", order.payment_response
+    end
   end
 
   test "should .get_bank_data work" do

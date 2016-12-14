@@ -30,7 +30,7 @@ class LegacyPasswordControllerTest < ActionController::TestCase
   test "should test if both passwords are equal" do
     user = FactoryGirl.create(:user, :legacy_password_user)
     sign_in user
-    post :update, user: { password: "lalalilo", password_confirmation: "error" }
+    post :update, params: { user: { password: "lalalilo", password_confirmation: "error" } }
     assert_response :success
     assert response.body.include? "no coincide con la confirmación" 
   end

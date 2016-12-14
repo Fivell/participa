@@ -146,15 +146,15 @@ class UserTest < ActiveSupport::TestCase
 
     u = User.new(document_type: 1)
     u.valid? 
-    assert(u.errors[:document_type], [])
+    assert_empty u.errors[:document_type]
 
     u = User.new(document_type: 2)
     u.valid? 
-    assert(u.errors[:document_type], [])
+    assert_empty u.errors[:document_type]
 
     u = User.new(document_type: 3)
     u.valid? 
-    assert(u.errors[:document_type], [])
+    assert_empty u.errors[:document_type]
   end
 
   test "should .full_name work" do
@@ -512,14 +512,6 @@ class UserTest < ActiveSupport::TestCase
     @user.update_attribute(:town, "m_01_001_4")
     v5 = @user.get_or_create_vote(e2.id)
     assert_not_equal v3.voter_id, v5.voter_id, "Diferente municipio de voto debería implicar diferente voter_id"
-  end
-
-  test "should in_participation_team? work" do
-    p = ParticipationTeam.create
-    assert_not @user.in_participation_team? p.id
-    @user.participation_team << p 
-    @user.save
-    assert @user.in_participation_team? p.id
   end
 
   test "should not change vote location to a user without old user" do

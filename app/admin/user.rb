@@ -451,7 +451,7 @@ ActiveAdmin.register User do
       show! #it seems to need this
     end
 
-    before_filter :multi_values_filter, :only => :index
+    before_action :multi_values_filter, :only => :index
     private
 
     def multi_values_filter

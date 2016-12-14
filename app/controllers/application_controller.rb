@@ -1,17 +1,14 @@
 class ApplicationController < ActionController::Base
-  
-  ensure_security_headers
-
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :banned_user
-  before_filter :unresolved_issues
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :banned_user
+  before_action :unresolved_issues
+  before_action :configure_sign_in_params, if: :devise_controller?
   before_action :set_locale
-  before_filter :allow_iframe_requests
-  before_filter :admin_logger
+  before_action :allow_iframe_requests
+  before_action :admin_logger
 
   def allow_iframe_requests
     response.headers.delete('X-Frame-Options')
@@ -121,8 +118,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :document_vatid, :email, :password, :remember_me) }
+  def configure_sign_in_params
+    devise_parameter_sanitizer.permit(:sign_in, keys: sign_in_permitted_keys)
   end
 
+  def sign_in_permitted_keys
+    %i(login document_vatid email password remember_me)
+  end
 end

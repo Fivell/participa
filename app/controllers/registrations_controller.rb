@@ -1,6 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_action :configure_sign_up_params, only: :create
+  before_action :configure_account_update_params, only: :update
 
-  prepend_before_filter :load_user_location
+  prepend_before_action :load_user_location
 
   def load_user_location
     @user_location = User.get_location(current_user, params)
@@ -102,12 +104,6 @@ class RegistrationsController < Devise::RegistrationsController
     flash[:notice] = t("devise.confirmations.send_instructions")
   end
 
-  def set_flash_message(key, kind, options = {})
-    options.merge! resource_params.deep_symbolize_keys
-    message = find_message(kind, options)
-    flash[key] = message if message.present?
-  end
-
   private
 
   def user_already_exists?(resource, type)
@@ -132,26 +128,25 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  # http://www.jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html
-
-  def sign_up_params
-    params.require(:user).permit(*sign_up_permitted_list)
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: sign_up_permitted_keys)
   end
 
-  def account_update_params
-    params.require(:user).permit(*account_update_permitted_list)
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: account_update_permitted_keys)
   end
 
-  def account_update_permitted_list
+  def account_update_permitted_keys
     if current_user.can_change_vote_location?
-      common_permitted_list + %i(current_password vote_province vote_town)
+      common_permitted_keys + %i(current_password vote_province vote_town)
     else
-      common_permitted_list + %i(current_password)
+      common_permitted_keys + %i(current_password)
     end
   end
 
-  def sign_up_permitted_list
-    common_permitted_list +
+  def sign_up_permitted_keys
+    common_permitted_keys +
       %i(
         document_type
         document_vatid
@@ -165,7 +160,7 @@ class RegistrationsController < Devise::RegistrationsController
       )
   end
 
-  def common_permitted_list
+  def common_permitted_keys
     %i(
       first_name
       last_name
