@@ -49,6 +49,23 @@ feature "UserRegistrations" do
     assert_equal true, User.first.gender_identity.cis_woman?
   end
 
+  scenario "captcha succeeds", js: true do
+    SimpleCaptcha.always_pass = false
+    visit new_user_registration_path
+    fill_in_user_registration(@user, @user.document_vatid, @user.email)
+    fill_in 'user[captcha]', with: SimpleCaptcha::SimpleCaptchaData.first.value
+    click_button 'Inscribirse'
+    assert_no_text 'El texto introducido no corresponde con el de la imagen'
+  end
+
+  scenario "captcha fails", js: true do
+    SimpleCaptcha.always_pass = false
+    visit new_user_registration_path
+    fill_in_user_registration(@user, @user.document_vatid, @user.email)
+    click_button 'Inscribirse'
+    assert_text 'El texto introducido no corresponde con el de la imagen'
+  end
+
   private
 
   def base_register(user)

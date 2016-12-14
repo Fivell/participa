@@ -156,7 +156,7 @@ class RegistrationsController < Devise::RegistrationsController
         vote_town
         vote_province
         captcha
-        catcha_key
+        captcha_key
       )
   end
 
