@@ -61,6 +61,20 @@ feature "UserRegistrations" do
     assert_text 'El texto introducido no corresponde con el de la imagen'
   end
 
+  scenario "captcha skipped and another error", js: true do
+    visit new_user_registration_path
+    fill_in_personal_data(@user, @user.document_vatid)
+    fill_in_location_data(province: 'Barcelona',
+                          town: 'Barcelona',
+                          postal_code: '08021')
+    fill_in_login_data(@user, @user.email)
+    acknowledge_terms
+    acknowledge_age
+    click_button 'Inscribirse'
+    assert_text 'El texto introducido no corresponde con el de la imagen'
+    assert_text 'Acepto incribirme en la candidatura: debe ser aceptado'
+  end
+
   private
 
   def base_register(user)

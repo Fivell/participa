@@ -67,14 +67,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource(sign_up_params)
-    if resource.is_captcha_valid?
+    if resource.valid_with_captcha?
       super do
-        redirect_if_valid_dup(:document_vatid)
-        return if performed?
-
-        redirect_if_valid_dup(:email)
-        return if performed?
-
         # If the user already had a location but deleted itslet, he should have
         # his previous location
         #
@@ -83,6 +77,12 @@ class RegistrationsController < Devise::RegistrationsController
         end
       end
     else
+      redirect_if_valid_dup(:document_vatid)
+      return if performed?
+
+      redirect_if_valid_dup(:email)
+      return if performed?
+
       clean_up_passwords(resource)
       render :new
     end
