@@ -116,20 +116,20 @@ class UserTest < ActiveSupport::TestCase
     assert(user5.valid?)
   end
 
-  test "should accept terms of service and over_18" do
-    u = User.new(terms_of_service: false, over_18: false)
+  test "should accept terms of service and age_restriction" do
+    u = User.new(terms_of_service: false, age_restriction: false)
     u.valid?
     u.errors[:terms_of_service].include? ["debe ser aceptado"]
-    u.errors[:over_18].include? ["debe ser aceptado"]
+    u.errors[:age_restriction].include? ["debe ser aceptado"]
   end
 
   test "should have valid born_at" do
     u = User.new(born_at: Date.civil(2017, 2, 1))
     u.valid?
-    assert(u.errors[:born_at].include? "debes ser mayor de 18 años")
+    assert(u.errors[:born_at].include? "debes ser mayor de 16 años")
     u = User.new(born_at: Date.civil(1888, 2, 1))
     u.valid?
-    assert(u.errors[:born_at].include? "debes ser mayor de 18 años")
+    assert(u.errors[:born_at].include? "debes ser mayor de 16 años")
     u = User.new(born_at: Date.civil(1988, 2, 1))
     u.valid?
     assert(u.errors[:born_at], [])
@@ -403,11 +403,11 @@ class UserTest < ActiveSupport::TestCase
     assert user.errors[:email_confirmation].include? "no coincide con la confirmación"
   end
 
-  test "should be over 18 on born_at" do 
-    user = FactoryGirl.build(:user, born_at: Date.civil(2000, 1, 1))
+  test "should be over 16 on born_at" do 
+    user = FactoryGirl.build(:user, born_at: Date.civil(2002, 1, 1))
     user.valid?
     assert_not user.valid?
-    assert user.errors[:born_at].include? "debes ser mayor de 18 años"
+    assert user.errors[:born_at].include? "debes ser mayor de 16 años"
   end 
 
   test "should province_name work with all kind of profile data" do

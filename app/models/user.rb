@@ -3,9 +3,6 @@ class User < ActiveRecord::Base
 
   validates :inscription, acceptance: '1'
 
-  validates :born_at, inclusion: { in: Date.civil(1900, 1, 1)..Date.today-16.years,
-    message: "debes ser mayor de 16 años" }, allow_blank: true
-
   before_validation :set_location
 
   def set_location
@@ -62,8 +59,8 @@ class User < ActiveRecord::Base
   validates :document_vatid, valid_nif: true, if: :is_document_dni?
   validates :document_vatid, valid_nie: true, if: :is_document_nie?
   validates :born_at, date: true, allow_blank: true # gem date_validator
-  validates :born_at, inclusion: { in: Date.civil(1900, 1, 1)..Date.today-18.years,
-    message: "debes ser mayor de 18 años" }, allow_blank: true
+  validates :born_at, inclusion: { in: Date.civil(1900, 1, 1)..Date.today-16.years,
+    message: "debes ser mayor de 16 años" }, allow_blank: true
   validates :phone, numericality: true, allow_blank: true
   validates :unconfirmed_phone, numericality: true, allow_blank: true
 
