@@ -1,6 +1,15 @@
 module Participa
   module Test
     module RegistrationHelpers
+      def with_captcha_enabled
+        old_always_pass = SimpleCaptcha.always_pass
+        SimpleCaptcha.always_pass = false
+
+        yield
+      ensure
+        SimpleCaptcha.always_pass = old_always_pass
+      end
+
       def create_user_registration(user, document_vatid, email)
         visit new_user_registration_path
         fill_in_user_registration(user, document_vatid, email)
