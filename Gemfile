@@ -70,7 +70,7 @@ gem 'norma43', github: 'podemos-info/norma43'
 gem 'sepa_king' # for generate SEPA XML files
 
 group :development, :test do
-  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano', '~> 3.4'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
