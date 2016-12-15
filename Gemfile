@@ -82,10 +82,11 @@ group :development, :test do
   gem 'rubocop'
   gem 'ruby-prof'
   gem 'simplecov'
-  gem 'webmock'
   gem 'capybara'
   gem 'poltergeist'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'minitest-rails-capybara'
 end
+
+gem 'webmock', group: :development

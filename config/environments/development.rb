@@ -42,6 +42,4 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = Rails.application.config_for(:mailserver).symbolize_keys()
 
   BetterErrors::Middleware.allow_ip! Rails.application.secrets.trusted_ip if Rails.application.secrets.trusted_ip
-
-  WebMock.disable!
 end
