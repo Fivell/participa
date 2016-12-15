@@ -237,7 +237,6 @@ fieldset .inputlabel-box input.radio{
   transform:scale(2);
 }
 fieldset .inputlabel-box p, fieldset .inputlabel-box li{
-  float:left;
   border:none;
   padding:0;
   color:#999;
@@ -247,11 +246,12 @@ fieldset .inputlabel-box p, fieldset .inputlabel-box li{
 fieldset .inputlabel-box ul{
   list-style-type: circle;
 }
-
 fieldset .inputlabel-box li{
   list-style: inside;
 }
-
+fieldset .inputlabel-box ul.terms-links li{
+  list-style: none;
+}
 fieldset .alert-nexttolabel{
   display:inline-block;
   background:#d7cad8;

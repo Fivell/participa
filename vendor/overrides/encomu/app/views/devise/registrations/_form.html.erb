@@ -236,7 +236,7 @@
           <%= f.label :terms_of_service %>
           <div class="input-box">
             <%= f.check_box :terms_of_service, class: 'checkbox' %>
-            <ul>
+            <ul class="terms-links">
               <li>
                 <%= link_to t('bec.registration.legends.legal1'), page_privacy_policy_path, target: '_blank' %>
               </li>
