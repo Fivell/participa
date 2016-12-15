@@ -294,6 +294,11 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
 <p> <b>Versió 28 de febrer de 2015 16:01 </b> </p> "
     registration:
       catalonia_resident: Resideixo a Catalunya
+      choose_province: Tria una província
+      choose_town: Tria un municipi
+      country: País
+      province: Província
+      town: Municipi
       legends:
         inscription_html: TODO
         legal1: TODO
