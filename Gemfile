@@ -53,7 +53,6 @@ gem 'ffi-icu'
 gem 'unicode'
 gem 'rack-openid'
 gem 'ruby-openid'
-gem 'secure_headers'
 gem 'minitest-rails'
 gem 'rake-progressbar'
 gem 'rails_autolink'
@@ -71,7 +70,7 @@ gem 'norma43', github: 'podemos-info/norma43'
 gem 'sepa_king' # for generate SEPA XML files
 
 group :development, :test do
-  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano', '~> 3.4'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
@@ -82,10 +81,11 @@ group :development, :test do
   gem 'rubocop'
   gem 'ruby-prof'
   gem 'simplecov'
-  gem 'webmock'
   gem 'capybara'
   gem 'poltergeist'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'minitest-rails-capybara'
 end
+
+gem 'webmock', group: :development
