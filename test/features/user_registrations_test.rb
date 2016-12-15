@@ -28,8 +28,7 @@ feature "UserRegistrations" do
 
   scenario "create a user outside of Spain", js: true do
     base_register(@user) do
-      fill_in_location_data(country: 'Estados Unidos',
-                            province: 'Alabama')
+      fill_in_location_data(country: 'Estados Unidos', province: 'Alabama')
     end
 
     assert_location 'Alabama, Estados Unidos', User.first
