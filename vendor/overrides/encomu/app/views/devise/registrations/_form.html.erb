@@ -238,7 +238,7 @@
             <%= f.check_box :terms_of_service, class: 'checkbox' %>
             <ul>
               <li>
-                <a target="_blank" href="https://barcelonaencomu.cat/es/politica-de-privacidad"><%= t('bec.registration.legends.legal1') %></a>
+                <%= link_to t('bec.registration.legends.legal1'), page_privacy_policy_path, target: '_blank' %>
               </li>
               <li>
                 <a target="_blank" href="https://barcelonaencomu.cat/es/aviso-legal"><%= t('bec.registration.legends.legal2') %></a>

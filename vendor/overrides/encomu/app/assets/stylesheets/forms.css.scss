@@ -52,6 +52,10 @@ box info & alerts
 .box-info h4{
   margin: 0 0 .8em 0;
 }
+.box-info li{
+  list-style: inside;
+  line-height: 1.5em;
+}
 .box-ko p:last-of-type,
 .box-ok p:last-of-type {
   margin:0;
