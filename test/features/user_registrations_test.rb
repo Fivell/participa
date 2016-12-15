@@ -34,6 +34,15 @@ feature "UserRegistrations" do
     assert_location 'Alabama, Estados Unidos', User.first
   end
 
+  scenario "location is preserved upon form errors", js: true do
+    visit new_user_registration_path
+    fill_in_location_data(country: 'Estados Unidos', province: 'Alabama')
+    click_button 'Inscribirse'
+
+    assert page.has_select?('País', selected: 'Estados Unidos')
+    assert page.has_select?('Provincia', selected: 'Alabama')
+  end
+
   scenario "create a user with gender identity information", js: true do
     visit new_user_registration_path
     fill_in_user_registration(@user, @user.document_vatid, @user.email)

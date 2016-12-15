@@ -131,11 +131,13 @@
     <legend><span><%= t('domicilio') %></span></legend>
 
     <div class="inputlabel-box">
-      <%= label_tag :catalonia_resident,
-                    t('bec.registration.catalonia_resident') %>
+      <%= label :user, :catalonia_resident, class: "control-label" do %>
+        <%= t('bec.registration.catalonia_resident') %>
+      <% end %>
 
       <div class="input-box">
-        <%= check_box_tag :catalonia_resident, '1', true, class: 'checkbox' %>
+        <%= hidden_field_tag "user[catalonia_resident]", '0', id: nil %>
+        <%= check_box_tag "user[catalonia_resident]", '1', @user_location[:catalonia_resident], class: 'checkbox' %>
       </div>
     </div>
     <div class="inputlabel-box">

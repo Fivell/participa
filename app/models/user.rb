@@ -623,6 +623,7 @@ class User < ActiveRecord::Base
 
     # params from create page
     if params[:user]
+      user_location[:catalonia_resident] ||= cast_catalonia_resident(params[:user][:catalonia_resident])
       user_location[:country] ||= params[:user][:country]
       user_location[:province] ||= params[:user][:province]
       user_location[:town] ||= params[:user][:town]

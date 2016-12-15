@@ -77,7 +77,7 @@ $(function() {
   can_change_vote_location = !$('select#user_vote_province').is(':disabled');
 
   var $country = $('select#user_country');
-  var $catalonia_resident = $('#catalonia_resident');
+  var $catalonia_resident = $('#user_catalonia_resident');
 
   if ($country.length) {
     $.fn.disable_control = function( ) {
@@ -115,7 +115,11 @@ $(function() {
     }
   }
 
-  $catalonia_resident.flag_catalonian_residence();
+  var $country_group = $country.parents('.inputlabel-box');
+
+  if ($catalonia_resident.is(':checked')) {
+    $country_group.hide();
+  }
 
   $catalonia_resident.click(function() {
     $(this).flag_catalonian_residence();
