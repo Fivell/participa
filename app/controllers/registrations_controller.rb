@@ -67,22 +67,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource(sign_up_params)
-    if resource.is_captcha_valid?
+    if resource.valid_with_captcha?
       super do
-        result, status = user_already_exists? resource, :document_vatid
-        if status and result.errors.empty?
-          UsersMailer.remember_email(:document_vatid, result.document_vatid).deliver_now
-          redirect_to(root_path, notice: t("devise.registrations.signed_up_but_unconfirmed"))
-          return
-        end
-
-        result, status = user_already_exists? resource, :email
-        if status and result.errors.empty?
-          UsersMailer.remember_email(:email, result.email).deliver_now
-          redirect_to(root_path, notice: t("devise.registrations.signed_up_but_unconfirmed"))
-          return
-        end
-
         # If the user already had a location but deleted itslet, he should have
         # his previous location
         #
@@ -91,6 +77,12 @@ class RegistrationsController < Devise::RegistrationsController
         end
       end
     else
+      redirect_if_valid_dup(:document_vatid)
+      return if performed?
+
+      redirect_if_valid_dup(:email)
+      return if performed?
+
       clean_up_passwords(resource)
       render :new
     end
@@ -106,7 +98,20 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def user_already_exists?(resource, type)
+  def redirect_if_valid_dup(type)
+    if valid_with_dup?(type)
+      UsersMailer.remember_email(type, resource.public_send(type)).deliver_now
+      redirect_to(root_path, notice: t("devise.registrations.signed_up_but_unconfirmed"))
+    end
+  end
+
+  def valid_with_dup?(type)
+    return false unless user_already_exists?(type)
+
+    resource.errors.empty?
+  end
+
+  def user_already_exists?(type)
     # FIX for https://github.com/plataformatec/devise/issues/3540
     # Devise paranoid only works for passwords resets.
     # With the uniqueness validation on user.document_vatid and user.email
@@ -122,9 +127,9 @@ class RegistrationsController < Devise::RegistrationsController
     if resource.errors.added? type, :taken
       resource.errors.messages[type] -= [ t('activerecord.errors.models.user.attributes.' + type.to_s + '.taken') ]
       resource.errors.delete(type) if resource.errors.messages[type].empty?
-      return resource, true
+      return true
     else
-      return resource, false
+      return false
     end
   end
 

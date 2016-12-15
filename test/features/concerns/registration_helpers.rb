@@ -1,6 +1,21 @@
 module Participa
   module Test
     module RegistrationHelpers
+      def setup
+        @old_always_pass = SimpleCaptcha.always_pass
+        SimpleCaptcha.always_pass = false
+
+        @user = FactoryGirl.build(:user)
+
+        super
+      end
+
+      def teardown
+        super
+
+        SimpleCaptcha.always_pass = @old_always_pass
+      end
+
       def create_user_registration(user, document_vatid, email)
         visit new_user_registration_path
         fill_in_user_registration(user, document_vatid, email)
@@ -32,11 +47,28 @@ module Participa
       end
 
       def acknowledge_stuff
+        acknowledge_inscription
+        acknowledge_terms
+        acknowledge_age
+        fill_in_captcha
+      end
+
+      def acknowledge_inscription
         check('user_inscription')
+      end
+
+      def acknowledge_terms
         check('user_terms_of_service')
+      end
+
+      def acknowledge_age
         # XXX: the cookie policy gets in the middle here, so check won't work.
         # Investigate and fix
         find('input[type=checkbox]#user_age_restriction').trigger('click')
+      end
+
+      def fill_in_captcha
+        fill_in 'user[captcha]', with: SimpleCaptcha::SimpleCaptchaData.first.value
       end
 
       def fill_in_login_data(user, email)

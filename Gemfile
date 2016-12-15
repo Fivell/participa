@@ -23,7 +23,7 @@ gem 'sprockets-rails', '2.3.3' # http://stackoverflow.com/a/34344602
 
 gem 'pg'
 gem 'rb-readline'
-gem 'airbrake'
+gem 'airbrake', group: :production
 
 gem 'devise'
 gem 'cancancan', '~> 1.9'

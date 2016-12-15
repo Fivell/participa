@@ -4,8 +4,6 @@ require "features/concerns/registration_helpers"
 feature "UserRegistrations" do
   include Participa::Test::RegistrationHelpers
 
-  before { @user = FactoryGirl.build(:user) }
-
   scenario "create a user in Catalonia", js: true do
     base_register(@user) do
       fill_in_location_data(country: 'España',
@@ -49,21 +47,32 @@ feature "UserRegistrations" do
     assert_equal true, User.first.gender_identity.cis_woman?
   end
 
-  scenario "captcha succeeds", js: true do
-    SimpleCaptcha.always_pass = false
+  scenario "captcha skipped", js: true do
     visit new_user_registration_path
-    fill_in_user_registration(@user, @user.document_vatid, @user.email)
-    fill_in 'user[captcha]', with: SimpleCaptcha::SimpleCaptchaData.first.value
-    click_button 'Inscribirse'
-    assert_no_text 'El texto introducido no corresponde con el de la imagen'
-  end
-
-  scenario "captcha fails", js: true do
-    SimpleCaptcha.always_pass = false
-    visit new_user_registration_path
-    fill_in_user_registration(@user, @user.document_vatid, @user.email)
+    fill_in_personal_data(@user, @user.document_vatid)
+    fill_in_location_data(province: 'Barcelona',
+                          town: 'Barcelona',
+                          postal_code: '08021')
+    fill_in_login_data(@user, @user.email)
+    acknowledge_inscription
+    acknowledge_terms
+    acknowledge_age
     click_button 'Inscribirse'
     assert_text 'El texto introducido no corresponde con el de la imagen'
+  end
+
+  scenario "captcha skipped and another error", js: true do
+    visit new_user_registration_path
+    fill_in_personal_data(@user, @user.document_vatid)
+    fill_in_location_data(province: 'Barcelona',
+                          town: 'Barcelona',
+                          postal_code: '08021')
+    fill_in_login_data(@user, @user.email)
+    acknowledge_terms
+    acknowledge_age
+    click_button 'Inscribirse'
+    assert_text 'El texto introducido no corresponde con el de la imagen'
+    assert_text 'Acepto incribirme en la candidatura: debe ser aceptado'
   end
 
   private
