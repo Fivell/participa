@@ -57,22 +57,6 @@ function toggle_vote_town(country) {
 
 var can_change_vote_location;
 
-$.fn.flag_catalonian_residence = function() {
-  this.each(function() {
-    var $country = $('#user_country');
-    var $country_group = $country.parents('.inputlabel-box');
-
-    if (this.checked) {
-      show_provinces( 'ES', '1' );
-      $country.val('ES');
-      $country_group.hide();
-    } else {
-      show_provinces( $country.find(':selected').val(), '0' );
-      $country_group.show();
-    }
-  });
-};
-
 $(function() {
   can_change_vote_location = !$('select#user_vote_province').is(':disabled');
 
@@ -122,6 +106,13 @@ $(function() {
   }
 
   $catalonia_resident.click(function() {
-    $(this).flag_catalonian_residence();
+    if (this.checked) {
+      show_provinces( 'ES', '1' );
+      $country.val('ES');
+      $country_group.hide();
+    } else {
+      show_provinces( $country.find(':selected').val(), '0' );
+      $country_group.show();
+    }
   });
 });
