@@ -361,8 +361,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    secure_headers (3.5.1)
-      useragent
     sepa_king (0.6.0)
       activemodel (>= 3.0.0)
       builder
@@ -403,7 +401,6 @@ GEM
       json (>= 1.8.0)
     unicode (0.4.4.2)
     unicode-display_width (1.1.2)
-    useragent (0.16.8)
     validate_url (1.0.2)
       activemodel (>= 3.0.0)
       addressable
@@ -483,7 +480,6 @@ DEPENDENCIES
   ruby-prof
   sass-rails
   sdoc (~> 0.4.0)
-  secure_headers
   sepa_king
   simple_captcha2
   simplecov
