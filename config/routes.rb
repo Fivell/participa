@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     get '/votacio/2016/pre-acord-de-govern', to: 'page#votacio_preacord'
 
     get '/privacy-policy', to: 'page#privacy_policy', as: 'page_privacy_policy'
+    get '/legal', to: 'page#legal', as: 'page_legal'
+    get '/cookie-policy', to: 'page#cookie_policy', as: 'page_cookie_policy'
     get '/preguntas-frecuentes', to: 'page#faq', as: 'faq'
     get '/circulos/validacion', to: 'page#circles_validation', as: 'circles_validation'
 

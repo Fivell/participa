@@ -18,7 +18,6 @@ box info & alerts
   position:relative;
 }
 .box-info{
-  background:#716E6B;
   padding:1.5em 3em 1.5em 4em;
   margin:0 0 1.5em
 }
@@ -28,9 +27,6 @@ box info & alerts
   position:absolute;
   top: -0.5em;
   left: -0.5em;
-}
-.box p{
-  color:#000;
 }
 .box-ko{
   background:#f5bfc9 image-url("ico.alert-error.svg") 2.5em 1.25em no-repeat;
@@ -47,12 +43,21 @@ box info & alerts
   width:100%;
 
 }
-.box-info p{
-  color:#fff;
+.box-info p, .box-info h3, .box-info li{
+  margin: 0 0 1.5em 0;
+}
+.box-info p, .box-info li{
+  font-size: 1.2em;
+}
+.box-info h4{
+  margin: 0 0 .8em 0;
+}
+.box-info li{
+  list-style: inside;
+  line-height: 1.5em;
 }
 .box-ko p:last-of-type,
-.box-ok p:last-of-type,
-.box-info p:last-of-type{
+.box-ok p:last-of-type {
   margin:0;
 }
 .logged-out .box-ko p,
@@ -232,7 +237,6 @@ fieldset .inputlabel-box input.radio{
   transform:scale(2);
 }
 fieldset .inputlabel-box p, fieldset .inputlabel-box li{
-  float:left;
   border:none;
   padding:0;
   color:#999;
@@ -242,11 +246,12 @@ fieldset .inputlabel-box p, fieldset .inputlabel-box li{
 fieldset .inputlabel-box ul{
   list-style-type: circle;
 }
-
 fieldset .inputlabel-box li{
   list-style: inside;
 }
-
+fieldset .inputlabel-box ul.terms-links li{
+  list-style: none;
+}
 fieldset .alert-nexttolabel{
   display:inline-block;
   background:#d7cad8;
