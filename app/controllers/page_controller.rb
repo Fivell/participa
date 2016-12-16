@@ -1,7 +1,7 @@
 require 'securerandom'
 class PageController < ApplicationController
 
-  before_action :authenticate_user!, except: [:privacy_policy, :legal, :faq, :guarantees, :guarantees_form, :show_form,
+  before_action :authenticate_user!, except: [:privacy_policy, :legal, :faq, :cookie_policy, :guarantees, :guarantees_form, :show_form,
                                               :circles_validation, :primarias_andalucia, :listas_primarias_andaluzas,
                                               :responsables_organizacion_municipales, :count_votes, :votacio_preacord,
                                               :responsables_municipales_andalucia, :plaza_podemos_municipal,
@@ -37,6 +37,9 @@ class PageController < ApplicationController
   end
 
   def legal
+  end
+
+  def cookie_policy
   end
 
   def guarantees

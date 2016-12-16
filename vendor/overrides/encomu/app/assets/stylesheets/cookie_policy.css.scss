@@ -37,3 +37,20 @@
     }
   }
 }
+
+.table-cookies {
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  td, th {
+    padding: .6em .8em;
+  }
+
+  th {
+    border-bottom: 2px solid #ddd;
+  }
+
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
