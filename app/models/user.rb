@@ -421,6 +421,10 @@ class User < ActiveRecord::Base
 
   attr_reader :catalonia_resident
 
+  def catalonia_resident
+    @catalonia_resident ||= %w(B T L GI).include?(province) && in_spain?
+  end
+
   def catalonia_resident=(value)
     @catalonia_resident = value == '1' ? true : false
   end
