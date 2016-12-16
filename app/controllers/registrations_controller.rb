@@ -2,21 +2,15 @@ class RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: :create
   before_action :configure_account_update_params, only: :update
 
-  prepend_before_action :load_user_location
-
-  def load_user_location
-    @user_location = User.get_location(current_user, params)
-  end
-
   def regions_provinces
     # Dropdownw for AJAX on registrations edit/new
     #
     render \
       partial: 'subregion_select',
       locals: {
-        catalonia_resident: @user_location[:catalonia_resident],
-        country: @user_location[:country],
-        province: @user_location[:province],
+        catalonia_resident: cast_catalonia_resident(params[:catalonia_resident]),
+        country: params[:user_country],
+        province: params[:user_province],
         disabled: false,
         required: true,
         field: :province,
@@ -31,9 +25,9 @@ class RegistrationsController < Devise::RegistrationsController
     render \
       partial: 'municipies_select',
       locals: {
-        country: @user_location[:country],
-        province: @user_location[:province],
-        town: @user_location[:town],
+        country: params[:user_country],
+        province: params[:user_province],
+        town: params[:user_town],
         disabled: false,
         required: true,
         field: :town,
@@ -48,8 +42,8 @@ class RegistrationsController < Devise::RegistrationsController
       partial: 'municipies_select',
       locals: {
         country: "ES",
-        province: @user_location[:vote_province],
-        town: @user_location[:vote_town],
+        province: params[:user_vote_province],
+        town: params[:user_vote_town],
         disabled: false,
         required: false,
         field: :vote_town,
@@ -59,7 +53,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   def new
     if Rails.application.secrets.features["allow_inscription"]
-      super
+      super do |user|
+        user.assign_attributes(country: "ES", catalonia_resident: true)
+      end
     else
       redirect_to root_path, flash: { notice: 'Registrations are not open.' }
     end
@@ -97,6 +93,12 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
+  def cast_catalonia_resident(param)
+    return unless param
+
+    param == "1" ? true : false
+  end
 
   def redirect_if_valid_dup(type)
     if valid_with_dup?(type)
@@ -176,6 +178,7 @@ class RegistrationsController < Devise::RegistrationsController
       born_at
       gender_identity
       wants_newsletter
+      catalonia_resident
       country
       province
       town
