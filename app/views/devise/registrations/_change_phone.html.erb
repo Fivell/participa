@@ -1,5 +1,5 @@
 <h2>
-  <%= t("podemos.user.change_phone") %>
+  <%= t("bec.user.change_phone") %>
 </h2>
 
 <section class="content-text">
@@ -9,7 +9,7 @@
     <div class="buttonbox">
       <%=
           button_to(
-                  t("podemos.user.change_phone"),
+                  t("bec.user.change_phone"),
                   sms_validator_step1_path,
                   method: :get,
                   class: "button"
@@ -17,6 +17,6 @@
       %>
     </div>
   <% else %>
-    <p>Lo has confirmado en los últimos tres meses, así que todavía no puedes cambiarlo.</p>
+    <p>L'has confirmat fa menys de tres mesos, així que encara no pots canviar-lo / Lo has confirmado en los últimos tres meses, así que todavía no puedes cambiarlo.</p>
   <% end %>
 </section>

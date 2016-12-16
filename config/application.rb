@@ -28,7 +28,6 @@ module Participa
       config.assets.paths << Rails.root.join("vendor", "overrides", folder, "app", "assets", type)
     end
     config.i18n.load_path += Dir[Rails.root.join('vendor', 'overrides', folder, 'config', 'locales', '*.{rb,yml}').to_s]
-    config.paths['app/views'].unshift(Rails.root.join('vendor', 'overrides', folder, 'app', 'views'))
 
     config.generators do |g|
       g.test_framework :test_unit, fixture: true

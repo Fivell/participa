@@ -1,21 +1,19 @@
 <p class="sub-h3">
-<!--
-<% if current_user.can_change_vote_location? and election.multiple_territories?%>
-Accederás a la votación de<% case election.scope
-     when 1 %> la comunidad autónoma en la
-  <% when 2 %> la provincia en la
-  <% when 3 %>l municipio en el 
-  <% when 4 %> la isla en la
-  <% end %> que estás inscrito/a. Puedes actualizarlo pero recuerda que solo tu último voto es válido.<% end %>
--->
 <div class="box-poll">
   <div>
-    <p class="poll-q"><%= election.full_title_for current_user %></p>
-    <p class="date"><%= l election.starts_at, format: :short %> - <%= l election.ends_at, format: :short %></p>
+    <%= link_to create_vote_path(election_id: election.id) do %>
+      <p class="poll-q"><%= election.full_title_for current_user %></p>
+      <p class="date"><%= l election.starts_at, format: :short %> - <%= l election.ends_at, format: :short %></p>
+    <% end %>
   </div>
   <% if election.has_valid_location_for? current_user %>
+    <% if election.info_url? %>
+      <%= link_to election.info_url, class: 'button button-info', target: '_blank' do %>
+        <span>+ info</span>
+      <% end %>
+    <% end %>
     <%= link_to create_vote_path(election_id: election.id), class: 'button button-vote' do %>
-      <span>Votar</span>
+      <span><%= t('voting.button') %></span>
     <% end %>
   <% end %>
 </div>

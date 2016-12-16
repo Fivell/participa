@@ -1,21 +1,12 @@
-<div id="js-registration-user_<%=field%>-wrapper" class="input required form-group">
+<div id="js-registration-user_province-wrapper" class="input required form-group">
   <%= label :user, :province, class: "control-label", required: :required do %>
-    <%= title %>
-    <% if required %><abbr title="requerido">*</abbr><% end %>
+    <%= t('bec.registration.province') %>
+    <abbr title="requerido">*</abbr>
   <% end %>
-  <span class="form-wrapper">
-  <% provinces = get_provinces(country) %>
-  <% if provinces.length>0 
-      placeholder = "-- Elige una provincia --"
-      first_options = if required
-                        ""
-                      else  
-                        "<option value='-' "+(province=='-'? ' selected="selected"':'')+">-- Ninguna --</option>"
-                      end
-      %>
-      <%= select_tag "user[#{field}]", first_options.html_safe+options_from_collection_for_select(provinces, "code", "name", selected: province, disabled: (disabled ? [] : options_filter)), {disabled: disabled, required: required, data: {placeholder: placeholder, allowClear: true}, prompt: placeholder } %>
-  <% else %>
-    <%= text_field(:user, field, class: "form-control input-xl") %>
-  <% end %>
-  </span>
+  <div class="form-wrapper">
+  <% provinces = get_provinces(@user_location[:country],
+                               @user_location[:catalonia_resident]) %>
+  <% placeholder = "-- #{t('bec.registration.choose_province')} --" %>
+  <%= select_tag "user[province]", options_from_collection_for_select(provinces, "code", "name", @user_location[:province]), {required: "required", data: {placeholder: placeholder, allowClear: true}, prompt: placeholder } %>
+  </div>
 </div>

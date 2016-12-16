@@ -1,7 +1,8 @@
 <% unless cookies[:cookiepolicy].present? %>
-    <div class="cookie">
+  <div class="cookie">
+    <span>
       <%= t '.cookie_html' %>
-
-      <a class="close" id="close_cookie" href="#">X</a>
-    </div>
+    </span>
+    <a class="close" id="close_cookie" href="#">x <br><%= t '.cookie_close' %></a>
+  </div>
 <% end %>
