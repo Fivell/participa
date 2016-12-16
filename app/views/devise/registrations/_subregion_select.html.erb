@@ -4,9 +4,8 @@
     <abbr title="requerido">*</abbr>
   <% end %>
   <div class="form-wrapper">
-  <% provinces = get_provinces(@user_location[:country],
-                               @user_location[:catalonia_resident]) %>
+  <% provinces = get_provinces(country, catalonia_resident) %>
   <% placeholder = "-- #{t('bec.registration.choose_province')} --" %>
-  <%= select_tag "user[province]", options_from_collection_for_select(provinces, "code", "name", @user_location[:province]), {required: "required", data: {placeholder: placeholder, allowClear: true}, prompt: placeholder } %>
+  <%= select_tag "user[province]", options_from_collection_for_select(provinces, "code", "name", province), {required: "required", data: {placeholder: placeholder, allowClear: true}, prompt: placeholder } %>
   </div>
 </div>

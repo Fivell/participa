@@ -137,7 +137,7 @@
 
       <div class="input-box">
         <%= hidden_field_tag "user[catalonia_resident]", '0', id: nil %>
-        <%= check_box_tag "user[catalonia_resident]", '1', @user_location[:catalonia_resident], class: 'checkbox' %>
+        <%= check_box_tag "user[catalonia_resident]", '1', resource.catalonia_resident, class: 'checkbox' %>
       </div>
     </div>
     <div class="inputlabel-box">
@@ -148,19 +148,19 @@
         <%= t('bec.registration.country') %>
         <abbr title="requerido">*</abbr>
       <% end %>
-      <%= select_tag "user[country]", options_from_collection_for_select(get_countries, "code", "name", @user_location[:country]), { disabled: false, required: true, data: {allowClear: true} } %>
+      <%= select_tag "user[country]", options_from_collection_for_select(get_countries, "code", "name", resource.country), { disabled: false, required: true, data: {allowClear: true} } %>
     </div>
     <div class="inputlabel-box">
       <% if resource.errors.include?(:province) %>
           <%= field_notice_box %>
       <% end %>
-      <%= render partial: 'subregion_select', locals:{country: @user_location[:country], province: @user_location[:province], disabled: false, required: true, field: :province, title:"Provincia", options_filter: (resource.can_change_vote_location? ? User.blocked_provinces : nil ) } %>
+      <%= render partial: 'subregion_select', locals:{catalonia_resident: resource.catalonia_resident, country: resource.country, province: resource.province, disabled: false, required: true, field: :province, title:"Provincia", options_filter: (resource.can_change_vote_location? ? User.blocked_provinces : nil ) } %>
     </div>
     <div class="inputlabel-box">
       <% if resource.errors.include?(:town) %>
           <%= field_notice_box %>
       <% end %>
-      <%= render partial: 'municipies_select', locals:{country: @user_location[:country], province: @user_location[:province], town: @user_location[:town], disabled: false, required: true, field: :town, title:"Municipio"}%>
+      <%= render partial: 'municipies_select', locals:{country: resource.country, province: resource.province, town: resource.town, disabled: false, required: true, field: :town, title:"Municipio"}%>
     </div>
     <div class="inputlabel-box">
       <% if resource.errors.include?(:postal_code) %>

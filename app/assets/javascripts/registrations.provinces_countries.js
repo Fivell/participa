@@ -5,7 +5,7 @@ function show_provinces(country_code, catalonia_resident){
   var url = '/registrations/regions/provinces?no_profile=1&user_country=' + country_code;
 
   if (!(catalonia_resident === undefined)) {
-    url = url + '&catalonia_resident=' + catalonia_resident;
+    url = url + '&user_catalonia_resident=' + catalonia_resident;
   }
 
   $('#user_town').disable_control();
@@ -96,6 +96,10 @@ $(function() {
       }
     } else {
       toggle_vote_town(false);
+    }
+
+    if ($country.find(':selected').val() != 'ES') {
+      $('#user_town').disable_control();
     }
   }
 

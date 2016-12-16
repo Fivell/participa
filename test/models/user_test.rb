@@ -514,26 +514,4 @@ class UserTest < ActiveSupport::TestCase
       assert_equal "m_03_003_6", new_user.vote_town, "New user vote location should not be changed"
     end
   end
-
-  test 'catalonia_resident flag & .get_location: nil case' do
-    user_location = User.get_location(nil, no_profile: "1", user_country: "ES")
-
-    assert_equal true, user_location[:catalonia_resident]
-  end
-
-  test 'catalonia_resident flag & .get_location: true case' do
-    user_location = User.get_location(nil, no_profile: "1",
-                                           user_country: "ES",
-                                           catalonia_resident: "1")
-
-    assert_equal true, user_location[:catalonia_resident]
-  end
-
-  test 'catalonia_resident flag & .get_location: false case' do
-    user_location = User.get_location(nil, no_profile: "1",
-                                           user_country: "ES",
-                                           catalonia_resident: "0")
-
-    assert_equal false, user_location[:catalonia_resident]
-  end
 end
