@@ -28,11 +28,19 @@ feature "UserRegistrations" do
 
   scenario "create a user outside of Spain", js: true do
     base_register(@user) do
-      fill_in_location_data(country: 'Estados Unidos',
-                            province: 'Alabama')
+      fill_in_location_data(country: 'Estados Unidos', province: 'Alabama')
     end
 
     assert_location 'Alabama, Estados Unidos', User.first
+  end
+
+  scenario "location is preserved upon form errors", js: true do
+    visit new_user_registration_path
+    fill_in_location_data(country: 'Estados Unidos', province: 'Alabama')
+    click_button 'Inscribirse'
+
+    assert page.has_select?('País', selected: 'Estados Unidos')
+    assert page.has_select?('Provincia', selected: 'Alabama')
   end
 
   scenario "create a user with gender identity information", js: true do
