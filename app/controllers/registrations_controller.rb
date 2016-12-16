@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
     render \
       partial: 'subregion_select',
       locals: {
-        catalonia_resident: cast_catalonia_resident(params[:catalonia_resident]),
+        catalonia_resident: cast_catalonia_resident(params[:user_catalonia_resident]),
         country: params[:user_country],
         province: params[:user_province],
         disabled: false,
