@@ -55,7 +55,10 @@ class User < ActiveRecord::Base
   validates :email_confirmation, presence: true, on: :create
   validates :terms_of_service, acceptance: true
   validates :age_restriction, acceptance: true
-  validates :document_type, inclusion: { in: [1, 2, 3], message: "Tipo de documento no válido" }
+  validates :document_type,
+            inclusion: { in: [1, 2, 3],
+            message: "Tipo de documento no válido" },
+            allow_blank: true
   validates :document_vatid, valid_nif: true, if: :is_document_dni?
   validates :document_vatid, valid_nie: true, if: :is_document_nie?
   validates :born_at, date: true, allow_blank: true # gem date_validator

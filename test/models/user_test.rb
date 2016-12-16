@@ -157,6 +157,13 @@ class UserTest < ActiveSupport::TestCase
     assert_empty u.errors[:document_type]
   end
 
+  test "should .document_type not give redundant errors" do
+    u = User.new(document_type: '')
+    u.valid?
+    assert_equal ["Tu tipo de documento no puede estar en blanco"],
+                 u.errors[:document_type]
+  end
+
   test "should .full_name work" do
     u = User.new(first_name: "Juan", last_name: "Perez")
     assert_equal("Juan Perez", u.full_name)
