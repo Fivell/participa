@@ -4,6 +4,12 @@ require "features/concerns/registration_helpers"
 feature "UserRegistrations" do
   include Participa::Test::RegistrationHelpers
 
+  scenario "catalonia_residence is checked by default", js: true do
+    visit new_user_registration_path
+
+    assert page.has_checked_field?("Resido en Cataluña")
+  end
+
   scenario "create a user in Catalonia", js: true do
     base_register(@user) do
       fill_in_location_data(country: 'España',
