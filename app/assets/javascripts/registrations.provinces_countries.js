@@ -97,6 +97,10 @@ $(function() {
     } else {
       toggle_vote_town(false);
     }
+
+    if ($country.find(':selected').val() != 'ES') {
+      $('#user_town').disable_control();
+    }
   }
 
   var $country_group = $country.parents('.inputlabel-box');
