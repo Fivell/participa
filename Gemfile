@@ -76,8 +76,6 @@ group :development, :test do
   gem 'capistrano-passenger'
   gem 'factory_girl_rails'
   gem 'byebug'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'rubocop'
   gem 'ruby-prof'
   gem 'simplecov'

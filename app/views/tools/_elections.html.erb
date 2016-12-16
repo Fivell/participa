@@ -1,14 +1,24 @@
-<% content_for :title, "Herramientas de participación ciudadana" %>
-<%= content_tag(:h2, "Herramientas de participación ciudadana") %>
+<% content_for :title, t('voting.title') %>
+<%= content_tag(:h2, t('voting.title')) %>
 <div class="box">
   <div class="box-vote">
-    <% if !current_user.has_vote_town? %>
-      <p><strong>Por favor, indica tu lugar de participación en tu perfil.</strong></p>
-    <% end %>
-    <h3><strong>Hay <% if @elections.length==1%>una votación<%else%>votaciones<%end%> en curso. ¡Participa!</strong></h3>
-    <p class="sub-h3"><% if @elections.length==1%>La votación utiliza<%else%>Las votaciones utilizan<%end%> el sistema seguro de <a href="https://agoravoting.com" target="_blank"><b>Agora Voting</b></a>.</p>
+    <h3><strong><% if @elections.length==1%>
+      <%= t('voting.election_one') %>
+    <%else%>
+      <%= t('voting.election_mul_html') %>
+    <%end%> <%= t('voting.participate') %></strong></h3>
+    
     <% @elections.each do |election| %>
       <%= render partial: "election", locals: { election: election } %>
     <% end %>
+    <p class="sub-h3">
+      <% if @elections.length==1%>
+        <%= t('voting.election_use_one') %>
+      <%else%>
+        <%= t('voting.election_use_mul') %>
+      <%end%> 
+        <%= t('voting.secure_system') %>
+      <a href="https://agoravoting.com" target="_blank"><b>Agora Voting</b></a>
+    </p>
   </div>
 </div>

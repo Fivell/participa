@@ -1,15 +1,11 @@
-<div id="js-registration-user_<%=field%>-wrapper" class="input required form-group">
+<div id="js-registration-user_town-wrapper" class="input required form-group">
   <%= label :user, :town, class: "control-label", required: :required do %>
-    <%= title %>
-    <% if required %><abbr title="requerido">*</abbr><% end %>
+    <%= t('bec.registration.town') %>
+    <abbr title="requerido">*</abbr>
   <% end %>
     <span class="form-wrapper">
-    <% towns = get_towns(country, province) %>
-    <% if province=="-" || towns.length>0 %>
-        <% placeholder = "-- Elige un municipio --" %>
-        <%= select_tag "user[#{field}]", options_from_collection_for_select(towns, "code", "name", town), {disabled: disabled, required: required, data: {placeholder: placeholder}, placeholder: placeholder } %>
-    <% else %>
-      <%= text_field(:user, field, class: "input-xl form-control") %>
-    <% end %>
+    <% towns = get_towns(@user_location[:country], @user_location[:province]) %>
+    <% placeholder = "-- #{t('bec.registration.choose_town')} --" %>
+    <%= select_tag "user[town]", options_from_collection_for_select(towns, "code", "name", @user_location[:town]), {required: "required", data: {placeholder: placeholder}, prompt: placeholder } %>
     </span>
 </div>
