@@ -5,16 +5,4 @@ Rails.application.configure do
   config.i18n.fallbacks = [:es]
 
   config.action_mailer.delivery_method = :sendmail
-
-  #ActionMailer::Base.delivery_method = :smtp
-  #ActionMailer::Base.smtp_settings = {
-  #  :address        => 'in-v3.mailjet.com',
-  #  :enable_starttls_auto => true,
-  #  :port           => 587,
-  #  :authentication => :plain,
-  #  :user_name      => Rails.application.secrets.mailjet["api_key"],
-  #  :password       => Rails.application.secrets.mailjet["secret_key"],
-  #  :domain         => 'barcelonaencomu.cat'
-  #}
-
 end
