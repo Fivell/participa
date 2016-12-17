@@ -1,5 +1,8 @@
 <%= errors_in_form resource %>
-<%= semantic_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {novalidate: true}) do |f| %>
+<%= semantic_form_for(resource,
+                      as: resource_name,
+                      url: registration_path(resource_name),
+                      html: {novalidate: true}) do |f| %>
   <fieldset>
     <% if action == "new" %>
       <div class="subtitle-welcome">
