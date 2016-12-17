@@ -1,0 +1,11 @@
+$container-md: 1024px;
+
+$grid-columns: 6;
+$grid-gutter-width: 12px;
+
+@import "bootstrap/grid";
+
+.container {
+  padding-left: 32px;
+  padding-right: 32px;
+}

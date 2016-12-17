@@ -2,7 +2,7 @@
 
 <div class="content-content cols">
   <div class="row">
-    <div class="col-b-4a12">
+    <div class="col-md-6">
       <section class="content-text"></section>
         <%= content_tag(:h2, t("devise.titles.forgot_password")) %>
         <%= semantic_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>

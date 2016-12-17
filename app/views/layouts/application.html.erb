@@ -11,8 +11,9 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
+
 <body class="<%= body_class user_signed_in?, controller_name, action_name %>" data-language="<%= I18n.locale %>">
-  <div class="wrap">
+  <div class="container">
     <%= render partial: 'header' %>
     <div class="content">
       <%= render partial: 'flash_boxes' %>
