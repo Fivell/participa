@@ -1,4 +1,6 @@
 class UsersMailer < ActionMailer::Base
+  layout 'email'
+
   default from: Rails.application.secrets[:default_from_email]
 
   def microcredit_email(microcredit, loan, brand_config)
