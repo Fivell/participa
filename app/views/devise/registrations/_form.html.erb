@@ -146,11 +146,7 @@
       <% if resource.errors.include?(:country) %>
           <%= field_notice_box %>
       <% end %>
-      <%= label :user, :country, class: "control-label", required: :required do %>
-        <%= t('bec.registration.country') %>
-        <abbr title="requerido">*</abbr>
-      <% end %>
-      <%= select_tag "user[country]", options_from_collection_for_select(get_countries, "code", "name", resource.country), { disabled: false, required: true, data: {allowClear: true} } %>
+      <%= render partial: 'countries_select' %>
     </div>
     <div class="inputlabel-box">
       <% if resource.errors.include?(:province) %>
