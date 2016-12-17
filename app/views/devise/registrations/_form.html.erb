@@ -4,16 +4,6 @@
                       url: registration_path(resource_name),
                       html: {novalidate: true}) do |f| %>
   <fieldset>
-    <% if action == "new" %>
-      <div class="subtitle-welcome">
-        <%= t('bec.registration.message.welcome_html',
-              logo_inscription: image_tag("ico.verif.step1.png"),
-              logo_verification: image_tag("ico.verif.step2.png"),
-              logo_voting: image_tag("ico.verif.step3.png"),
-             ) %>
-      </div>
-    <% end %>
-
     <div class="inputlabel-box">
       <% if resource.errors.include?(:first_name) %>
         <%= field_notice_box %>
