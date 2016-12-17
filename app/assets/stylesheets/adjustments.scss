@@ -34,26 +34,31 @@ input::-webkit-inner-spin-button {
 }
 // unconfirmed_phone on validator/sms/step1 end
 
+.date_select .row {
+   margin-left: 0;
+   margin-right: 0;
+}
+
 // born_at selects start
-.col-xs-3 div, .col-xs-4 div {
+.col-day div, .col-year div {
   width: 75%;
 }
 
-.col-xs-5 div {
+.col-month div {
   width: 85%;
 }
 
-.col-xs-3 {
+.col-day {
   width: 100px;
   float: left;
 }
 
-.col-xs-4 {
+.col-year {
   width: 150px;
   float: left;
  }
 
-.col-xs-5 {
+.col-month {
   width: 175px;
   float: left;
 }

@@ -99,6 +99,8 @@
       <% end %>
       <%= f.input :born_at,
                   required: true,
+                  fragment_classes: { year: 'col-year', month: 'col-month', day: 'col-day' },
+                  fragment_placeholders: { year: 'año', month: 'mes', day: 'día' },
                   input_html: { required: true, class: 'input-s' },
                   start_year: 1999,
                   end_year: 1900 %>
