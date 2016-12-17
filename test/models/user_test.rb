@@ -514,4 +514,15 @@ class UserTest < ActiveSupport::TestCase
       assert_equal "m_03_003_6", new_user.vote_town, "New user vote location should not be changed"
     end
   end
+
+  test ".catalonia_resident is inferred from location information" do
+    madrilenian = FactoryGirl.build(:user, country: "ES", province: "B")
+    assert_equal true, madrilenian.catalonia_resident
+
+    barcelonian = FactoryGirl.build(:user, country: "ES", province: "M")
+    assert_equal false, barcelonian.catalonia_resident
+
+    carioca = FactoryGirl.build(:user, country: "BR", province: "RJ")
+    assert_equal false, carioca.catalonia_resident
+  end
 end

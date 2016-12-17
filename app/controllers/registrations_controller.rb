@@ -54,7 +54,7 @@ class RegistrationsController < Devise::RegistrationsController
   def new
     if Rails.application.secrets.features["allow_inscription"]
       super do |user|
-        user.assign_attributes(country: "ES", catalonia_resident: true)
+        user.assign_attributes(country: "ES", catalonia_resident: "1")
       end
     else
       redirect_to root_path, flash: { notice: 'Registrations are not open.' }
