@@ -1,14 +1,9 @@
-/*
- *= require jquery.sidr.dark
- *= require select2
- *= require leaflet
- *
- *= require general
- *= require cookie_policy
- *= require forms
- *= require adjustments
- *= require select2-adj
- *= require faq
- *
- *= require_self
- */
+@import 'jquery.sidr.dark.css';
+@import 'select2';
+@import 'leaflet.css';
+@import 'general';
+@import 'cookie_policy';
+@import 'forms';
+@import 'adjustments';
+@import 'select2-adj';
+@import 'faq.css';
