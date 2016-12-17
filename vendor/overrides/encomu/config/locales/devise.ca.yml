@@ -22,11 +22,11 @@ ca:
       last_attempt: "Tens un intent més abans que el teu compte quedi bloquejat."
     mailer:
       confirmation_instructions:
-        subject: "Barcelona en Comú - Instruccions de confirmació"
+        subject: "Un País en Comú - Instruccions de confirmació"
       reset_password_instructions:
-        subject: "Barcelona en Comú - Instruccions per restablir la teva contrasenya"
+        subject: "Un País en Comú - Instruccions per restablir la teva contrasenya"
       unlock_instructions:
-        subject: "Barcelona en Comú - Instruccions de desbloqueig"
+        subject: "Un País en Comú - Instruccions de desbloqueig"
     omniauth_callbacks:
       failure: "No se t'ha pogut autoritzar per %{kind} causa a \"%{reason}\"."
       success: "Identificat correctament de %{kind}."
