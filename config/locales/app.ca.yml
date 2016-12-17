@@ -59,3 +59,9 @@ ca:
       email: "Correu electrònic"
       address: "Direcció"
       postal_code: "Codi postal"
+  simple_captcha:
+    placeholder: "texto"
+    label: "Introdueix el text que es veu a la imatge"
+    refresh_button_text: "Regenerar"
+    message:
+      default: "El texto introducido no corresponde con el de la imagen"
