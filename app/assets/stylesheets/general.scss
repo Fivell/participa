@@ -242,7 +242,9 @@ home
 .login-box form div{
   clear:both;
 }
-.login-box form div input{
+.login-box form div input[type=text],
+.login-box form div input[type=checkbox],
+.login-box form div input[type=password]{
   width:96%;
   padding:0.5em 2%;
   margin-bottom:1em;
@@ -250,7 +252,6 @@ home
 }
 .login-box form div.enter input.button{
   width:auto;
-  padding:1em 3em;
 }
 .login-box form div.remember{
   margin-bottom:1em;
@@ -1546,13 +1547,11 @@ body elements
 .button,
 a.button,
 input.button{
-  padding:1em 3em;
-  background:#eb5a59;
+  padding:.7em 3em;
+  background:#000;
   color:#fff;
   font-weight:bold;
   border:0;
-  border-radius:3px;
-  text-transform:uppercase;
   margin-bottom:1em;
   cursor:pointer;
   cursor:hand;
