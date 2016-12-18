@@ -185,9 +185,6 @@ general
 /* -----------------------------------
 home
 ----------------------------------- */
-.people-bg{
-
-}
 .intro{
   width:auto;
   padding:1.5em 0 0.5em;
@@ -242,8 +239,8 @@ home
 .login-box form div input[type=text],
 .login-box form div input[type=checkbox],
 .login-box form div input[type=password]{
-  width:96%;
-  padding:0.5em 2%;
+  width:100%;
+  padding:0.5em;
   margin-bottom:1em;
   border:0;
 }
