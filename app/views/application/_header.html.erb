@@ -18,11 +18,6 @@
             <i class="icon"></i> 
             <%= current_user.full_name %>
           <% end %>
-          <% if current_user.is_verified? %>
-            <span class="verified"><%= t('verification.user_verified') %></span>
-          <% else %>
-            <span class="unverified"><%= t('verification.user_unverified') %></span>
-          <% end %>
           <%= link_to destroy_user_session_path, method: :delete, title: "Cerrar sesión" do %>
             <i class="icon"></i><span>Cerrar sesión</span>
           <% end %>
