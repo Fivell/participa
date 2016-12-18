@@ -56,7 +56,7 @@
         <% if Rails.application.secrets.features["allow_inscription"] %>
           <p></p>
           <div class="buttonbox">
-            <%= link_to t("devise.links.insc"), new_user_registration_path, class: 'button intro-indent clear' %>
+            <%= link_to t("devise.links.insc"), new_user_registration_path, class: 'button clear' %>
           </div>
         <% end %>
 
