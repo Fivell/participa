@@ -37,13 +37,18 @@ module Participa
                                 postal_code: '08021')
         if country
           uncheck 'Resido en Cataluña'
-          assert page.has_select?('País')
+          assert page.has_select?('País', with_options: [country])
           select(country, from: 'País')
         end
 
-        assert page.has_select?('Provincia')
+        assert page.has_select?('Provincia', with_options: [province])
         select(province, from: 'Provincia')
-        select(town, from: 'Municipio') if town
+
+        if town
+          assert page.has_select?('Municipio', with_options: [town])
+          select(town, from: 'Municipio')
+        end
+
         fill_in('Código postal', with: postal_code)
         fill_in('Dirección', with: 'C/El Muro, S/N')
       end
