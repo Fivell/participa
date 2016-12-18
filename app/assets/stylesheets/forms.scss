@@ -17,16 +17,9 @@ box info & alerts
 .box{
   position:relative;
 }
-.box-info{
-  padding:1.5em 3em 1.5em 4em;
-  margin:0 0 1.5em
-}
-.box-info:before{
-  display: inline-block;
-  margin: 0;
-  position:absolute;
-  top: -0.5em;
-  left: -0.5em;
+.box-info {
+  background-color: #fff;
+  padding: 24px;
 }
 .box-ko{
   background:#f5bfc9 image-url("ico.alert-error.svg") 2.5em 1.25em no-repeat;
@@ -47,10 +40,20 @@ box info & alerts
   margin: 0 0 1.5em 0;
 }
 .box-info p, .box-info li{
-  font-size: 1.2em;
+  font-size: 1.8em;
+}
+.box-info h2{
+  font-size: 3.4em;
+  line-height: 34px;
+  margin-bottom: 32px;
 }
 .box-info h4{
   margin: 0 0 .8em 0;
+}
+.box-info h3{
+  font-size: 2.5em;
+  font-family: 'StagSansRound-Bold';
+  margin-bottom: 24px;
 }
 .box-info li{
   list-style: inside;
