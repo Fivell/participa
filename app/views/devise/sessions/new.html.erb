@@ -48,7 +48,11 @@
 
       <div class="col-bhome-1a6">
         <article class="intro">
-          <%= t('welcome_html')%>
+          <h3><%= t('welcome_title') %></h3>
+
+          <p><%= t('welcome_p1') %></p>
+
+          <p><%= t('welcome_p2') %></p>
 
           <% if Rails.application.secrets.features["allow_inscription"] %>
             <p></p>
