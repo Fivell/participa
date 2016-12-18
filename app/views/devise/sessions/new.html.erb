@@ -3,64 +3,45 @@
 <div class="content-content-home">
 
   <div class="row">
-    <div class="col-md-4 col-sm-4">
-      <div class="intro box-info">
-        <h3><%= t('welcome_title') %></h3>
-
-        <p><%= t('welcome_p1') %></p>
-
-        <p><%= t('welcome_p2') %></p>
-
-        <% if Rails.application.secrets.features["allow_inscription"] %>
-          <p></p>
-          <div class="buttonbox">
-            <%= link_to t("devise.links.insc"), new_user_registration_path, class: 'button clear' %>
+    <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-4 login-box box-info">
+      <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
+        <fieldset>
+          <legend>
+            <%= t('devise.links.sign_in') %>
+          </legend>
+          <div>
+            <%= f.label :login, class: 'invisible' %>
+            <%= f.text_field :login, autofocus: true, class: 'input-100', placeholder: t('devise.links.email') %>
           </div>
-        <% end %>
-      </div>
-    </div>
+          <div>
+            <%= f.label :password, class: 'invisible' %>
+            <%= f.password_field :password, class: 'input-100', placeholder: t('devise.links.passw') %>
+          </div>
 
-    <div class="col-md-2 col-sm-2">
-      <div class="login-box box-info">
-        <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
-          <fieldset>
-            <legend>
-              <%= t('devise.links.sign_in') %>
-            </legend>
-            <div>
-              <%= f.label :login, class: 'invisible' %>
-              <%= f.text_field :login, autofocus: true, class: 'input-100', placeholder: t('devise.links.email') %>
+          <% if devise_mapping.rememberable? %>
+            <div class="remember">
+              <%= f.label :remember_me %>
+              <%= f.check_box :remember_me, class: 'remember checkbox' %>
             </div>
-            <div>
-              <%= f.label :password, class: 'invisible' %>
-              <%= f.password_field :password, class: 'input-100', placeholder: t('devise.links.passw') %>
-            </div>
+          <% end %>
 
-            <% if devise_mapping.rememberable? %>
-              <div class="remember">
-                <%= f.label :remember_me %>
-                <%= f.check_box :remember_me, class: 'remember checkbox' %>
-              </div>
-            <% end %>
-
-            <div class="enter">
-              <%= f.submit t('devise.buttons.sign_in'), class: 'button' %>
-            </div>
-          </fieldset>
-          <p>
-            <%= link_to t("devise.links.forgot_password"), new_password_path(resource_name) %>
-          </p>
-          <p>
-            <%= link_to t("devise.links.forgot_mail"), new_confirmation_path(resource_name) %>
-          </p>
-          <p><%= link_to t("devise.links.forgot_way"), faq_path %></p>
-          </p>
-          <!-- p><%= link_to t("devise.links.forgot_manual"), 'https://barcelonaencomu.cat/manuals/primaries/index.html' %></p>
-          </p>
-          <p><%= link_to t("devise.links.forgot_manual_vot"), 'https://barcelonaencomu.cat/manuals/votacio/index.html' %></p -->
-        <% end %>
-      </div><!--.login-box-->
-    </div>
+          <div class="enter">
+            <%= f.submit t('devise.buttons.sign_in'), class: 'button' %>
+          </div>
+        </fieldset>
+        <p>
+          <%= link_to t("devise.links.forgot_password"), new_password_path(resource_name) %>
+        </p>
+        <p>
+          <%= link_to t("devise.links.forgot_mail"), new_confirmation_path(resource_name) %>
+        </p>
+        <p><%= link_to t("devise.links.forgot_way"), faq_path %></p>
+        </p>
+        <!-- p><%= link_to t("devise.links.forgot_manual"), 'https://barcelonaencomu.cat/manuals/primaries/index.html' %></p>
+        </p>
+        <p><%= link_to t("devise.links.forgot_manual_vot"), 'https://barcelonaencomu.cat/manuals/votacio/index.html' %></p -->
+      <% end %>
+    </div><!--.login-box-->
 
   </div><!--.row-->
 

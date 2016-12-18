@@ -692,9 +692,6 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
   <a target="_blank" href="https://barcelonaencomu.cat/es/politica-de-privacidad">Véase la política de privacidad</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/es/aviso-legal">Véase el aviso legal</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/es/politica-de-cookies">Véase la política de Cookies</a></p>'
-  welcome_title: "¡Te damos la bienvenida al portal de participación de Barcelona En Comú!"
-  welcome_p1: "Somos una plataforma ciudadana con un proyecto colectivo para transformar Barcelona. Una comunidad amplia y diversa que trabaja para convertir Barcelona en un referente de la democracia, la participación, la transparencia, los derechos sociales, la defensa del bien común y la lucha contra la desigualdad y la corrupción."
-  welcome_p2: "¡Inscríbete y participa! Construyamos en común la ciudad en la que queremos vivir."
   welcome_count_html: "Usuarios inscritos: <span>%{count_all_users}</span><br>Usuarios inscritos y verificados: <span>%{count_verif_users}</span>"
   voting:
     title: "Bienvenido a Participa"

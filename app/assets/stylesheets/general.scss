@@ -213,30 +213,8 @@ general
 /* -----------------------------------
 home
 ----------------------------------- */
-.intro{
-  width:auto;
-  padding:1.5em 0 0.5em;
-  color:#000;
-  position:visible;
-  display:block;
-}
-.intro p.total{
-  background: #716E6B none repeat scroll 0% 0%;
-  margin-top:2em;
-  color: #FFF;
-  font-size: 1em;
-  padding: 1em;
-}
-.intro p.total span{
-  font-size:1.5em;
-}
-.intro p {
-  font-size:1.7em;
-  line-height:1.6em;
-}
 .login-box{
   background:#716e6b;
-  width:auto;
   padding:1.5em 4%;
   display:block;
 }
@@ -1613,14 +1591,6 @@ layout 1: 0-459 (simple) # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 /*
 elementos
 */
-.intro{
-  padding-bottom:2em;
-  margin:0 2em;
-  line-height: 1.5em;
-}
-.login-box{
-  margin:0;
-}
 .intro p{
   text-align: justify;
 }
