@@ -1,29 +1,29 @@
 <div class="header">
-    <div id="block-locale-language" class="block block-locale">
-      <ul class="language-switcher-locale-url">
+  <div id="block-locale-language" class="block block-locale">
+    <ul class="language-switcher-locale-url">
       <% if user_signed_in? %>
-          <li>
-          <%= link_to edit_user_registration_path, class: "username" do %>
-            <i class="icon"></i> 
-            <%= current_user.full_name %>
-          <% end %>
-          </li>
+        <li>
+        <%= link_to edit_user_registration_path, class: "username" do %>
+          <i class="icon"></i> 
+          <%= current_user.full_name %>
+        <% end %>
+        </li>
 
-          <li>
-          <%= link_to destroy_user_session_path, method: :delete, title: "Cerrar sesión" do %>
-            <i class="icon"></i><span>Cerrar sesión</span>
-          <% end %>
-          </li>
+        <li>
+        <%= link_to destroy_user_session_path, method: :delete, title: "Cerrar sesión" do %>
+          <i class="icon"></i><span>Cerrar sesión</span>
+        <% end %>
+        </li>
       <% end %>
 
-        <li class="lang-catala">
-          <%= link_to "Cat", url_for(locale: :ca), class: current_lang_class(:ca) %>
-        </li>
-        <li class="lang-castellano">
-          <%= link_to "Cast", url_for(locale: :es), class: current_lang_class(:es) %>
-        </li>
-      </ul>
-    </div>
+      <li class="lang-catala">
+        <%= link_to "Cat", url_for(locale: :ca), class: current_lang_class(:ca) %>
+      </li>
+      <li class="lang-castellano">
+        <%= link_to "Cast", url_for(locale: :es), class: current_lang_class(:es) %>
+      </li>
+    </ul>
+  </div>
 
 
   <% if user_signed_in? && Rails.application.secrets.features["verification_presencial"] %>
