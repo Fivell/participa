@@ -45,8 +45,7 @@
   </div>
 
 
-  <% if user_signed_in? %>
-
+  <% if user_signed_in? && Rails.application.secrets.features["verification_presencial"] %>
     <div class="col-h-1a12">
 
       <nav class="menu" id="top_menu">
@@ -64,11 +63,9 @@
           <li><%= link_to "BETA", "#", class: "js-header-others-show" %></li>
           <% end %>
           <% if can? :step1, :verification %>
-            <% if Rails.application.secrets.features["verification_presencial"] %>
-              <li class="menu-verif">
-                <%= nav_menu_link_to t("verification.admin"), "verifications", verification_step1_path, [verification_step1_path], title: t("verification.admin") %>
-              </li>
-            <% end %>
+            <li class="menu-verif">
+              <%= nav_menu_link_to t("verification.admin"), "verifications", verification_step1_path, [verification_step1_path], title: t("verification.admin") %>
+            </li>
           <% end %>
           <% if Rails.application.secrets.features["collaborations"] %>
             <li class="menu-econ">

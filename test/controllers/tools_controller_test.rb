@@ -7,10 +7,31 @@ class ToolsControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "should get index as user" do
-    sign_in FactoryGirl.create(:user)
-    get :index
-    assert_response :success
+  test "should redirect to edit profile when verifications not enabled" do
+    with_verifications(false) do
+      sign_in FactoryGirl.create(:user)
+      get :index
+      assert_response :redirect
+      assert_redirected_to edit_user_registration_path
+    end
   end
 
+  test "should get index as user when verifications enabled" do
+    with_verifications(true) do
+      sign_in FactoryGirl.create(:user)
+      get :index
+      assert_response :success
+    end
+  end
+
+  private
+
+  def with_verifications(status)
+    prev_status = Rails.application.secrets.features["verification_presencial"]
+    Rails.application.secrets.features["verification_presencial"] = status
+
+    yield
+  ensure
+    Rails.application.secrets.features["verification_presencial"] = prev_status
+  end
 end

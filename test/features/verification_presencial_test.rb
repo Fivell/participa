@@ -2,10 +2,20 @@ require "test_helper"
 
 feature "VerificationPresencial" do
 
-  # FIXME: should initialize on bec
-  # Rails.application.secrets.features["verification_presencial"] = true
-  # Rails.application.secrets.organization["folder"] = "bec"
-  #
+  before do
+    @prev_verification_presential = Rails.application.secrets.features["verification_presencial"]
+    Rails.application.secrets.features["verification_presencial"] = true
+
+    # Routes are defined conditionally on the presence of this feature
+    Rails.application.reload_routes!
+  end
+
+  after do
+    Rails.application.secrets.features["verification_presencial"] = @prev_verification_presential
+
+    # Leave routes as they were previously
+    Rails.application.reload_routes!
+  end
 
   scenario "user should verificate to access tools", js: true do
 
