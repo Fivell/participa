@@ -90,22 +90,11 @@ general
   clear:both;
 }
 .header{
+  height:41.6px;
   margin: auto;
   width: 100%;
   position:relative;
   background:#f8f6f2;
-}
-.header-content{
-  margin: auto;
-  width: 96%;
-  padding: 0 1%;
-  max-width: 94em;
-  position:relative;
-  overflow:hidden;
-}
-
-.logged-out .content{
-
 }
 .content{
   margin: auto auto;
@@ -2497,11 +2486,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 }
 
 /* styles by felip @ guanyem web team */
-
-.header-content {
-  padding-top: 12px;
-  height: 123px
-}
 
 #logo {
   float: left;
