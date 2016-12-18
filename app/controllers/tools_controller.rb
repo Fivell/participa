@@ -3,6 +3,9 @@ class ToolsController < ApplicationController
   before_action :user_elections
 
   def index
+    unless Rails.application.secrets.features["verification_presencial"]
+      redirect_to edit_user_registration_path
+    end
   end
 
   private

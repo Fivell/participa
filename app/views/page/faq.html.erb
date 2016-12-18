@@ -31,10 +31,12 @@
       <li> <%= t('.faq3_html')%> </li>
     </ul> <!-- cd-faq-group -->
 
-    <ul id="verificaciones" class="cd-faq-group">
-      <li class="cd-faq-title"><h2><%= t('.verification')%></h2></li>
-      <li> <%= t('.faq4_html', verifications_url: verification_show_path)%> </li>
-    </ul> <!-- cd-faq-group -->
+    <% if Rails.application.secrets.features["verification_presencial"] %>
+      <ul id="verificaciones" class="cd-faq-group">
+        <li class="cd-faq-title"><h2><%= t('.verification')%></h2></li>
+        <li> <%= t('.faq4_html', verifications_url: verification_show_path)%> </li>
+      </ul> <!-- cd-faq-group -->
+    <% end %>
 
     <ul id="votaciones" class="cd-faq-group">
       <li class="cd-faq-title"><h2><%= t('.voting')%></h2></li>
