@@ -23,3 +23,6 @@ config/secrets.yml
 
 # Ignore backup files
 *~
+
+# Ignore privative fonts (all of them right now)
+app/assets/fonts

@@ -60,8 +60,7 @@ object{border:none;margin-bottom:1em;}
 iframe{}
 .clear{float:none;clear:both;width:100%;}
 
-em.bec{font-family:"Montserrat",sans-serif;font-style:normal;font-weight:bold;}
-
+em.bec{font-style:normal;font-weight:bold;}
 
 /* -----------------------------------
 columnas responsive (diseño)
@@ -204,7 +203,6 @@ home
   padding: 1em;
 }
 .intro p.total span{
-  font-family:Montserrat,Arial,sans-serif;
   font-size:1.5em;
 }
 .intro p {
@@ -237,7 +235,6 @@ home
   text-transform:uppercase;
   text-align:right;
   font-weight:bold;
-  font-family:Montserrat,Arial,sans-serif;
 }
 .login-box form div{
   clear:both;
@@ -287,7 +284,6 @@ footer
 }
 .footer-content h2{
   text-transform:uppercase;
-  font-family:Montserrat,Arial,sans-serif;
   color:#c3a6cf;
   font-weight:bold;
   margin-top:1.1em;
@@ -312,9 +308,6 @@ footer
 .footer-contact{
   color:#c3a6cf;
   margin-bottom:1em;
-}
-.footer-contact p{
-  font-family:Montserrat,Arial,sans-serif;
 }
 .footer-contact a{
   font-style: italic;
@@ -562,7 +555,6 @@ submenu
   overflow:hidden;
 }
 .submenu li{
-  font-family:Montserrat,Arial,sans-serif;
   text-transform:uppercase;
   float:left;
   margin:0 0.5em 0.5em 0;
@@ -579,7 +571,6 @@ submenu
   color:#fff;
 }
 .submenu li.active{
-  text-transform:Montserrat,Arial,sans-serif;
   background:#EB5A59;
   float:left;
 }
@@ -600,7 +591,6 @@ steps
   width:100%;
 }
 .steps3 li{
-  font-family:Montserrat,Arial,sans-serif;
   text-transform:lowercase;
   display:block;
   float:left;
@@ -657,7 +647,6 @@ steps
   width:70%;
 }
 .steps3 li:nth-child(1).active{
-  text-transform:Montserrat,Arial,sans-serif;
   background:#716e6b image-url("bg.steps-tip-right.png") right 50% no-repeat;
   float:left;
 }
@@ -665,7 +654,6 @@ steps
   color:#fff;
 }
 .steps3 li:nth-child(2).active{
-  text-transform:Montserrat,Arial,sans-serif;
   background:#716e6b image-url("bg.steps-tip-right.png") right 50% no-repeat;
   float:left;
 }
@@ -674,7 +662,6 @@ steps
   color:#fff;
 }
 .steps3 li:nth-child(3).active{
-  text-transform:Montserrat,Arial,sans-serif;
   background:#716e6b;
   float:left;
 }
@@ -948,7 +935,6 @@ div.ginput_container.ginput_list {
 div.help {
   background:#612D62;
   z-index: 1;
-  font-family: Montserrat,Arial,sans-serif;
   right: -35px;
   padding: 5px 10px;
   position: fixed;
@@ -964,7 +950,6 @@ div.help {
     height:18px;
     font-size:14px;
     line-height: 17px;
-    font-family: Montserrat,Arial,sans-serif;
     font-weight: bold;
     color: #612D62;
     background: white;
@@ -1016,7 +1001,6 @@ div.help {
       }
       .info {
         padding-left: 45%;
-        font-family:Montserrat,Arial,sans-serif;
         vertical-align: top;
         display: inline-block;
         width: 60%;
@@ -1069,7 +1053,6 @@ proposals
 
   h1 {
     color: #E65C56;
-    font-family: Montserrat,Arial,sans-serif;
     font-size: 3em;
     padding: 20px;
     text-transform: uppercase;
@@ -1441,7 +1424,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9e76a0', end
 
   h1 {
     color: $color-primary1;
-    font-family: Montserrat,Arial,sans-serif;
     font-size: 2.6em;
     padding: 20px;
     text-transform: uppercase;
@@ -1482,7 +1464,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9e76a0', end
 .generic-wrapper.blog {
   h1 {
     color: $color-primary1;
-    font-family: Montserrat,Arial,sans-serif;
     font-size: 3em;
     padding: 20px 0px;
     text-transform: uppercase;
@@ -1592,7 +1573,6 @@ input.button-primary:hover{
 }
 
 .content-content h2{
-  font-family:Montserrat,Arial,sans-serif;
   text-transform:uppercase;
   color:#000;
   margin-bottom:1em;
@@ -1602,7 +1582,6 @@ input.button-primary:hover{
 }
 
 .content-content h3{
-  font-family:Montserrat,Arial,sans-sefif;
   display:block;
   width:100%;
   border-bottom:1px solid #269283;
@@ -2628,10 +2607,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 }
 
 /* styles by felip @ guanyem web team */
-
-body {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
 
 .header-content {
   padding-top: 12px;
