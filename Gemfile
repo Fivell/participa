@@ -63,7 +63,7 @@ gem 'enumerize'
 gem 'wicked_pdf'
 gem "font-awesome-rails"
 gem 'friendly_id', '~> 5.1.0'
-gem 'auto_html'
+gem 'auto_html', '~> 1.6'
 gem "paranoia"
 gem 'cocoon'
 gem 'paperclip'
