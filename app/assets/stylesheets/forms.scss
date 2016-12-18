@@ -34,8 +34,11 @@ box info & alerts
 .box-info p, .box-info h3, .box-info li{
   margin: 0 0 1.5em 0;
 }
-.box-info p, .box-info li{
+.box-info p{
   font-size: 1.8em;
+}
+.box-info li{
+  font-size: 1.4em;
 }
 .box-info h2{
   font-size: 3.4em;
