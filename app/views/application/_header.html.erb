@@ -10,7 +10,7 @@
 
     <div id="block-locale-language" class="block block-locale">
       <% if user_signed_in? %>
-        <div class="profile-info" data-verified="true">
+        <div class="profile-info">
           <%= link_to edit_user_registration_path, class: "username" do %>
             <i class="icon"></i> 
             <%= current_user.full_name %>
