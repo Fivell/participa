@@ -338,17 +338,6 @@ footer
 header & menu
 ----------------------------------- */
 
-.logo{
-  float:left;
-  width:98%;
-  max-width:22em;
-  height:3em;
-  padding:1.5em 0;
-}
-.logo img{
-  max-width:100%;
-}
-
 .menu ul{
   width:100%;
   overflow:hidden;
@@ -2529,10 +2518,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   height: 44px;
 }
 
-#logo .logo-main {
-  margin-right: 15px;
-}
-
 #logo .logo-bcomu {}
 
 .profile-info {
@@ -2552,18 +2537,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 .profile-info a:hover, .profile-info a.active {
   color: black;
 }
-
-.profile-info .username { }
-
-.profile-info .username .icon { } 
-
-.profile-info [data-action="verify-users"] {}
-
-.profile-info [data-action="verify-users"] .icon {}
-
-.profile-info [data-action="logout"] {}
-
-.profile-info [data-action="logout"] .icon {}
 
 #block-locale-language {
   float: right;
