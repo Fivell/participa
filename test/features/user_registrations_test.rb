@@ -12,8 +12,7 @@ feature "UserRegistrations" do
 
   scenario "create a user in Catalonia", js: true do
     base_register(@user) do
-      fill_in_location_data(country: 'España',
-                            province: 'Barcelona',
+      fill_in_location_data(province: 'Barcelona',
                             town: 'Badalona',
                             postal_code: '08008')
     end
