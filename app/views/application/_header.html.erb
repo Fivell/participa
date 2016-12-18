@@ -1,6 +1,6 @@
 <div class="header">
-  <div id="block-locale-language" class="block block-locale">
-    <ul class="language-switcher-locale-url">
+  <nav class="navigation-bar">
+    <ul id="non_slicknav_menu" class="nav navigation-bar-nav">
       <% if user_signed_in? %>
         <li>
         <%= link_to edit_user_registration_path, class: "username" do %>
@@ -23,8 +23,7 @@
         <%= link_to "Cast", url_for(locale: :es), class: current_lang_class(:es) %>
       </li>
     </ul>
-  </div>
-
+  </nav>
 
   <% if user_signed_in? && Rails.application.secrets.features["verification_presencial"] %>
     <div class="col-h-1a12">

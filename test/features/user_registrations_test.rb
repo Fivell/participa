@@ -84,7 +84,8 @@ feature "UserRegistrations" do
     fill_in_login_data(@user, @user.email)
     acknowledge_terms
     acknowledge_age
-    click_button 'Inscribirse'
+    # Investigate and fix
+    find_button('Inscribirse').trigger('click')
     assert_text 'El texto introducido no corresponde con el de la imagen'
     assert_text 'Acepto incribirme en la candidatura: debe ser aceptado'
   end

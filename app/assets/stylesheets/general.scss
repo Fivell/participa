@@ -90,12 +90,64 @@ general
   clear:both;
 }
 .header{
-  height:41.6px;
   margin: auto;
   width: 100%;
   position:relative;
-  background:#f8f6f2;
+
+  ul {
+    @include make-row;
+
+    > li {
+      @include make-md-column(1);
+      @include make-sm-column(1);
+
+      @media (min-width: $grid-float-breakpoint) {
+        float: right;
+      }
+
+      font-family: "StagSansRound-Semibold";
+      font-size: 1.8em;
+
+      > a {
+        height: 100%;
+        color: #000;
+      }
+    }
+  }
 }
+
+@media (min-width: $grid-float-breakpoint) {
+  #non_slicknav_menu {
+    display: block;
+  }
+
+  .slicknav_menu {
+    display: none;
+  }
+}
+
+@media (max-width: $grid-float-breakpoint - 1) {
+  #non_slicknav_menu {
+    display: none;
+  }
+
+  .slicknav_menu {
+    display: block;
+    background: #fff;
+
+    li > a {
+      border-top: 1px solid #000;
+      font-size: 21px;
+
+      &:hover {
+        background: none;
+        border-radius: 0;
+        color: #404040;
+      }
+    }
+  }
+}
+
 .content{
   margin: 15px auto auto;
   width: 100%;
