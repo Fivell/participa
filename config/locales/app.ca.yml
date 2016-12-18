@@ -60,8 +60,8 @@ ca:
       address: "Direcció"
       postal_code: "Codi postal"
   simple_captcha:
-    placeholder: "texto"
+    placeholder: "text"
     label: "Introdueix el text que es veu a la imatge"
     refresh_button_text: "Regenerar"
     message:
-      default: "El texto introducido no corresponde con el de la imagen"
+      default: "El text introductori no es correspon amb el de la imatge"

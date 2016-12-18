@@ -301,7 +301,7 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
         legal2: Mira avís legal
         legal3: Mira la política de galetes
         password_limits: Mínim 6 caràcters
-        cant_modify: TODO
+        cant_modify: No pots modificar-lo
         cis_title: CIS (cisgènere)
         cis_definition: persona que s'identifica amb el gènere que li va ser assignat al néixer
         trans_key: TRANS (transgènere)
