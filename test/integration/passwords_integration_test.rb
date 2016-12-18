@@ -12,7 +12,6 @@ class PasswordsIntegrationTest < ActionDispatch::IntegrationTest
   test "should login with password as user" do
     login @user
     assert_title 'No te has verificado'
-    assert_equal root_path(locale: 'es'), current_path
   end
 
   test "should login with legacy password and change it as legacy_password_user" do
@@ -26,7 +25,5 @@ class PasswordsIntegrationTest < ActionDispatch::IntegrationTest
     put "/es/users/password", params: { user: {reset_password_token: reset_password_token, password: password, password_confirmation: password} } 
     login @legacy_password_user, password
     assert_title 'No te has verificado'
-    assert_equal root_path(locale: 'es'), current_path
   end
-
 end
