@@ -1670,32 +1670,6 @@ elementos
   margin:0 0 1em 0;
   padding:0 1em 1em 0;
   border-bottom:1px solid #DDD;
-  ol {
-    li {
-      padding: 1em;
-      margin: 0 0 3em;
-      width: 100%;
-      img {
-        border: 0px none;
-      }
-      .welcome-number {
-        float: left;
-        width: 1em;
-        font-size: 2em;
-        font-weight: bold;
-      }
-      .welcome-thumb {
-        width: 4em;
-        float: left;
-      }
-      .welcome-text {
-        width: 100%;
-        float: left;
-        vertical-align:top;
-      }
-
-    }
-  }
 }
 .marked {
   color: red;

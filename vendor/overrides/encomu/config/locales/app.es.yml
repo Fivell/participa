@@ -266,14 +266,14 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
         fluid_key: Género fluido
         fluid_definition: persona que no se identifica con ninguno de los dos género binarios establecidos de forma única
       message:
-        welcome_html: " <span>
-        Para pasar a formar parte de Barcelona en Comú debes seguir los siguientes pasos:
-      </span>
-      <ol>
-        <li><span class='welcome-number'>1</span><span class='welcome-thumb'>%{logo_inscription}</span><span class='welcome-text'><b>Inscripción por Internet</b>: Rellena este formulario. Revisa tu correo y confírmalo con el enlace que te enviamos.</span></li>
-        <li><span class='welcome-number'>2</span><span class='welcome-thumb'>%{logo_verification}</span><span class='welcome-text'><b>Verificación presencial</b>: Deberás llevar documentación que acredite tu identidad y residencia en Barcelona en alguno de los Puntos de Verificación.</span></li>
-        <li><span class='welcome-number'>3</span><span class='welcome-thumb'>%{logo_voting}</span><span class='welcome-text'><b>Votación por Internet</b>: Te avisaremos por correo cuando puedas votar en las próximas votaciones.</span></li>
-      </ol>"
+        welcome_html: "
+          <p>¡Apúntate!</p>
+
+          <p>
+            Si quieres estar informado/a y al día de cómo se desarrolla la
+            construcción del nuevo espacio, rellena este formulario. ¡Gracias
+            por ayudarnos a construir un País En Comú!
+          </p>"
         dni: "El formato debe ser 8 números y una letra, sin guiones ni espacios."
         nie: "El formato debe ser una letra, 7 números y una letra, sin guiones ni espacios."
         passport: "Envía una copia de tu pasaporte a info@unpaisencomu.cat para validar la inscripción."
