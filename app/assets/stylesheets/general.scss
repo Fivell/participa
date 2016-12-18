@@ -2487,23 +2487,9 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 /* styles by felip @ guanyem web team */
 
-#logo {
-  float: left;
-  padding-top: 13px;
-}
-
-#logo a {
-  float: left;
-  display: block;
-}
-
-#logo a img {
-  display: block;
-  height: 44px;
-}
-
 #block-locale-language {
-  float: right;
+  @include make-md-column(6);
+  @include make-sm-column(6);
 }
 
 .language-switcher-locale-url { }
