@@ -76,18 +76,6 @@ columnas responsive (diseño)
   overflow:hidden;
   float:right;
 }
-.col-bhome-1a6,
-.col-bhome-9a12{
-  display:block;
-  margin:0;
-}
-.col-md-6{
-  display:block;
-  margin:0;
-  float:right;
-  position:relative;
-}
-
 
 /* -----------------------------------
 general
@@ -1595,15 +1583,6 @@ layout 1: 0-459 (simple) # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 .col-h-4a12{
   width:30%;
 }
-.col-bhome-1a6{
-  width:100%;
-  float:left;
-}
-.col-bhome-9a12{
-  width:100%;
-  float:right;
-}
-
 .col-f-1a3{
   width:100%;
 }
@@ -1903,14 +1882,6 @@ layout 2: 460-600 (intermedia 1) # # # # # # # # # # # # # # # # # # # # # # # #
   .col-h-4a12{
     width:30%;
   }
-  .col-bhome-1a6{
-    width:100%;
-    float:left;
-  }
-  .col-bhome-9a12{
-    width:100%;
-    float:right;
-  }
   .col-f-1a3{
     width:50%;
   }
@@ -2044,14 +2015,6 @@ layout 3: 600-768 (intermedia 2) # # # # # # # # # # # # # # # # # # # # # # # #
   }
   .col-h-4a12{
     width:65%;
-  }
-  .col-bhome-1a6{
-    width:50%;
-    float:left;
-  }
-  .col-bhome-9a12{
-    width:50%;
-    float:right;
   }
   .col-f-1a3{
     width:50%;
@@ -2203,14 +2166,6 @@ layout 4: 769-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   }
   .col-h-4a12{
     width:75%;
-  }
-  .col-bhome-1a6{
-    width:45%;
-    float:left;
-  }
-  .col-bhome-9a12{
-    width:45%;
-    float:right;
   }
   .col-f-1a3{
     width:50%;
@@ -2367,14 +2322,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   }
   .col-h-4a12{
     width:75%;
-  }
-  .col-bhome-1a6{
-    width:45%;
-    float:left;
-  }
-  .col-bhome-9a12{
-    width:45%;
-    float:right;
   }
   .col-f-1a3{
     width:25%;

@@ -3,7 +3,24 @@
 <div class="content-content-home">
 
   <div class="row">
-    <div class="col-bhome-9a12">
+    <div class="col-md-4 col-sm-4">
+      <div class="intro box-info">
+        <h3><%= t('welcome_title') %></h3>
+
+        <p><%= t('welcome_p1') %></p>
+
+        <p><%= t('welcome_p2') %></p>
+
+        <% if Rails.application.secrets.features["allow_inscription"] %>
+          <p></p>
+          <div class="buttonbox">
+            <%= link_to t("devise.links.insc"), new_user_registration_path, class: 'button clear' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-2 col-sm-2">
       <div class="login-box box-info">
         <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
           <fieldset>
@@ -43,26 +60,7 @@
           <p><%= link_to t("devise.links.forgot_manual_vot"), 'https://barcelonaencomu.cat/manuals/votacio/index.html' %></p -->
         <% end %>
       </div><!--.login-box-->
-    </div><!--.col-b-9a12-->
-
-    <div class="col-bhome-1a6">
-      <article class="intro box-info">
-        <h3><%= t('welcome_title') %></h3>
-
-        <p><%= t('welcome_p1') %></p>
-
-        <p><%= t('welcome_p2') %></p>
-
-        <% if Rails.application.secrets.features["allow_inscription"] %>
-          <p></p>
-          <div class="buttonbox">
-            <%= link_to t("devise.links.insc"), new_user_registration_path, class: 'button clear' %>
-          </div>
-        <% end %>
-
-      </article><!--.intro-->
-
-    </div><!--.col-b-1a3-->
+    </div>
 
   </div><!--.row-->
 
