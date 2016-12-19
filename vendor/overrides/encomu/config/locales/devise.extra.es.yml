@@ -20,6 +20,7 @@ es:
       new_password: "Contraseña nueva"
       new_password_confirmation: "Confirmar contraseña nueva"
     links:
+      home: "Inicio"
       sign_in: "Iniciar sesión"
       sign_in_with: "Iniciar sesión con %{provider}"
       sign_up: "Inscribirse"
