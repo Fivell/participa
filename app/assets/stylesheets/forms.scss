@@ -17,6 +17,9 @@ box info & alerts
   background-color: #fff;
   padding: 24px;
 }
+.box-ko, .box-ok {
+  font-size: 1.4em;
+}
 .box-ko{
   background:#f5bfc9 image-url("ico.alert-error.svg") 2.5em 1.25em no-repeat;
   padding:1.5em 3em 1.5em 9em;
