@@ -8,7 +8,9 @@
     <li><a class="selected" href="#general"><%= t('.general')%></a></li>
     <li><a href="#inscripcion"><%= t('.inscription')%></a></li>
     <li><a href="#inscripcion-errores"><%= t('.inscription_errors')%></a></li>
-    <li><a href="#verificaciones"><%= t('.verification')%></a></li>
+    <% if Rails.application.secrets.features["verification_presencial"] %>
+      <li><a href="#verificaciones"><%= t('.verification')%></a></li>
+    <% end %>
     <li><a href="#votaciones"><%= t('.voting')%></a></li>
   </ul> <!-- cd-faq-categories -->
 
