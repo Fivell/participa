@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :verified_by, class_name: "User", foreign_key: "verified_by_id" #, counter_cache: :verified_by_id
 
-  validates :inscription, acceptance: '1'
-
   before_validation :set_location
 
   def set_location

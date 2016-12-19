@@ -210,17 +210,6 @@
         <legend><span><%= t('consentimiento') %></span></legend>
 
         <div class="inputlabel-box">
-          <% if resource.errors.include?(:inscription) %>
-              <%= field_notice_box %>
-          <% end %>
-          <%= f.label :inscription %>
-          <div class="input-box">
-            <%= f.check_box :inscription, class: 'checkbox' %>
-            <p class="text-m"> <%= t('bec.registration.legends.inscription_html') %> </p>
-          </div>
-        </div>
-
-        <div class="inputlabel-box">
           <% if resource.errors.include?(:terms_of_service) %>
               <%= field_notice_box %>
           <% end %>
@@ -228,6 +217,9 @@
           <div class="input-box">
             <%= f.check_box :terms_of_service, class: 'checkbox' %>
             <ul class="terms-links">
+              <li>
+                <%= link_to t('bec.registration.legends.legal0'), page_inscription_policy_path, target: '_blank' %>
+              </li>
               <li>
                 <%= link_to t('bec.registration.legends.legal1'), page_privacy_policy_path, target: '_blank' %>
               </li>

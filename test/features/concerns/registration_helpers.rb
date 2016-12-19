@@ -55,14 +55,9 @@ module Participa
       end
 
       def acknowledge_stuff
-        acknowledge_inscription
         acknowledge_terms
         acknowledge_age
         fill_in_captcha
-      end
-
-      def acknowledge_inscription
-        check('user_inscription')
       end
 
       def acknowledge_terms

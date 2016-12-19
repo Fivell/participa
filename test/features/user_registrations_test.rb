@@ -67,7 +67,6 @@ feature "UserRegistrations" do
                           town: 'Barcelona',
                           postal_code: '08021')
     fill_in_login_data(@user, @user.email)
-    acknowledge_inscription
     acknowledge_terms
     acknowledge_age
     click_button 'Inscribirse'
@@ -81,12 +80,12 @@ feature "UserRegistrations" do
                           town: 'Barcelona',
                           postal_code: '08021')
     fill_in_login_data(@user, @user.email)
-    acknowledge_terms
     acknowledge_age
     # Investigate and fix
     find_button('Inscribirse').trigger('click')
     assert_text 'El texto introducido no corresponde con el de la imagen'
-    assert_text 'Acepto incribirme en la candidatura: debe ser aceptado'
+    assert_text 'He leído las condiciones y acepto inscribirme a En Comú: ' \
+                'debe ser aceptado'
   end
 
   private
