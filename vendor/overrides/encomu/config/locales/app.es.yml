@@ -236,7 +236,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
 <p>
 <p><b>3. Ejercicios de los derechos de acceso, rectificación, cancelación y oposición</b></p>
 <p>
-Para ejercer los derechos de acceso, rectificación, cancelación y posición el inscrito podrá utilizar los formularios disponibles en la página web del perfil de usuario/a de la web participa.barcelonaencomu.cat o dirigirse por correo electrónico a info@unpaisencomu.cat indicando su nombre y apellidos y adjuntando copia de su DNI o documento legal de identificación.
+Para ejercer los derechos de acceso, rectificación, cancelación y posición el inscrito podrá utilizar los formularios disponibles en la página web del perfil de usuario/a de la web participa.unpaisencomu.cat o dirigirse por correo electrónico a info@unpaisencomu.cat indicando su nombre y apellidos y adjuntando copia de su DNI o documento legal de identificación.
 </p>
 <p><b>4. Aceptación de las presentes condiciones generales</b></p>
 <p>
@@ -283,7 +283,7 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
         explain: "Por motivos de seguridad tienes que cambiar la contraseña."
         changed: "Has cambiado tu contraseña"
     legal:
-      title1: "WEB participa.barcelonaencomu.cat"
+      title1: "WEB participa.unpaisencomu.cat"
       title2: "Aviso legal"
       title3: "CONDICIONES GENERALES DE ACCESO, EMPLEO DE COOKIES Y POLÍTICA DE PRIVACIDAD"
       p1:
@@ -523,7 +523,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
       voting: "VOTACIÓN"
       inscription_errors: 'ERRORES INSCRIPCIÓN'
       verification: "VERIFICACIÓN"
-      faq1_html: '<li><a class="cd-faq-trigger" href="#0">1. ¿Qué necesito para entrar en participa.barcelonaencomu.cat?</a>
+      faq1_html: '<li><a class="cd-faq-trigger" href="#0">1. ¿Qué necesito para entrar en participa.unpaisencomu.cat?</a>
             <div class="cd-faq-content">
     <p> Es necesario residir en la ciudad de Barcelona.
     </p>
@@ -534,7 +534,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           <li>
           <a class="cd-faq-trigger" href="#0">2. ¿Qué hago si no recuerdo mi contraseña?</a>
           <div class="cd-faq-content">
-            <p>Puedes solicitar una nueva <a href="https://participa.barcelonaencomu.cat/es/users/password/new" target="_blank" title="¿Has olvidado tu contraseña?">aquí</a>.</p>
+            <p>Puedes solicitar una nueva <a href="https://participa.unpaisencomu.cat/es/users/password/new" target="_blank" title="¿Has olvidado tu contraseña?">aquí</a>.</p>
           </div> <!-- cd-faq-content --></li>
        '
       faq2_html: '<li><a class="cd-faq-trigger" href="#0">3. No me acuerdo del correo electrónico ¿Qué hago?</a>
@@ -560,7 +560,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
       faq3_html: "<li><a class='cd-faq-trigger' href='#0'>6. Correo electrónico, número de documento o contraseña inválida.</a>
           <div class='cd-faq-content'>
             <p> Si no recuerdas el correo electrónico que utilizaste para inscribirte, prueba con el DNI. </p>
-             <p> Si no recuerdas la contraseña, haz clic <a href='https://participa.barcelonaencomu.cat/es/users/password/new' target='_blank' title='¿Has olvidado tu contraseña? '> Aquí </a> para sollicitar una nueva. </p>
+             <p> Si no recuerdas la contraseña, haz clic <a href='https://participa.unpaisencomu.cat/es/users/password/new' target='_blank' title='¿Has olvidado tu contraseña? '> Aquí </a> para sollicitar una nueva. </p>
              <p> Si no recibes tu contraseña, mira el error 2, que aparece mas abajo.</p>
           </div> <!-- cd-faq-content -->
           </li>
@@ -581,7 +581,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
       faq5_html: '<li><a class="cd-faq-trigger" href="#0">9. ¿Cómo puedo votar?</a>
           <div class="cd-faq-content">
             <p>En tres sencillos pasos:<br/>
-    1ª. Entra en la web <a href="https://participa.barcelonaencomu.cat" target="_blank">participa.barcelonaencomu.cat</a>, accede al Portal de Participación, e introduce tu DNI/Correo electrónico y tu contraseña. Si no estas inscrito, hazlo aquí <a href="https://participa.barcelonaencomu.cat" target="_blank">participa.barcelonaencomu.cat</a>, es muy sencillo.<br/>
+    1ª. Entra en la web <a href="https://participa.unpaisencomu.cat" target="_blank">participa.unpaisencomu.cat</a>, accede al Portal de Participación, e introduce tu DNI/Correo electrónico y tu contraseña. Si no estas inscrito, hazlo aquí <a href="https://participa.unpaisencomu.cat" target="_blank">participa.unpaisencomu.cat</a>, es muy sencillo.<br/>
     2ª. Accede a la cabina de votación: Una vez hayas entrado en la aplicación de Barcelona en Comú, verás un botón para votar. Pincha y serás redirigido a la cabina de votación, donde estarán las 3 votaciones que hay abiertas.<br/>
     3ª. Vota: Responde a las preguntas de la votación. Antes de emitir tu voto, podrás confirmar las respuestas que has elegido y tendrás oportunidad de modificarlas. Una vez hayas hecho esto, podrás confirmar y emitir tu voto.</p>
           </div> <!-- cd-faq-content -->
@@ -589,13 +589,13 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           <li>
           <a class="cd-faq-trigger" href="#0">10. ¿Quién puede votar?</a>
           <div class="cd-faq-content">
-            <p>Cualquier persona que haya realizado la inscripción en <a href="https://participa.barcelonaencomu.cat" target="_blank">participa.barcelonaencomu.cat</a>, y se haya verificado presencialmente aportando los documentos que se solicitan y tenga más de 16 años.</p>
+            <p>Cualquier persona que haya realizado la inscripción en <a href="https://participa.unpaisencomu.cat" target="_blank">participa.unpaisencomu.cat</a>, y se haya verificado presencialmente aportando los documentos que se solicitan y tenga más de 16 años.</p>
           </div> <!-- cd-faq-content -->
           </li>
           <li>
           <a class="cd-faq-trigger" href="#0">11. ¿Qué necesito para votar?</a>
           <div class="cd-faq-content">
-            <p>Necesitas un ordenador o cualquier otro dispositivo (android/iphone) con acceso a internet para acceder a participa.barcelonaencomu.cat y estar inscrito/a en participa.barcelonaencomu.cat.</p>
+            <p>Necesitas un ordenador o cualquier otro dispositivo (android/iphone) con acceso a internet para acceder a participa.unpaisencomu.cat y estar inscrito/a en participa.unpaisencomu.cat.</p>
           </div> <!-- cd-faq-content -->
           </li>
           <li>
@@ -606,7 +606,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           <li>
           <a class="cd-faq-trigger" href="#0">13. No tengo un dispositivo móvil (teléfono inteligente/tableta), ¿puedo votar?</a>
           <div class="cd-faq-content">
-            <p>Si, puedes votar también desde un ordenador con acceso a internet en participa.barcelonaencomu.cat .</p>
+            <p>Si, puedes votar también desde un ordenador con acceso a internet en participa.unpaisencomu.cat .</p>
           </div> <!-- cd-faq-content -->
           </li>
           <li>

@@ -280,7 +280,7 @@ Barcelona En Comú compleix amb totes les mesures de seguretat per a la protecci
 <p>
 <p><b>3. Exercicis dels drets d'accés, rectificació, cancel·lació i oposició</b></p>
 <p>
-Per exercir els drets d'accés, rectificació, cancel·lació i oposició l'inscrit/a podrà utilitzar els formularis disponibles a la pàgina web del perfil d'usuari del web participa.barcelonaencomu.cat o dirigir-se per correu electrònic a info@unpaisencomu.cat indicant el seu nom i cognoms i adjuntant còpia del seu DNI o document legal d'identificació.
+Per exercir els drets d'accés, rectificació, cancel·lació i oposició l'inscrit/a podrà utilitzar els formularis disponibles a la pàgina web del perfil d'usuari del web participa.unpaisencomu.cat o dirigir-se per correu electrònic a info@unpaisencomu.cat indicant el seu nom i cognoms i adjuntant còpia del seu DNI o document legal d'identificació.
 </p>
 <p><b>4. Acceptació de les presents condicions generals</b></p>
 <p>
@@ -338,7 +338,7 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
           subtitle: "Contacte"
           text_html: "Informació general: info@unpaisencomu.cat <br> Incidències d'inscripcions: info@unpaisencomu.cat <br> Protecció de dades: info@unpaisencomu.cat <br>"
       p2:
-        title: "Condicions generals d'accés i l'ús del web participa.barcelonaencomu.cat"
+        title: "Condicions generals d'accés i l'ús del web participa.unpaisencomu.cat"
         p1:
           subtitle: "Usuaris i dret d'accés"
           text_html: "
@@ -486,7 +486,7 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
       voting: "VOTACIÓ"
       inscription_errors: "ERRORS D'INSCRIPCIÓ"
       verification: "VERIFICACIÓ"
-      faq1_html: '<li><a class="cd-faq-trigger" href="#0">1. Què em cal per accedir a participa.barcelonaencomu.cat?</a>
+      faq1_html: '<li><a class="cd-faq-trigger" href="#0">1. Què em cal per accedir a participa.unpaisencomu.cat?</a>
             <div class="cd-faq-content">
     <p> Es necessari residir a la ciutat de Barcelona.
     </p>
@@ -497,7 +497,7 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
           <li>
           <a class="cd-faq-trigger" href="#0">2. Què faig si he perdut la contrassenya?</a>
           <div class="cd-faq-content">
-           <p> Si no recordes la contrasenya, fes clic <a href="https://participa.barcelonaencomu.cat/ca/users/password/new" target="_blank" title="Has oblidat la teva contrasenya?"> Aquí </a> per sol·licitar-ne una de nova. </p>
+           <p> Si no recordes la contrasenya, fes clic <a href="https://participa.unpaisencomu.cat/ca/users/password/new" target="_blank" title="Has oblidat la teva contrasenya?"> Aquí </a> per sol·licitar-ne una de nova. </p>
           </div> <!-- cd-faq-content --></li>'
       faq2_html: "<li><a class='cd-faq-trigger' href='#0'>3. No arecordo del correu electrònc. Què faig?</a>
           <div class='cd-faq-content'>
@@ -522,7 +522,7 @@ Descripció del problema: </ p>
       faq3_html: "<li><a class='cd-faq-trigger' href='#0'>6. Correu  electrònic, número de document o contrasenya invàlida.</a>
           <div class='cd-faq-content'>
             <p> Si no recordes el correu electrònic que vas fer servir per inscriure't, prova-ho amb el teu DNI. </p>
-             <p> Si no recordes la contrasenyaa, fes clic <a href='https://participa.barcelonaencomu.cat/es/users/password/new' target='_blank' title='Has olblidat la teva contrasenya? '> Aquí </a> per sol·licitar-ne una de nova. </p>
+             <p> Si no recordes la contrasenyaa, fes clic <a href='https://participa.unpaisencomu.cat/es/users/password/new' target='_blank' title='Has olblidat la teva contrasenya? '> Aquí </a> per sol·licitar-ne una de nova. </p>
              <p> Si no reps la teva contrasenya, mira l'error núm. 2, que apareix més avall.</p>
           </div> <!-- cd-faq-content -->
           </li>
@@ -538,7 +538,7 @@ Descripció del problema: </ p>
       <div class='cd-faq-content'>
         <p>Amb tres passos molt senzills:<br/>
 Amb tres passos molt senzills:
- 1r.  Entra al web participa.barcelonaencomu.cat, accedeix al portal de participació i introdueix el DNI / correu electrònic i la contrasenya.  Si no estàs inscrit/a, fes-ho aquí: https://participa.barcelonaencomu.cat. És molt senzill.
+ 1r.  Entra al web participa.unpaisencomu.cat, accedeix al portal de participació i introdueix el DNI / correu electrònic i la contrasenya.  Si no estàs inscrit/a, fes-ho aquí: https://participa.unpaisencomu.cat. És molt senzill.
  2n.  Accedeix a la cabina de votació: un cop hagis entrat a l'aplicació  de  Barcelona En Comú, veuràs un botó per votar. Fes-hi clic i se’t redirigirà a la cabina de votació,
  3r. Vota: respon la pregunta de la votació.
 </p>
@@ -547,13 +547,13 @@ Amb tres passos molt senzills:
       <li>
       <a class='cd-faq-trigger' href='#0'>10. Qui pot votar?</a>
       <div class='cd-faq-content'>
-        <p>Qualsevol  persona inscrita a Barcelona En Comú a través de  http://participa.barcelonaencomu.cat que tingui més de 16 anys i visqui a  Barcelona i hagi realitzat la verificació presencial.</p>
+        <p>Qualsevol  persona inscrita a Barcelona En Comú a través de  http://participa.unpaisencomu.cat que tingui més de 16 anys i visqui a  Barcelona i hagi realitzat la verificació presencial.</p>
       </div> <!-- cd-faq-content -->
       </li>
       <li>
       <a class='cd-faq-trigger' href='#0'>11. Què necessito per votar?</a>
       <div class='cd-faq-content'>
-        <p>Necessites un ordinador o qualsevol altre dispositiu (android / iphone) amb  accés a la xarxa per accedir a <a href='https://participa.barcelonaencomu.cat' target='_blank' >https://participa.barcelonaencomu.cat</a> i estar inscrit/a a <a href='https://participa.barcelonaencomu.cat' target='_blank'>https://participa.barcelonaencomu.cat</a>.</p>
+        <p>Necessites un ordinador o qualsevol altre dispositiu (android / iphone) amb  accés a la xarxa per accedir a <a href='https://participa.unpaisencomu.cat' target='_blank' >https://participa.unpaisencomu.cat</a> i estar inscrit/a a <a href='https://participa.unpaisencomu.cat' target='_blank'>https://participa.unpaisencomu.cat</a>.</p>
       </div> <!-- cd-faq-content -->
       </li>
       <li>
@@ -565,7 +565,7 @@ Amb tres passos molt senzills:
         <li>
       <a class='cd-faq-trigger' href='#0'>13. Si no tinc un dispositiu mòbil (telèfon intel•ligent/tàblet), puc votar?</a>
       <div class='cd-faq-content'>
-        <p>Sí, pots votar també des d'un ordinador amb accés a Internet a participa.barcelonaencomu.cat. El mòbil només cal per registrar-se.</p>
+        <p>Sí, pots votar també des d'un ordinador amb accés a Internet a participa.unpaisencomu.cat. El mòbil només cal per registrar-se.</p>
       </div> <!-- cd-faq-content -->
       </li>
       <li>
