@@ -13,13 +13,13 @@ $navigation-bar-padding-vertical: 10px;
 }
 
 .navigation-bar-nav {
-  margin: ($navigation-bar-padding-vertical / 2) -6px;
+  margin: 0 -6px;
 
   > li {
     color: $navigation-bar-link-color;
     float: left;
     font-size: 13px;
-    margin: 0 5px;
+    margin: 0;
 
     &.nav-lang {
       float: right;
