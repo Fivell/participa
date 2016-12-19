@@ -6,10 +6,8 @@
       </li>
 
       <% if user_signed_in? %>
-        <li>
-        <%= link_to destroy_user_session_path, method: :delete, title: "Cerrar sesión" do %>
-          <i class="icon"></i><span>Cerrar sesión</span>
-        <% end %>
+        <li class="nav-action">
+          <%= link_to t("devise.links.sign_out"), destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
         <% unless current_page?(new_user_registration_path) %>
