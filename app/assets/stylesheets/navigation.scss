@@ -21,6 +21,14 @@ $navigation-bar-padding-vertical: 10px;
     font-size: 13px;
     margin: 0 5px;
 
+    &.nav-lang {
+      float: right;
+    }
+
+    &.nav-action {
+      float: left;
+    }
+
     > a {
       background-color: #FFF;
       line-height: $line-height-computed;

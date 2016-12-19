@@ -101,10 +101,6 @@ general
       @include make-md-column(1);
       @include make-sm-column(1);
 
-      @media (min-width: $grid-float-breakpoint) {
-        float: right;
-      }
-
       font-family: "StagSansRound-Semibold";
       font-size: 1.8em;
 
