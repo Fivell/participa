@@ -120,7 +120,7 @@ ca:
         remember_me: "Recorda'm"
         wants_newsletter: 'Butlletí'
         terms_of_service: "He llegit i accepto les condicions generals"
-        inscription: "Accepto incriure'm a Barcelona en Comú"
+        inscription: "Accepto incriure'm a Un País en Comú"
         age_restriction: "Declaro ser major de 16 anys"
         captcha: "Captcha"
         current_password: "Contrasenya actual"
@@ -225,7 +225,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
           link: 'Desbloqueja el meu compte'
           p3: "Aquesta adreça electrònica no permet respostes. Si tens qualsevol problema amb el registre, si us plau, contacta amb info@unpaisencomu.cat"
         confirm:
-          p1: "T'has donat d'alta o has canviat el teu correu electrònic a l'entorn Barcelona en Comú. Si no és així, no facis cas d'aquest missatge. Pots confirmar que aquesta és la teva adreça de correu a través de l'enllaç següent:"
+          p1: "T'has donat d'alta o has canviat el teu correu electrònic a l'entorn Un País en Comú. Si no és així, no facis cas d'aquest missatge. Pots confirmar que aquesta és la teva adreça de correu a través de l'enllaç següent:"
           link: 'Confirma el meu compte'
           p2: "Aquesta adreça electronica no permet respostes. Si tens qualsevol problema amb el registre, si us plau, contacta amb info@unpaisencomu.cat"
         password:
@@ -333,7 +333,7 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
         title: "Informació general"
         p1:
           subtitle: "Identificació del propietari del web"
-          text_html: "Barcelona en Comú PARTIT POLÍTIC (endavant Barcelona en Comú) <br> CIF G66476136 <br> Carrer Castillejos, 233 <br> 08013 Barcelona"
+          text_html: "Un País en Comú PARTIT POLÍTIC (endavant Un País en Comú) <br> CIF G66476136 <br> Carrer Castillejos, 233 <br> 08013 Barcelona"
         p2:
           subtitle: "Contacte"
           text_html: "Informació general: info@unpaisencomu.cat <br> Incidències d'inscripcions: info@unpaisencomu.cat <br> Protecció de dades: info@unpaisencomu.cat <br>"
@@ -705,14 +705,14 @@ Amb tres passos molt senzills:
       hello: "Hola %{user},"
       bye: Salutacions
       finish:
-        subject: Barcelona en Comú - Fin del primer proceso de verificación
+        subject: Un País en Comú - Fin del primer proceso de verificación
       to_verify:
-        subject: Barcelona en Comú - Faltan 2 días para verificarte
+        subject: Un País en Comú - Faltan 2 días para verificarte
       verified_legacy:
-        subject: Barcelona en Comú - No hace falta que te verifiques
+        subject: Un País en Comú - No hace falta que te verifiques
       verified:
-        subject: Barcelona en Comú - Has estat verificat correctament
-        message: "Has sigut verificat i ja formes part de la comunitat de Barcelona en Comú. A partir d'ara ja no necessites verificar-te més i podràs participar a les consultes futures. Cada cop que hi hagi una consulta t'avisarem per coreru electrònic perquè puguis participar. Recorda que ara formes part de la comunitat de Barcelona en Comú."
+        subject: Un País en Comú - Has estat verificat correctament
+        message: "Has sigut verificat i ja formes part de la comunitat de Un País en Comú. A partir d'ara ja no necessites verificar-te més i podràs participar a les consultes futures. Cada cop que hi hagi una consulta t'avisarem per coreru electrònic perquè puguis participar. Recorda que ara formes part de la comunitat de Un País en Comú."
     form:
       document: "He verificat el document original de l'inscrit/a"
       age: "L'inscrit/a és major de 16 anys - nascut abans de %{date}"
