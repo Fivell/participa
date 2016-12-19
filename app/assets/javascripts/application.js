@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.sidr.min
+//= require jquery.slicknav
 //= require iframeSizer.min
 //= require leaflet
 //= require select2

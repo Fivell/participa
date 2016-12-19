@@ -1,55 +1,42 @@
 <div class="header">
+  <nav class="navigation-bar">
+    <ul id="non_slicknav_menu" class="nav navigation-bar-nav">
+      <li class="nav-action">
+        <%= link_to "UPeC", "https://unpaisencomu.cat" %>
+      </li>
 
-  <div class="header-content">
-
-    <div id="logo">
-      <%= link_to root_path do %>
-        <%= image_tag "logo_participa.png" %>
-      <% end %>
-      <%= link_to "https://barcelonaencomu.cat/", class: "logo-bcomu" do %>
-        <%= image_tag "logo.bec-220-w.png" %>
-      <% end %>
-    </div>
-
-    <div id="block-locale-language" class="block block-locale">
-
-      <div class="col-h-12a3">
-
-        <% if user_signed_in? %>
-          <div class="profile-info" data-verified="true">
-            <%= link_to edit_user_registration_path, class: "username" do %>
-              <i class="icon"></i> 
-              <%= current_user.full_name %>
-            <% end %>
-            <% if current_user.is_verified? %>
-              <span class="verified"><%= t('verification.user_verified') %></span>
-            <% else %>
-              <span class="unverified"><%= t('verification.user_unverified') %></span>
-            <% end %>
-            <%= link_to destroy_user_session_path, method: :delete, title: "Cerrar sesión" do %>
-              <i class="icon"></i><span>Cerrar sesión</span>
-            <% end %>
-          </div>
+      <% if user_signed_in? %>
+        <li class="nav-action">
+          <%= link_to t("devise.links.sign_out"), destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <% unless current_page?(new_user_registration_path) %>
+          <li class="nav-action">
+            <%= link_to t("devise.buttons.sign_up"), new_user_registration_path %>
+          </li>
         <% end %>
 
-        <ul class="language-switcher-locale-url">
-          <li class="lang-catala">
-            <%= link_to "Cat", url_for(locale: :ca), class: current_lang_class(:ca) %>
+        <% unless current_page?(new_user_session_path) %>
+          <li class="nav-action">
+            <%= link_to t("devise.buttons.sign_in"), new_user_session_path %>
           </li>
-          <li class="lang-castellano">
-            <%= link_to "Cast", url_for(locale: :es), class: current_lang_class(:es) %>
-          </li>
-        </ul>
+        <% end %>
+      <% end %>
 
-      </div><%#.col-h-2a4%>
-  </div>
-
+      <li class="nav-lang">
+        <%= link_to "Cat", url_for(locale: :ca), class: current_lang_class(:ca) %>
+      </li>
+      <li class="nav-lang">
+        <%= link_to "Cast", url_for(locale: :es), class: current_lang_class(:es) %>
+      </li>
+    </ul>
+  </nav>
 
   <% if user_signed_in? && Rails.application.secrets.features["verification_presencial"] %>
     <div class="col-h-1a12">
 
       <nav class="menu" id="top_menu">
-        <%= link_to t('voting.continue'), 'https://participa.barcelonaencomu.cat', class:"js-return-vote menu-return-vote", style:"display: none;" %>
+        <%= link_to t('voting.continue'), 'https://participa.unpaisencomu.cat', class:"js-return-vote menu-return-vote", style:"display: none;" %>
         <ul>
           <li class="menu-hamb">
             <a id="hamburger_menu" href="#">
@@ -103,5 +90,4 @@
 <%= render partial: 'sidr_menu' %>
     <% end %>
 
-  </div><!--.header-content -->
 </div><!-- header -->

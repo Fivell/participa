@@ -32,7 +32,9 @@ gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem 'spanish_vat_validators', github: 'deivid-rodriguez/spanish_vat_validators',
                               branch: 'rails_5_deprecations'
-gem 'simple_captcha2', require: 'simple_captcha'
+gem 'simple_captcha2', github: 'deivid-rodriguez/simple-captcha',
+                       branch: 'rails_5_support',
+                       require: 'simple_captcha'
 gem 'carmen-rails'
 gem 'esendex'
 gem 'activeadmin', github: 'activeadmin'
@@ -61,7 +63,7 @@ gem 'enumerize'
 gem 'wicked_pdf'
 gem "font-awesome-rails"
 gem 'friendly_id', '~> 5.1.0'
-gem 'auto_html'
+gem 'auto_html', '~> 1.6'
 gem "paranoia"
 gem 'cocoon'
 gem 'paperclip'

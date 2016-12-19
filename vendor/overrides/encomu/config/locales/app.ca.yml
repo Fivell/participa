@@ -120,7 +120,7 @@ ca:
         remember_me: "Recorda'm"
         wants_newsletter: 'Butlletí'
         terms_of_service: "He llegit i accepto les condicions generals"
-        inscription: "Accepto incriure'm a Barcelona en Comú"
+        inscription: "Accepto incriure'm a Un País en Comú"
         age_restriction: "Declaro ser major de 16 anys"
         captcha: "Captcha"
         current_password: "Contrasenya actual"
@@ -225,7 +225,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
           link: 'Desbloqueja el meu compte'
           p3: "Aquesta adreça electrònica no permet respostes. Si tens qualsevol problema amb el registre, si us plau, contacta amb info@unpaisencomu.cat"
         confirm:
-          p1: "T'has donat d'alta o has canviat el teu correu electrònic a l'entorn Barcelona en Comú. Si no és així, no facis cas d'aquest missatge. Pots confirmar que aquesta és la teva adreça de correu a través de l'enllaç següent:"
+          p1: "T'has donat d'alta o has canviat el teu correu electrònic a l'entorn Un País en Comú. Si no és així, no facis cas d'aquest missatge. Pots confirmar que aquesta és la teva adreça de correu a través de l'enllaç següent:"
           link: 'Confirma el meu compte'
           p2: "Aquesta adreça electronica no permet respostes. Si tens qualsevol problema amb el registre, si us plau, contacta amb info@unpaisencomu.cat"
         password:
@@ -280,7 +280,7 @@ Barcelona En Comú compleix amb totes les mesures de seguretat per a la protecci
 <p>
 <p><b>3. Exercicis dels drets d'accés, rectificació, cancel·lació i oposició</b></p>
 <p>
-Per exercir els drets d'accés, rectificació, cancel·lació i oposició l'inscrit/a podrà utilitzar els formularis disponibles a la pàgina web del perfil d'usuari del web participa.barcelonaencomu.cat o dirigir-se per correu electrònic a info@unpaisencomu.cat indicant el seu nom i cognoms i adjuntant còpia del seu DNI o document legal d'identificació.
+Per exercir els drets d'accés, rectificació, cancel·lació i oposició l'inscrit/a podrà utilitzar els formularis disponibles a la pàgina web del perfil d'usuari del web participa.unpaisencomu.cat o dirigir-se per correu electrònic a info@unpaisencomu.cat indicant el seu nom i cognoms i adjuntant còpia del seu DNI o document legal d'identificació.
 </p>
 <p><b>4. Acceptació de les presents condicions generals</b></p>
 <p>
@@ -301,7 +301,7 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
         legal2: Mira avís legal
         legal3: Mira la política de galetes
         password_limits: Mínim 6 caràcters
-        cant_modify: TODO
+        cant_modify: No pots modificar-lo
         cis_title: CIS (cisgènere)
         cis_definition: persona que s'identifica amb el gènere que li va ser assignat al néixer
         trans_key: TRANS (transgènere)
@@ -312,14 +312,14 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
         dni: "El format ha de ser 8 xifres i una lletra, sense guions ni espais."
         nie: "El format ha de ser una lletra, 7 xifres i una lletra, sense guions ni espais."
         passport: "El format ha de ser sense guions ni espais."
-        welcome_html: " <span>
-        Per formar part de Barcelona en Comú has de seguir els passos següents:
-      </span>
-      <ol>
-         <li><span class='welcome-number'>1</span><span  class='welcome-thumb'>%{logo_inscription}</span><span  class='welcome-text'><b>Inscripció a través d' Internet</b>:  Emplena el següent formulari. Revisa el teu correu, confirma'l amb l'enllaç que t'enviarem.</span></li>
-         <li><span class='welcome-number'>2</span><span  class='welcome-thumb'>%{logo_verification}</span><span  class='welcome-text'><b>Verificació presencial</b>:  Hauràs de portar documentació que acrediti la teva identitat i residència a Barcelona ciutat a algun dels punts de verificació.</span></li>
-         <li><span class='welcome-number'>3</span><span  class='welcome-thumb'>%{logo_voting}</span><span  class='welcome-text'><b>Votació por Internet</b>: T'avisarem per correu electrònic perquè puguis participar a les properes consultes.</span></li>
-      </ol>"
+        welcome_html: "
+          <p>Apuntat!</p>
+
+          <p>
+            Si vols estar informat/da i al dia de com es desenvolupa la
+            construcció del nou espai, omple aquest formulari. Gràcies
+            per ajudar-nos a construir un País En Comú!
+          </p>"
     legacy:
       password:
         title: "Canviar contrasenya antiga"
@@ -333,12 +333,12 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
         title: "Informació general"
         p1:
           subtitle: "Identificació del propietari del web"
-          text_html: "Barcelona en Comú PARTIT POLÍTIC (endavant Barcelona en Comú) <br> CIF G66476136 <br> Carrer Castillejos, 233 <br> 08013 Barcelona"
+          text_html: "Un País en Comú PARTIT POLÍTIC (endavant Un País en Comú) <br> CIF G66476136 <br> Carrer Castillejos, 233 <br> 08013 Barcelona"
         p2:
           subtitle: "Contacte"
           text_html: "Informació general: info@unpaisencomu.cat <br> Incidències d'inscripcions: info@unpaisencomu.cat <br> Protecció de dades: info@unpaisencomu.cat <br>"
       p2:
-        title: "Condicions generals d'accés i l'ús del web participa.barcelonaencomu.cat"
+        title: "Condicions generals d'accés i l'ús del web participa.unpaisencomu.cat"
         p1:
           subtitle: "Usuaris i dret d'accés"
           text_html: "
@@ -486,7 +486,7 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
       voting: "VOTACIÓ"
       inscription_errors: "ERRORS D'INSCRIPCIÓ"
       verification: "VERIFICACIÓ"
-      faq1_html: '<a class="cd-faq-trigger" href="#0">1. Què em cal per accedir a participa.barcelonaencomu.cat?</a>
+      faq1_html: '<li><a class="cd-faq-trigger" href="#0">1. Què em cal per accedir a participa.unpaisencomu.cat?</a>
             <div class="cd-faq-content">
     <p> Es necessari residir a la ciutat de Barcelona.
     </p>
@@ -497,9 +497,9 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
           <li>
           <a class="cd-faq-trigger" href="#0">2. Què faig si he perdut la contrassenya?</a>
           <div class="cd-faq-content">
-           <p> Si no recordes la contrasenya, fes clic <a href="https://participa.barcelonaencomu.cat/ca/users/password/new" target="_blank" title="Has oblidat la teva contrasenya?"> Aquí </a> per sol·licitar-ne una de nova. </p>
-          </div> <!-- cd-faq-content -->'
-      faq2_html: " <a class='cd-faq-trigger' href='#0'>3. No arecordo del correu electrònc. Què faig?</a>
+           <p> Si no recordes la contrasenya, fes clic <a href="https://participa.unpaisencomu.cat/ca/users/password/new" target="_blank" title="Has oblidat la teva contrasenya?"> Aquí </a> per sol·licitar-ne una de nova. </p>
+          </div> <!-- cd-faq-content --></li>'
+      faq2_html: "<li><a class='cd-faq-trigger' href='#0'>3. No arecordo del correu electrònc. Què faig?</a>
           <div class='cd-faq-content'>
 <p> Fes servir el DNI o passaport per entrar a la plataforma. Un cop a dins podràs canviar el teu correu electrònic. </ P>
           </div> <!-- cd-faq-content -->
@@ -509,6 +509,8 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
             <div class='cd-faq-content'>
               <p> Per seguretat, bloquegem el compte durant una hora després de 20 temptatives fallides d'accés. Un cop passat aquest temps, la persona usuària és desbloquejada automàticament. </ P>
             </div> <!-- cd-faq-content -->
+          </li>
+          <li>
            <a class='cd-faq-trigger' href='#0'>5. Continuo sense poder accedir al portal de participació. Com puc comunicar-me amb l'equip de suport?</a>
           <div class='cd-faq-content'>
 <p> Si tens algun problema pots comunicar-te amb nosaltres a <a href='mailto:info@unpaisencomu.cat'> info@unpaisencomu.cat </a> indicant si escau les dades següents: </ p>
@@ -516,11 +518,11 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
 Correu electrònic: <br />
 DNI: <br />
 Descripció del problema: </ p>
-          </div> <!-- cd-faq-content -->"
-      faq3_html: "<a class='cd-faq-trigger' href='#0'>6. Correu  electrònic, número de document o contrasenya invàlida.</a>
+          </div> <!-- cd-faq-content --></li>"
+      faq3_html: "<li><a class='cd-faq-trigger' href='#0'>6. Correu  electrònic, número de document o contrasenya invàlida.</a>
           <div class='cd-faq-content'>
             <p> Si no recordes el correu electrònic que vas fer servir per inscriure't, prova-ho amb el teu DNI. </p>
-             <p> Si no recordes la contrasenyaa, fes clic <a href='https://participa.barcelonaencomu.cat/es/users/password/new' target='_blank' title='Has olblidat la teva contrasenya? '> Aquí </a> per sol·licitar-ne una de nova. </p>
+             <p> Si no recordes la contrasenyaa, fes clic <a href='https://participa.unpaisencomu.cat/es/users/password/new' target='_blank' title='Has olblidat la teva contrasenya? '> Aquí </a> per sol·licitar-ne una de nova. </p>
              <p> Si no reps la teva contrasenya, mira l'error núm. 2, que apareix més avall.</p>
           </div> <!-- cd-faq-content -->
           </li>
@@ -532,11 +534,11 @@ Descripció del problema: </ p>
      </div> <!-- cd-faq-content -->
           </li>"
       faq4_html: "<li> <a class='cd-faq-trigger' href='#0'>8. Quins mètodes de verificació s'han habilitat?</a> <div class='cd-faq-content'> <p>Hem habilitat <a href='%{verifications_url}'>punts presencials per a la verificació</a>.</p> </div> <!-- cd-faq-content --> </li>"
-      faq5_html: "<a class='cd-faq-trigger' href='#0'>9. Com puc votar?</a>
+      faq5_html: "<li><a class='cd-faq-trigger' href='#0'>9. Com puc votar?</a>
       <div class='cd-faq-content'>
         <p>Amb tres passos molt senzills:<br/>
 Amb tres passos molt senzills:
- 1r.  Entra al web participa.barcelonaencomu.cat, accedeix al portal de participació i introdueix el DNI / correu electrònic i la contrasenya.  Si no estàs inscrit/a, fes-ho aquí: https://participa.barcelonaencomu.cat. És molt senzill.
+ 1r.  Entra al web participa.unpaisencomu.cat, accedeix al portal de participació i introdueix el DNI / correu electrònic i la contrasenya.  Si no estàs inscrit/a, fes-ho aquí: https://participa.unpaisencomu.cat. És molt senzill.
  2n.  Accedeix a la cabina de votació: un cop hagis entrat a l'aplicació  de  Barcelona En Comú, veuràs un botó per votar. Fes-hi clic i se’t redirigirà a la cabina de votació,
  3r. Vota: respon la pregunta de la votació.
 </p>
@@ -545,34 +547,27 @@ Amb tres passos molt senzills:
       <li>
       <a class='cd-faq-trigger' href='#0'>10. Qui pot votar?</a>
       <div class='cd-faq-content'>
-        <p>Qualsevol  persona inscrita a Barcelona En Comú a través de  http://participa.barcelonaencomu.cat que tingui més de 16 anys i visqui a  Barcelona i hagi realitzat la verificació presencial.</p>
+        <p>Qualsevol  persona inscrita a Barcelona En Comú a través de  http://participa.unpaisencomu.cat que tingui més de 16 anys i visqui a  Barcelona i hagi realitzat la verificació presencial.</p>
       </div> <!-- cd-faq-content -->
       </li>
-      <li>
       <li>
       <a class='cd-faq-trigger' href='#0'>11. Què necessito per votar?</a>
       <div class='cd-faq-content'>
-        <p>Necessites un ordinador o qualsevol altre dispositiu (android / iphone) amb  accés a la xarxa per accedir a <a href='https://participa.barcelonaencomu.cat' target='_blank' >https://participa.barcelonaencomu.cat</a> i estar inscrit/a a <a href='https://participa.barcelonaencomu.cat' target='_blank'>https://participa.barcelonaencomu.cat</a>.</p>
+        <p>Necessites un ordinador o qualsevol altre dispositiu (android / iphone) amb  accés a la xarxa per accedir a <a href='https://participa.unpaisencomu.cat' target='_blank' >https://participa.unpaisencomu.cat</a> i estar inscrit/a a <a href='https://participa.unpaisencomu.cat' target='_blank'>https://participa.unpaisencomu.cat</a>.</p>
       </div> <!-- cd-faq-content -->
       </li>
-      <li>
       <li>
       <a class='cd-faq-trigger' href='#0'>12. Puc votar sense tenir ordinador?</a>
       <div class='cd-faq-content'>
         <p>Sí. Barcelona En Comú ha habilitat diversos punts de votació digital assistida
       </div> <!-- cd-faq-content -->
       </li>
-      <li>
         <li>
       <a class='cd-faq-trigger' href='#0'>13. Si no tinc un dispositiu mòbil (telèfon intel•ligent/tàblet), puc votar?</a>
       <div class='cd-faq-content'>
-        <p>Sí, pots votar també des d'un ordinador amb accés a Internet a participa.barcelonaencomu.cat. El mòbil només cal per registrar-se.</p>
+        <p>Sí, pots votar també des d'un ordinador amb accés a Internet a participa.unpaisencomu.cat. El mòbil només cal per registrar-se.</p>
       </div> <!-- cd-faq-content -->
       </li>
-      <li>
-      <li>
-      </li>
-      <li>
       <li>
       <a class='cd-faq-trigger' href='#0'>14. Puc canviar el vot durant el període de votació?</a>
       <div class='cd-faq-content'>
@@ -580,7 +575,6 @@ Amb tres passos molt senzills:
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-        <li>
       <a class='cd-faq-trigger' href='#0'>15. Puc votar en blanc o abstenir-me?</a>
       <div class='cd-faq-content'>
         <p>Sí. En funció del tipus de pregunta, podràs votar en blanc o abstenir-te'n.</p>
@@ -593,13 +587,11 @@ Amb tres passos molt senzills:
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-        <li>
       <a class='cd-faq-trigger' href='#0'>17. En quines altres votacions s'ha fet servir Agora Voting?</a>
       <div class='cd-faq-content'>
         <p>Entre altres, Agora Voting s'ha utilitzat per fer les primàries europees i els consells municipals i autonòmics de Podem, en dues votacions de la iniciativa de Congrés Transparent i en les primàries de la Confederació Pirata.</p>
       </div> <!-- cd-faq-content -->
       </li>
-      <li>
       <li>
       <a class='cd-faq-trigger' href='#0'>18. Com puc comprovar que el vot s’ha enregistrat correctament?</a>
       <div class='cd-faq-content'>
@@ -607,27 +599,23 @@ Amb tres passos molt senzills:
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-      <li>
       <a class='cd-faq-trigger' href='#0'>19. He buscat el meu vot tal com diu la pregunta anterior i no surt llistat. Per què?</a>
       <div class='cd-faq-content'>
         <p>Segurament has copiat malament el localitzador del vot. Sisplau, torna-ho a comprovar.</p>
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-        <li>
       <a class='cd-faq-trigger' href='#0'>20. Com puc comprovar que el còmput de la votació és correcte?</a>
       <div class='cd-faq-content'>
         <p>Agora Voting és un sistema verificable. Això vol dir que qualsevol pot revisar el còmput de la votació a partir dels localitzadors dels vots i les demostracions matemàtiques publicades després del còmput. Agora Voting proporciona un procediment de verificació que, com la resta del sistema, és públicament auditable. No obstant això, la verificació es basa en tècniques criptogràfiques que, tot i que estan ben establertes en l'àmbit acadèmic, no són fàcils d'entendre.</p>
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-      <li>
       <a class='cd-faq-trigger' href='#0'>21. És possible esbrinar el contingut del vot? Com puc saber que no es revelarà?</a>
       <div class='cd-faq-content'>
         <p>No, ni els administradors del sistema poden esbrinar-ho. Només és possible revelar el contingut d'un vot si totes les autoritats es posen d’acord per fer-ho (o si totes són atacades amb èxit, com es pot veure més avall). El secret del vot és segur.</p>
       </div> <!-- cd-faq-content -->
       </li>
-      <li>
       <li>
       <a class='cd-faq-trigger' href='#0'>22. Quines són les autoritats de la votació?</a>
       <div class='cd-faq-content'>
@@ -650,7 +638,7 @@ Amb tres passos molt senzills:
       <a class='cd-faq-trigger' href='#0'>25. Tinc més preguntes.</a>
       <div class='cd-faq-content'>
         <p>En aquest cas, pots contactar amb nosaltres i intentarem resoldre els teus dubtes, preguntes o comentaris enviant un mail a info@unpaisencomu.cat.</p>
-      </div> <!-- cd-faq-content -->"
+      </div> <!-- cd-faq-content --></li>"
   domicilio: "Domicili"
   consentimiento: "Consentiment"
   access_data: "Dades d'accés"
@@ -658,9 +646,6 @@ Amb tres passos molt senzills:
   <a target="_blank" href="https://barcelonaencomu.cat/ca/politica-de-privacitat">Mira la política de privacitat</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/ca/avis-legal">Mira avís legal</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/ca/politica-de-cookies">Mira la política de galetes</a></p>'
-  welcome_html: "<p><strong>Et donem la benvinguda al portal de participació de Barcelona En Comú ! </Strong> </ p>
-<p> Som una plataforma ciutadana amb un projecte col•lectiu per transformar Barcelona. Una comunitat àmplia i diversa que treballa per convertir Barcelona en un referent de la democràcia, la participació, la transparència, els drets socials, la defensa del bé comú i la lluita contra la desigualtat i la corrupció.</p>
-<p> Inscriu-t'hi i participa-hi! Construïm en comú la ciutat on volem viure."
   voting:
     title: "Benvingut a Participa!"
     election_one: Hi ha una votació en curs.
@@ -720,14 +705,14 @@ Amb tres passos molt senzills:
       hello: "Hola %{user},"
       bye: Salutacions
       finish:
-        subject: Barcelona en Comú - Fin del primer proceso de verificación
+        subject: Un País en Comú - Fin del primer proceso de verificación
       to_verify:
-        subject: Barcelona en Comú - Faltan 2 días para verificarte
+        subject: Un País en Comú - Faltan 2 días para verificarte
       verified_legacy:
-        subject: Barcelona en Comú - No hace falta que te verifiques
+        subject: Un País en Comú - No hace falta que te verifiques
       verified:
-        subject: Barcelona en Comú - Has estat verificat correctament
-        message: "Has sigut verificat i ja formes part de la comunitat de Barcelona en Comú. A partir d'ara ja no necessites verificar-te més i podràs participar a les consultes futures. Cada cop que hi hagi una consulta t'avisarem per coreru electrònic perquè puguis participar. Recorda que ara formes part de la comunitat de Barcelona en Comú."
+        subject: Un País en Comú - Has estat verificat correctament
+        message: "Has sigut verificat i ja formes part de la comunitat de Un País en Comú. A partir d'ara ja no necessites verificar-te més i podràs participar a les consultes futures. Cada cop que hi hagi una consulta t'avisarem per coreru electrònic perquè puguis participar. Recorda que ara formes part de la comunitat de Un País en Comú."
     form:
       document: "He verificat el document original de l'inscrit/a"
       age: "L'inscrit/a és major de 16 anys - nascut abans de %{date}"

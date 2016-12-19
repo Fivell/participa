@@ -1,0 +1,14 @@
+$container-md: 1024px;
+$container-lg: 1024px;
+
+$grid-columns: 6;
+$grid-gutter-width: 14.45px;
+
+@import "bootstrap/grid";
+
+@media (min-width: $screen-sm-min) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

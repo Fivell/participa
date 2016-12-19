@@ -11,7 +11,7 @@ class PasswordsIntegrationTest < ActionDispatch::IntegrationTest
 
   test "should login with password as user" do
     login @user
-    assert_logged_in @legacy_password_user
+    assert_logged_in
   end
 
   test "should login with legacy password and change it as legacy_password_user" do
@@ -24,12 +24,12 @@ class PasswordsIntegrationTest < ActionDispatch::IntegrationTest
     reset_password_token = @legacy_password_user.send_reset_password_instructions
     put "/es/users/password", params: { user: {reset_password_token: reset_password_token, password: password, password_confirmation: password} } 
     login @legacy_password_user, password
-    assert_logged_in @legacy_password_user
+    assert_logged_in
   end
 
   private
 
-  def assert_logged_in(user)
-    assert_selector '.header', text: user.full_name
+  def assert_logged_in
+    assert_selector '.header', text: 'Cerrar sesión'
   end
 end

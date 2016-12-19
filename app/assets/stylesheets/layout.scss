@@ -1,0 +1,14 @@
+html {
+  background: image-url('background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  min-width: 320px;
+}
+
+body{
+  /* Workaround for some mobile browsers */
+  min-height:100%;
+};

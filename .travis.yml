@@ -1,10 +1,18 @@
-# .travis.yml
+---
 language: ruby
+
 rvm:
   - 2.3.3
+
 cache: bundler
+
 before_install:
   - source bin/phantomjs.sh
+  - mkdir app/assets/fonts
+  - touch app/assets/fonts/StagSansRound-Bold.otf;
+  - touch app/assets/fonts/StagSansRound-Book.otf;
+  - touch app/assets/fonts/StagSansRound-Semibold.otf;
+
 before_script:
   - cp config/secrets.yml.example config/secrets.yml
   - cp config/database.yml.travis config/database.yml
@@ -12,7 +20,9 @@ before_script:
   - cp config/mailserver.yml.example config/mailserver.yml
   - bundle exec rake db:create
   - bundle exec rake db:migrate
+
 script: bundle exec rake test
+
 branches:
   only:
     - master

@@ -64,15 +64,6 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     assert_landed_in_profile_edition
   end
 
-  test "should set_new_password if legacy password, but allow access to profile" do
-    @user.update_attribute(:has_legacy_password, true)
-    login @user
-    assert_text "Por seguridad, debes cambiar tu contraseña."
-    assert_equal new_legacy_password_path(locale: 'es'), current_path, "User with legacy password should be redirected to update it"
-    click_link @user.full_name
-    assert_landed_in_profile_edition
-  end
-
   test "should check_born_at if born_at is null" do
     @user.update_attribute(:born_at, nil)
     login @user

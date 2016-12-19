@@ -57,6 +57,7 @@ es:
       forgot_manual_vot: "Ver el manual de votación"
       forgot_mail: "No he recibido el correo de confirmación"
       insc: "Inscripción"
+    new_email: "Correo electrónico nuevo"
   errors:
     messages:
       already_confirmed: "ya ha sido confirmado, por favor intenta iniciar sesión."

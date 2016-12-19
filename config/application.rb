@@ -20,11 +20,11 @@ module Participa
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', 'carmen', '*.{rb,yml}').to_s]
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', 'carmen', 'es', '*.{rb,yml}').to_s]
     config.action_mailer.default_url_options = { host: Rails.application.secrets.host }
-    
+
      # participa overrides start
     folder = Rails.application.secrets.organization["folder"]
 
-    %w( images javascripts stylesheets ).each do |type|
+    %w( images javascripts ).each do |type|
       config.assets.paths << Rails.root.join("vendor", "overrides", folder, "app", "assets", type)
     end
     config.i18n.load_path += Dir[Rails.root.join('vendor', 'overrides', folder, 'config', 'locales', '*.{rb,yml}').to_s]

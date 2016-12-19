@@ -36,7 +36,7 @@ es:
       waiting_confirmation: "Actualmente esperando instrucciones para %{email}"
     titles:
       sign_in: "Iniciar sesión"
-      sign_up: "Inscripción a Barcelona en Comú"
+      sign_up: "Inscripción a Un País en Comú"
       cancel_account: "Cancelar mi cuenta"
       forgot_password: "¿Has olvidado tu contraseña?"
       change_password: "Cambiar tu contraseña"

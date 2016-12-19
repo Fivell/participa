@@ -1,0 +1,44 @@
+$navigation-bar-height: 42px;
+$navigation-bar-link-color: #000;
+$navigation-bar-margin-bottom: 0;
+$navigation-bar-padding-vertical: 10px;
+
+.navigation-bar {
+  @include clearfix;
+
+  border: none;
+  margin-bottom: $navigation-bar-margin-bottom;
+  min-height: $navigation-bar-height;
+  position: relative;
+}
+
+.navigation-bar-nav {
+  margin: 0 -6px;
+
+  > li {
+    color: $navigation-bar-link-color;
+    float: left;
+    font-size: 13px;
+    margin: 0;
+
+    &.nav-lang {
+      float: right;
+    }
+
+    &.nav-action {
+      float: left;
+    }
+
+    > a {
+      background-color: #FFF;
+      line-height: $line-height-computed;
+      padding-top: $navigation-bar-padding-vertical;
+      padding-bottom: $navigation-bar-padding-vertical;
+
+      &:hover {
+        color: #FFF;
+        background-color: $navigation-bar-link-color;
+      }
+    }
+  }
+}

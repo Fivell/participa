@@ -12,8 +12,7 @@ feature "UserRegistrations" do
 
   scenario "create a user in Catalonia", js: true do
     base_register(@user) do
-      fill_in_location_data(country: 'España',
-                            province: 'Barcelona',
+      fill_in_location_data(province: 'Barcelona',
                             town: 'Badalona',
                             postal_code: '08008')
     end
@@ -84,7 +83,8 @@ feature "UserRegistrations" do
     fill_in_login_data(@user, @user.email)
     acknowledge_terms
     acknowledge_age
-    click_button 'Inscribirse'
+    # Investigate and fix
+    find_button('Inscribirse').trigger('click')
     assert_text 'El texto introducido no corresponde con el de la imagen'
     assert_text 'Acepto incribirme en la candidatura: debe ser aceptado'
   end

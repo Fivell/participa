@@ -1,16 +1,9 @@
 <%= errors_in_form resource %>
-<%= semantic_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {novalidate: true}) do |f| %>
+<%= semantic_form_for(resource,
+                      as: resource_name,
+                      url: registration_path(resource_name),
+                      html: {novalidate: true}) do |f| %>
   <fieldset>
-    <% if action == "new" %>
-      <div class="subtitle-welcome">
-        <%= t('bec.registration.message.welcome_html',
-              logo_inscription: image_tag("ico.verif.step1.png"),
-              logo_verification: image_tag("ico.verif.step2.png"),
-              logo_voting: image_tag("ico.verif.step3.png"),
-             ) %>
-      </div>
-    <% end %>
-
     <div class="inputlabel-box">
       <% if resource.errors.include?(:first_name) %>
         <%= field_notice_box %>
@@ -99,6 +92,8 @@
       <% end %>
       <%= f.input :born_at,
                   required: true,
+                  fragment_classes: { year: 'col-year', month: 'col-month', day: 'col-day' },
+                  fragment_placeholders: { year: 'año', month: 'mes', day: 'día' },
                   input_html: { required: true, class: 'input-s' },
                   start_year: 1999,
                   end_year: 1900 %>
@@ -117,7 +112,7 @@
       <div class="form-wrapper">
         <ul>
           <% %w(cis trans fluid).each do |term| %>
-            <li class="text-xl">
+            <li>
               <strong><%= t("bec.registration.legends.#{term}_key") %></strong>:
               <%= t("bec.registration.legends.#{term}_definition") %>
             </li>
@@ -144,11 +139,7 @@
       <% if resource.errors.include?(:country) %>
           <%= field_notice_box %>
       <% end %>
-      <%= label :user, :country, class: "control-label", required: :required do %>
-        <%= t('bec.registration.country') %>
-        <abbr title="requerido">*</abbr>
-      <% end %>
-      <%= select_tag "user[country]", options_from_collection_for_select(get_countries, "code", "name", resource.country), { disabled: false, required: true, data: {allowClear: true} } %>
+      <%= render partial: 'countries_select' %>
     </div>
     <div class="inputlabel-box">
       <% if resource.errors.include?(:province) %>

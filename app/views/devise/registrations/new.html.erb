@@ -1,9 +1,12 @@
 <% content_for :title, t("devise.titles.sign_up") %>
+
 <div class="content-content cols">
-  <div class="row">
-    <div class="col-b-4a12">
-      <%= content_tag(:h2, t("devise.titles.sign_up")) %>
-      <%= render partial: "form", locals: {action: "new"} %>
-    </div>
+  <div class="subtitle-welcome box-info">
+    <%= content_tag(:h3, t("devise.titles.sign_up")) %>
+    <%= t('bec.registration.message.welcome_html') %>
+  </div>
+
+  <div class="box-info">
+    <%= render partial: "form", locals: {action: "new"} %>
   </div>
 </div>

@@ -23,3 +23,8 @@ config/secrets.yml
 
 # Ignore backup files
 *~
+
+# Ignore privative fonts
+app/assets/fonts/StagSansRound-Book.otf
+app/assets/fonts/StagSansRound-Bold.otf
+app/assets/fonts/StagSansRound-Semibold.otf
