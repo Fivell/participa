@@ -119,7 +119,7 @@ ca:
         password_confirmation: "Contrasenya (repetir)"
         remember_me: "Recorda'm"
         wants_newsletter: 'Butlletí'
-        terms_of_service: "He llegit les condicions i accepto inscriure'm a En Comú"
+        terms_of_service: "He llegit les condicions i accepto inscriure'm"
         age_restriction: "Declaro ser major de 16 anys"
         captcha: "Captcha"
         current_password: "Contrasenya actual"
@@ -316,14 +316,13 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
         passport: "El format ha de ser sense guions ni espais."
         welcome_html: "
           <p>
-            Apúntate al formulario para recibir información y para poder
-            participar en la construcción del nuevo espacio.
+            Apunta't al formulari per rebre informació i per poder participar
+            en la construcció del nou espai.
           </p>
 
           <p>
-            En enero haremos un acto público en que daremos el pistoletazo de
-            salida al proceso participativo para hacer juntos y juntas un país
-            en común.
+            Al gener farem un acte públic en què donarem el tret de sortida al
+            procés participatiu per fer junts i juntes un país en comú.
           </p>
           "
     legacy:

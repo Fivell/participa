@@ -69,7 +69,7 @@ es:
               blank: "Debes indicar tu contraseña para validar los cambios."
             password_confirmation: "Contraseña (repetir)"
             wants_newsletter: "Desmarca esta casilla si no quieres recibir nuestra newsletter. Solo enviamos información importante."
-            terms_of_service: "Acepto las condiciones generales,    ole"
+            terms_of_service: "Acepto las condiciones generales"
     attributes:
       verification/center:
         name: Nombre
@@ -138,7 +138,7 @@ es:
         password_confirmation: "Contraseña (repetir)"
         remember_me: "Recordarme"
         wants_newsletter: 'Newsletter'
-        terms_of_service: "He leído las condiciones y acepto inscribirme a En Comú"
+        terms_of_service: "He leído las condiciones y acepto inscribirme"
         age_restriction: "Declaro ser mayor de 16 años"
         captcha: "Escribe el siguiente texto o número"
         current_password: "Contraseña actual"
@@ -268,20 +268,21 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
         fluid_key: Género fluido
         fluid_definition: persona que no se identifica con ninguno de los dos género binarios establecidos de forma única
       message:
-        welcome_html: "
-          <p>
-            Apunta't al formulari per rebre informació i per poder participar
-            en la construcció del nou espai.
-          </p>
-
-          <p>
-            Al gener farem un acte públic en què donarem el tret de sortida al
-            procés participatiu per fer junts i juntes un país en comú.
-          </p>
-          "
         dni: "El formato debe ser 8 números y una letra, sin guiones ni espacios."
         nie: "El formato debe ser una letra, 7 números y una letra, sin guiones ni espacios."
         passport: "Envía una copia de tu pasaporte a info@unpaisencomu.cat para validar la inscripción."
+        welcome_html: "
+          <p>
+            Apúntate al formulario para recibir información y para poder
+            participar en la construcción del nuevo espacio.
+          </p>
+
+          <p>
+            En enero haremos un acto público en que daremos el pistoletazo de
+            salida al proceso participativo para hacer juntos y juntas un país
+            en común.
+          </p>
+          "
     legacy:
       password:
         title: "Cambiar contraseña antigua"
