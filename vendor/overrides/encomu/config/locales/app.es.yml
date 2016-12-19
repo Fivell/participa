@@ -523,7 +523,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
       voting: "VOTACIÓN"
       inscription_errors: 'ERRORES INSCRIPCIÓN'
       verification: "VERIFICACIÓN"
-      faq1_html: ' <a class="cd-faq-trigger" href="#0">1. ¿Qué necesito para entrar en participa.barcelonaencomu.cat?</a>
+      faq1_html: '<li><a class="cd-faq-trigger" href="#0">1. ¿Qué necesito para entrar en participa.barcelonaencomu.cat?</a>
             <div class="cd-faq-content">
     <p> Es necesario residir en la ciudad de Barcelona.
     </p>
@@ -535,9 +535,9 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           <a class="cd-faq-trigger" href="#0">2. ¿Qué hago si no recuerdo mi contraseña?</a>
           <div class="cd-faq-content">
             <p>Puedes solicitar una nueva <a href="https://participa.barcelonaencomu.cat/es/users/password/new" target="_blank" title="¿Has olvidado tu contraseña?">aquí</a>.</p>
-          </div> <!-- cd-faq-content -->
+          </div> <!-- cd-faq-content --></li>
        '
-      faq2_html: ' <a class="cd-faq-trigger" href="#0">3. No me acuerdo del correo electrónico ¿Qué hago?</a>
+      faq2_html: '<li><a class="cd-faq-trigger" href="#0">3. No me acuerdo del correo electrónico ¿Qué hago?</a>
           <div class="cd-faq-content">
             <p>Usa tu DNI o pasaporte para entrar en la plataforma. Una vez dentro podrás cambiar tu correo electrónico.</p>
           </div> <!-- cd-faq-content -->
@@ -547,6 +547,8 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           <div class="cd-faq-content">
             <p>Por seguridad, bloqueamos la cuenta durante una hora tras 20 intentos fallidos de acceso. Una vez pasado ese tiempo, la persona usuaria es desbloqueada automáticamente.</p>
           </div> <!-- cd-faq-content -->
+          </li>
+          <li>
           <a class="cd-faq-trigger" href="#0">5.  Sigo sin poder acceder al portal de participación. ¿Cómo puedo comunicarme con el equipo de soporte?</a>
           <div class="cd-faq-content">
             <p>Si tienes algún problema puedes comunicarte con nosotros en <a href="mailto:info@unpaisencomu.cat">info@unpaisencomu.cat</a> indicando si procede los siguientes datos:</p>
@@ -554,8 +556,8 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
             Correo electrónico:<br />
             DNI:<br />
             Descripción del problema:</p>
-          </div> <!-- cd-faq-content -->'
-      faq3_html: "<a class='cd-faq-trigger' href='#0'>6. Correo electrónico, número de documento o contraseña inválida.</a>
+          </div> <!-- cd-faq-content --></li>'
+      faq3_html: "<li><a class='cd-faq-trigger' href='#0'>6. Correo electrónico, número de documento o contraseña inválida.</a>
           <div class='cd-faq-content'>
             <p> Si no recuerdas el correo electrónico que utilizaste para inscribirte, prueba con el DNI. </p>
              <p> Si no recuerdas la contraseña, haz clic <a href='https://participa.barcelonaencomu.cat/es/users/password/new' target='_blank' title='¿Has olvidado tu contraseña? '> Aquí </a> para sollicitar una nueva. </p>
@@ -576,7 +578,7 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
             <p>Hemos habilitado <a href="%{verifications_url}">puntos presenciales para la verificación</a>.</p>
           </div> <!-- cd-faq-content -->
           </li>'
-      faq5_html: '<a class="cd-faq-trigger" href="#0">9. ¿Cómo puedo votar?</a>
+      faq5_html: '<li><a class="cd-faq-trigger" href="#0">9. ¿Cómo puedo votar?</a>
           <div class="cd-faq-content">
             <p>En tres sencillos pasos:<br/>
     1ª. Entra en la web <a href="https://participa.barcelonaencomu.cat" target="_blank">participa.barcelonaencomu.cat</a>, accede al Portal de Participación, e introduce tu DNI/Correo electrónico y tu contraseña. Si no estas inscrito, hazlo aquí <a href="https://participa.barcelonaencomu.cat" target="_blank">participa.barcelonaencomu.cat</a>, es muy sencillo.<br/>
@@ -585,13 +587,11 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           </div> <!-- cd-faq-content -->
           </li>
           <li>
-          <li>
           <a class="cd-faq-trigger" href="#0">10. ¿Quién puede votar?</a>
           <div class="cd-faq-content">
             <p>Cualquier persona que haya realizado la inscripción en <a href="https://participa.barcelonaencomu.cat" target="_blank">participa.barcelonaencomu.cat</a>, y se haya verificado presencialmente aportando los documentos que se solicitan y tenga más de 16 años.</p>
           </div> <!-- cd-faq-content -->
           </li>
-          <li>
           <li>
           <a class="cd-faq-trigger" href="#0">11. ¿Qué necesito para votar?</a>
           <div class="cd-faq-content">
@@ -599,16 +599,16 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           </div> <!-- cd-faq-content -->
           </li>
           <li>
-          <li>
           <a class="cd-faq-trigger" href="#0">12. ¿Puedo votar sin tener ordenador?</a>
           <div class="cd-faq-content">
-        <p>Si. Barcelona en Comú ha habilitado varios puntos presenciales donde poder ayudarte a realizar el proceso.</p>      </div> <!-- cd-faq-content --> </li>
-          <li>
+        <p>Si. Barcelona en Comú ha habilitado varios puntos presenciales donde poder ayudarte a realizar el proceso.</p>      </div> <!-- cd-faq-content -->
+          </li>
           <li>
           <a class="cd-faq-trigger" href="#0">13. No tengo un dispositivo móvil (teléfono inteligente/tableta), ¿puedo votar?</a>
           <div class="cd-faq-content">
             <p>Si, puedes votar también desde un ordenador con acceso a internet en participa.barcelonaencomu.cat .</p>
-          </div> <!-- cd-faq-content --> </li>
+          </div> <!-- cd-faq-content -->
+          </li>
           <li>
           <a class="cd-faq-trigger" href="#0">14. ¿Puedo cambiar mi voto durante el periodo de votación?</a>
           <div class="cd-faq-content">
@@ -616,13 +616,11 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           </div> <!-- cd-faq-content -->
           </li>
           <li>
-          <li>
           <a class="cd-faq-trigger" href="#0">15. ¿Puedo votar en blanco o abstenerme?</a>
           <div class="cd-faq-content">
             <p>Sí, dependiendo el tipo de pregunta podrás votar en blanco o abstenerte.</p>
           </div> <!-- cd-faq-content -->
           </li>
-          <li>
           <li>
           <a class="cd-faq-trigger" href="#0">16. ¿Qué medidas de seguridad se han implementado?</a>
           <div class="cd-faq-content">
@@ -636,18 +634,17 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           </div> <!-- cd-faq-content -->
           </li>
           <li>
-          <li>
           <a class="cd-faq-trigger" href="#0">18. ¿Cómo puedo comprobar que mi voto ha quedado registrado correctamente?</a>
           <div class="cd-faq-content">
             <p>A través del localizador del voto que el sistema muestra tras votar en la cabina de votación, que debes anotar. Una vez emitido el voto podrá comprobar si este se ha completado con éxito. Esta comprobación no solo sirve para verificar que tu voto ha sido registrado, sino que también verifica que ha sido contabilizado en el recuento.</p>
           </div> <!-- cd-faq-content -->
           </li>
           <li>
-          <li>
           <a class="cd-faq-trigger" href="#0">19. He buscado mi voto tal y como dice la pregunta anterior y no sale listado ¿Por qué?</a>
           <div class="cd-faq-content">
             <p>Seguramente has copiado mal el localizador de tu voto, por favor compruébalo de nuevo.</p>
-          </div> <!-- cd-faq-content --> </li>
+          </div> <!-- cd-faq-content -->
+          </li>
           <li>
           <a class="cd-faq-trigger" href="#0">20. ¿Cómo puedo comprobar que el recuento de la votación es correcto?</a>
           <div class="cd-faq-content">
@@ -661,7 +658,6 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
           </div> <!-- cd-faq-content -->
           </li>
           <li>
-          <li>
           <a class="cd-faq-trigger" href="#0">22. ¿Cuáles son las autoridades de la votación?</a>
           <div class="cd-faq-content">
             <p>Son dos: OpenKratio y Agora Voting. Puedes ver más información sobre las autoridades de votación en estos links: <a href="http://openkratio.org/" target="_blank">http://openkratio.org/</a> y <a href="https://agoravoting.com/" target="_blank">https://agoravoting.com/</a>.</p>
@@ -673,18 +669,17 @@ Barcelona en Comú cumple con todas las medidas de seguridad para la protección
             <p>Gracias al sistema de autenticación en el portal de participación de Barcelona en Comú se asegura que sólo aquellas personas que figuren en el censo de Barcelona en Comú pueden votar. Se controla que se efectúe sólo un voto asociado a cada persona en dicho censo.</p>
           </div> <!-- cd-faq-content -->
           </li>
-          <li><li>
+          <li>
           <a class="cd-faq-trigger" href="#0">24. ¿Dónde puedo encontrar más información técnica acerca de la votación?</a>
           <div class="cd-faq-content">
             <p>Hemos creado un documento con información más técnica en inglés, el technical overview.</p>
           </div> <!-- cd-faq-content -->
           </li>
           <li>
-          <li>
           <a class="cd-faq-trigger" href="#0">25. Tengo más preguntas</a>
           <div class="cd-faq-content">
             <p>En ese caso, puedes contactar con nosotros e intentaremos resolver tus dudas, preguntas, o comentarios enviando un mail a info@unpaisencomu.cat.</p>
-          </div> <!-- cd-faq-content -->'
+          </div> <!-- cd-faq-content --></li>'
   domicilio: "Domicilio"
   consentimiento: "Consentimiento"
   access_data: "Datos de acceso"

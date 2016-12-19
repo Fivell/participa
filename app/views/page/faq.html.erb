@@ -16,9 +16,7 @@
 
     <ul id="general" class="cd-faq-group">
       <li class="cd-faq-title"><h2><%= t('.general')%></h2></li>
-      <li>
-        <a class="cd-faq-trigger" href="#0"><%= t('.faq1_html')%></a>
-      </li>
+      <%= t('.faq1_html')%>
     </ul> <!-- cd-faq-group -->
 
     <ul id="inscripcion" class="cd-faq-group">
@@ -28,19 +26,19 @@
 
     <ul id="inscripcion-errores" class="cd-faq-group">
       <li class="cd-faq-title"><h2><%= t('.inscription_errors')%></h2></li>
-      <li> <%= t('.faq3_html')%> </li>
+      <%= t('.faq3_html')%>
     </ul> <!-- cd-faq-group -->
 
     <% if Rails.application.secrets.features["verification_presencial"] %>
       <ul id="verificaciones" class="cd-faq-group">
         <li class="cd-faq-title"><h2><%= t('.verification')%></h2></li>
-        <li> <%= t('.faq4_html', verifications_url: verification_show_path)%> </li>
+        <%= t('.faq4_html', verifications_url: verification_show_path)%>
       </ul> <!-- cd-faq-group -->
     <% end %>
 
     <ul id="votaciones" class="cd-faq-group">
       <li class="cd-faq-title"><h2><%= t('.voting')%></h2></li>
-      <li> <%= t('.faq5_html')%> </li>
+      <%= t('.faq5_html')%>
     </ul> <!-- cd-faq-group -->
 
   </div> <!-- cd-faq-items -->

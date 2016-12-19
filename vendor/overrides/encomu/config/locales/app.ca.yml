@@ -486,7 +486,7 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
       voting: "VOTACIÓ"
       inscription_errors: "ERRORS D'INSCRIPCIÓ"
       verification: "VERIFICACIÓ"
-      faq1_html: '<a class="cd-faq-trigger" href="#0">1. Què em cal per accedir a participa.barcelonaencomu.cat?</a>
+      faq1_html: '<li><a class="cd-faq-trigger" href="#0">1. Què em cal per accedir a participa.barcelonaencomu.cat?</a>
             <div class="cd-faq-content">
     <p> Es necessari residir a la ciutat de Barcelona.
     </p>
@@ -498,8 +498,8 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
           <a class="cd-faq-trigger" href="#0">2. Què faig si he perdut la contrassenya?</a>
           <div class="cd-faq-content">
            <p> Si no recordes la contrasenya, fes clic <a href="https://participa.barcelonaencomu.cat/ca/users/password/new" target="_blank" title="Has oblidat la teva contrasenya?"> Aquí </a> per sol·licitar-ne una de nova. </p>
-          </div> <!-- cd-faq-content -->'
-      faq2_html: " <a class='cd-faq-trigger' href='#0'>3. No arecordo del correu electrònc. Què faig?</a>
+          </div> <!-- cd-faq-content --></li>'
+      faq2_html: "<li><a class='cd-faq-trigger' href='#0'>3. No arecordo del correu electrònc. Què faig?</a>
           <div class='cd-faq-content'>
 <p> Fes servir el DNI o passaport per entrar a la plataforma. Un cop a dins podràs canviar el teu correu electrònic. </ P>
           </div> <!-- cd-faq-content -->
@@ -509,6 +509,8 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
             <div class='cd-faq-content'>
               <p> Per seguretat, bloquegem el compte durant una hora després de 20 temptatives fallides d'accés. Un cop passat aquest temps, la persona usuària és desbloquejada automàticament. </ P>
             </div> <!-- cd-faq-content -->
+          </li>
+          <li>
            <a class='cd-faq-trigger' href='#0'>5. Continuo sense poder accedir al portal de participació. Com puc comunicar-me amb l'equip de suport?</a>
           <div class='cd-faq-content'>
 <p> Si tens algun problema pots comunicar-te amb nosaltres a <a href='mailto:info@unpaisencomu.cat'> info@unpaisencomu.cat </a> indicant si escau les dades següents: </ p>
@@ -516,8 +518,8 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
 Correu electrònic: <br />
 DNI: <br />
 Descripció del problema: </ p>
-          </div> <!-- cd-faq-content -->"
-      faq3_html: "<a class='cd-faq-trigger' href='#0'>6. Correu  electrònic, número de document o contrasenya invàlida.</a>
+          </div> <!-- cd-faq-content --></li>"
+      faq3_html: "<li><a class='cd-faq-trigger' href='#0'>6. Correu  electrònic, número de document o contrasenya invàlida.</a>
           <div class='cd-faq-content'>
             <p> Si no recordes el correu electrònic que vas fer servir per inscriure't, prova-ho amb el teu DNI. </p>
              <p> Si no recordes la contrasenyaa, fes clic <a href='https://participa.barcelonaencomu.cat/es/users/password/new' target='_blank' title='Has olblidat la teva contrasenya? '> Aquí </a> per sol·licitar-ne una de nova. </p>
@@ -532,7 +534,7 @@ Descripció del problema: </ p>
      </div> <!-- cd-faq-content -->
           </li>"
       faq4_html: "<li> <a class='cd-faq-trigger' href='#0'>8. Quins mètodes de verificació s'han habilitat?</a> <div class='cd-faq-content'> <p>Hem habilitat <a href='%{verifications_url}'>punts presencials per a la verificació</a>.</p> </div> <!-- cd-faq-content --> </li>"
-      faq5_html: "<a class='cd-faq-trigger' href='#0'>9. Com puc votar?</a>
+      faq5_html: "<li><a class='cd-faq-trigger' href='#0'>9. Com puc votar?</a>
       <div class='cd-faq-content'>
         <p>Amb tres passos molt senzills:<br/>
 Amb tres passos molt senzills:
@@ -549,20 +551,17 @@ Amb tres passos molt senzills:
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-      <li>
       <a class='cd-faq-trigger' href='#0'>11. Què necessito per votar?</a>
       <div class='cd-faq-content'>
         <p>Necessites un ordinador o qualsevol altre dispositiu (android / iphone) amb  accés a la xarxa per accedir a <a href='https://participa.barcelonaencomu.cat' target='_blank' >https://participa.barcelonaencomu.cat</a> i estar inscrit/a a <a href='https://participa.barcelonaencomu.cat' target='_blank'>https://participa.barcelonaencomu.cat</a>.</p>
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-      <li>
       <a class='cd-faq-trigger' href='#0'>12. Puc votar sense tenir ordinador?</a>
       <div class='cd-faq-content'>
         <p>Sí. Barcelona En Comú ha habilitat diversos punts de votació digital assistida
       </div> <!-- cd-faq-content -->
       </li>
-      <li>
         <li>
       <a class='cd-faq-trigger' href='#0'>13. Si no tinc un dispositiu mòbil (telèfon intel•ligent/tàblet), puc votar?</a>
       <div class='cd-faq-content'>
@@ -570,17 +569,12 @@ Amb tres passos molt senzills:
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-      <li>
-      </li>
-      <li>
-      <li>
       <a class='cd-faq-trigger' href='#0'>14. Puc canviar el vot durant el període de votació?</a>
       <div class='cd-faq-content'>
         <p>No, un cop hagis emès el teu vot ja no podràs canviar-lo.</p>
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-        <li>
       <a class='cd-faq-trigger' href='#0'>15. Puc votar en blanc o abstenir-me?</a>
       <div class='cd-faq-content'>
         <p>Sí. En funció del tipus de pregunta, podràs votar en blanc o abstenir-te'n.</p>
@@ -593,13 +587,11 @@ Amb tres passos molt senzills:
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-        <li>
       <a class='cd-faq-trigger' href='#0'>17. En quines altres votacions s'ha fet servir Agora Voting?</a>
       <div class='cd-faq-content'>
         <p>Entre altres, Agora Voting s'ha utilitzat per fer les primàries europees i els consells municipals i autonòmics de Podem, en dues votacions de la iniciativa de Congrés Transparent i en les primàries de la Confederació Pirata.</p>
       </div> <!-- cd-faq-content -->
       </li>
-      <li>
       <li>
       <a class='cd-faq-trigger' href='#0'>18. Com puc comprovar que el vot s’ha enregistrat correctament?</a>
       <div class='cd-faq-content'>
@@ -607,27 +599,23 @@ Amb tres passos molt senzills:
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-      <li>
       <a class='cd-faq-trigger' href='#0'>19. He buscat el meu vot tal com diu la pregunta anterior i no surt llistat. Per què?</a>
       <div class='cd-faq-content'>
         <p>Segurament has copiat malament el localitzador del vot. Sisplau, torna-ho a comprovar.</p>
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-        <li>
       <a class='cd-faq-trigger' href='#0'>20. Com puc comprovar que el còmput de la votació és correcte?</a>
       <div class='cd-faq-content'>
         <p>Agora Voting és un sistema verificable. Això vol dir que qualsevol pot revisar el còmput de la votació a partir dels localitzadors dels vots i les demostracions matemàtiques publicades després del còmput. Agora Voting proporciona un procediment de verificació que, com la resta del sistema, és públicament auditable. No obstant això, la verificació es basa en tècniques criptogràfiques que, tot i que estan ben establertes en l'àmbit acadèmic, no són fàcils d'entendre.</p>
       </div> <!-- cd-faq-content -->
       </li>
       <li>
-      <li>
       <a class='cd-faq-trigger' href='#0'>21. És possible esbrinar el contingut del vot? Com puc saber que no es revelarà?</a>
       <div class='cd-faq-content'>
         <p>No, ni els administradors del sistema poden esbrinar-ho. Només és possible revelar el contingut d'un vot si totes les autoritats es posen d’acord per fer-ho (o si totes són atacades amb èxit, com es pot veure més avall). El secret del vot és segur.</p>
       </div> <!-- cd-faq-content -->
       </li>
-      <li>
       <li>
       <a class='cd-faq-trigger' href='#0'>22. Quines són les autoritats de la votació?</a>
       <div class='cd-faq-content'>
@@ -650,7 +638,7 @@ Amb tres passos molt senzills:
       <a class='cd-faq-trigger' href='#0'>25. Tinc més preguntes.</a>
       <div class='cd-faq-content'>
         <p>En aquest cas, pots contactar amb nosaltres i intentarem resoldre els teus dubtes, preguntes o comentaris enviant un mail a info@unpaisencomu.cat.</p>
-      </div> <!-- cd-faq-content -->"
+      </div> <!-- cd-faq-content --></li>"
   domicilio: "Domicili"
   consentimiento: "Consentiment"
   access_data: "Dades d'accés"
