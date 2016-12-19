@@ -28,3 +28,14 @@ config/secrets.yml
 app/assets/fonts/StagSansRound-Book.otf
 app/assets/fonts/StagSansRound-Bold.otf
 app/assets/fonts/StagSansRound-Semibold.otf
+app/assets/fonts/StagSans-Bold-Web.eot
+app/assets/fonts/StagSans-Bold-Web.woff
+app/assets/fonts/StagSans-Bold-Web.woff2
+app/assets/fonts/StagSans-Book-Web.eot
+app/assets/fonts/StagSans-Book-Web.woff
+app/assets/fonts/StagSans-Book-Web.woff2
+app/assets/fonts/StagSans-Semibold-Web.eot
+app/assets/fonts/StagSans-Semibold-Web.woff
+app/assets/fonts/StagStencil-Bold-Web.eot
+app/assets/fonts/StagStencil-Bold-Web.woff
+
