@@ -153,9 +153,9 @@ general
 
 .content-content{
   margin: auto;
-  max-width: 94em;
   position:relative;
-  padding: 1em;
+  padding: 0;
+  margin: 15px 0;
 }
 .logged-out .content-content{
   padding: 0;
@@ -175,7 +175,6 @@ general
   margin: auto;
   width: 96%;
   padding: 0 1%;
-  max-width: 94em;
   position:relative;
   overflow:hidden;
   display:none;
@@ -183,7 +182,6 @@ general
 .footer-content{
   margin: auto;
   width: 100%;
-  max-width: 94em;
   position:relative;
   overflow:hidden;
 }
@@ -191,10 +189,17 @@ general
 /* -----------------------------------
 home
 ----------------------------------- */
-.login-box{
-  background:#716e6b;
-  padding:1.5em 4%;
-  display:block;
+@media (min-width: $screen-sm-min) {
+  .login-box{
+    padding: 0 0 0 $grid-gutter-width;
+    display:block;
+  }
+}
+@media (max-width: $screen-sm-min - 1) {
+  .login-box {
+    margin-top: 15px;
+    padding-left: 0;
+  }
 }
 .login-box p{
   margin-bottom:0.2em;
@@ -212,13 +217,13 @@ home
   margin-bottom:1em;
   border:0;
   text-transform:uppercase;
-  text-align:right;
   font-weight:bold;
 }
 .login-box form div{
   clear:both;
 }
 .login-box form div input[type=text],
+.login-box form div input[type=email],
 .login-box form div input[type=checkbox],
 .login-box form div input[type=password]{
   width:100%;
@@ -1808,9 +1813,6 @@ layout 2: 460-600 (intermedia 1) # # # # # # # # # # # # # # # # # # # # # # # #
   .intro{
     padding-bottom:2em;
   }
-  .login-box{
-    margin:0;
-  }
   .intro p{
     text-align: justify;
   }
@@ -1960,9 +1962,6 @@ layout 3: 600-768 (intermedia 2) # # # # # # # # # # # # # # # # # # # # # # # #
     margin:0 2em;
     padding-bottom:2em;
   }
-  .login-box{
-    margin:0;
-  }
   .intro p{
    text-align: justify;
   }
@@ -2094,9 +2093,6 @@ layout 4: 769-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   .intro{
     margin-top:3em;
     padding-bottom:2em;
-  }
-  .login-box{
-    margin-top:3em;
   }
   .intro:before{
     display: inline-block;
@@ -2241,9 +2237,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   .intro{
     margin-top:3em;
     padding-bottom:2em;
-  }
-  .login-box{
-    margin-top:3em;
   }
   .intro:before{
     left: 1.5em;

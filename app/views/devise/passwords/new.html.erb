@@ -1,28 +1,21 @@
 <% content_for :title, t("devise.titles.forgot_password") %>
 
 <div class="content-content cols">
-  <div class="row">
-    <div class="col-md-6 box-info">
-      <section class="content-text"></section>
-        <%= content_tag(:h2, t("devise.titles.forgot_password")) %>
-        <%= semantic_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
-          <fieldset>
-            <legend class="invisible">
-              <span>Recuperar contraseña</span>
-            </legend>
-            <div class="inputlabel-box">
-              <% if resource.errors.include?(:email) %>
-                  <%= field_notice_box %>
-              <% end %>
-              <%= f.input :email, input_html: {autofocus: true, class: 'input-m'} %>
-            </div>
-            <%= f.actions class: 'enter' do %>
-                <%= f.action :submit, label: t("devise.buttons.reset_password"), button_html: {class: "button"} %>
-            <% end %>
-          </fieldset>
-         <% end %>
-      </section>
+  <div class="col-md-4 col-sm-4 col-xs-6 login-box">
+    <div class="box-info">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
+        <fieldset>
+          <legend><%= t("devise.titles.forgot_password") %></legend>
+          <div>
+            <%= f.label :email, class: 'invisible' %>
+            <%= f.email_field :email, autofocus: true, class: 'input-100', placeholder: t('activerecord.attributes.user.email') %>
+          </div>
+
+          <div class="enter">
+            <%= f.submit t("devise.buttons.reset_password"), class: "button" %>
+          </div>
+        </fieldset>
+      <% end %>
     </div>
   </div>
 </div>
-

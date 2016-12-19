@@ -1,8 +1,8 @@
 <% content_for :title, t("devise.titles.sign_in") %>
 
 <div class="content-content cols">
-  <div class="row">
-    <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-4 login-box box-info">
+  <div class="col-md-4 col-sm-4 col-xs-6 login-box">
+    <div class="box-info">
       <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
         <fieldset>
           <legend>
@@ -35,11 +35,7 @@
           <%= link_to t("devise.links.forgot_mail"), new_confirmation_path(resource_name) %>
         </p>
         <p><%= link_to t("devise.links.forgot_way"), faq_path %></p>
-        </p>
-        <!-- p><%= link_to t("devise.links.forgot_manual"), 'https://barcelonaencomu.cat/manuals/primaries/index.html' %></p>
-        </p>
-        <p><%= link_to t("devise.links.forgot_manual_vot"), 'https://barcelonaencomu.cat/manuals/votacio/index.html' %></p -->
       <% end %>
-    </div><!--.login-box-->
-  </div><!--.row-->
-</div><!--.content-content-->
+    </div>
+  </div>
+</div>

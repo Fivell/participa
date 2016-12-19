@@ -1,48 +1,45 @@
 <%= content_for :title, t("devise.titles.change_password") %>
 
 <div class="content-content cols">
-  <div class="row">
-    <div class="col-md-6 box-info">
-      <section class="content-text">
-        <%= content_tag(:h2, t("devise.titles.change_password")) %>
+  <div class="col-md-4 col-sm-4 col-xs-6 login-box">
+    <div class="box-info">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f| %>
+        <fieldset>
+          <legend>
+            <%= t("devise.titles.change_password") %>
+          </legend>
 
-        <%= semantic_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f| %>
-            <fieldset>
-              <legend class="invisible">
-                <span>Recuperar contraseña</span>
-              </legend>
+          <%= f.hidden_field :reset_password_token %>
 
-              <%= f.hidden_field :reset_password_token %>
+          <div>
+            <% if resource.errors.include?(:password) %>
+              <%= field_notice_box %>
+            <% end %>
 
-              <div class="inputlabel-box">
-                <% if resource.errors.include?(:password) %>
-                    <%= field_notice_box %>
-                <% end %>
-                <%= f.input :password,
-                            label: t("devise.labels.new_password"),
-                            input_html: {autofocus: true, class: 'input-m'} %>
-              </div>
+            <%= f.label :password, class: 'invisible' %>
+            <%= f.password_field :password,
+                                 autofocus: true,
+                                 class: 'input-m',
+                                 placeholder: t("devise.labels.new_password") %>
+          </div>
 
+          <div>
+            <% if resource.errors.include?(:password_confirmation) %>
+              <%= field_notice_box %>
+            <% end %>
 
-              <div class="inputlabel-box">
-                <% if resource.errors.include?(:password_confirmation) %>
-                    <%= field_notice_box %>
-                <% end %>
+            <%= f.label :password_confirmation, class: 'invisible' %>
+            <%= f.password_field :password_confirmation,
+                                 required: true,
+                                 class: 'input-m',
+                                 placeholder: t("devise.labels.new_password_confirmation") %>
+          </div>
 
-                <%= f.input :password_confirmation,
-                            label: t("devise.labels.new_password_confirmation"),
-                            required: true,
-                            input_html: {class: 'input-m'} %>
-              </div>
-
-              <%= f.actions class: 'enter' do %>
-                  <%= f.action :submit, label: t("devise.buttons.change_password"), button_html: {class: 'button'} %>
-              <% end %>
-            </fieldset>
-
-        <% end %>
-
-      </section>
+          <div class='enter'>
+            <%= f.submit t("devise.buttons.change_password"), class: 'button' %>
+          </div>
+        </fieldset>
+      <% end %>
     </div>
   </div>
 </div>
