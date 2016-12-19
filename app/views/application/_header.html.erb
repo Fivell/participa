@@ -1,31 +1,28 @@
 <div class="header">
   <nav class="navigation-bar">
     <ul id="non_slicknav_menu" class="nav navigation-bar-nav">
-      <% if user_signed_in? %>
-        <li>
-        <%= link_to edit_user_registration_path, class: "username" do %>
-          <i class="icon"></i> 
-          <%= current_user.full_name %>
-        <% end %>
-        </li>
+      <li class="nav-action">
+        <%= link_to "UPeC", "https://unpaisencomu.cat" %>
+      </li>
 
+      <% if user_signed_in? %>
         <li>
         <%= link_to destroy_user_session_path, method: :delete, title: "Cerrar sesión" do %>
           <i class="icon"></i><span>Cerrar sesión</span>
         <% end %>
         </li>
       <% else %>
-        <li class="nav-action">
-          <%= link_to "UPeC", "https://unpaisencomu.cat" %>
-        </li>
-
-        <li class="nav-action">
-          <% if current_page?(new_user_registration_path) %>
-            <%= link_to t("devise.buttons.sign_in"), new_user_session_path %>
-          <% else %>
+        <% unless current_page?(new_user_registration_path) %>
+          <li class="nav-action">
             <%= link_to t("devise.buttons.sign_up"), new_user_registration_path %>
-          <% end %>
-        </li>
+          </li>
+        <% end %>
+
+        <% unless current_page?(new_user_session_path) %>
+          <li class="nav-action">
+            <%= link_to t("devise.buttons.sign_in"), new_user_session_path %>
+          </li>
+        <% end %>
       <% end %>
 
       <li class="nav-lang">
