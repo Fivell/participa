@@ -1,21 +1,52 @@
 @import "bootstrap/scaffolding";
 
-@font-face {
-  font-family: "StagSansRound-Bold";
-  src: font-url("StagSansRound-Bold.otf") format("truetype");
+@import url("https://fonts.googleapis.com/css?family=Stardos+Stencil:400,700");
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
 }
 
 @font-face {
-  font-family: "StagSansRound-Semibold";
-  src: font-url("StagSansRound-Bold.otf") format("truetype");
+  font-family: 'Stag-Stencil-Bold';
+  src: font-url("StagStencil-Bold-Web.eot");
+  src: font-url("StagStencil-Bold-Web.eot?#iefix") format("embedded-opentype"), font-url("StagStencil-Bold-Web.woff2") format("woff2"), font-url("StagStencil-Bold-Web.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
 }
 
 @font-face {
-  font-family: "StagSansRound-Book";
-  src: font-url("StagSansRound-Book.otf") format("truetype");
+  font-family: 'Stag-Sans-Bold';
+  src: font-url("StagSans-Bold-Web.eot");
+  src: font-url("StagSans-Bold-Web.eot?#iefix") format("embedded-opentype"), font-url("StagSans-Bold-Web.woff2") format("woff2"), font-url("StagSans-Bold-Web.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
 }
+
+@font-face {
+  font-family: 'Stag-Sans-Book';
+  src: font-url("StagSans-Book-Web.eot");
+  src: font-url("StagSans-Book-Web.eot?#iefix") format("embedded-opentype"), font-url("StagSans-Book-Web.woff2") format("woff2"), font-url("StagSans-Book-Web.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'Stag-Sans-Semibold';
+  src: font-url("StagSans-Semibold-Web.eot");
+  src: font-url("StagSans-Semibold-Web.eot?#iefix") format("embedded-opentype"), font-url("StagSans-Semibold-Web.woff2") format("woff2"), font-url("StagSans-Semibold-Web.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+}
+
 
 body {
   background-color: transparent;
-  font-family: "StagSansRound-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Stag-Sans-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

@@ -37,6 +37,7 @@ module Participa
                                 postal_code: '08021')
         if country
           uncheck 'Resido en Cataluña'
+          sleep 1 
           assert page.has_select?('País', with_options: [country])
           select(country, from: 'País')
         end
