@@ -1,6 +1,10 @@
 <% content_for :title, t("devise.titles.forgot_password") %>
 
 <div class="content-content cols">
+  <div class="col-md-2 col-sm-2 col-xs-4 box-info">
+    <%= render 'logo' %>
+  </div>
+
   <div class="col-md-4 col-sm-4 col-xs-6 login-box">
     <div class="box-info">
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
