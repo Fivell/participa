@@ -1,18 +1,10 @@
 .cookie {
   overflow: hidden;
-  position: fixed;
   bottom: 0;
   width: 100%;
-  background: #f0f0f0;
-  font-size: 12px;
-  padding: 10px 0;
-  color: #444;
-  font-weight: 200;
-  text-align: center;
-  span {
-    float: left;
-    width: 80%;
-  }
+  background: #fff;
+  font-size: 1.4em;
+
   a {
     color: #269283;
     text-decoration: underline;
@@ -24,16 +16,19 @@
     color: #000;
     text-decoration: none;
     opacity:0.5;
-    //background: transparent image-url('close.png') no-repeat;
-    width: 15%;
     float: right;
     height: 20px;
+    margin-top: 20px;
     -webkit-transition: 0.2s ease-in;
     -moz-transition: 0.2s ease-in;
     -o-transition: 0.2s ease-in;
     transition: 0.2s ease-in;
     &:hover {
       opacity:1;
+    }
+
+    span {
+      padding-right: 5px;
     }
   }
 }

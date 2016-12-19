@@ -20,6 +20,7 @@ ca:
       new_password: "Contrasenya nova"
       new_password_confirmation: "Confirma contrasenya nova"
     links:
+      home: "Inici"
       sign_in: "Inicia sessió"
       sign_in_with: "Inicia sessió amb %{provider}"
       sign_up: "Inscriure's"

@@ -138,8 +138,7 @@ es:
         password_confirmation: "Contraseña (repetir)"
         remember_me: "Recordarme"
         wants_newsletter: 'Newsletter'
-        terms_of_service: "He leído y acepto la Política de Privacidad, Aviso Legal y Política de Cookies"
-        inscription: "Acepto incribirme en la candidatura"
+        terms_of_service: "He leído las condiciones y acepto inscribirme a En Comú"
         age_restriction: "Declaro ser mayor de 16 años"
         captcha: "Escribe el siguiente texto o número"
         current_password: "Contraseña actual"
@@ -174,6 +173,7 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
       mailer:
         hello: "Hola"
         welcome: "Bienvenido/a"
+        remember_email: "Has intentado registrarte de nuevo"
         lock:
           p1: "Tu cuenta ha sido bloqueada por un número excesivo de intentos de inicio de sesión fallidos. Si no has sido tú, avísanos a través de info@unpaisencomu.cat."
           p2: "Haz click en el enlace de aquí abajo para desbloquear tu cuenta:"
@@ -252,8 +252,10 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
       country: "País"
       province: "Provincia"
       town: "Municipio"
+      inscription_policy: Condiciones de inscripción
       legends:
         inscription_html: "Inscribirse en En Comú te da derecho a participar en todas las consultas y procesos participativos que se lancen en esta aplicación. No supone ninguna obligación económica, aunque puedes colaborar en este sentido si lo deseas. Aceptando, recibirás nuestros newsletters informativos.<br><br> EN COMÚ con personalidad jurídica propia, de acuerdo con la Ley Orgánica 6/2002, de 27 de junio, de Partidos Políticos, e inscrita en el Registro de Partidos Políticos con fecha 1 de abril de 2015, Folio 113, Tomo IX. Domicilio social: C. Or, 44 3º-2ª (CP 08012 BARCELONA). Telèfon: 935.321.796. "
+        legal0: Véanse las condiciones de inscripción
         legal1: Véase la política de privacidad
         legal2: Véase el aviso legal
         legal3: Véase la política de Cookies
@@ -267,13 +269,16 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
         fluid_definition: persona que no se identifica con ninguno de los dos género binarios establecidos de forma única
       message:
         welcome_html: "
-          <p>¡Apúntate!</p>
+          <p>
+            Apunta't al formulari per rebre informació i per poder participar
+            en la construcció del nou espai.
+          </p>
 
           <p>
-            Si quieres estar informado/a y al día de cómo se desarrolla la
-            construcción del nuevo espacio, rellena este formulario. ¡Gracias
-            por ayudarnos a construir un País En Comú!
-          </p>"
+            Al gener farem un acte públic en què donarem el tret de sortida al
+            procés participatiu per fer junts i juntes un país en comú.
+          </p>
+          "
         dni: "El formato debe ser 8 números y una letra, sin guiones ni espacios."
         nie: "El formato debe ser una letra, 7 números y una letra, sin guiones ni espacios."
         passport: "Envía una copia de tu pasaporte a info@unpaisencomu.cat para validar la inscripción."

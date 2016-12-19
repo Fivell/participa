@@ -1,28 +1,32 @@
 <% content_for :title, t("devise.titles.confirmation_instructions") %>
 
-<div class="content-content cols">
-  <div class="col-md-2 col-sm-2 col-xs-4 box-info">
-    <%= render 'logo' %>
-  </div>
+<div class="content-content">
+  <div class="row">
+    <div class="col-md-2 col-sm-2 col-xs-4">
+      <div class="box-info">
+        <%= render 'logo' %>
+      </div>
+    </div>
 
-  <div class="col-md-4 col-sm-4 col-xs-6 login-box">
-    <div class="box-info">
-      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: {method: :post}) do |f| %>
-        <fieldset>
-          <legend>
-            <%= t("devise.titles.confirmation_instructions") %>
-          </legend>
+    <div class="col-md-4 col-sm-4 col-xs-6">
+      <div class="box-info login-box">
+        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: {method: :post}) do |f| %>
+          <fieldset>
+            <legend>
+              <%= t("devise.titles.confirmation_instructions") %>
+            </legend>
 
-          <div>
-            <%= f.label :email, class: 'invisible' %>
-            <%= f.email_field :email, autofocus: true, class: 'input-100', placeholder: t('activerecord.attributes.user.email') %>
-          </div>
+            <div>
+              <%= f.label :email, class: 'invisible' %>
+              <%= f.email_field :email, autofocus: true, class: 'input-100', placeholder: t('activerecord.attributes.user.email') %>
+            </div>
 
-          <div class="enter">
-            <%= f.submit t("devise.buttons.confirmation_instructions"), class: "button" %>
-          </div>
-        </fieldset>
-      <% end %>
+            <div class="enter">
+              <%= f.submit t("devise.buttons.confirmation_instructions"), class: "button" %>
+            </div>
+          </fieldset>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
