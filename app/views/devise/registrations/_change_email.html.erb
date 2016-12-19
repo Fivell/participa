@@ -20,7 +20,7 @@
         <% if resource.errors.include?(:email) %>
             <%= field_notice_box %>
         <% end %>
-        <%= f.input :email, label: "Nou correu electrònic / Correo electrónico nuevo", input_html: {class: 'input-m'} %>
+        <%= f.input :email, label: t("devise.new_email"), input_html: {class: 'input-m'} %>
       </div>
 
       <div class="inputlabel-box">

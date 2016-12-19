@@ -57,6 +57,7 @@ ca:
       forgot_manual_vot: "Veure el manual de votació"
       forgot_mail: "No he rebut el correu de confirmació"
       insc: "Inscripció"
+    new_email: "Nou correu electrònic"
   errors:
     messages:
       already_confirmed: "ja ha estat confirmat, sisplau intenta iniciar sessió."
