@@ -268,13 +268,16 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
         fluid_definition: persona que no se identifica con ninguno de los dos género binarios establecidos de forma única
       message:
         welcome_html: "
-          <p>¡Apúntate!</p>
+          <p>
+            Apunta't al formulari per rebre informació i per poder participar
+            en la construcció del nou espai.
+          </p>
 
           <p>
-            Si quieres estar informado/a y al día de cómo se desarrolla la
-            construcción del nuevo espacio, rellena este formulario. ¡Gracias
-            por ayudarnos a construir un País En Comú!
-          </p>"
+            Al gener farem un acte públic en què donarem el tret de sortida al
+            procés participatiu per fer junts i juntes un país en comú.
+          </p>
+          "
         dni: "El formato debe ser 8 números y una letra, sin guiones ni espacios."
         nie: "El formato debe ser una letra, 7 números y una letra, sin guiones ni espacios."
         passport: "Envía una copia de tu pasaporte a info@unpaisencomu.cat para validar la inscripción."

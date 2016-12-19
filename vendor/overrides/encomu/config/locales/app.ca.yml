@@ -314,13 +314,17 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
         nie: "El format ha de ser una lletra, 7 xifres i una lletra, sense guions ni espais."
         passport: "El format ha de ser sense guions ni espais."
         welcome_html: "
-          <p>Apuntat!</p>
+          <p>
+            Apúntate al formulario para recibir información y para poder
+            participar en la construcción del nuevo espacio.
+          </p>
 
           <p>
-            Si vols estar informat/da i al dia de com es desenvolupa la
-            construcció del nou espai, omple aquest formulari. Gràcies
-            per ajudar-nos a construir un País En Comú!
-          </p>"
+            En enero haremos un acto público en que daremos el pistoletazo de
+            salida al proceso participativo para hacer juntos y juntas un país
+            en común.
+          </p>
+          "
     legacy:
       password:
         title: "Canviar contrasenya antiga"
