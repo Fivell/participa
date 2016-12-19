@@ -188,15 +188,6 @@ general
   overflow:hidden;
 }
 
-.row{
-  clear:both;
-  overflow:hidden;
-  zoom:1;
-  margin:0;
-  display:block;
-}
-
-
 /* -----------------------------------
 home
 ----------------------------------- */
@@ -2418,13 +2409,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
  margin-left: -10px;
  text-align: left;
  width: 90%;
-}
-
-.col-md-6 {
- display: block;
- float: right;
- margin: 0;
- position: relative;
 }
 
 .img3 {
