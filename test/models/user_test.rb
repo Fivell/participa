@@ -12,8 +12,8 @@ class UserTest < ActiveSupport::TestCase
     u.valid?
     # XXX pasca - se está forzando en el before_validation del user valores
     #fijos para country + province + town
-    #fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :address, :town, :postal_code, :province, :country]
-    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :address, :postal_code]
+    #fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :town, :postal_code, :province, :country]
+    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :postal_code]
     fields.each do |type|
       assert(u.errors[type].include? I18n.t("activerecord.errors.models.user.attributes.#{type}.blank"))
     end
