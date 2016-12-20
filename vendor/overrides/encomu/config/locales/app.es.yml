@@ -173,7 +173,8 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
       mailer:
         hello: "Hola"
         welcome: "Bienvenido/a"
-        remember_email: "Has intentado registrarte de nuevo"
+        remember_email:
+          title: "Has intentado registrarte de nuevo"
         lock:
           p1: "Tu cuenta ha sido bloqueada por un número excesivo de intentos de inicio de sesión fallidos. Si no has sido tú, avísanos a través de contacte@unpaisencomu.cat."
           p2: "Haz click en el enlace de aquí abajo para desbloquear tu cuenta:"

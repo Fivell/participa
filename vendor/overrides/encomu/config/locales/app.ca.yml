@@ -218,7 +218,8 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
       mailer:
         hello: "Hola"
         welcome: "Benvingut/uda"
-        remember_email: "Has intentat registrar-te de nou"
+        remember_email:
+          title: "Has intentat registrar-te de nou"
         lock:
           p1: "El teu compte ha estat bloquejat per un nombre excessiu d'intents d'inici de sessió fallits. Si no has estat tu, avisa'ns a través de contacte@unpaisencomu.cat."
           p2: "Clica a l'enllaç d'aquí sota per desbloquejar el teu compte:"
