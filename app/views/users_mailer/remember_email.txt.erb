@@ -1,0 +1,12 @@
+<%= t('bec.devise.mailer.remember_email.greeting', user: @user.first_name) %>
+
+<%= t('bec.devise.mailer.remember_email.did_you_try') %>
+
+<% here = t('bec.devise.mailer.remember_email.here') %>
+<%= t('bec.devise.mailer.remember_email.affirmative_action_html',
+      here: here) %>
+
+<%= new_user_password_url %>
+
+<%= t('bec.devise.mailer.remember_email.negative_action_html',
+      mail: 'contacte@unpaisencomu.cat') %>

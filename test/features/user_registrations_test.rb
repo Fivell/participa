@@ -51,7 +51,7 @@ feature "UserRegistrations" do
   scenario "create a user with gender identity information", js: true do
     visit new_user_registration_path
     fill_in_user_registration(@user, @user.document_vatid, @user.email)
-    select 'Mujer cis', from: 'Identidad de género'
+    select 'Mujer (cis)', from: 'Identidad de género'
     click_button 'Inscribirse'
 
     page.must_have_content \

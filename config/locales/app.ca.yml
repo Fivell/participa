@@ -57,7 +57,7 @@ ca:
       last_name: "Cognoms"
       document_vatid: "DNI"
       email: "Correu electrònic"
-      address: "Direcció"
+      address: "Adreça"
       postal_code: "Codi postal"
   simple_captcha:
     placeholder: "text"

@@ -17,18 +17,13 @@ box info & alerts
   background-color: #fff;
   padding: 24px;
 }
-.box-ko, .box-ok {
-  font-size: 1.4em;
-}
 .box-ko{
-  background:#f5bfc9 image-url("ico.alert-error.svg") 2.5em 1.25em no-repeat;
-  padding:1.5em 3em 1.5em 9em;
-  margin:0;
+  background:#f5bfc9 image-url("ico.alert-error.svg") 15px 15px no-repeat;
+  padding:1.5em 3em;
 }
 .box-ok {
- background:#bae6a4 image-url("ico.alert-info.svg") 2.5em 1.25em no-repeat;
- margin:0;
- padding: 1.5em 3em 1.5em 9em;
+ background:#bae6a4 image-url("ico.alert-info.svg") 15px 15px no-repeat;
+ padding: 1.5em 3em;
 }
 
 .logged-out .content-content .col-md-6{
@@ -38,8 +33,19 @@ box info & alerts
 .box-info p, .box-info h3{
   margin: 0 0 1.5em 0;
 }
-.box-info p{
-  font-size: 1.8em;
+.box-info{
+  p{
+    font-size: 1.8em;
+  }
+
+  .box-ko, .box-ok {
+    margin-bottom: 10px;
+  }
+
+  .box-ko p, .box-ok p{
+    font-size: 1em;
+    margin: 0;
+  }
 }
 .box-info h1{
   font-family: "Stag-Stencil-Bold";

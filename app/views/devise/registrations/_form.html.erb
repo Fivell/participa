@@ -163,7 +163,7 @@
       <% if resource.errors.include?(:address) %>
           <%= field_notice_box %>
       <% end %>
-      <%= f.input :address, required: true, input_html: {required: true, class: 'input-xl'} %>
+      <%= f.input :address, input_html: {class: 'input-xl'} %>
     </div>
   </fieldset>
 
