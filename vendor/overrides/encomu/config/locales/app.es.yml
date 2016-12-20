@@ -176,14 +176,12 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
         remember_email:
           title: "Nuevo intento de registro con tu cuenta de email"
           greeting: "Hola %{user}!"
-          did_you_try_html: "Tú (o alguien haciendose pasar por tí) ha
-intentado crear un usuario con tus datos (correo electrónico o documento único)
-en %{url}."
-          negative_action_html: "En caso de que no hayas sido tú puedes ignorar
-este mensaje, si lo recibes varias veces avísanos a %{mail}."
-          affirmative_action_html: "En caso de que hayas sido tú y no recuerdes
-tu contraseña: %{you_can_change_it}."
-          you_can_change_it: "puedes cambiarla"
+          did_you_try: ¿Has intentado crear una nueva cuenta con tus datos?
+          affirmative_action_html: "En caso afirmativo, recuerda que ya tienes
+una y que puedes cambiar tu contraseña %{here}."
+          negative_action_html: "En caso de que no hayas sido tú, puedes ignorar
+este mensaje. Si lo recibes varias veces, avísanos a %{mail}."
+          here: aquí
         lock:
           p1: "Tu cuenta ha sido bloqueada por un número excesivo de intentos de inicio de sesión fallidos. Si no has sido tú, avísanos a través de contacte@unpaisencomu.cat."
           p2: "Haz click en el enlace de aquí abajo para desbloquear tu cuenta:"
