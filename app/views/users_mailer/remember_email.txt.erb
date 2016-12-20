@@ -2,11 +2,11 @@
 
 <%= t('bec.devise.mailer.remember_email.did_you_try_html', url: root_url) %>
 
-<%= t('bec.devise.mailer.remember_email.negative_action_html',
-      mail: 'contacte@unpaisencomu.cat') %>
-
 <% you_can_change_it = t('bec.devise.mailer.remember_email.you_can_change_it') %>
 <%= t('bec.devise.mailer.remember_email.affirmative_action_html',
       you_can_change_it: you_can_change_it) %>
 
 <%= new_user_password_url %>
+
+<%= t('bec.devise.mailer.remember_email.negative_action_html',
+      mail: 'contacte@unpaisencomu.cat') %>
