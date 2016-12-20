@@ -15,7 +15,7 @@ ca:
         message_html: "No hem pogut trobar aquesta pàgina. Torna-ho a provar més tard o <a href='/'>prova-ho des de la pàgina principal</a>."
       "500":
         title: "Error en el servidor"
-        message_html: "Hi ha hagut un error en el servidor. Pots avisar-nos a <a href='mailto:info@unpaisencomu.cat'>info@unpaisencomu.cat</a>"
+        message_html: "Hi ha hagut un error en el servidor. Pots avisar-nos a <a href='mailto:contacte@unpaisencomu.cat'>contacte@unpaisencomu.cat</a>"
     messages:
       not_valid_spanish_vat: El número d'identificació fiscal no és vàlid
       not_valid_nif: El DNI no és vàlid
@@ -220,17 +220,17 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
         welcome: "Benvingut/uda"
         remember_email: "Has intentat registrar-te de nou"
         lock:
-          p1: "El teu compte ha estat bloquejat per un nombre excessiu d'intents d'inici de sessió fallits. Si no has estat tu, avisa'ns a través de info@unpaisencomu.cat."
+          p1: "El teu compte ha estat bloquejat per un nombre excessiu d'intents d'inici de sessió fallits. Si no has estat tu, avisa'ns a través de contacte@unpaisencomu.cat."
           p2: "Clica a l'enllaç d'aquí sota per desbloquejar el teu compte:"
           link: 'Desbloqueja el meu compte'
-          p3: "Aquesta adreça electrònica no permet respostes. Si tens qualsevol problema amb el registre, si us plau, contacta amb info@unpaisencomu.cat"
+          p3: "Aquesta adreça electrònica no permet respostes. Si tens qualsevol problema amb el registre, si us plau, contacta amb contacte@unpaisencomu.cat"
         confirm:
           p1: "T'has donat d'alta o has canviat el teu correu electrònic a l'entorn Un País en Comú. Si no és així, no facis cas d'aquest missatge. Pots confirmar que aquesta és la teva adreça de correu a través de l'enllaç següent:"
           link: 'Confirma el meu compte'
-          p2: "Aquesta adreça electronica no permet respostes. Si tens qualsevol problema amb el registre, si us plau, contacta amb info@unpaisencomu.cat"
+          p2: "Aquesta adreça electronica no permet respostes. Si tens qualsevol problema amb el registre, si us plau, contacta amb contacte@unpaisencomu.cat"
         password:
           p1: "Algú ha demanat que canviïs la teva contrasenya. Pots fer-ho a través de l'enllaç següent:"
-          p2: "Aquest compte de correu electrònic no accepta respostes. Si tens qualsevol problema amb el registre, si et plau, contacta amb info@unpaisencomu.cat"
+          p2: "Aquest compte de correu electrònic no accepta respostes. Si tens qualsevol problema amb el registre, si et plau, contacta amb contacte@unpaisencomu.cat"
           p3: "Si no has estat tu, si et plau, no facis cas d'aquest missatge. La teva contrasenya no canviarà fins que validis aquest enllaç i en creïs una de nova.."
           link: 'Canvia contrasenya'
     navbar:
@@ -341,7 +341,7 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
           text_html: "Un País en Comú PARTIT POLÍTIC (endavant Un País en Comú) <br> CIF G66476136 <br> Carrer Castillejos, 233 <br> 08013 Barcelona"
         p2:
           subtitle: "Contacte"
-          text_html: "Informació general: info@unpaisencomu.cat <br> Incidències d'inscripcions: info@unpaisencomu.cat <br> Protecció de dades: info@unpaisencomu.cat <br>"
+          text_html: "Informació general: contacte@unpaisencomu.cat <br> Incidències d'inscripcions: contacte@unpaisencomu.cat <br> Protecció de dades: info@unpaisencomu.cat <br>"
       p2:
         title: "Condicions generals d'accés i l'ús del web participa.unpaisencomu.cat"
         p1:
@@ -518,7 +518,7 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
           <li>
            <a class='cd-faq-trigger' href='#0'>5. Continuo sense poder accedir al portal de participació. Com puc comunicar-me amb l'equip de suport?</a>
           <div class='cd-faq-content'>
-<p> Si tens algun problema pots comunicar-te amb nosaltres a <a href='mailto:info@unpaisencomu.cat'> info@unpaisencomu.cat </a> indicant si escau les dades següents: </ p>
+<p> Si tens algun problema pots comunicar-te amb nosaltres a <a href='mailto:contacte@unpaisencomu.cat'> contacte@unpaisencomu.cat </a> indicant si escau les dades següents: </ p>
 <p> Nom i cognoms: <br />
 Correu electrònic: <br />
 DNI: <br />
@@ -535,7 +535,7 @@ Descripció del problema: </ p>
            <a class='cd-faq-trigger' href='#0'>7. No m'arriben correus a cap dels meus comptes. Em sembla que m'he equivocat a l'hora d'escriure el meu correu electrònic.  </a>
           <div class='cd-faq-content'>
              <p><strong>Causa:</strong><br />Potser vas escriure malament el teu correu durant el procés de registre o el registre ha estat incomplet.</p>
-             <p> <strong> Solució:</strong><br />Escriu un correu a <a href='mailto:info@unpaisencomu.cat'>info@unpaisencomu.cat</a>indica-hi les teves dades personals i adjunta-hi una fotocòpia del teu DNI o passaport per donar-te de baixa i així podràs tornar a inscriure-t'hi.</p>
+             <p> <strong> Solució:</strong><br />Escriu un correu a <a href='mailto:contacte@unpaisencomu.cat'>contacte@unpaisencomu.cat</a>indica-hi les teves dades personals i adjunta-hi una fotocòpia del teu DNI o passaport per donar-te de baixa i així podràs tornar a inscriure-t'hi.</p>
      </div> <!-- cd-faq-content -->
           </li>"
       faq4_html: "<li> <a class='cd-faq-trigger' href='#0'>8. Quins mètodes de verificació s'han habilitat?</a> <div class='cd-faq-content'> <p>Hem habilitat <a href='%{verifications_url}'>punts presencials per a la verificació</a>.</p> </div> <!-- cd-faq-content --> </li>"
@@ -642,7 +642,7 @@ Amb tres passos molt senzills:
        <li>
       <a class='cd-faq-trigger' href='#0'>25. Tinc més preguntes.</a>
       <div class='cd-faq-content'>
-        <p>En aquest cas, pots contactar amb nosaltres i intentarem resoldre els teus dubtes, preguntes o comentaris enviant un mail a info@unpaisencomu.cat.</p>
+        <p>En aquest cas, pots contactar amb nosaltres i intentarem resoldre els teus dubtes, preguntes o comentaris enviant un mail a contacte@unpaisencomu.cat.</p>
       </div> <!-- cd-faq-content --></li>"
   domicilio: "Domicili"
   consentimiento: "Consentiment"
