@@ -174,7 +174,7 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
         hello: "Hola"
         welcome: "Bienvenido/a"
         remember_email:
-          title: "Has intentado registrarte de nuevo"
+          title: "Nuevo intento de registro con tu cuenta de email"
         lock:
           p1: "Tu cuenta ha sido bloqueada por un número excesivo de intentos de inicio de sesión fallidos. Si no has sido tú, avísanos a través de contacte@unpaisencomu.cat."
           p2: "Haz click en el enlace de aquí abajo para desbloquear tu cuenta:"
