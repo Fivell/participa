@@ -3,11 +3,11 @@ ca:
   enumerize:
     user:
       gender_identity:
-        cis_man: Home cis
-        cis_woman: Dona cis
-        trans_man: Home trans
-        trans_woman: Dona trans
-        fluid: Gènere fluid
+        cis_man: Home (cis)
+        cis_woman: Dona (cis)
+        trans_man: Home (trans)
+        trans_woman: Dona (trans)
+        fluid: Gènere No-binari
   errors:
     show:
       "404":

@@ -2,11 +2,11 @@ es:
   enumerize:
     user:
       gender_identity:
-        cis_man: Hombre cis
-        cis_woman: Mujer cis
-        trans_man: Hombre trans
-        trans_woman: Mujer trans
-        fluid: Género fluido
+        cis_man: Hombre (cis)
+        cis_woman: Mujer (cis)
+        trans_man: Hombre (trans)
+        trans_woman: Mujer (trans)
+        fluid: Género No-binario
   errors:
     show:
       "404":
