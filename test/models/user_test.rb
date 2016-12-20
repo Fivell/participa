@@ -93,6 +93,12 @@ class UserTest < ActiveSupport::TestCase
     assert_equal ["La dirección de correo es incorrecta"], user.errors[:email], "Wrong domain (no dots) not detected"
   end
 
+  test "should validate email confirmation in a case insensitive way" do
+    user = FactoryGirl.build :user, email: "email@example.org", email_confirmation: "Email@example.org"
+    user.valid?
+    assert_empty user.errors[:email_confirmation]
+  end
+
   test "should document_vatid be unique" do
     error_message = I18n.t "activerecord.errors.models.user.attributes.document_vatid.taken"
 

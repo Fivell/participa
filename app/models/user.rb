@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, :document_type, :document_vatid, presence: true
   validates :address, :postal_code, :town, :province, :country, :born_at, presence: true
-  validates :email, confirmation: true, on: :create, :email => true
+  validates :email, confirmation: { case_sensitive: false }, on: :create, :email => true
   validates :email_confirmation, presence: true, on: :create
   validates :terms_of_service, acceptance: true
   validates :age_restriction, acceptance: true
