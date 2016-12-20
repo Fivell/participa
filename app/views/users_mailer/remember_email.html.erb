@@ -1,0 +1,19 @@
+<p>
+  <%= t('bec.devise.mailer.remember_email.greeting', user: @user.email) %>
+</p>
+
+<p>
+  <%= t('bec.devise.mailer.remember_email.did_you_try_html',
+        url: link_to(root_url, root_url)) %>
+</p>
+
+<p>
+  <%= t('bec.devise.mailer.remember_email.negative_action_html',
+        mail: mail_to('contacte@unpaisencomu.cat')) %>
+</p>
+
+<p>
+  <% you_can_change_it = t('bec.devise.mailer.remember_email.you_can_change_it') %>
+  <%= t('bec.devise.mailer.remember_email.affirmative_action_html',
+        you_can_change_it: link_to(you_can_change_it, new_user_password_url)) %>
+</p>

@@ -220,6 +220,15 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
         welcome: "Benvingut/uda"
         remember_email:
           title: "Nou intent de registre amb el teu compte d'email"
+          greeting: "Hola %{user}!"
+          did_you_try_html: "Tu (o algú fent-se passar per tu) ha intentat
+crear un usuari amb les teves dades (correu electrònic o document únic) a
+%{url}."
+          negative_action_html: "En cas que no hagis estat tu pots ignorar
+aquest missatge, si ho reps diverses vegades, avisa'ns a %{mail}."
+          affirmative_action_html: "En cas que hagis estat tu i no recordis la
+teva contrasenya: %{you_can_change_it}."
+          you_can_change_it: "pots canviar-la"
         lock:
           p1: "El teu compte ha estat bloquejat per un nombre excessiu d'intents d'inici de sessió fallits. Si no has estat tu, avisa'ns a través de contacte@unpaisencomu.cat."
           p2: "Clica a l'enllaç d'aquí sota per desbloquejar el teu compte:"
