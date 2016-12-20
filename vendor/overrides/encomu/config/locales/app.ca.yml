@@ -309,7 +309,7 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
         trans_key: TRANS (transgènere)
         trans_definition: persona que no s'identifica amb el gènere que li va ser assignat al néixer i per tant viu en una altra identitat de gènere
         fluid_key: Gènere fluid
-        fluid_definition: persona que no s'identifica amb cap dels dos gènere binaris establerts de forma única
+        fluid_definition: persona que no s'identifica amb cap dels dos gèneres binaris establerts de forma única
       message:
         dni: "El format ha de ser 8 xifres i una lletra, sense guions ni espais."
         nie: "El format ha de ser una lletra, 7 xifres i una lletra, sense guions ni espais."

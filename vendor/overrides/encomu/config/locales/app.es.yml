@@ -266,7 +266,7 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
         trans_key: TRANS (transgénero)
         trans_definition: persona que no se identifica con el género que le fue asignado al nacer y por tanto vive en otra identidad de género
         fluid_key: Género fluido
-        fluid_definition: persona que no se identifica con ninguno de los dos género binarios establecidos de forma única
+        fluid_definition: persona que no se identifica con ninguno de los dos géneros binarios establecidos de forma única
       message:
         dni: "El formato debe ser 8 números y una letra, sin guiones ni espacios."
         nie: "El formato debe ser una letra, 7 números y una letra, sin guiones ni espacios."
