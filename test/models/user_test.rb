@@ -12,8 +12,8 @@ class UserTest < ActiveSupport::TestCase
     u.valid?
     # XXX pasca - se está forzando en el before_validation del user valores
     #fijos para country + province + town
-    #fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :address, :town, :postal_code, :province, :country]
-    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :address, :postal_code]
+    #fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :town, :postal_code, :province, :country]
+    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :postal_code]
     fields.each do |type|
       assert(u.errors[type].include? I18n.t("activerecord.errors.models.user.attributes.#{type}.blank"))
     end
@@ -91,6 +91,12 @@ class UserTest < ActiveSupport::TestCase
     user = FactoryGirl.build :user, email: "wrong_domain@examplecom"
     user.valid?
     assert_equal ["La dirección de correo es incorrecta"], user.errors[:email], "Wrong domain (no dots) not detected"
+  end
+
+  test "should validate email confirmation in a case insensitive way" do
+    user = FactoryGirl.build :user, email: "email@example.org", email_confirmation: "Email@example.org"
+    user.valid?
+    assert_empty user.errors[:email_confirmation]
   end
 
   test "should document_vatid be unique" do
