@@ -28,19 +28,18 @@ GIT
       responders
 
 GIT
-  remote: https://github.com/deivid-rodriguez/simple-captcha.git
-  revision: f7fb87b9549a8c37c7d6f19795fe012788a9a007
-  branch: rails_5_support
-  specs:
-    simple_captcha2 (0.4.0)
-      rails (>= 4.1)
-
-GIT
   remote: https://github.com/deivid-rodriguez/spanish_vat_validators.git
   revision: d4d39a0bb656e9102ca67966580cb846b51ac343
   branch: rails_5_deprecations
   specs:
     spanish_vat_validators (0.0.5)
+
+GIT
+  remote: https://github.com/pludoni/simple-captcha.git
+  revision: b145495ab9e5a41da02667ca4e031b7ca1b1bb98
+  specs:
+    simple_captcha2 (0.4.0)
+      rails (>= 4.1)
 
 GIT
   remote: https://github.com/podemos-info/norma43.git
