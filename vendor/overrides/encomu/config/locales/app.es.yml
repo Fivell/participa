@@ -273,7 +273,7 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
         cis_definition: persona que se identifica con el género que le fue asignado al nacer
         trans_key: TRANS (transgénero)
         trans_definition: persona que no se identifica con el género que le fue asignado al nacer y por tanto vive en otra identidad de género
-        fluid_key: Género fluido
+        fluid_key: Género No-binario
         fluid_definition: persona que no se identifica con ninguno de los dos géneros binarios establecidos de forma única
       message:
         dni: "El formato debe ser 8 números y una letra, sin guiones ni espacios."

@@ -316,7 +316,7 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
         cis_definition: persona que s'identifica amb el gènere que li va ser assignat al néixer
         trans_key: TRANS (transgènere)
         trans_definition: persona que no s'identifica amb el gènere que li va ser assignat al néixer i per tant viu en una altra identitat de gènere
-        fluid_key: Gènere fluid
+        fluid_key: Gènere No-binari
         fluid_definition: persona que no s'identifica amb cap dels dos gèneres binaris establerts de forma única
       message:
         dni: "El format ha de ser 8 xifres i una lletra, sense guions ni espais."
