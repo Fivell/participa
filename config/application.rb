@@ -24,9 +24,7 @@ module Participa
      # participa overrides start
     folder = Rails.application.secrets.organization["folder"]
 
-    %w( images javascripts ).each do |type|
-      config.assets.paths << Rails.root.join("vendor", "overrides", folder, "app", "assets", type)
-    end
+    config.assets.paths << Rails.root.join("vendor", "overrides", folder, "app", "assets", "javascripts")
     config.i18n.load_path += Dir[Rails.root.join('vendor', 'overrides', folder, 'config', 'locales', '*.{rb,yml}').to_s]
 
     config.generators do |g|
