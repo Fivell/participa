@@ -179,6 +179,9 @@
                 <%= link_to t('bec.registration.legends.legal3'), page_cookie_policy_path, target: '_blank' %>
               </li>
             </ul>
+            <span class="help-block">
+              <%= resource.errors[:terms_of_service].join(', ') %>
+            </span>
           </div>
         </div>
 
@@ -186,6 +189,9 @@
           <%= f.label :age_restriction %>
           <div class="input-box">
             <%= f.check_box :age_restriction, class: 'checkbox' %>
+            <span class="help-block">
+              <%= resource.errors[:terms_of_service].join(', ') %>
+            </span>
           </div>
         </div>
 
