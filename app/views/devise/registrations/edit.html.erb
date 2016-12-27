@@ -6,17 +6,17 @@
 
       <nav id="personal-data-submenu" class="submenu">
         <ul>
-          <li class="active">
+          <li <%= "class=active" if account_update_tab == "general" %>>
             <a href="#personal-data" class="js-change-tab">
               <span><%= t("bec.user.personal_data")%></span>
             </a>
           </li>
-          <li>
+          <li <%= "class=active" if account_update_tab == "password" %>>
             <a href="#change-password" class="js-change-tab">
               <span><%=t("bec.user.change_password") %></span>
             </a>
           </li>
-          <li>
+          <li <%= "class=active" if account_update_tab == "email" %>>
             <a href="#change-email" class="js-change-tab">
               <span><%=t("bec.user.change_email") %></span>
             </a>
@@ -38,13 +38,16 @@
 
 
       <div id="personal-data-content" class="box-info">
-        <div class="js-personal-content" id="personal-data">
+        <div id="personal-data"
+             class="<%= 'invisible' unless account_update_tab == 'general' %> js-personal-content">
           <%= render partial: 'personal_data' %>
         </div>
-        <div id="change-password" class="invisible js-personal-content">
+        <div id="change-password"
+             class="<%= 'invisible' unless account_update_tab == 'password' %> js-personal-content">
           <%= render partial: 'change_password' %>
         </div>
-        <div id="change-email" class="invisible js-personal-content">
+        <div id="change-email"
+             class="<%= 'invisible' unless account_update_tab == 'email' %> js-personal-content">
           <%= render partial: 'change_email' %>
         </div>
         <% if Rails.application.secrets.features["verification_sms"] %>

@@ -1,5 +1,13 @@
 module ApplicationHelper
+  def account_update_tab
+    user_params = params['user']
+    return 'general' unless user_params
 
+    return 'password' if user_params['password']
+    return 'email' if user_params['email']
+
+    'general'
+  end
 
   # Like link_to but third parameter is an array of options for current_page?.
   def nav_menu_link_to name, icon, url, current_urls, html_options = {}
