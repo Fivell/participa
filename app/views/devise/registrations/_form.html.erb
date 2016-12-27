@@ -5,24 +5,15 @@
                       html: {novalidate: true}) do |f| %>
   <fieldset>
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:first_name) %>
-        <%= field_notice_box %>
-      <% end %>
       <%= f.input :first_name, required: true, input_html: {autofocus: true, required: true, class: 'input-xl'} %>
     </div><%#--.inputlabel-box--%>
 
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:last_name) %>
-          <%= field_notice_box %>
-      <% end %>
       <%= f.input :last_name, required: true, input_html: {required: true, class: 'input-xl'} %>
     </div><%#--.inputlabel-box--%>
 
     <% if action == "new" %>
       <div class="inputlabel-box">
-        <% if resource.errors.include?(:document_type) %>
-            <%= field_notice_box %>
-        <% end %>
         <%= f.input :document_type,
                     required: true,
                     as: :select,
@@ -31,12 +22,7 @@
       </div>
 
       <div class="inputlabel-box">
-        <% if resource.errors.include?(:document_vatid) %>
-            <%= field_notice_box %>
-        <% end %>
-
         <%= f.input :document_vatid, required: true, input_html: {required: true, class: 'input-s'} %>
-
       </div>
 
       <div class="inputlabel-box">
@@ -87,9 +73,6 @@
     <% end %>
 
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:born_at) %>
-          <%= field_notice_box %>
-      <% end %>
       <%= f.input :born_at,
                   required: true,
                   fragment_classes: { year: 'col-year', month: 'col-month', day: 'col-day' },
@@ -100,10 +83,6 @@
     </div>
 
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:gender_identity) %>
-          <%= field_notice_box %>
-      <% end %>
-
       <%= f.input :gender_identity %>
     </div>
 
@@ -136,33 +115,18 @@
       </div>
     </div>
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:country) %>
-          <%= field_notice_box %>
-      <% end %>
       <%= render partial: 'countries_select' %>
     </div>
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:province) %>
-          <%= field_notice_box %>
-      <% end %>
       <%= render partial: 'subregion_select', locals:{catalonia_resident: resource.catalonia_resident, country: resource.country, province: resource.province, disabled: false, required: true, field: :province, title:"Provincia", options_filter: (resource.can_change_vote_location? ? User.blocked_provinces : nil ) } %>
     </div>
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:town) %>
-          <%= field_notice_box %>
-      <% end %>
       <%= render partial: 'municipies_select', locals:{country: resource.country, province: resource.province, town: resource.town, disabled: false, required: true, field: :town, title:"Municipio"}%>
     </div>
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:postal_code) %>
-          <%= field_notice_box %>
-      <% end %>
       <%= f.input :postal_code, required: true, input_html: {required: true, class: 'input-s'} %>
     </div>
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:address) %>
-          <%= field_notice_box %>
-      <% end %>
       <%= f.input :address, input_html: {class: 'input-xl'} %>
     </div>
   </fieldset>
@@ -172,21 +136,12 @@
 
     <% if action == "new" %>
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:email) %>
-          <%= field_notice_box %>
-      <% end %>
       <%= f.input :email, as: :email, required: true, input_html: {required: true, class: 'input-m'} %>
     </div>
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:email_confirmation) %>
-          <%= field_notice_box %>
-      <% end %>
       <%= f.input :email_confirmation, as: :email, required: true, input_html: {required: true, class: 'input-m'} %>
     </div>
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:password) %>
-          <%= field_notice_box %>
-      <% end %>
       <%= f.input :password, required: true, input_html: {required: true, class: 'input-m', minlength: 6} %>
     </div>
 
@@ -198,9 +153,6 @@
     </div>
 
     <div class="inputlabel-box">
-      <% if resource.errors.include?(:password_confirmation) %>
-          <%= field_notice_box %>
-      <% end %>
       <%= f.input :password_confirmation, required: true, input_html: {required: true, class: 'input-m'} %>
     </div>
 
@@ -210,9 +162,6 @@
         <legend><span><%= t('consentimiento') %></span></legend>
 
         <div class="inputlabel-box">
-          <% if resource.errors.include?(:terms_of_service) %>
-              <%= field_notice_box %>
-          <% end %>
           <%= f.label :terms_of_service %>
           <div class="input-box">
             <%= f.check_box :terms_of_service, class: 'checkbox' %>
@@ -234,9 +183,6 @@
         </div>
 
         <div class="inputlabel-box">
-          <% if resource.errors.include?(:age_restriction) %>
-              <%= field_notice_box %>
-          <% end %>
           <%= f.label :age_restriction %>
           <div class="input-box">
             <%= f.check_box :age_restriction, class: 'checkbox' %>
@@ -244,9 +190,6 @@
         </div>
 
         <div class="inputlabel-box">
-          <% if resource.errors.include?(:captcha) %>
-              <%= field_notice_box %>
-          <% end %>
           <%= f.label :captcha %>
           <div class="input-box">
             <%= f.input :captcha, as: :simple_captcha, input_html: {class: "input-m"} %>
@@ -260,9 +203,6 @@
 
     <% if action == "edit" %>
         <div class="inputlabel-box">
-          <% if resource.errors.include?(:current_password) %>
-              <%= field_notice_box %>
-          <% end %>
           <%= f.input :current_password, hint: t("devise.hints.current_password"), input_html: {required: true, class: 'input-m'} %>
         </div>
         <%= f.actions class: 'enter' do %>
