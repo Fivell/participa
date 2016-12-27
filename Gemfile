@@ -19,7 +19,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
-gem 'sprockets-rails', '2.3.3' # http://stackoverflow.com/a/34344602
+gem 'sprockets-rails'
 
 gem 'pg'
 gem 'rb-readline'
@@ -32,8 +32,7 @@ gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem 'spanish_vat_validators', github: 'deivid-rodriguez/spanish_vat_validators',
                               branch: 'rails_5_deprecations'
-gem 'simple_captcha2', github: 'deivid-rodriguez/simple-captcha',
-                       branch: 'rails_5_support',
+gem 'simple_captcha2', github: 'pludoni/simple-captcha',
                        require: 'simple_captcha'
 gem 'carmen-rails'
 gem 'esendex'
