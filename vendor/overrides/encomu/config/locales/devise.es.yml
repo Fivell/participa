@@ -58,6 +58,8 @@ es:
       forgot_mail: "No he recibido el correo de confirmación"
       insc: "Inscripción"
     new_email: "Correo electrónico nuevo"
+    new_password: "Contraseña nueva"
+    new_password_confirmation: "Contraseña nueva (repetir)"
   errors:
     messages:
       already_confirmed: "ya ha sido confirmado, por favor intenta iniciar sesión."
