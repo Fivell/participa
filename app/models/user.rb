@@ -71,9 +71,9 @@ class User < ActiveRecord::Base
   validates :unconfirmed_phone, uniqueness: {scope: :deleted_at}, allow_blank: true, allow_nil: true
 
   validate :validates_postal_code
-  validate :validates_phone_format
-  validate :validates_unconfirmed_phone_format
-  validate :validates_unconfirmed_phone_uniqueness
+  validate :validates_phone_format, if: -> { self.phone.present? }
+  validate :validates_unconfirmed_phone_format, if: -> { self.unconfirmed_phone.present? }
+  validate :validates_unconfirmed_phone_uniqueness, if: -> { self.unconfirmed_phone.present? }
 
   def validates_postal_code
     if self.country == "ES"
@@ -89,25 +89,19 @@ class User < ActiveRecord::Base
   end
 
   def validates_unconfirmed_phone_uniqueness
-    if self.unconfirmed_phone.present?
-      if User.confirmed_phone.where(phone: self.unconfirmed_phone).exists?
-        self.errors.add(:phone, "Ya hay alguien con ese número de teléfono")
-      end
+    if User.confirmed_phone.where(phone: self.unconfirmed_phone).exists?
+      self.errors.add(:phone, "Ya hay alguien con ese número de teléfono")
     end
   end
 
   def validates_phone_format
-    if self.phone.present?
-      self.errors.add(:phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.phone)
-    end
+    self.errors.add(:phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.phone)
   end
 
   def validates_unconfirmed_phone_format
-    if self.unconfirmed_phone.present?
-      self.errors.add(:unconfirmed_phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.unconfirmed_phone)
-      if self.country.downcase == "es" and not (self.unconfirmed_phone.starts_with?('00346') or self.unconfirmed_phone.starts_with?('00347'))
-        self.errors.add(:unconfirmed_phone, "Debes poner un teléfono móvil válido de España empezando por 6 o 7.")
-      end
+    self.errors.add(:unconfirmed_phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.unconfirmed_phone)
+    if self.country.downcase == "es" and not (self.unconfirmed_phone.starts_with?('00346') or self.unconfirmed_phone.starts_with?('00347'))
+      self.errors.add(:unconfirmed_phone, "Debes poner un teléfono móvil válido de España empezando por 6 o 7.")
     end
   end
 
