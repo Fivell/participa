@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
   validates :phone, uniqueness: {scope: :deleted_at}, allow_blank: true, allow_nil: true
   validates :unconfirmed_phone, uniqueness: {scope: :deleted_at}, allow_blank: true, allow_nil: true
 
-  validate :validates_postal_code
+  validate :validates_postal_code, if: -> { self.postal_code.present? }
   validate :validates_phone_format, if: -> { self.phone.present? }
   validate :validates_unconfirmed_phone_format, if: -> { self.unconfirmed_phone.present? }
   validate :validates_unconfirmed_phone_uniqueness, if: -> { self.unconfirmed_phone.present? }

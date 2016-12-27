@@ -170,6 +170,13 @@ class UserTest < ActiveSupport::TestCase
                  u.errors[:document_type]
   end
 
+  test "should .postal_code not give redundant errors" do
+    u = User.new(country: 'ES', postal_code: '')
+    u.valid?
+    assert_equal ["Tu código postal no puede estar en blanco"],
+                 u.errors[:postal_code]
+  end
+
   test "should .full_name work" do
     u = User.new(first_name: "Juan", last_name: "Perez")
     assert_equal("Juan Perez", u.full_name)
