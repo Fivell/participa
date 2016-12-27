@@ -1,4 +1,4 @@
-<%= t('bec.devise.mailer.hello') %> <%= @resource.email %>
+<%= t('bec.devise.mailer.hello', user: @resource.first_name) %>
 
 <%= t('bec.devise.mailer.lock.p1') %>
 

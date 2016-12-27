@@ -216,8 +216,8 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
 "
     devise:
       mailer:
-        hello: "Hola"
-        welcome: "Benvingut/uda"
+        hello: "Hola %{user}!"
+        welcome: "Benvingut/uda %{user}!"
         remember_email:
           title: "Nou intent de registre amb el teu compte d'email"
           greeting: "Hola %{user}!"

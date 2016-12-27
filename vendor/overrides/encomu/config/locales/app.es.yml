@@ -171,8 +171,8 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
 "
     devise:
       mailer:
-        hello: "Hola"
-        welcome: "Bienvenido/a"
+        hello: "¡Hola %{user}!"
+        welcome: "¡Bienvenido/a %{user}!"
         remember_email:
           title: "Nuevo intento de registro con tu cuenta de email"
           greeting: "Hola %{user}!"
