@@ -7,7 +7,7 @@ ca:
       confirmed: "La teva adreça de correu electrònic ja ha estat confirmada."
       confirmed_and_signed_in: "La teva direcció de correu electrònic ja ha estat confirmada. Has estat identificat."
       send_instructions: "Rebràs un correu electrònic en uns minuts amb instruccions sobre com restablir la teva contrasenya."
-      send_paranoid_instructions: "Si el teu correu electrònic existeix a la nostra base de dades rebràs un correu electrònic d'aquí uns minuts amb instruccions sobre com reinicia la teva constrasenya."
+      send_paranoid_instructions: "Si el teu correu electrònic existeix a la nostra base de dades, rebràs un correu electrònic d'aquí a uns minuts amb instruccions sobre com reiniciar la teva contrasenya."
     failure:
       already_authenticated: "Ja estàs identificat."
       inactive: "El teu compte encara no ha estat activat."
@@ -33,7 +33,7 @@ ca:
     passwords:
       no_token: "No pots accedir a aquesta pàgina sino és per mitjà d'un enllaç per restablir contrasenya. Si has accedit des de l'enlaç per restablir la contrasenya, asegura't que la URL està completa."
       send_instructions: "Rebràs un correu electrònic amb instruccions sobre ccom restablir la teva contrasenya d'aquí uns minuts."
-      send_paranoid_instructions: "Si el teu correu electrònic existeix a la nostra base de dades, rebràs un enllaç per restablir la contrasenya d'aquí uns minuts."
+      send_paranoid_instructions: "Si el teu correu electrònic existeix a la nostra base de dades, rebràs un enllaç per restablir la contrasenya d'aquí a uns minuts."
       updated: "La teva contraseny s'ha canviat correctament. Has estat identificat."
       updated_not_active: "La teva contrasenya ss'ha canviat correctament."
     registrations:
@@ -49,7 +49,7 @@ ca:
       signed_out: "Has tancat la sessió satisfactòriament."
     unlocks:
       send_instructions: "Rebràs un correu electrònic d'aquí uns minuts amb instruccions sobre com desbloquejar el teu compte."
-      send_paranoid_instructions: "Si el teu compte existeix, rebràs un correu electrònic d'aquí uns minuts amb instruccions sobre com desbloquejar el teu compte."
+      send_paranoid_instructions: "Si el teu compte existeix, rebràs un correu electrònic d'aquí a uns minuts amb instruccions sobre com desbloquejar el teu compte."
       unlocked: "El teu compte ha estat desbloquejat. Sisplau inicia sessió per continuar."
     links:
       forgot_way: 'Problemes amb la inscripció'

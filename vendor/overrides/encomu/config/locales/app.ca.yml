@@ -223,7 +223,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
           greeting: "Hola %{user}!"
           did_you_try: Has intentat crear de no un compte amb les teves dades?
           affirmative_action_html: "En cas afirmatiu, recorda que ja en tens un
-i que pots canviar la constrasenya %{here}."
+i que pots canviar la contrasenya %{here}."
           negative_action_html: "En cas que no hagis estat tu post ignorar
 aquest missatge. Si ho reps diverses vegades, avisa'ns a %{mail}."
           here: aquí
@@ -316,7 +316,7 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
         cis_definition: persona que s'identifica amb el gènere que li va ser assignat al néixer
         trans_key: TRANS (transgènere)
         trans_definition: persona que no s'identifica amb el gènere que li va ser assignat al néixer i per tant viu en una altra identitat de gènere
-        fluid_key: Gènere fluid
+        fluid_key: Gènere No-binari
         fluid_definition: persona que no s'identifica amb cap dels dos gèneres binaris establerts de forma única
       message:
         dni: "El format ha de ser 8 xifres i una lletra, sense guions ni espais."
