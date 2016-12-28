@@ -9,9 +9,6 @@ cache: bundler
 before_install:
   - source bin/phantomjs.sh
   - mkdir app/assets/fonts
-  - touch app/assets/fonts/StagSansRound-Bold.otf
-  - touch app/assets/fonts/StagSansRound-Book.otf
-  - touch app/assets/fonts/StagSansRound-Semibold.otf
   - touch app/assets/fonts/StagSans-Bold-Web.eot
   - touch app/assets/fonts/StagSans-Bold-Web.woff
   - touch app/assets/fonts/StagSans-Bold-Web.woff2
@@ -22,6 +19,7 @@ before_install:
   - touch app/assets/fonts/StagSans-Semibold-Web.woff
   - touch app/assets/fonts/StagStencil-Bold-Web.eot
   - touch app/assets/fonts/StagStencil-Bold-Web.woff
+  - touch app/assets/fonts/StagStencil-Bold-Web.woff2
 
 
 before_script:
