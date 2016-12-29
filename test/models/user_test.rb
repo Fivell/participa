@@ -10,13 +10,20 @@ class UserTest < ActiveSupport::TestCase
   test "should validate presence:true" do
     u = User.new
     u.valid?
-    # XXX pasca - se está forzando en el before_validation del user valores
-    #fijos para country + province + town
-    #fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :town, :postal_code, :province, :country]
-    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :postal_code]
+    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :postal_code, :province, :country]
     fields.each do |type|
       assert_includes u.errors[type], I18n.t("activerecord.errors.models.user.attributes.#{type}.blank")
     end
+  end
+
+  test "should validate presence of town only in Spain" do
+    u = User.new(country: 'ES')
+    u.valid?
+    assert_includes u.errors[:town], I18n.t("activerecord.errors.models.user.attributes.town.blank")
+
+    u = User.new(country: 'BR')
+    u.valid?
+    assert_empty u.errors[:town]
   end
 
   test "should document_vatid validates with DNI/NIE" do 

@@ -1,14 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :verified_by, class_name: "User", foreign_key: "verified_by_id" #, counter_cache: :verified_by_id
 
-  before_validation :set_location
-
-  def set_location
-    self.country = "ES" if self.country.nil?
-    self.province = "B" if self.province.nil?
-    self.town = "m_08_019_3" if self.town.nil?
-  end
-
   apply_simple_captcha
 
   include FlagShihTzu
@@ -48,7 +40,8 @@ class User < ActiveRecord::Base
             in: %i(cis_man cis_woman trans_man trans_woman fluid)
 
   validates :first_name, :last_name, :document_type, :document_vatid, presence: true
-  validates :postal_code, :town, :province, :country, :born_at, presence: true
+  validates :postal_code, :province, :country, :born_at, presence: true
+  validates :town, presence: true, if: :in_spain?
   validates :email, confirmation: { case_sensitive: false }, on: :create, :email => true
   validates :email_confirmation, presence: true, on: :create
   validates :terms_of_service, acceptance: true
