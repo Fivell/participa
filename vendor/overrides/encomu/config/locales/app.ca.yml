@@ -60,9 +60,6 @@ ca:
               blank: "La teva contrasenya no pot estar en blanc"
             current_password:
               blank: "Has d'indicar la teva contrasenya per validar els canvis."
-            password_confirmation: "Contrasenya (repetir)"
-            wants_newsletter: "Desmarca aquesta casella si no vols rebre el nostre butlletí. Només enviem informació important."
-            terms_of_service: "Accepto les condicions generals"
     attributes:
       collaboration:
         user: "Usuari/ària"
