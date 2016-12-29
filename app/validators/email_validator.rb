@@ -1,5 +1,8 @@
 require 'mail'
 
+#
+# XXX: Add I18n
+#
 class EmailValidator < ActiveModel::EachValidator
   def validate_each(record,attribute,value)
 
