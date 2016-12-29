@@ -19,10 +19,6 @@
             <%= f.hidden_field :reset_password_token %>
 
             <div>
-              <% if resource.errors.include?(:password) %>
-                <%= field_notice_box %>
-              <% end %>
-
               <%= f.label :password, class: 'invisible' %>
               <%= f.password_field :password,
                                    autofocus: true,
@@ -31,10 +27,6 @@
             </div>
 
             <div>
-              <% if resource.errors.include?(:password_confirmation) %>
-                <%= field_notice_box %>
-              <% end %>
-
               <%= f.label :password_confirmation, class: 'invisible' %>
               <%= f.password_field :password_confirmation,
                                    required: true,

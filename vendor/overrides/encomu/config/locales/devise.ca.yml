@@ -58,6 +58,8 @@ ca:
       forgot_mail: "No he rebut el correu de confirmació"
       insc: "Inscripció"
     new_email: "Nou correu electrònic"
+    new_password: "Contrasenya nova"
+    new_password_confirmation: "Contrasenya nova (repetir)"
   errors:
     messages:
       already_confirmed: "ja ha estat confirmat, sisplau intenta iniciar sessió."

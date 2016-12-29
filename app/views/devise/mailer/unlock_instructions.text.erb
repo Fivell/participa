@@ -1,9 +1,9 @@
-<%= t('podemos.devise.mailer.hello') %> <%= @resource.email %>
+<%= t('bec.devise.mailer.hello', user: @resource.first_name) %>
 
-<%= t('podemos.devise.mailer.lock.p1') %>
+<%= t('bec.devise.mailer.lock.p1') %>
 
-<%= t('podemos.devise.mailer.lock.p2') %>
+<%= t('bec.devise.mailer.lock.p2') %>
 
-<%= unlock_url(@resource, unlock_token: @token) %>
+<%= link_to t('bec.devise.mailer.lock.link'), unlock_url(@resource, unlock_token: @token, locale: I18n.locale) %>
 
-<%= t('podemos.devise.mailer.lock.p3') %>
+<%= unlock_url(@resource, unlock_token: @token, locale: I18n.locale) %>

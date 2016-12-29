@@ -29,4 +29,30 @@ feature "ProfileEditions" do
     assert_text "No se han podido actualizar los datos"
     assert page.has_select?('País', selected: 'Brasil')
   end
+
+  scenario "can change password", js: true do
+    change_password('222222', '222222', '111111')
+
+    assert_text "Has actualizado tu cuenta correctamente"
+  end
+
+  scenario "change passwords shows errors and goes back to form", js: true do
+    change_password('222222', '222223', '111111')
+
+    assert_text "Contraseña (repetir): no coincide con la confirmación"
+    assert_selector "h2", text: "Cambiar contraseña"
+  end
+
+  private
+
+  def change_password(new_pass, new_pass_confirmation, current_pass)
+    click_link "Cambiar contraseña"
+
+    within '#change-password' do
+      fill_in "user[password]", with: new_pass
+      fill_in "user[password_confirmation]", with: new_pass_confirmation
+      fill_in "user[current_password]", with: current_pass
+      click_button 'Cambiar contraseña'
+    end
+  end
 end

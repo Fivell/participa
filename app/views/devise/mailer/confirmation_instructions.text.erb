@@ -1,7 +1,7 @@
-¡<%= t('podemos.devise.mailer.welcome') %> <%= @email %>!
+<%= t('bec.devise.mailer.welcome', user: @resource.first_name) %>
 
-<%= t('podemos.devise.mailer.confirm.p1') %>
+<%= t('bec.devise.mailer.confirm.p1') %>
 
-<%= confirmation_url(@resource, confirmation_token: @token) %>
+<%= link_to t('bec.devise.mailer.confirm.link'), confirmation_url(@resource, confirmation_token: @token, locale: I18n.locale) %>
 
-<%= t('podemos.devise.mailer.confirm.p2') %>
+<%= confirmation_url(@resource, confirmation_token: @token, locale: I18n.locale) %>
