@@ -1,0 +1,22 @@
+<% [%w(Castellano es), %w(Catatá ca)].each do |language, locale| %>
+  <p><strong><%= language.to_s %></strong></p>
+
+  <p><%= t('.hello', user: @user.full_name, locale: locale) %></p>
+
+  <p><%= t('.explanation', locale: locale) %></p>
+
+  <p>
+    <% url = confirmation_url(@user,
+                              confirmation_token: @token,
+                              locale: locale) %>
+    <%= link_to t('bec.devise.mailer.confirm.link', locale: locale), url %>
+  </p>
+
+  <p><%= t('.ignore', locale: locale) %></p>
+
+  <p><%= t('.bye', locale: locale) %></p>
+
+  <% if locale == 'es' %>
+    <hr>
+  <% end %>
+<% end %>
