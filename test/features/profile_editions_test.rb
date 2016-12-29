@@ -39,7 +39,7 @@ feature "ProfileEditions" do
   scenario "change passwords shows errors and goes back to form", js: true do
     change_password('222222', '222223', '111111')
 
-    assert_text "Contraseña (repetir): no coincide con la confirmación"
+    assert_text "Tu contraseña no coincide con la confirmación"
     assert_selector "h2", text: "Cambiar contraseña"
   end
 

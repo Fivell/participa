@@ -132,8 +132,8 @@ class UserTest < ActiveSupport::TestCase
   test "should accept terms of service and age_restriction" do
     u = User.new(terms_of_service: false, age_restriction: false)
     u.valid?
-    assert_includes u.errors[:terms_of_service], "debe ser aceptado"
-    assert_includes u.errors[:age_restriction], "debe ser aceptado"
+    assert_includes u.errors[:terms_of_service], "Debes aceptar las condiciones"
+    assert_includes u.errors[:age_restriction], "Debes declarar que eres mayor de 16 años"
   end
 
   test "should be over 16 years old" do
@@ -420,21 +420,21 @@ class UserTest < ActiveSupport::TestCase
   test "should password confirmation work" do
     user = FactoryGirl.build(:user, password_confirmation: '')
     assert_not user.valid?
-    assert_includes user.errors[:password_confirmation], "no coincide con la confirmación"
+    assert_includes user.errors[:password_confirmation], "Tu contraseña no coincide con la confirmación"
 
     user = FactoryGirl.build(:user, password_confirmation: "notthesamepassword")
     assert_not user.valid?
-    assert_includes user.errors[:password_confirmation], "no coincide con la confirmación"
+    assert_includes user.errors[:password_confirmation], "Tu contraseña no coincide con la confirmación"
   end
 
   test "should email confirmation work" do 
     user = FactoryGirl.build(:user, email_confirmation: '')
     assert_not user.valid?
-    assert_includes user.errors[:email_confirmation], "no coincide con la confirmación"
+    assert_includes user.errors[:email_confirmation], "Tu correo electrónico no coincide con la confirmación"
 
     user = FactoryGirl.build(:user, email_confirmation: "notthesameemail@gmail.com")
     assert_not user.valid?
-    assert_includes user.errors[:email_confirmation], "no coincide con la confirmación"
+    assert_includes user.errors[:email_confirmation], "Tu correo electrónico no coincide con la confirmación"
   end
 
   test "should province_name work with all kind of profile data" do
