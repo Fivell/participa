@@ -125,8 +125,8 @@ class UserTest < ActiveSupport::TestCase
   test "should accept terms of service and age_restriction" do
     u = User.new(terms_of_service: false, age_restriction: false)
     u.valid?
-    u.errors[:terms_of_service].include? ["debe ser aceptado"]
-    u.errors[:age_restriction].include? ["debe ser aceptado"]
+    assert u.errors[:terms_of_service].include? "debe ser aceptado"
+    assert u.errors[:age_restriction].include? "debe ser aceptado"
   end
 
   test "should be over 16 years old" do
