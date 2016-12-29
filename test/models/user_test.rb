@@ -15,18 +15,18 @@ class UserTest < ActiveSupport::TestCase
     #fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :town, :postal_code, :province, :country]
     fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :postal_code]
     fields.each do |type|
-      assert(u.errors[type].include? I18n.t("activerecord.errors.models.user.attributes.#{type}.blank"))
+      assert_includes u.errors[type], I18n.t("activerecord.errors.models.user.attributes.#{type}.blank")
     end
   end
 
   test "should document_vatid validates with DNI/NIE" do 
     u = User.new(document_type: 1, document_vatid: "222222E")
     u.valid?
-    assert(u.errors[:document_vatid].include? "El DNI no es válido")
+    assert_includes u.errors[:document_vatid], "El DNI no es válido"
 
     u = User.new(document_type: 2, document_vatid: "222222E")
     u.valid?
-    assert(u.errors[:document_vatid].include? "El NIE no es válido")
+    assert_includes u.errors[:document_vatid], "El NIE no es válido"
 
     u = User.new(document_type: 1, document_vatid: "99115002K")
     u.valid?
@@ -41,7 +41,7 @@ class UserTest < ActiveSupport::TestCase
     error_message = I18n.t "activerecord.errors.models.user.attributes.email.taken"
     user2 = FactoryGirl.build(:user, email: @user.email)
     user2.valid?
-    assert(user2.errors[:email].include? error_message)
+    assert_includes user2.errors[:email], error_message
 
     user2 = FactoryGirl.build(:user, email: "newuniqueemail@example.com")
     assert(user2.errors[:email] == [])
@@ -106,17 +106,17 @@ class UserTest < ActiveSupport::TestCase
     user1 = FactoryGirl.create(:user)
     user2 = FactoryGirl.build(:user, document_vatid: user1.document_vatid)
     user2.valid?
-    assert(user2.errors[:document_vatid].include? error_message)
+    assert_includes user2.errors[:document_vatid], error_message
 
     # downcase ( minusculas )
     user3 = FactoryGirl.build(:user, document_vatid: user1.document_vatid.downcase)
     user3.valid?
-    assert(user3.errors[:document_vatid].include? error_message)
+    assert_includes user3.errors[:document_vatid], error_message
 
     # spaces
     user4 = FactoryGirl.build(:user, document_vatid: " #{user1.document_vatid.downcase} ")
     user4.valid?
-    assert(user4.errors[:document_vatid].include? error_message)
+    assert_includes user4.errors[:document_vatid], error_message
 
     user5 = FactoryGirl.build(:user)
     assert(user5.valid?)
@@ -125,17 +125,17 @@ class UserTest < ActiveSupport::TestCase
   test "should accept terms of service and age_restriction" do
     u = User.new(terms_of_service: false, age_restriction: false)
     u.valid?
-    assert u.errors[:terms_of_service].include? "debe ser aceptado"
-    assert u.errors[:age_restriction].include? "debe ser aceptado"
+    assert_includes u.errors[:terms_of_service], "debe ser aceptado"
+    assert_includes u.errors[:age_restriction], "debe ser aceptado"
   end
 
   test "should be over 16 years old" do
     u = User.new(born_at: Date.today - (16.years - 1.day))
     u.valid?
-    assert(u.errors[:born_at].include? "debes ser mayor de 16 años")
+    assert_includes u.errors[:born_at], "debes ser mayor de 16 años"
     u = User.new(born_at: Date.civil(1888, 2, 1))
     u.valid?
-    assert(u.errors[:born_at].include? "debes ser mayor de 16 años")
+    assert_includes u.errors[:born_at], "debes ser mayor de 16 años"
     u = User.new(born_at: Date.today - (16.years + 1.day))
     u.valid?
     assert(u.errors[:born_at], [])
@@ -144,11 +144,11 @@ class UserTest < ActiveSupport::TestCase
   test "should document_type inclusion work" do
     u = User.new(document_type: 4)
     u.valid? 
-    assert(u.errors[:document_type].include?  "Tipo de documento no válido")
+    assert_includes u.errors[:document_type],  "Tipo de documento no válido"
 
     u = User.new(document_type: 0)
     u.valid? 
-    assert(u.errors[:document_type].include?  "Tipo de documento no válido")
+    assert_includes u.errors[:document_type],  "Tipo de documento no válido"
 
     u = User.new(document_type: 1)
     u.valid? 
@@ -203,7 +203,7 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
     @user.phone = "aaaa"
     assert_not @user.valid?
-    assert @user.errors[:phone].include?("Revisa el formato de tu teléfono")
+    assert_includes @user.errors[:phone], "Revisa el formato de tu teléfono"
   end
 
   test "should unconfirmed_phone be numeric or nil work" do
@@ -211,19 +211,19 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
     @user.unconfirmed_phone = "aaaa"
     assert_not @user.valid?
-    assert @user.errors[:unconfirmed_phone].include?("Revisa el formato de tu teléfono")
+    assert_includes @user.errors[:unconfirmed_phone], "Revisa el formato de tu teléfono"
   end
 
   test "should validates_phone_format work" do
     @user.phone = "12345"
     assert_not @user.valid?
-    assert @user.errors[:phone].include?("Revisa el formato de tu teléfono")
+    assert_includes @user.errors[:phone], "Revisa el formato de tu teléfono"
   end
 
   test "should validates_unconfirmed_phone_format work" do 
     @user.unconfirmed_phone = "12345"
     assert_not @user.valid?
-    assert @user.errors[:unconfirmed_phone].include?("Revisa el formato de tu teléfono")
+    assert_includes @user.errors[:unconfirmed_phone], "Revisa el formato de tu teléfono"
   end
 
   test "should validates_unconfirmed_phone_format only accept numbers starting with 6 or 7" do 
@@ -233,7 +233,7 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
     @user.unconfirmed_phone = "0034881234567"
     assert_not @user.valid?
-    assert @user.errors[:unconfirmed_phone].include?("Debes poner un teléfono móvil válido de España empezando por 6 o 7.")
+    assert_includes @user.errors[:unconfirmed_phone], "Debes poner un teléfono móvil válido de España empezando por 6 o 7."
   end
 
   if Rails.application.secrets.features["verification_sms"]
@@ -243,7 +243,7 @@ class UserTest < ActiveSupport::TestCase
       user = FactoryGirl.create(:user)
       user.unconfirmed_phone = phone
       assert_not user.valid?
-      assert user.errors[:phone].include?("Ya hay alguien con ese número de teléfono")
+      assert_includes user.errors[:phone], "Ya hay alguien con ese número de teléfono"
     end
   end
 
@@ -415,12 +415,12 @@ class UserTest < ActiveSupport::TestCase
     user = FactoryGirl.build(:user, email_confirmation: nil)
     user.valid?
     assert_not user.valid?
-    assert user.errors[:email_confirmation].include? "no puede estar en blanco"
+    assert_includes user.errors[:email_confirmation], "no puede estar en blanco"
 
     user = FactoryGirl.build(:user, email_confirmation: "notthesameemail@gmail.com")
     user.valid?
     assert_not user.valid?
-    assert user.errors[:email_confirmation].include? "no coincide con la confirmación"
+    assert_includes user.errors[:email_confirmation], "no coincide con la confirmación"
   end
 
   test "should province_name work with all kind of profile data" do
