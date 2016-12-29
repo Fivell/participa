@@ -43,7 +43,6 @@ class User < ActiveRecord::Base
   validates :postal_code, :province, :country, :born_at, presence: true
   validates :town, presence: true, if: :in_spain?
   validates :email, confirmation: { case_sensitive: false }, on: :create, :email => true
-  validates :email_confirmation, presence: true, on: :create
   validates :terms_of_service, acceptance: true
   validates :age_restriction, acceptance: true
   validates :document_type,

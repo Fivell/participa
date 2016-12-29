@@ -418,9 +418,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should email confirmation work" do 
-    user = FactoryGirl.build(:user, email_confirmation: nil)
+    user = FactoryGirl.build(:user, email_confirmation: '')
     assert_not user.valid?
-    assert_includes user.errors[:email_confirmation], "no puede estar en blanco"
+    assert_includes user.errors[:email_confirmation], "no coincide con la confirmación"
 
     user = FactoryGirl.build(:user, email_confirmation: "notthesameemail@gmail.com")
     assert_not user.valid?

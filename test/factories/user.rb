@@ -15,9 +15,7 @@ FactoryGirl.define do
   factory :user do
     last_name "Pepito"
     first_name "Perez"
-    # FIXME: reutilice email_confirmation
     email 
-    email_confirmation { email }
     password '123456789'
     confirmed_at Time.now
     born_at Date.civil(1983, 2, 1) 
