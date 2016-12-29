@@ -390,7 +390,6 @@ class UserTest < ActiveSupport::TestCase
     @user.destroy
     # allow save after the @user is destroyed but is with deleted_at
     user1 = FactoryGirl.build(:user, email: @user.email, email_confirmation: @user.email, document_vatid: @user.document_vatid, phone: @user.phone)
-    user1.valid?
     assert user1.valid?
     user1.save
 
@@ -420,12 +419,10 @@ class UserTest < ActiveSupport::TestCase
 
   test "should email confirmation work" do 
     user = FactoryGirl.build(:user, email_confirmation: nil)
-    user.valid?
     assert_not user.valid?
     assert_includes user.errors[:email_confirmation], "no puede estar en blanco"
 
     user = FactoryGirl.build(:user, email_confirmation: "notthesameemail@gmail.com")
-    user.valid?
     assert_not user.valid?
     assert_includes user.errors[:email_confirmation], "no coincide con la confirmación"
   end
