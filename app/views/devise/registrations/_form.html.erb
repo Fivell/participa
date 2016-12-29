@@ -199,6 +199,9 @@
           <%= f.label :captcha %>
           <div class="input-box">
             <%= f.input :captcha, as: :simple_captcha, input_html: {class: "input-m"} %>
+            <span class="help-block">
+              <%= resource.errors[:captcha].join(', ') %>
+            </span>
           </div>
         </div>
 
