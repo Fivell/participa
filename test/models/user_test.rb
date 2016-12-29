@@ -396,9 +396,9 @@ class UserTest < ActiveSupport::TestCase
   test "should uniqueness work" do 
     user = FactoryGirl.build(:user, email: @user.email, document_vatid: @user.document_vatid, phone: @user.phone)
     assert_not user.valid?
-    assert_not_nil user.errors.include? :email
-    assert_not_nil user.errors.include? :document_vatid
-    assert_not_nil user.errors.include? :phone
+    assert user.errors.include? :email
+    assert user.errors.include? :document_vatid
+    assert user.errors.include? :phone
 
     user = FactoryGirl.build(:user, email: "testwithnewmail@example.com", phone: "0034661234567")
     assert user.valid?
