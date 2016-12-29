@@ -417,6 +417,16 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.valid?
   end
 
+  test "should password confirmation work" do
+    user = FactoryGirl.build(:user, password_confirmation: '')
+    assert_not user.valid?
+    assert_includes user.errors[:password_confirmation], "no coincide con la confirmación"
+
+    user = FactoryGirl.build(:user, password_confirmation: "notthesamepassword")
+    assert_not user.valid?
+    assert_includes user.errors[:password_confirmation], "no coincide con la confirmación"
+  end
+
   test "should email confirmation work" do 
     user = FactoryGirl.build(:user, email_confirmation: '')
     assert_not user.valid?

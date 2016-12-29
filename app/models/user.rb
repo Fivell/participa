@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :omniauthable
   devise :database_authenticatable, :registerable, :confirmable, :timeoutable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable
+         :recoverable, :rememberable, :trackable, :lockable
 
   before_update :_clear_caches
   before_save :before_save
@@ -39,10 +39,15 @@ class User < ActiveRecord::Base
   enumerize :gender_identity,
             in: %i(cis_man cis_woman trans_man trans_woman fluid)
 
+  validates :password, presence: true, confirmation: true, if: :password_required?
+  validates :password, length: { within: 6..128 }, allow_blank: true
+
+  validates :email, presence: true, confirmation: { case_sensitive: false }, if: :email_required?
+  validates :email, email: true, if: :email_changed?
+
   validates :first_name, :last_name, :document_type, :document_vatid, presence: true
   validates :postal_code, :province, :country, :born_at, presence: true
   validates :town, presence: true, if: :in_spain?
-  validates :email, confirmation: { case_sensitive: false }, on: :create, :email => true
   validates :terms_of_service, acceptance: true
   validates :age_restriction, acceptance: true
   validates :document_type,
@@ -57,7 +62,7 @@ class User < ActiveRecord::Base
   validates :phone, numericality: true, allow_blank: true
   validates :unconfirmed_phone, numericality: true, allow_blank: true
 
-  validates :email, uniqueness: {case_sensitive: false, scope: :deleted_at }
+  validates :email, uniqueness: {case_sensitive: false, scope: :deleted_at }, allow_blank: true, if: :email_changed?
   validates :document_vatid, uniqueness: {case_sensitive: false, scope: :deleted_at }
   validates :phone, uniqueness: {scope: :deleted_at}, allow_blank: true, allow_nil: true
   validates :unconfirmed_phone, uniqueness: {scope: :deleted_at}, allow_blank: true, allow_nil: true
@@ -66,6 +71,14 @@ class User < ActiveRecord::Base
   validate :validates_phone_format, if: -> { self.phone.present? }
   validate :validates_unconfirmed_phone_format, if: -> { self.unconfirmed_phone.present? }
   validate :validates_unconfirmed_phone_uniqueness, if: -> { self.unconfirmed_phone.present? }
+
+  def password_required?
+    new_record? || password || password_confirmation
+  end
+
+  def email_required?
+    new_record?
+  end
 
   def validates_postal_code
     if self.country == "ES"
