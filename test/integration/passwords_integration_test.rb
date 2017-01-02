@@ -5,12 +5,11 @@ class PasswordsIntegrationTest < ActionDispatch::IntegrationTest
   include Participa::Test::LoginHelpers
 
   setup do
-    @user = FactoryGirl.create(:user)
     @legacy_password_user = FactoryGirl.create(:user, :legacy_password_user)
   end
 
   test "should login with password as user" do
-    login @user
+    login FactoryGirl.create(:user)
     assert_logged_in
   end
 
