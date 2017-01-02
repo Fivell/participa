@@ -30,6 +30,8 @@ namespace :encomu do
       target.each do |user|
         STDOUT.puts "\nResending email to #{user.email}..."
         ConfirmationMailer.retry_confirmation_instructions(user).deliver_now
+
+        sleep 10
       end
     end
   end
