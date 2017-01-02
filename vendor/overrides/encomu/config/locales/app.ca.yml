@@ -42,27 +42,38 @@ ca:
             last_name:
               blank: "El teu cognom no pot estar en blanc"
             document_type:
-              blank: "El tipus de document no pot estar en blanc"
+              blank: "El teu tipus de document no pot estar en blanc"
             document_vatid:
-              blank: "El document no pot estar en blanc"
+              blank: "El teu número de document no pot estar en blanc"
               taken: "Hi ha hagut un error a l'hora de desar aquesta dada. Torna-ho a provar"
             born_at:
               blank: "La teva data de naixement no pot estar en blanc"
               not_a_date: "No és una data vàlida. Comprova que el format amb el qual estàs escrivint la data sigui el correcte"
+            province:
+              blank: "La teva provincia no pot estar en blanc"
+            town:
+              blank: "El teu municipi no pot estar en blanc"
             address:
               blank: "La teva adreça no pot estar en blanc"
             postal_code:
-              blank: "El codi postal no pot estar en blanc"
+              blank: "El teu codi postal no pot estar en blanc"
             email:
               blank: "El teu correu electrònic no pot estar en blanc"
               taken: "Hi ha hagut un error a l'hora de guardar aquesta dada. Torna-ho a provar"
+            email_confirmation:
+              confirmation: "El teu correo electrònic no coincideix amb la confirmació"
             password:
               blank: "La teva contrasenya no pot estar en blanc"
+              too_short: "La teva contrasenya és massa curt (6 caràcters mínims)"
+              too_long: "La teva contrasenya és massa llarg (128 caràcters màxim)"
+            password_confirmation:
+              confirmation: "El teva contrasenya no coincideix amb la confirmació"
             current_password:
               blank: "Has d'indicar la teva contrasenya per validar els canvis."
-            password_confirmation: "Contrasenya (repetir)"
-            wants_newsletter: "Desmarca aquesta casella si no vols rebre el nostre butlletí. Només enviem informació important."
-            terms_of_service: "Accepto les condicions generals"
+            age_restriction:
+              accepted: "Has declarar que ets major de 16 anys"
+            terms_of_service:
+              accepted: "Has d'acceptar les condicions"
     attributes:
       collaboration:
         user: "Usuari/ària"

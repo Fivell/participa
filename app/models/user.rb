@@ -1,14 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :verified_by, class_name: "User", foreign_key: "verified_by_id" #, counter_cache: :verified_by_id
 
-  before_validation :set_location
-
-  def set_location
-    self.country = "ES" if self.country.nil?
-    self.province = "B" if self.province.nil?
-    self.town = "m_08_019_3" if self.town.nil?
-  end
-
   apply_simple_captcha
 
   include FlagShihTzu
@@ -28,7 +20,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :omniauthable
   devise :database_authenticatable, :registerable, :confirmable, :timeoutable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable
+         :recoverable, :rememberable, :trackable, :lockable
 
   before_update :_clear_caches
   before_save :before_save
@@ -47,10 +39,15 @@ class User < ActiveRecord::Base
   enumerize :gender_identity,
             in: %i(cis_man cis_woman trans_man trans_woman fluid)
 
+  validates :password, presence: true, confirmation: true, if: :password_required?
+  validates :password, length: { within: 6..128 }, allow_blank: true
+
+  validates :email, presence: true, confirmation: { case_sensitive: false }, if: :email_required?
+  validates :email, email: true, if: :email_changed?
+
   validates :first_name, :last_name, :document_type, :document_vatid, presence: true
-  validates :postal_code, :town, :province, :country, :born_at, presence: true
-  validates :email, confirmation: { case_sensitive: false }, on: :create, :email => true
-  validates :email_confirmation, presence: true, on: :create
+  validates :postal_code, :province, :country, :born_at, presence: true
+  validates :town, presence: true, if: :in_spain?
   validates :terms_of_service, acceptance: true
   validates :age_restriction, acceptance: true
   validates :document_type,
@@ -65,15 +62,23 @@ class User < ActiveRecord::Base
   validates :phone, numericality: true, allow_blank: true
   validates :unconfirmed_phone, numericality: true, allow_blank: true
 
-  validates :email, uniqueness: {case_sensitive: false, scope: :deleted_at }
+  validates :email, uniqueness: {case_sensitive: false, scope: :deleted_at }, allow_blank: true, if: :email_changed?
   validates :document_vatid, uniqueness: {case_sensitive: false, scope: :deleted_at }
   validates :phone, uniqueness: {scope: :deleted_at}, allow_blank: true, allow_nil: true
   validates :unconfirmed_phone, uniqueness: {scope: :deleted_at}, allow_blank: true, allow_nil: true
 
-  validate :validates_postal_code
-  validate :validates_phone_format
-  validate :validates_unconfirmed_phone_format
-  validate :validates_unconfirmed_phone_uniqueness
+  validate :validates_postal_code, if: -> { self.postal_code.present? }
+  validate :validates_phone_format, if: -> { self.phone.present? }
+  validate :validates_unconfirmed_phone_format, if: -> { self.unconfirmed_phone.present? }
+  validate :validates_unconfirmed_phone_uniqueness, if: -> { self.unconfirmed_phone.present? }
+
+  def password_required?
+    new_record? || password || password_confirmation
+  end
+
+  def email_required?
+    new_record?
+  end
 
   def validates_postal_code
     if self.country == "ES"
@@ -89,25 +94,19 @@ class User < ActiveRecord::Base
   end
 
   def validates_unconfirmed_phone_uniqueness
-    if self.unconfirmed_phone.present?
-      if User.confirmed_phone.where(phone: self.unconfirmed_phone).exists?
-        self.errors.add(:phone, "Ya hay alguien con ese número de teléfono")
-      end
+    if User.confirmed_phone.where(phone: self.unconfirmed_phone).exists?
+      self.errors.add(:phone, "Ya hay alguien con ese número de teléfono")
     end
   end
 
   def validates_phone_format
-    if self.phone.present?
-      self.errors.add(:phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.phone)
-    end
+    self.errors.add(:phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.phone)
   end
 
   def validates_unconfirmed_phone_format
-    if self.unconfirmed_phone.present?
-      self.errors.add(:unconfirmed_phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.unconfirmed_phone)
-      if self.country.downcase == "es" and not (self.unconfirmed_phone.starts_with?('00346') or self.unconfirmed_phone.starts_with?('00347'))
-        self.errors.add(:unconfirmed_phone, "Debes poner un teléfono móvil válido de España empezando por 6 o 7.")
-      end
+    self.errors.add(:unconfirmed_phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.unconfirmed_phone)
+    if self.country.downcase == "es" and not (self.unconfirmed_phone.starts_with?('00346') or self.unconfirmed_phone.starts_with?('00347'))
+      self.errors.add(:unconfirmed_phone, "Debes poner un teléfono móvil válido de España empezando por 6 o 7.")
     end
   end
 
