@@ -13,6 +13,11 @@ class PasswordsIntegrationTest < ActionDispatch::IntegrationTest
     assert_logged_in
   end
 
+  test "should login with password as foreign user" do
+    login FactoryGirl.create(:user, :foreigner)
+    assert_logged_in
+  end
+
   test "should login with legacy password and change it as legacy_password_user" do
     login @legacy_password_user
     assert_equal new_legacy_password_path(locale: 'es'), current_path

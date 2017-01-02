@@ -74,7 +74,7 @@ class RegistrationsControllerTest < ActionController::TestCase
       old_user = FactoryGirl.create(:user)
       old_user.delete
       old_user.skip_before_save = true
-      old_user.update_attributes vote_town: "M_01_001_4"
+      old_user.update_attributes vote_town: "m_01_001_4"
       
       post :create, { "user" => attributes_for(:user, document_vatid: old_user.document_vatid, town: "m_03_003_6") }
       new_user = User.where(document_vatid: old_user.document_vatid).last
