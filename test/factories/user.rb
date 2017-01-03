@@ -23,15 +23,26 @@ FactoryGirl.define do
     document_type 1
     document_vatid 
     admin false
+    spanish
     address "C/ Inventada, 123" 
-    country "ES"
-    province "M"
-    town "m_28_079_6"
     vote_town "m_28_079_6"
-    postal_code "28021"
     phone
     #sms_confirmed_at DateTime.now
     flags 0
+  end
+
+  trait :spanish do
+    country "ES"
+    province "M"
+    town "m_28_079_6"
+    postal_code "28021"
+  end
+
+  trait :foreigner do
+    country "BR"
+    province "RJ"
+    town nil
+    postal_code "2950-000"
   end
 
   trait :admin do

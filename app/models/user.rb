@@ -125,9 +125,6 @@ class User < ActiveRecord::Base
     # User have a valid born date
     issue ||= check_issue (self.born_at.nil? || (self.born_at == Date.civil(1900,1,1))), :edit_user_registration, { alert: "born_at"}, "registrations"
 
-    # User must review his location (town code first letter uppercase)
-    issue ||= check_issue self.town.starts_with?("M_"), :edit_user_registration, { notice: "location"}, "registrations"
-
     # User have a valid location
     issue ||= check_issue self.verify_user_location, :edit_user_registration, { alert: "location"}, "registrations"
 
