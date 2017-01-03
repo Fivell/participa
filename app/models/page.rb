@@ -1,4 +1,3 @@
-# http://codeconnoisseur.org/ramblings/creating-dynamic-routes-at-runtime-in-rails-4
 class Page < ActiveRecord::Base
 
   validates :id_form, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
