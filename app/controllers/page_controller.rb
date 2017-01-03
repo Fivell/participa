@@ -1,4 +1,3 @@
-require 'securerandom'
 class PageController < ApplicationController
   def count_votes
     @election = Election.find(params[:election_id])
