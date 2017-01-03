@@ -94,8 +94,7 @@ Rails.application.routes.draw do
     
     devise_for :users, controllers: { 
       registrations: 'registrations', 
-      passwords:     'passwords', 
-      confirmations: 'confirmations'
+      passwords:     'passwords'
     } 
 
     get '/microcreditos', to: 'microcredit#index', as: 'microcredit'
