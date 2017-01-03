@@ -65,11 +65,13 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     if resource.valid_with_captcha?
       super do
-        # If the user already had a location but deleted itself, he should have
-        # his previous location
-        #
-        if resource.apply_previous_user_vote_location
-          flash[:alert] = t("podemos.registration.message.existing_user_location")
+        if Rails.application.secrets.features["elections"]
+          # If the user already had a location but deleted itself, he should have
+          # his previous location
+          #
+          if resource.apply_previous_user_vote_location
+            flash[:alert] = t("podemos.registration.message.existing_user_location")
+          end
         end
       end
     else
