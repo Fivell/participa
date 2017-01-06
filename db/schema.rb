@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -25,11 +24,10 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.string   "author_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
   end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -43,10 +41,9 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["category_id"], name: "index_categories_posts_on_category_id", using: :btree
+    t.index ["post_id"], name: "index_categories_posts_on_post_id", using: :btree
   end
-
-  add_index "categories_posts", ["category_id"], name: "index_categories_posts_on_category_id", using: :btree
-  add_index "categories_posts", ["post_id"], name: "index_categories_posts_on_post_id", using: :btree
 
   create_table "collaborations", force: :cascade do |t|
     t.integer  "user_id"
@@ -58,11 +55,11 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.integer  "ccc_entity"
     t.integer  "ccc_office"
     t.integer  "ccc_dc"
-    t.integer  "ccc_account",             limit: 8
+    t.bigint   "ccc_account"
     t.string   "iban_account"
     t.string   "iban_bic"
     t.datetime "deleted_at"
-    t.integer  "status",                            default: 0
+    t.integer  "status",                  default: 0
     t.string   "redsys_identifier"
     t.datetime "redsys_expiration"
     t.string   "non_user_document_vatid"
@@ -71,11 +68,10 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.boolean  "for_autonomy_cc"
     t.boolean  "for_town_cc"
     t.boolean  "for_island_cc"
+    t.index ["deleted_at"], name: "index_collaborations_on_deleted_at", using: :btree
+    t.index ["non_user_document_vatid"], name: "index_collaborations_on_non_user_document_vatid", using: :btree
+    t.index ["non_user_email"], name: "index_collaborations_on_non_user_email", using: :btree
   end
-
-  add_index "collaborations", ["deleted_at"], name: "index_collaborations_on_deleted_at", using: :btree
-  add_index "collaborations", ["non_user_document_vatid"], name: "index_collaborations_on_non_user_document_vatid", using: :btree
-  add_index "collaborations", ["non_user_email"], name: "index_collaborations_on_non_user_email", using: :btree
 
   create_table "election_location_questions", force: :cascade do |t|
     t.integer "election_location_id"
@@ -130,12 +126,11 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.string   "sluggable_type", limit: 50
     t.string   "scope"
     t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "impulsa_edition_categories", force: :cascade do |t|
     t.integer  "impulsa_edition_id"
@@ -164,16 +159,14 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.string   "monitoring_evaluation_model_override_content_type"
     t.integer  "monitoring_evaluation_model_override_file_size"
     t.datetime "monitoring_evaluation_model_override_updated_at"
+    t.index ["impulsa_edition_id"], name: "index_impulsa_edition_categories_on_impulsa_edition_id", using: :btree
   end
-
-  add_index "impulsa_edition_categories", ["impulsa_edition_id"], name: "index_impulsa_edition_categories_on_impulsa_edition_id", using: :btree
 
   create_table "impulsa_edition_topics", force: :cascade do |t|
     t.integer "impulsa_edition_id"
     t.string  "name"
+    t.index ["impulsa_edition_id"], name: "index_impulsa_edition_topics_on_impulsa_edition_id", using: :btree
   end
-
-  add_index "impulsa_edition_topics", ["impulsa_edition_id"], name: "index_impulsa_edition_topics_on_impulsa_edition_id", using: :btree
 
   create_table "impulsa_editions", force: :cascade do |t|
     t.string   "name",                                     null: false
@@ -208,10 +201,9 @@ ActiveRecord::Schema.define(version: 20161210190215) do
   create_table "impulsa_project_topics", force: :cascade do |t|
     t.integer "impulsa_project_id"
     t.integer "impulsa_edition_topic_id"
+    t.index ["impulsa_edition_topic_id"], name: "index_impulsa_project_topics_on_impulsa_edition_topic_id", using: :btree
+    t.index ["impulsa_project_id"], name: "index_impulsa_project_topics_on_impulsa_project_id", using: :btree
   end
-
-  add_index "impulsa_project_topics", ["impulsa_edition_topic_id"], name: "index_impulsa_project_topics_on_impulsa_edition_topic_id", using: :btree
-  add_index "impulsa_project_topics", ["impulsa_project_id"], name: "index_impulsa_project_topics_on_impulsa_project_id", using: :btree
 
   create_table "impulsa_projects", force: :cascade do |t|
     t.integer  "impulsa_edition_category_id"
@@ -334,10 +326,9 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.integer  "evaluator2_analysis_file_size"
     t.datetime "evaluator2_analysis_updated_at"
     t.integer  "votes",                                              default: 0
+    t.index ["impulsa_edition_category_id"], name: "index_impulsa_projects_on_impulsa_edition_category_id", using: :btree
+    t.index ["user_id"], name: "index_impulsa_projects_on_user_id", using: :btree
   end
-
-  add_index "impulsa_projects", ["impulsa_edition_category_id"], name: "index_impulsa_projects_on_impulsa_edition_category_id", using: :btree
-  add_index "impulsa_projects", ["user_id"], name: "index_impulsa_projects_on_user_id", using: :btree
 
   create_table "microcredit_loans", force: :cascade do |t|
     t.integer  "microcredit_id"
@@ -354,11 +345,10 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.datetime "discarded_at"
     t.datetime "returned_at"
     t.integer  "transferred_to_id"
+    t.index ["document_vatid"], name: "index_microcredit_loans_on_document_vatid", using: :btree
+    t.index ["ip"], name: "index_microcredit_loans_on_ip", using: :btree
+    t.index ["microcredit_id"], name: "index_microcredit_loans_on_microcredit_id", using: :btree
   end
-
-  add_index "microcredit_loans", ["document_vatid"], name: "index_microcredit_loans_on_document_vatid", using: :btree
-  add_index "microcredit_loans", ["ip"], name: "index_microcredit_loans_on_ip", using: :btree
-  add_index "microcredit_loans", ["microcredit_id"], name: "index_microcredit_loans_on_microcredit_id", using: :btree
 
   create_table "microcredits", force: :cascade do |t|
     t.string   "title"
@@ -380,9 +370,8 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.integer  "renewal_terms_file_size"
     t.datetime "renewal_terms_updated_at"
     t.string   "budget_link"
+    t.index ["slug"], name: "index_microcredits_on_slug", unique: true, using: :btree
   end
-
-  add_index "microcredits", ["slug"], name: "index_microcredits_on_slug", unique: true, using: :btree
 
   create_table "notice_registrars", force: :cascade do |t|
     t.string   "registration_id"
@@ -420,9 +409,8 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.string   "town_code"
     t.string   "autonomy_code"
     t.string   "island_code"
+    t.index ["parent_id"], name: "index_orders_on_parent_id", using: :btree
   end
-
-  add_index "orders", ["parent_id"], name: "index_orders_on_parent_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"
@@ -433,9 +421,8 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.datetime "updated_at"
     t.datetime "deleted_at"
     t.string   "link"
+    t.index ["deleted_at"], name: "index_pages_on_deleted_at", using: :btree
   end
-
-  add_index "pages", ["deleted_at"], name: "index_pages_on_deleted_at", using: :btree
 
   create_table "participation_teams", force: :cascade do |t|
     t.string   "name"
@@ -448,10 +435,9 @@ ActiveRecord::Schema.define(version: 20161210190215) do
   create_table "participation_teams_users", id: false, force: :cascade do |t|
     t.integer "participation_team_id"
     t.integer "user_id"
+    t.index ["participation_team_id"], name: "index_participation_teams_users_on_participation_team_id", using: :btree
+    t.index ["user_id"], name: "index_participation_teams_users_on_user_id", using: :btree
   end
-
-  add_index "participation_teams_users", ["participation_team_id"], name: "index_participation_teams_users_on_participation_team_id", using: :btree
-  add_index "participation_teams_users", ["user_id"], name: "index_participation_teams_users_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -510,9 +496,8 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.string   "value",      limit: 6
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["key"], name: "idx_key", using: :btree
   end
-
-  add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
 
   create_table "spam_filters", force: :cascade do |t|
     t.string   "name"
@@ -581,19 +566,18 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.datetime "sms_check_at"
     t.string   "vote_district"
     t.string   "gender_identity"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["deleted_at", "document_vatid"], name: "index_users_on_deleted_at_and_document_vatid", unique: true, using: :btree
+    t.index ["deleted_at", "email"], name: "index_users_on_deleted_at_and_email", unique: true, using: :btree
+    t.index ["deleted_at", "phone"], name: "index_users_on_deleted_at_and_phone", unique: true, using: :btree
+    t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
+    t.index ["document_vatid"], name: "index_users_on_document_vatid", using: :btree
+    t.index ["email"], name: "index_users_on_email", using: :btree
+    t.index ["flags"], name: "index_users_on_flags", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["sms_confirmation_token"], name: "index_users_on_sms_confirmation_token", unique: true, using: :btree
+    t.index ["vote_town"], name: "index_users_on_vote_town", using: :btree
   end
-
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["deleted_at", "document_vatid"], name: "index_users_on_deleted_at_and_document_vatid", unique: true, using: :btree
-  add_index "users", ["deleted_at", "email"], name: "index_users_on_deleted_at_and_email", unique: true, using: :btree
-  add_index "users", ["deleted_at", "phone"], name: "index_users_on_deleted_at_and_phone", unique: true, using: :btree
-  add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
-  add_index "users", ["document_vatid"], name: "index_users_on_document_vatid", using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["flags"], name: "index_users_on_flags", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["sms_confirmation_token"], name: "index_users_on_sms_confirmation_token", unique: true, using: :btree
-  add_index "users", ["vote_town"], name: "index_users_on_vote_town", using: :btree
 
   create_table "verification_centers", force: :cascade do |t|
     t.string   "name"
@@ -619,9 +603,8 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
   end
-
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "user_id"
@@ -630,9 +613,8 @@ ActiveRecord::Schema.define(version: 20161210190215) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_votes_on_deleted_at", using: :btree
   end
-
-  add_index "votes", ["deleted_at"], name: "index_votes_on_deleted_at", using: :btree
 
   add_foreign_key "impulsa_edition_categories", "impulsa_editions"
   add_foreign_key "impulsa_edition_topics", "impulsa_editions"
