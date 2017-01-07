@@ -396,7 +396,7 @@ class User < ActiveRecord::Base
     if _country
       _country.name
     else
-      self.country or ""
+      ""
     end
   end
 

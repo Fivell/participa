@@ -357,13 +357,16 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "Pasaporte", @user.document_type_name
   end
 
-  test ".country_name work" do 
+  test ".country_name works when country code is valid" do 
     @user.update_attribute(:country, "ES")
     assert_equal "España", @user.country_name
     @user.update_attribute(:country, "AR")
     assert_equal "Argentina", @user.country_name
+  end
+
+  test ".country_name returns empty when country code is invalid" do
     @user.update_attribute(:country, "Testing")
-    assert_equal "Testing", @user.country_name
+    assert_equal "", @user.country_name
   end
 
   test ".province_name works" do 
