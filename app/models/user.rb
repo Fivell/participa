@@ -400,27 +400,15 @@ class User < ActiveRecord::Base
   end
 
   def country_name
-    if _country
-      _country.name
-    else
-      ""
-    end
+    _country ? _country.name : ""
   end
 
   def province_name
-    if _province
-      _province.name
-    else
-      ""
-    end
+    _province ? _province.name : ""
   end
 
   def province_code
-    if self.in_spain? and _province
-      "p_%02d" % + _province.index
-    else
-      ""
-    end
+    self.in_spain? && _province ? "p_%02d" % + _province.index : ""
   end
 
   attr_reader :catalonia_resident
@@ -434,11 +422,7 @@ class User < ActiveRecord::Base
   end
 
   def town_name
-    if _town
-      _town.name
-    else
-      ""
-    end
+    _town ? _town.name : ""
   end
 
   def autonomy_code
@@ -506,11 +490,7 @@ class User < ActiveRecord::Base
   end
 
   def vote_town_name
-    if _vote_town
-      _vote_town.name
-    else
-      ""
-    end
+    _vote_town ? _vote_town.name : ""
   end
 
   def vote_province_persisted
@@ -523,19 +503,11 @@ class User < ActiveRecord::Base
       end
     end
 
-    if prov
-      prov.code
-    else
-      ""
-    end
+    prov ? prov.code : ""
   end
 
   def vote_province
-    if _vote_province
-      _vote_province.code
-    else
-      ""
-    end
+    _vote_province ? _vote_province.code : ""
   end
 
   def vote_province= value
@@ -550,21 +522,12 @@ class User < ActiveRecord::Base
   end
 
   def vote_province_code
-    if _vote_province
-      "p_%02d" % + _vote_province.index
-    else
-      ""
-    end
+    _vote_province ? "p_%02d" % + _vote_province.index : ""
   end
 
   def vote_province_name
-    if _vote_province
-      _vote_province.name
-    else
-      ""
-    end
+    _vote_province ? _vote_province.name : ""
   end
-
 
   def vote_island_code
     if self.vote_in_spanish_island?
@@ -583,35 +546,19 @@ class User < ActiveRecord::Base
   end
 
   def vote_autonomy_numeric
-    if _vote_province
-      self.vote_autonomy_code[2..-1]
-    else
-      "-"
-    end
+    _vote_province ? self.vote_autonomy_code[2..-1] : "-"
   end
 
   def vote_province_numeric
-    if _vote_province
-      "%02d" % + _vote_province.index
-    else
-      ""
-    end
+    _vote_province ? "%02d" % + _vote_province.index : ""
   end
 
   def vote_town_numeric
-    if _vote_town
-      _vote_town.code.split("_")[1,3].join
-    else
-      ""
-    end
+    _vote_town ? _vote_town.code.split("_")[1,3].join : ""
   end
 
   def vote_island_numeric
-    if self.vote_in_spanish_island?
-      self.vote_island_code[2..-1]
-    else
-      ""
-    end
+    self.vote_in_spanish_island? ? self.vote_island_code[2..-1] : ""
   end
 
   def vote_town_notice()
