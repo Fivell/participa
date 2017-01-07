@@ -153,7 +153,6 @@ class User < ActiveRecord::Base
 
   attr_accessor :sms_user_token_given
   attr_accessor :login
-  attr_accessor :skip_before_save
 
   scope :all_with_deleted, -> { where "deleted_at IS null AND deleted_at IS NOT null"  }
   scope :wants_newsletter, -> {where(wants_newsletter: true)}
@@ -623,11 +622,9 @@ class User < ActiveRecord::Base
   end
 
   def before_save
-    unless @skip_before_save
-      # Spanish users can't set a different town for vote, except when blocked
-      if self.in_spain? and self.can_change_vote_location?
-        self.vote_town = self.town
-      end
+    # Spanish users can't set a different town for vote, except when blocked
+    if self.in_spain? and self.can_change_vote_location?
+      self.vote_town = self.town
     end
   end
 

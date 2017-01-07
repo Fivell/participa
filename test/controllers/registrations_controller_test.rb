@@ -60,7 +60,6 @@ class RegistrationsControllerTest < ActionController::TestCase
     with_blocked_change_location do
       old_user = FactoryGirl.create(:user)
       old_user.delete
-      old_user.skip_before_save = true
       old_user.update_attributes vote_town: "NOTICE"
 
       post :create, { "user" => attributes_for(:user, document_vatid: old_user.document_vatid, town: "m_03_003_6") }
@@ -73,7 +72,6 @@ class RegistrationsControllerTest < ActionController::TestCase
     with_blocked_change_location do
       old_user = FactoryGirl.create(:user)
       old_user.delete
-      old_user.skip_before_save = true
       old_user.update_attributes vote_town: "m_01_001_4"
       
       post :create, { "user" => attributes_for(:user, document_vatid: old_user.document_vatid, town: "m_03_003_6") }
