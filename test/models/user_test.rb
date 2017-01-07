@@ -361,13 +361,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test ".province_name work" do 
-    @user.update_attributes(country: "ES", province: "C", town: "m_15_006_3")
-    assert_equal "A Coruña", @user.province_name
-    @user.update_attribute(:country, "AR")
-    @user.update_attribute(:province, "C")
-    assert_equal "Ciudad Autónoma de Buenos Aires", @user.province_name
-    @user.update_attribute(:province, "Testing")
-    assert_equal "Testing", @user.province_name
+    user = FactoryGirl.build(:user, country: "ES", province: "C", town: "m_15_006_3")
+    assert_equal "A Coruña", user.province_name
+    user = FactoryGirl.build(:user, country: "AR", province: "C", town: "m_15_006_3")
+    assert_equal "Ciudad Autónoma de Buenos Aires", user.province_name
+    user = FactoryGirl.build(:user, country: "AR", province: "Testing", town: "m_15_006_3")
+    assert_equal "Testing", user.province_name
   end
 
   test "scope .wants_newsletter work" do 
