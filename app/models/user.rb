@@ -586,39 +586,27 @@ class User < ActiveRecord::Base
   end
 
   def _province
-    prov = nil
-    prov = provinces.coded(self.province) if prov.nil? and self.province and not provinces.empty?
-    prov
+    provinces.coded(self.province) if self.province and not provinces.empty?
   end
 
   def _town
-    town = nil
-    town = towns.coded(self.town) if self.in_spain? and not towns.empty?
-    town
+    towns.coded(self.town) if self.in_spain? and not towns.empty?
   end
 
   def _vote_province
-    prov = nil
     if self.has_vote_town?
-      prov = spanish_subregion_for(self.vote_town)
+      spanish_subregion_for(self.vote_town)
     elsif in_spain?
-      prov = _province
-    else
-      prov = nil
+      _province
     end
-    prov
   end
 
   def _vote_town
-    town = nil
     if self.has_vote_town?
-      town = _vote_province.subregions.coded(self.vote_town)
+      _vote_province.subregions.coded(self.vote_town)
     elsif in_spain?
-      town = _town
-    else
-      town = nil
+      _town
     end
-    town
   end
 
   def provinces
