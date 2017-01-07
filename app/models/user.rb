@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
   end
 
   def validates_postal_code
-    if self.country == "ES"
+    if in_spain?
       if (self.postal_code =~ /^\d{5}$/) != 0
         self.errors.add(:postal_code, "El código postal debe ser un número de 5 cifras")
       else
@@ -668,7 +668,7 @@ class User < ActiveRecord::Base
       prov = nil
       if self.has_vote_town?
         prov = spanish_subregion_for(self.vote_town)
-      elsif self.country=="ES"
+      elsif in_spain?
         prov = _province
       else
         prov = nil
@@ -683,7 +683,7 @@ class User < ActiveRecord::Base
       town = nil
       if self.has_vote_town?
         town = _vote_province.subregions.coded(self.vote_town)
-      elsif self.country=="ES"
+      elsif in_spain?
         town = _town
       else
         prov = nil
