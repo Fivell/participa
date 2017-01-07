@@ -125,9 +125,6 @@ class User < ActiveRecord::Base
     # User have a valid born date
     issue ||= check_issue (self.born_at.nil? || (self.born_at == Date.civil(1900,1,1))), :edit_user_registration, { alert: "born_at"}, "registrations"
 
-    # User have a valid location
-    issue ||= check_issue self.verify_user_location, :edit_user_registration, { alert: "location"}, "registrations"
-
     # User don't have a legacy password, verify if profile is valid before request to change it
     if self.has_legacy_password?
       issue ||= check_issue self.invalid?, :edit_user_registration, nil, "registrations"
@@ -604,12 +601,6 @@ class User < ActiveRecord::Base
     else
       ""
     end
-  end
-
-  def verify_user_location()
-    return "country" if not _country
-    return "province" if not _country.subregions.empty? and not _country.subregions.coded(self.province)
-    return "town" if self.in_spain? and not _town
   end
 
   def vote_town_notice()

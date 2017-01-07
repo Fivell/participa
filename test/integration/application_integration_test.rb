@@ -75,27 +75,6 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     assert_landed_in_profile_edition
   end
 
-  test "should redirect to profile with invalid country data" do
-    @user.update_attribute(:country, "España")
-    login @user
-    assert_text "Debes indicar el país donde resides."
-    assert_landed_in_profile_edition
-  end
-
-  test "should redirect to profile with invalid province data" do
-    @user.update_attribute(:province, "Madrid")
-    login @user
-    assert_text "Debes indicar la provincia donde resides."
-    assert_landed_in_profile_edition
-  end
-
-  test "should redirect to profile with invalid town data" do
-    @user.update_attribute(:town, "Madrid")
-    login @user
-    assert_text "Debes indicar el municipio donde resides."
-    assert_landed_in_profile_edition
-  end
-
   test "should redirect to profile and allow to change vote town to foreign users" do
     @user_foreign.update_attribute(:vote_town, "NOTICE")
     login @user_foreign
