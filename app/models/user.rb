@@ -388,6 +388,10 @@ class User < ActiveRecord::Base
     self.country=="ES"
   end
 
+  def in_catalonia?
+    %w(B T L GI).include?(province) && in_spain?
+  end
+
   def country_name
     if _country
       _country.name
@@ -415,7 +419,7 @@ class User < ActiveRecord::Base
   attr_reader :catalonia_resident
 
   def catalonia_resident
-    @catalonia_resident ||= %w(B T L GI).include?(province) && in_spain?
+    @catalonia_resident ||= in_catalonia?
   end
 
   def catalonia_resident=(value)
