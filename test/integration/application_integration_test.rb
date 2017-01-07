@@ -23,7 +23,7 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
   test "should success when login with a foreign user" do
     @user.update_attribute(:country, "DE")
     @user.update_attribute(:province, "BE")
-    @user.update_attribute(:town, "Berlin")
+    @user.update_attribute(:town, nil)
     login @user
     get '/es'
     assert_response :success
@@ -32,7 +32,7 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
   test "should success when login with a rare foreign user (no provinces)" do
     @user.update_attribute(:country, "PS")
     @user.update_attribute(:province, nil)
-    @user.update_attribute(:town, "Belén")
+    @user.update_attribute(:town, nil)
     login @user
     
     get '/es'

@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
   validates :province,
             inclusion: { in: proc { |u| u.province_codes }, unless: :in_mini_country? },
             absence: { if: :in_mini_country? }
-  validates :town, presence: true, if: :in_spain?
+  validates :town, presence: { if: :in_spain? }, absence: { unless: :in_spain? }
   validates :terms_of_service, acceptance: true
   validates :age_restriction, acceptance: true
   validates :document_type,

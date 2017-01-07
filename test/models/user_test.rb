@@ -16,14 +16,16 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "validates presence of town only in Spain" do
+  test "validates presence of town for Spain users" do
     u = FactoryGirl.build(:user, country: 'ES', town: nil)
     u.valid?
     assert_includes u.errors[:town], "Tu municipio no puede estar en blanco"
+  end
 
-    u = FactoryGirl.build(:user, country: 'BR', town: nil)
+  test "validates absence of town for foreign users" do
+    u = FactoryGirl.build(:user, country: 'BR', town: 'Río de Janeiro')
     u.valid?
-    assert_empty u.errors[:town]
+    assert_includes u.errors[:town], "Tu municipio debe estar en blanco"
   end
 
   test "validates document_vatid with DNI/NIE" do 
@@ -520,15 +522,15 @@ class UserTest < ActiveSupport::TestCase
     assert_equal("Araba/Álava", user.vote_province_name)
     #assert_equal("", user.vote_ca_name)
 
-    user.update_attributes(country: "US", province: "AL", town: "Jefferson County", vote_town: "m_01_001_4")
+    user.update_attributes(country: "US", province: "AL", town: nil, vote_town: "m_01_001_4")
     assert_equal("Araba/Álava", user.vote_province_name)
     assert_equal("Alegría-Dulantzi", user.vote_town_name)
 
-    user.update_attributes(country: "US", province: "AL", town: "Jefferson County", vote_town: "m_01_")
+    user.update_attributes(country: "US", province: "AL", town: nil, vote_town: "m_01_")
     assert_equal("Araba/Álava", user.vote_province_name)
     assert_equal("", user.vote_town_name)
 
-    user.update_attributes(country: "US", province: "AL", town: "Jefferson County", vote_town: nil)
+    user.update_attributes(country: "US", province: "AL", town: nil, vote_town: nil)
     assert_equal("", user.vote_province_name)
     assert_equal("", user.vote_town_name)
   end

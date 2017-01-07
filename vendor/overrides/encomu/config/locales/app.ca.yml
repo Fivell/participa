@@ -65,6 +65,7 @@ ca:
               present: "ha d'estar en blanc"
             town:
               blank: "El teu municipi no pot estar en blanc"
+              present: "El teu municipi ha d'estar en blanco"
             address:
               blank: "La teva adreça no pot estar en blanc"
             postal_code:

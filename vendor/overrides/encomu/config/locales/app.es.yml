@@ -73,6 +73,7 @@ es:
               present: "debe estar en blanco"
             town:
               blank: "Tu municipio no puede estar en blanco"
+              present: "Tu municipio debe estar en blanco"
             address:
               blank: "Tu dirección no puede estar en blanco"
             postal_code:
