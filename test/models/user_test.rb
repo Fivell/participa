@@ -10,7 +10,7 @@ class UserTest < ActiveSupport::TestCase
   test "validates presence:true" do
     u = User.new
     u.valid?
-    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :postal_code, :province]
+    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :postal_code]
     fields.each do |type|
       assert_includes u.errors[type], I18n.t("activerecord.errors.models.user.attributes.#{type}.blank")
     end
@@ -473,6 +473,35 @@ class UserTest < ActiveSupport::TestCase
     user = FactoryGirl.create(:user)
     user.update_attributes(town: "Prueba", province: "tt")
     assert_equal("", user.province_code)    
+  end
+
+  test "province is in the list of ISO codes for the country" do
+    user = FactoryGirl.build(:user, country: "ES", province: "M")
+    assert user.valid?
+
+    user = FactoryGirl.build(:user, country: "ES", province: "Madrid")
+    assert_not user.valid?
+    assert_includes user.errors[:province], "no está incluido en la lista"
+  end
+
+  test "province is invalid unless blank if country has no regions" do
+    user = FactoryGirl.build(:user, country: "MC", province: "Patata")
+    assert_not user.valid?
+    assert_includes user.errors[:province], "debe estar en blanco"
+
+    user = FactoryGirl.build(:user, country: "MC", province: nil)
+    user.valid?
+    assert_empty user.errors[:province]
+  end
+
+  test "province is invalid unless blank if country is invalid" do
+    user = FactoryGirl.build(:user, country: "España", province: "Madrid")
+    assert_not user.valid?
+    assert_includes user.errors[:province], "debe estar en blanco"
+
+    user = FactoryGirl.build(:user, country: "España", province: nil)
+    user.valid?
+    assert_empty user.errors[:province]
   end
 
   test "vote_town_name, vote_province_name and vote_autonomy_name work" do

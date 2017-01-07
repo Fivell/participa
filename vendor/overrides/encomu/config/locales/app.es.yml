@@ -70,6 +70,7 @@ es:
               not_a_date: "No es una fecha válida. Comprueba que el formato con el que estás poniendo la fecha sea el correcto"
             province:
               blank: "Tu provincia no puede estar en blanco"
+              present: "debe estar en blanco"
             town:
               blank: "Tu municipio no puede estar en blanco"
             address:

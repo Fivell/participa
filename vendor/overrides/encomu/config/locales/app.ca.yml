@@ -62,6 +62,7 @@ ca:
               not_a_date: "No és una data vàlida. Comprova que el format amb el qual estàs escrivint la data sigui el correcte"
             province:
               blank: "La teva provincia no pot estar en blanc"
+              present: "ha d'estar en blanc"
             town:
               blank: "El teu municipi no pot estar en blanc"
             address:

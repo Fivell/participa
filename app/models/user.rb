@@ -45,8 +45,11 @@ class User < ActiveRecord::Base
   validates :email, email: true, if: :email_changed?
 
   validates :first_name, :last_name, :document_type, :document_vatid, presence: true
-  validates :postal_code, :province, :born_at, presence: true
+  validates :postal_code, :born_at, presence: true
   validates :country, inclusion: { in: Carmen::Country.all.map(&:code) }
+  validates :province,
+            inclusion: { in: proc { |u| u.province_codes }, unless: :in_mini_country? },
+            absence: { if: :in_mini_country? }
   validates :town, presence: true, if: :in_spain?
   validates :terms_of_service, acceptance: true
   validates :age_restriction, acceptance: true
@@ -392,6 +395,10 @@ class User < ActiveRecord::Base
     %w(B T L GI).include?(province) && in_spain?
   end
 
+  def in_mini_country?
+    provinces.empty?
+  end
+
   def country_name
     if _country
       _country.name
@@ -674,6 +681,10 @@ class User < ActiveRecord::Base
 
   def towns
     _province ? _province.subregions : []
+  end
+
+  def province_codes
+    provinces.map(&:code)
   end
 
   def can_request_sms_check?
