@@ -17,7 +17,9 @@ feature "UserRegistrations" do
                             postal_code: '08008')
     end
 
-    assert_location 'Badalona, Barcelona, España', User.first
+    assert_location User.first, town: 'Badalona',
+                                province: 'Barcelona',
+                                country: 'España'
   end
 
   scenario "create a user outside of Catalonia", js: true do
@@ -28,7 +30,9 @@ feature "UserRegistrations" do
                             postal_code: '02002')
     end
 
-    assert_location 'Albacete, Albacete, España', User.first
+    assert_location User.first, town: 'Albacete',
+                                province: 'Albacete',
+                                country: 'España'
   end
 
   scenario "create a user outside of Spain", js: true do
@@ -36,7 +40,7 @@ feature "UserRegistrations" do
       fill_in_location_data(country: 'Estados Unidos', province: 'Alabama')
     end
 
-    assert_location 'Alabama, Estados Unidos', User.first
+    assert_location User.first, province: 'Alabama', country: 'Estados Unidos'
   end
 
   scenario "location is preserved upon form errors", js: true do
@@ -102,17 +106,8 @@ feature "UserRegistrations" do
       I18n.t("devise.registrations.signed_up_but_unconfirmed")
   end
 
-  def assert_location(location, user)
-    components = location.split(', ')
-
-    if components.size == 3
-      town, province, country = *components
-
-      assert_equal town, user.town_name
-    else
-      province, country = *components
-    end
-
+  def assert_location(user, town: nil, province:,  country:)
+    assert_equal town, user.town_name if town
     assert_equal province, user.province_name
     assert_equal country, user.country_name
   end
