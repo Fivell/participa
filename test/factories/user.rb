@@ -74,12 +74,6 @@ FactoryGirl.define do
     sequence(:document_vatid) { |n| "83482#{n}D" }
   end
 
-  trait :foreign_address do
-    country "US"
-    province "AL"
-    town "Jefferson County"
-  end
-
   trait :island do
     province "IB"
     postal_code "07021"

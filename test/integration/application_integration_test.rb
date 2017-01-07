@@ -6,7 +6,7 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
 
   setup do
     @user = FactoryGirl.create(:user)
-    @user_foreign = FactoryGirl.create(:user, :foreign_address)
+    @user_foreign = FactoryGirl.create(:user, :foreigner)
   end
 
   test "should default_url_options locale" do
