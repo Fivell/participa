@@ -45,7 +45,8 @@ class User < ActiveRecord::Base
   validates :email, email: true, if: :email_changed?
 
   validates :first_name, :last_name, :document_type, :document_vatid, presence: true
-  validates :postal_code, :province, :country, :born_at, presence: true
+  validates :postal_code, :province, :born_at, presence: true
+  validates :country, inclusion: { in: Carmen::Country.all.map(&:code) }
   validates :town, presence: true, if: :in_spain?
   validates :terms_of_service, acceptance: true
   validates :age_restriction, acceptance: true

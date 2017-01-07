@@ -10,7 +10,7 @@ class UserTest < ActiveSupport::TestCase
   test "validates presence:true" do
     u = User.new
     u.valid?
-    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :postal_code, :province, :country]
+    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :postal_code, :province]
     fields.each do |type|
       assert_includes u.errors[type], I18n.t("activerecord.errors.models.user.attributes.#{type}.blank")
     end
@@ -453,6 +453,17 @@ class UserTest < ActiveSupport::TestCase
     assert_equal("Madrid", user.province_name)
     user = FactoryGirl.build(:user, country: "ES", province: "Patata", town: "m_28_079_6")
     assert_equal("Madrid", user.province_name)
+  end
+
+  test "country is a valid ISO code" do
+    user = FactoryGirl.build(:user, country: "ES")
+    assert user.valid?
+
+    ["España", "", nil].each do |value|
+      user = FactoryGirl.build(:user, country: value)
+      assert_not user.valid?
+      assert_includes user.errors[:country], "no está incluido en la lista"
+    end
   end
 
   test "province_code works with invalid data" do

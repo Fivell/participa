@@ -82,8 +82,6 @@ es:
               blank: "Tu código postal no puede estar en blanco"
             province: 
               blank: "Tu provincia no puede estar en blanco"
-            country: 
-              blank: "Tu país no puede estar en blanco"
             email: 
               blank: "Tu correo electrónico no puede estar en blanco"
               taken: "Hubo un error al guardar este dato. Inténtalo de nuevo"
