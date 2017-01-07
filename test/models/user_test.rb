@@ -437,15 +437,15 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "province_name work with all kind of profile data" do
-    user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user, country: "ES", province: "M", town: "m_28_079_6")
     assert_equal("Madrid", user.province_name)
-    user = FactoryGirl.build(:user, country: "FR", province: "A")
+    user = FactoryGirl.build(:user, country: "FR", province: "A", town: "m_28_079_6")
     assert_equal("Alsace", user.province_name)
-    user = FactoryGirl.build(:user, country: "España", province: "Madrid")
+    user = FactoryGirl.build(:user, country: "España", province: "Madrid", town: "m_28_079_6")
     assert_equal("Madrid", user.province_name)
-    user = FactoryGirl.build(:user, town: "Patata")
+    user = FactoryGirl.build(:user, country: "ES", province: "M", town: "Patata")
     assert_equal("Madrid", user.province_name)
-    user = FactoryGirl.build(:user, province: "Patata")
+    user = FactoryGirl.build(:user, country: "ES", province: "Patata", town: "m_28_079_6")
     assert_equal("Madrid", user.province_name)
   end
 
