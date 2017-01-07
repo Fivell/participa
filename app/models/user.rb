@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
       if (self.postal_code =~ /^\d{5}$/) != 0
         self.errors.add(:postal_code, "El código postal debe ser un número de 5 cifras")
       else
-        province = spain.subregions.coded(self.province)
+        province = spanish_regions.coded(self.province)
         if province and self.postal_code[0...2] != province.subregions[0].code[2...4]
           self.errors.add(:postal_code, "El código postal no coincide con la provincia indicada")
         end
@@ -281,7 +281,7 @@ class User < ActiveRecord::Base
   # Region in Spain whose code matches xx in a +code+ of the form ..xx.*
   #
   def self.spanish_subregion_for(code)
-    spain.subregions[code[2..3].to_i-1]
+    spanish_regions[code[2..3].to_i-1]
   end
 
   delegate :spanish_subregion_for, to: :class
@@ -378,11 +378,11 @@ class User < ActiveRecord::Base
     User::DOCUMENTS_TYPE.select{|v| v[1] == self.document_type }[0][0]
   end
 
-  def self.spain
-    Carmen::Country.coded("ES")
+  def self.spanish_regions
+    Carmen::Country.coded("ES").subregions
   end
 
-  delegate :spain, to: :class
+  delegate :spanish_regions, to: :class
 
   def in_spain?
     self.country=="ES"
@@ -535,7 +535,7 @@ class User < ActiveRecord::Base
     if value.nil? or value.empty? or value == "-"
       self.vote_town = nil
     else
-      prefix = "m_%02d_"% (spain.subregions.coded(value).index)
+      prefix = "m_%02d_"% (spanish_regions.coded(value).index)
       if self.vote_town.nil? or not self.vote_town.starts_with? prefix then
         self.vote_town = prefix
       end
