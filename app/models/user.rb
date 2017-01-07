@@ -411,7 +411,7 @@ class User < ActiveRecord::Base
     if _province
       _province.name
     else
-      self.province or ""
+      ""
     end
   end
 

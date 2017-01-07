@@ -369,13 +369,21 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "", @user.country_name
   end
 
-  test ".province_name works" do 
+  test ".province_name works when province code is valid" do 
     user = FactoryGirl.build(:user, country: "ES", province: "C", town: "m_15_006_3")
     assert_equal "A Coruña", user.province_name
     user = FactoryGirl.build(:user, country: "AR", province: "C", town: "m_15_006_3")
     assert_equal "Ciudad Autónoma de Buenos Aires", user.province_name
+  end
+
+  test ".province_name returns empty when province code is invalid" do 
     user = FactoryGirl.build(:user, country: "AR", province: "Testing", town: "m_15_006_3")
-    assert_equal "Testing", user.province_name
+    assert_equal "", user.province_name
+  end
+
+  test ".province_name returns empty when country code is invalid" do
+    user = FactoryGirl.build(:user, country: "España", province: "Madrid", town: "m_28_079_6")
+    assert_equal "", user.province_name
   end
 
   test "scope .wants_newsletter works" do 
@@ -450,8 +458,6 @@ class UserTest < ActiveSupport::TestCase
     assert_equal("Madrid", user.province_name)
     user = FactoryGirl.build(:user, country: "FR", province: "A", town: "m_28_079_6")
     assert_equal("Alsace", user.province_name)
-    user = FactoryGirl.build(:user, country: "España", province: "Madrid", town: "m_28_079_6")
-    assert_equal("Madrid", user.province_name)
     user = FactoryGirl.build(:user, country: "ES", province: "M", town: "Patata")
     assert_equal("Madrid", user.province_name)
     user = FactoryGirl.build(:user, country: "ES", province: "Patata", town: "m_28_079_6")
