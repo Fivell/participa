@@ -167,6 +167,8 @@ es:
           name: "Esplugues de Llobregat"
         m_08_078_7:
           name: "Espunyola, L'"
+        m_08_254_1:
+          name: "Esquirol, L'"
         m_08_079_0:
           name: "Estany, L'"
         m_08_134_7:
@@ -519,8 +521,6 @@ es:
           name: "Santa Margarida i els Monjos"
         m_08_253_6:
           name: "Santa Maria de Besora"
-        m_08_254_1:
-          name: "Santa Maria de Corcó"
         m_08_256_7:
           name: "Santa Maria de Martorelles"
         m_08_255_4:

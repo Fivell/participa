@@ -24,7 +24,7 @@ es:
         m_12_011_5:
           name: "Almenara"
         m_12_901_8:
-          name: "Alquerías del Niño Perdido"
+          name: "Alqueries, les/Alquerías del Niño Perdido"
         m_12_012_0:
           name: "Altura"
         m_12_013_6:
@@ -50,7 +50,7 @@ es:
         m_12_025_2:
           name: "Benafigos"
         m_12_026_5:
-          name: "Benasal"
+          name: "Benassal"
         m_12_027_1:
           name: "Benicarló"
         m_12_028_7:
@@ -85,8 +85,6 @@ es:
           name: "Caudiel"
         m_12_044_5:
           name: "Cervera del Maestre"
-        m_12_052_1:
-          name: "Chert/Xert"
         m_12_053_7:
           name: "Chilches/Xilxes"
         m_12_055_5:
@@ -266,9 +264,11 @@ es:
         m_12_138_4:
           name: "Vinaròs"
         m_12_139_7:
-          name: "Vistabella del Maestrazgo"
+          name: "Vistabella del Maestrat"
         m_12_140_1:
           name: "Viver"
+        m_12_052_1:
+          name: "Xert"
         m_12_141_8:
           name: "Zorita del Maestrazgo"
         m_12_142_3:

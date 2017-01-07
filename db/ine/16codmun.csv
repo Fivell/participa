@@ -136,7 +136,6 @@
 02,084,8,Villaverde de Guadalimar
 02,085,1,Viveros
 02,086,4,Yeste
-03,001,5,Adsubia
 03,002,0,Agost
 03,003,6,Agres
 03,004,1,Aigües
@@ -155,6 +154,7 @@
 03,017,1,"Alqueria d'Asnar, l'"
 03,018,7,Altea
 03,019,0,Aspe
+03,001,5,"Atzúbia, l'"
 03,020,4,Balones
 03,021,1,Banyeres de Mariola
 03,022,6,Benasau
@@ -296,6 +296,7 @@
 04,017,6,Arboleas
 04,018,2,Armuña de Almanzora
 04,019,5,Bacares
+04,904,7,Balanegra
 04,020,9,Bayárcal
 04,021,6,Bayarque
 04,022,1,Bédar
@@ -848,7 +849,7 @@
 07,051,1,Sant Llorenç des Cardassar
 07,052,6,Sant Lluís
 07,053,2,Santa Eugènia
-07,054,7,Santa Eulalia del Río
+07,054,7,Santa Eulària des Riu
 07,055,0,Santa Margalida
 07,056,3,Santa María del Camí
 07,057,9,Santanyí
@@ -941,6 +942,7 @@
 08,076,5,Esparreguera
 08,077,1,Esplugues de Llobregat
 08,078,7,"Espunyola, L'"
+08,254,1,"Esquirol, L'"
 08,079,0,"Estany, L'"
 08,134,7,Figaró-Montmany
 08,080,4,Fígols
@@ -1117,7 +1119,6 @@
 08,250,8,Santa Margarida de Montbui
 08,251,5,Santa Margarida i els Monjos
 08,253,6,Santa Maria de Besora
-08,254,1,Santa Maria de Corcó
 08,256,7,Santa Maria de Martorelles
 08,255,4,Santa Maria de Merlès
 08,257,3,Santa Maria de Miralles
@@ -1243,7 +1244,7 @@
 09,085,3,Castrillo de la Vega
 09,088,8,Castrillo de Riopisuerga
 09,086,6,Castrillo del Val
-09,090,5,Castrillo Matajudíos
+09,090,5,Castrillo Mota de Judíos
 09,091,2,Castrojeriz
 09,063,9,Cavia
 09,093,3,Cayuela
@@ -1693,6 +1694,7 @@
 10,150,6,Portaje
 10,151,3,Portezuelo
 10,152,8,Pozuelo de Zarzón
+10,905,5,Pueblonuevo de Miramontes
 10,153,4,Puerto de Santa Cruz
 10,154,9,Rebollar
 10,155,2,Riolobos
@@ -1817,7 +1819,7 @@
 12,009,4,Almazora/Almassora
 12,010,8,Almedíjar
 12,011,5,Almenara
-12,901,8,Alquerías del Niño Perdido
+12,901,8,"Alqueries, les/Alquerías del Niño Perdido"
 12,012,0,Altura
 12,013,6,Arañuel
 12,014,1,Ares del Maestrat
@@ -1830,7 +1832,7 @@
 12,022,8,Bejís
 12,024,9,Benafer
 12,025,2,Benafigos
-12,026,5,Benasal
+12,026,5,Benassal
 12,027,1,Benicarló
 12,028,7,Benicasim/Benicàssim
 12,029,0,Benlloch
@@ -1848,7 +1850,6 @@
 12,042,4,Catí
 12,043,0,Caudiel
 12,044,5,Cervera del Maestre
-12,052,1,Chert/Xert
 12,053,7,Chilches/Xilxes
 12,055,5,Chodos/Xodos
 12,056,8,Chóvar
@@ -1938,8 +1939,9 @@
 12,133,1,Villanueva de Viver
 12,137,8,Villores
 12,138,4,Vinaròs
-12,139,7,Vistabella del Maestrazgo
+12,139,7,Vistabella del Maestrat
 12,140,1,Viver
+12,052,1,Xert
 12,141,8,Zorita del Maestrazgo
 12,142,3,Zucaina
 13,001,3,Abenójar
@@ -2728,10 +2730,12 @@
 18,057,3,Cúllar Vega
 18,063,4,Darro
 18,064,9,Dehesas de Guadix
+18,065,2,Dehesas Viejas
 18,066,5,Deifontes
 18,067,1,Diezma
 18,068,7,Dílar
 18,069,0,Dólar
+18,915,4,Domingo Pérez de Granada
 18,070,4,Dúdar
 18,071,1,Dúrcal
 18,072,6,Escúzar
@@ -2748,9 +2752,9 @@
 18,087,7,Granada
 18,088,3,Guadahortuna
 18,089,6,Guadix
-18,906,9,"Guajares, Los"
+18,906,9,"Guájares, Los"
 18,093,8,Gualchos
-18,094,3,Güejar Sierra
+18,094,3,Güéjar Sierra
 18,095,6,Güevéjar
 18,096,9,Huélago
 18,097,5,Huéneja
@@ -2759,8 +2763,9 @@
 18,100,8,Huétor Tájar
 18,101,5,Huétor Vega
 18,102,0,Illora
-18,103,6,Itrabo
+18,103,6,Ítrabo
 18,105,4,Iznalloz
+18,106,7,Játar
 18,107,3,Jayena
 18,108,9,Jerez del Marquesado
 18,109,2,Jete
@@ -2824,6 +2829,7 @@
 18,180,1,Trevélez
 18,181,8,Turón
 18,182,3,Ugíjar
+18,914,1,Valderrubio
 18,907,5,Valle del Zalabí
 18,902,2,"Valle, El"
 18,183,9,Válor
@@ -3155,7 +3161,7 @@
 20,022,4,Berastegi
 20,074,4,Bergara
 20,023,0,Berrobi
-20,024,5,Bidegoian
+20,024,5,Bidania-Goiatz
 20,029,6,Deba
 20,069,7,Donostia/San Sebastián
 20,030,0,Eibar
@@ -3201,7 +3207,7 @@
 20,062,5,Ormaiztegi
 20,064,6,Pasaia
 20,070,1,Segura
-20,065,9,Soraluze/Placencia de las Armas
+20,065,9,Soraluze-Placencia de las Armas
 20,071,8,Tolosa
 20,072,3,Urnieta
 20,077,6,Urretxu
@@ -3475,7 +3481,7 @@
 22,227,7,Tella-Sin
 22,228,3,Tierz
 22,229,6,Tolva
-22,230,0,Torla
+22,230,0,Torla-Ordesa
 22,232,2,Torralba de Aragón
 22,233,8,Torre la Ribera
 22,234,3,Torrente de Cinca
@@ -3577,8 +3583,8 @@
 23,081,4,Segura de la Sierra
 23,082,9,Siles
 23,084,0,Sorihuela del Guadalimar
-23,086,6,Torre del Campo
 23,085,3,Torreblascopedro
+23,086,6,Torredelcampo
 23,087,2,Torredonjimeno
 23,088,8,Torreperogil
 23,090,5,Torres
@@ -4528,6 +4534,7 @@
 29,071,2,Moclinejo
 29,072,7,Mollina
 29,073,3,Monda
+29,903,9,Montecorto
 29,074,8,Montejaque
 29,075,1,Nerja
 29,076,4,Ojén
@@ -4541,6 +4548,7 @@
 29,085,9,Salares
 29,086,2,Sayalonga
 29,087,8,Sedella
+29,904,4,Serrato
 29,088,4,Sierra de Yeguas
 29,089,7,Teba
 29,090,1,Tolox
@@ -4691,7 +4699,6 @@
 31,081,1,Donamaria
 31,221,2,Doneztebe/Santesteban
 31,083,2,Echarri
-31,086,3,Egüés
 31,087,9,Elgorriaga
 31,089,8,Enériz/Eneritz
 31,090,2,Eratsun
@@ -4704,7 +4711,7 @@
 31,098,3,Esteribar
 31,099,6,Etayo
 31,082,6,Etxalar
-31,084,7,Etxarri-Aranatz
+31,084,7,Etxarri Aranatz
 31,085,0,Etxauri
 31,100,0,Eulate
 31,101,7,Ezcabarte
@@ -4798,7 +4805,7 @@
 31,185,9,Ochagavía/Otsagabia
 31,184,6,Oco
 31,186,2,Odieta
-31,187,8,Oitz
+31,187,8,Oiz
 31,188,4,Olaibar
 31,189,7,Olazti/Olazagutía
 31,190,1,Olejua
@@ -4844,7 +4851,7 @@
 31,232,5,Tudela
 31,233,1,Tulebras
 31,234,6,Ucar
-31,123,4,Uharte-Arakil
+31,123,4,Uharte Arakil
 31,235,9,Ujué
 31,236,2,Ultzama
 31,237,8,Unciti
@@ -4853,11 +4860,12 @@
 31,240,1,Urdiain
 31,241,8,Urraul Alto
 31,242,3,Urraul Bajo
-31,244,4,Urrotz
+31,244,4,Urroz
 31,243,9,Urroz-Villa
 31,245,7,Urzainqui/Urzainki
 31,246,0,Uterga
 31,247,6,Uztárroz/Uztarroze
+31,086,3,Valle de Egüés/Eguesibar
 31,260,6,Valle de Yerri/Deierri
 31,249,5,Valtierra
 31,251,5,Viana
@@ -5744,7 +5752,7 @@
 38,050,4,Vallehermoso
 38,048,8,Valverde
 38,051,1,"Victoria de Acentejo, La"
-38,052,6,Vilaflor
+38,052,6,Vilaflor de Chasna
 38,053,2,Villa de Mazo
 39,001,5,Alfoz de Lloredo
 39,002,0,Ampuero
@@ -6111,7 +6119,7 @@
 41,050,8,Herrera
 41,051,5,Huévar del Aljarafe
 41,902,2,Isla Mayor
-41,052,0,"Lantejuela, La"
+41,052,0,Lantejuela
 41,053,6,Lebrija
 41,054,1,Lora de Estepa
 41,055,4,Lora del Río
@@ -7164,7 +7172,7 @@
 46,200,9,"Pobla del Duc, la"
 46,203,7,"Pobla Llarga, la"
 46,197,6,Polinyà de Xúquer
-46,198,2,Potríes
+46,198,2,Potries
 46,205,5,Puçol
 46,201,6,Puebla de San Miguel
 46,204,2,"Puig de Santa Maria, el"
@@ -7555,7 +7563,7 @@
 48,082,8,Santurtzi
 48,084,9,Sestao
 48,904,7,Sondika
-48,085,2,Sopelana
+48,085,2,Sopela
 48,086,5,Sopuerta
 48,076,7,Sukarrieta
 48,087,1,Trucios-Turtzioz
@@ -8115,4 +8123,3 @@
 50,298,9,Zuera
 51,001,3,Ceuta
 52,001,8,Melilla
-18,914,1,Valderrubio

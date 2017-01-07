@@ -179,8 +179,6 @@
   type: municipality
 - code: m_31_083_2
   type: municipality
-- code: m_31_086_3
-  type: municipality
 - code: m_31_087_9
   type: municipality
 - code: m_31_089_8
@@ -512,6 +510,8 @@
 - code: m_31_246_0
   type: municipality
 - code: m_31_247_6
+  type: municipality
+- code: m_31_086_3
   type: municipality
 - code: m_31_260_6
   type: municipality

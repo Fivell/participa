@@ -1,6 +1,4 @@
 ---
-- code: m_03_001_5
-  type: municipality
 - code: m_03_002_0
   type: municipality
 - code: m_03_003_6
@@ -36,6 +34,8 @@
 - code: m_03_018_7
   type: municipality
 - code: m_03_019_0
+  type: municipality
+- code: m_03_001_5
   type: municipality
 - code: m_03_020_4
   type: municipality
