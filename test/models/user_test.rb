@@ -381,9 +381,13 @@ class UserTest < ActiveSupport::TestCase
   test ".province_name returns empty when province code is invalid" do 
     user = FactoryGirl.build(:user, country: "AR", province: "Testing", town: "m_15_006_3")
     assert_equal "", user.province_name
+    user = FactoryGirl.build(:user, country: "ES", province: "Patata", town: "m_28_079_6")
+    assert_equal "", user.province_name
   end
 
   test ".province_name returns empty when country code is invalid" do
+    user = FactoryGirl.build(:user, country: "España", province: "M", town: "m_28_079_6")
+    assert_equal "", user.province_name
     user = FactoryGirl.build(:user, country: "España", province: "Madrid", town: "m_28_079_6")
     assert_equal "", user.province_name
   end
@@ -461,8 +465,6 @@ class UserTest < ActiveSupport::TestCase
     user = FactoryGirl.build(:user, country: "FR", province: "A", town: "m_28_079_6")
     assert_equal("Alsace", user.province_name)
     user = FactoryGirl.build(:user, country: "ES", province: "M", town: "Patata")
-    assert_equal("Madrid", user.province_name)
-    user = FactoryGirl.build(:user, country: "ES", province: "Patata", town: "m_28_079_6")
     assert_equal("Madrid", user.province_name)
   end
 

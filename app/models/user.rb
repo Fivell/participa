@@ -640,7 +640,6 @@ class User < ActiveRecord::Base
 
   def _province
     prov = nil
-    prov = spanish_subregion_for(self.town) if self.in_spain? and self.town.downcase.starts_with? "m_"
     prov = provinces.coded(self.province) if prov.nil? and self.province and not provinces.empty?
     prov
   end
