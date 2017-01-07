@@ -17,29 +17,29 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "validate presence of town only in Spain" do
-    u = User.new(country: 'ES')
+    u = FactoryGirl.build(:user, country: 'ES', town: nil)
     u.valid?
     assert_includes u.errors[:town], I18n.t("activerecord.errors.models.user.attributes.town.blank")
 
-    u = User.new(country: 'BR')
+    u = FactoryGirl.build(:user, country: 'BR', town: nil)
     u.valid?
     assert_empty u.errors[:town]
   end
 
   test "document_vatid validates with DNI/NIE" do 
-    u = User.new(document_type: 1, document_vatid: "222222E")
+    u = FactoryGirl.build(:user, document_type: 1, document_vatid: "222222E")
     u.valid?
     assert_includes u.errors[:document_vatid], "El DNI no es válido"
 
-    u = User.new(document_type: 2, document_vatid: "222222E")
+    u = FactoryGirl.build(:user, document_type: 2, document_vatid: "222222E")
     u.valid?
     assert_includes u.errors[:document_vatid], "El NIE no es válido"
 
-    u = User.new(document_type: 1, document_vatid: "99115002K")
+    u = FactoryGirl.build(:user, document_type: 1, document_vatid: "99115002K")
     u.valid?
     assert(u.errors[:document_vatid] == [])
 
-    u = User.new(document_type: 2, document_vatid: "Z4901305X")
+    u = FactoryGirl.build(:user, document_type: 2, document_vatid: "Z4901305X")
     u.valid?
     assert(u.errors[:document_vatid] == [])
   end
@@ -130,48 +130,48 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "accept terms of service and age_restriction" do
-    u = User.new(terms_of_service: false, age_restriction: false)
+    u = FactoryGirl.build(:user, terms_of_service: false, age_restriction: false)
     u.valid?
     assert_includes u.errors[:terms_of_service], "Debes aceptar las condiciones"
     assert_includes u.errors[:age_restriction], "Debes declarar que eres mayor de 16 años"
   end
 
   test "be over 16 years old" do
-    u = User.new(born_at: Date.today - (16.years - 1.day))
+    u = FactoryGirl.build(:user, born_at: Date.today - (16.years - 1.day))
     u.valid?
     assert_includes u.errors[:born_at], "debes ser mayor de 16 años"
-    u = User.new(born_at: Date.civil(1888, 2, 1))
+    u = FactoryGirl.build(:user, born_at: Date.civil(1888, 2, 1))
     u.valid?
     assert_includes u.errors[:born_at], "debes ser mayor de 16 años"
-    u = User.new(born_at: Date.today - (16.years + 1.day))
+    u = FactoryGirl.build(:user, born_at: Date.today - (16.years + 1.day))
     u.valid?
     assert(u.errors[:born_at], [])
   end
 
   test "document_type inclusion work" do
-    u = User.new(document_type: 4)
+    u = FactoryGirl.build(:user, document_type: 4)
     u.valid? 
     assert_includes u.errors[:document_type],  "Tipo de documento no válido"
 
-    u = User.new(document_type: 0)
+    u = FactoryGirl.build(:user, document_type: 0)
     u.valid? 
     assert_includes u.errors[:document_type],  "Tipo de documento no válido"
 
-    u = User.new(document_type: 1)
+    u = FactoryGirl.build(:user, document_type: 1)
     u.valid? 
     assert_empty u.errors[:document_type]
 
-    u = User.new(document_type: 2)
+    u = FactoryGirl.build(:user, document_type: 2)
     u.valid? 
     assert_empty u.errors[:document_type]
 
-    u = User.new(document_type: 3)
+    u = FactoryGirl.build(:user, document_type: 3)
     u.valid? 
     assert_empty u.errors[:document_type]
   end
 
   test ".document_type not give redundant errors" do
-    u = User.new(document_type: '')
+    u = FactoryGirl.build(:user, document_type: '')
     u.valid?
     assert_equal ["Tu tipo de documento no puede estar en blanco"],
                  u.errors[:document_type]
