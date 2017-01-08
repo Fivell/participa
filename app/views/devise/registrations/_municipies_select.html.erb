@@ -8,7 +8,7 @@
     <% placeholder = "-- #{t('bec.registration.choose_town')} --" %>
     <%= select_tag "user[town]",
                    options_from_collection_for_select(towns, "code", "name", town),
-                   {required: "required", data: {placeholder: placeholder}, prompt: placeholder } %>
+                   required: "required", data: {placeholder: placeholder}, prompt: placeholder %>
     <% if resource %>
       <span class="help-block">
         <%= resource.errors[:town].join(', ') %>
