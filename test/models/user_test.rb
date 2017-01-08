@@ -19,7 +19,7 @@ class UserTest < ActiveSupport::TestCase
   test "validates presence of town only in Spain" do
     u = FactoryGirl.build(:user, country: 'ES', town: nil)
     u.valid?
-    assert_includes u.errors[:town], I18n.t("activerecord.errors.models.user.attributes.town.blank")
+    assert_includes u.errors[:town], "Tu municipio no puede estar en blanco"
 
     u = FactoryGirl.build(:user, country: 'BR', town: nil)
     u.valid?
