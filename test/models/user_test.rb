@@ -252,7 +252,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   if Rails.application.secrets.features["verification_sms"]
-    test ".validates_unconfirmed_phone_phone_uniqueness" do
+    test ".validates_unconfirmed_phone_uniqueness" do
       phone = "0034612345678"
       @user.update_attribute(:phone, phone)
       user = FactoryGirl.create(:user)
