@@ -437,7 +437,7 @@ class User < ActiveRecord::Base
     if _town
       _town.name
     else
-      self.town or ""
+      ""
     end
   end
 

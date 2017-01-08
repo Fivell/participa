@@ -392,6 +392,11 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "", user.province_name
   end
 
+  test ".town_name returns empty when town code is invalid" do
+    user = FactoryGirl.build(:user, country: "ES", province: "M", town: "mm_28_079_6")
+    assert_equal "", user.town_name
+  end
+
   test "scope .wants_newsletter works" do 
     assert_equal 2, User.wants_newsletter.count
     FactoryGirl.create(:user, :no_newsletter_user)
