@@ -83,10 +83,6 @@ $(function() {
       show_towns( 'user_province', 'user_town', $country.val(), $(this).val(), 'regions' );
     });
 
-    if ($('select#user_province').is(':disabled')) {
-      $country.trigger('change');
-    }
-
     if (can_change_vote_location) {
       toggle_vote_town($country.val());
       $('select#user_vote_province').on('change', function() {
