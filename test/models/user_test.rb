@@ -205,17 +205,23 @@ class UserTest < ActiveSupport::TestCase
     assert new_admin.is_admin?
   end
 
-  test "phone be numeric or nil work" do
+  test "phone be nil work" do
     @user.phone = nil
     assert @user.valid?
+  end
+
+  test "phone be numeric work" do
     @user.phone = "aaaa"
     assert_not @user.valid?
     assert_includes @user.errors[:phone], "Revisa el formato de tu teléfono"
   end
 
-  test "unconfirmed_phone be numeric or nil work" do
+  test "unconfirmed_phone be nil work" do
     @user.unconfirmed_phone = nil
     assert @user.valid?
+  end
+
+  test "unconfirmed_phone be numeric work" do
     @user.unconfirmed_phone = "aaaa"
     assert_not @user.valid?
     assert_includes @user.errors[:unconfirmed_phone], "Revisa el formato de tu teléfono"
