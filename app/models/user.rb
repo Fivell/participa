@@ -616,7 +616,7 @@ class User < ActiveRecord::Base
     elsif in_spain?
       town = _town
     else
-      prov = nil
+      town = nil
     end
     town
   end
