@@ -420,7 +420,6 @@ class UserTest < ActiveSupport::TestCase
     assert user1.valid?
     user1.save
 
-
     # don't allow save after the @user is created again (uniqueness is working)
     user2 = FactoryGirl.build(:user, email: @user.email, document_vatid: @user.document_vatid, phone: @user.phone)
     assert_not user2.valid?
