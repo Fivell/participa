@@ -84,7 +84,7 @@ ca:
             current_password:
               blank: "Has d'indicar la teva contrasenya per validar els canvis."
             age_restriction:
-              accepted: "Has declarar que ets major de 16 anys"
+              accepted: "Has de declarar que ets major de 16 anys"
             terms_of_service:
               accepted: "Has d'acceptar les condicions"
     attributes:
