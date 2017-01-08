@@ -31,6 +31,13 @@ FactoryGirl.define do
     flags 0
   end
 
+  trait :catalan do
+    country "ES"
+    province "B"
+    town "m_08_019_3"
+    postal_code "08001"
+  end
+
   trait :spanish do
     country "ES"
     province "M"
