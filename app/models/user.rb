@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
   has_many :microcredit_loans
   has_many :verificated_users, class_name: "User", foreign_key: "verified_by_id"
 
+  belongs_to :catalan_town, foreign_key: :town, primary_key: :code
+
   extend Enumerize
   enumerize :gender_identity,
             in: %i(cis_man cis_woman trans_man trans_woman fluid)
@@ -51,6 +53,7 @@ class User < ActiveRecord::Base
             inclusion: { in: proc { |u| u.province_codes }, unless: :in_mini_country? },
             absence: { if: :in_mini_country? }
   validates :town, presence: { if: :in_spain? }, absence: { unless: :in_spain? }
+  validates :catalan_town, presence: { if: :in_catalonia? }, absence: { unless: :in_catalonia? }
   validates :terms_of_service, acceptance: true
   validates :age_restriction, acceptance: true
   validates :document_type,
@@ -406,6 +409,8 @@ class User < ActiveRecord::Base
   def province_name
     _province ? _province.name : ""
   end
+
+  delegate :comarca_code, :vegueria_code, :amb, to: :catalan_town, allow_nil: true
 
   def province_code
     self.in_spain? && _province ? "p_%02d" % + _province.index : ""

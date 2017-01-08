@@ -11,13 +11,18 @@ feature "UserRegistrations" do
   end
 
   scenario "create a user in Catalonia", js: true do
-    @user = FactoryGirl.build(:user, :catalan, town: 'm_08_015_5')
+    @user = FactoryGirl.build(:user, :catalan, town: 'm_08_015_5',
+                                               comarca: 13,
+                                               vegueria: 'AT01')
 
     base_register(@user) { fill_in_location_data(@user) }
 
     assert_location User.first, town: 'Badalona',
                                 province: 'Barcelona',
                                 country: 'España'
+
+    assert User.first.comarca_code, 13
+    assert User.first.vegueria_code, 'AT01'
   end
 
   scenario "create a user outside of Catalonia", js: true do
