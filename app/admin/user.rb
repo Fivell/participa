@@ -442,6 +442,10 @@ ActiveAdmin.register User do
   end
 
   controller do
+    def scoped_collection
+      super.includes(:catalan_town)
+    end
+
     def show
       @user = User.with_deleted.find(params[:id])
       @versions = @user.versions
