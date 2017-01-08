@@ -434,7 +434,7 @@ class User < ActiveRecord::Base
   end
 
   def town_name
-    if self.in_spain? and _town
+    if _town
       _town.name
     else
       self.town or ""
