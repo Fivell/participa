@@ -45,6 +45,14 @@ feature "UserRegistrations" do
     assert_location User.first, province: 'Alabama', country: 'Estados Unidos'
   end
 
+  scenario "create a user in a country without regions", js: true do
+    @user = FactoryGirl.build(:user, :foreigner, country: 'MC', province: nil)
+
+    base_register(@user) { fill_in_location_data(@user) }
+
+    assert_location User.first, province: '', country: 'Mónaco'
+  end
+
   scenario "location is preserved upon form errors", js: true do
     @user = FactoryGirl.build(:user, :foreigner, country: 'US', province: 'AL')
 

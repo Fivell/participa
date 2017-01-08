@@ -35,8 +35,10 @@ module Participa
           select(user.country_name, from: 'País')
         end
 
-        assert page.has_select?('Provincia', with_options: [user.province_name])
-        select(user.province_name, from: 'Provincia')
+        if user.province
+          assert page.has_select?('Provincia', with_options: [user.province_name])
+          select(user.province_name, from: 'Provincia')
+        end
 
         if user.in_spain?
           assert page.has_select?('Municipio', with_options: [user.town_name])
