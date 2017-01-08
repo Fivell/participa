@@ -430,6 +430,10 @@ class User < ActiveRecord::Base
     _town ? _town.name : ""
   end
 
+  def town_idescat_code
+    town ? town.gsub(/[m_]/, '').to_i : ""
+  end
+
   def autonomy_code
     if self.in_spain? and _province
       Podemos::GeoExtra::AUTONOMIES[self.province_code][0]
