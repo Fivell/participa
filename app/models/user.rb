@@ -590,7 +590,7 @@ class User < ActiveRecord::Base
   end
 
   def _town
-    towns.coded(self.town) if self.in_spain? and not towns.empty?
+    towns.coded(self.town) if self.town and not towns.empty?
   end
 
   def _vote_province
