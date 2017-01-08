@@ -5,8 +5,6 @@ module Participa
         @old_always_pass = SimpleCaptcha.always_pass
         SimpleCaptcha.always_pass = false
 
-        @user = FactoryGirl.build(:user)
-
         super
       end
 

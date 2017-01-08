@@ -4,6 +4,12 @@ require "features/concerns/registration_helpers"
 feature "UserRegistrations" do
   include Participa::Test::RegistrationHelpers
 
+  def setup
+    super
+
+    @user = FactoryGirl.build(:user)
+  end
+
   scenario "catalonia_residence is checked by default", js: true do
     visit new_user_registration_path
 
