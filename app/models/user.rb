@@ -634,13 +634,13 @@ class User < ActiveRecord::Base
   def _province
     prov = nil
     prov = spanish_subregion_for(self.town) if self.in_spain? and self.town.downcase.starts_with? "m_"
-    prov = _country.subregions.coded(self.province) if prov.nil? and _country and self.province and not _country.subregions.empty?
+    prov = provinces.coded(self.province) if prov.nil? and self.province and not provinces.empty?
     prov
   end
 
   def _town
     town = nil
-    town = _province.subregions.coded(self.town) if self.in_spain? and _province
+    town = towns.coded(self.town) if self.in_spain? and not towns.empty?
     town
   end
 
@@ -666,6 +666,14 @@ class User < ActiveRecord::Base
       prov = nil
     end
     town
+  end
+
+  def provinces
+    _country ? _country.subregions : []
+  end
+
+  def towns
+    _province ? _province.subregions : []
   end
 
   def can_request_sms_check?
