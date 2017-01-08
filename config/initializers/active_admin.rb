@@ -171,16 +171,6 @@ ActiveAdmin.setup do |config|
   #   config.register_javascript 'my_javascript.js'
   config.register_javascript 'admin/podemos.js'
 
-
-  # == CSV options
-  #
-  # Set the CSV builder separator
-  config.csv_options = { :col_sep => '\t' }
-  #
-  # Force the use of quotes
-  config.csv_options = { :force_quotes => false }
-
-
   # == Menu System
   #
   # You can add a navigation menu to be used in your application, or configure a provided menu
