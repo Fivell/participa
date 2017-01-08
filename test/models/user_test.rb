@@ -327,7 +327,7 @@ class UserTest < ActiveSupport::TestCase
     assert( @user.confirmation_sms_sent_at - DateTime.now  > -10 )
   end
 
-  test ".check_sms_token and ActiveAdmin::Comment" do
+  test ".check_sms_token" do
     u = FactoryGirl.create(:user)
     u.set_sms_token!
     token = u.sms_confirmation_token
