@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable, :timeoutable,
          :recoverable, :rememberable, :trackable, :lockable
 
-  before_update :_clear_caches
   before_save :before_save
 
   acts_as_paranoid
@@ -627,65 +626,45 @@ class User < ActiveRecord::Base
     admin_user_path(self)
   end
 
-  def _clear_caches
-    remove_instance_variable :@country_cache if defined? @country_cache
-    remove_instance_variable :@province_cache if defined? @province_cache
-    remove_instance_variable :@town_cache if defined? @town_cache
-    remove_instance_variable :@vote_province_cache if defined? @vote_province_cache
-    remove_instance_variable :@vote_town_cache if defined? @vote_town_cache
-  end
-
   def _country
-    @country_cache ||= Carmen::Country.coded(self.country)
+    Carmen::Country.coded(self.country)
   end
 
   def _province
-    @province_cache = begin
-      prov = nil
-      prov = spanish_subregion_for(self.town) if self.in_spain? and self.town.downcase.starts_with? "m_"
-      prov = _country.subregions.coded(self.province) if prov.nil? and _country and self.province and not _country.subregions.empty?
-      prov
-    end if not defined? @province_cache
-    @province_cache
+    prov = nil
+    prov = spanish_subregion_for(self.town) if self.in_spain? and self.town.downcase.starts_with? "m_"
+    prov = _country.subregions.coded(self.province) if prov.nil? and _country and self.province and not _country.subregions.empty?
+    prov
   end
 
   def _town
-    @town_cache = begin
-      town = nil
-      town = _province.subregions.coded(self.town) if self.in_spain? and _province
-      town
-    end if not defined? @town_cache
-    @town_cache
+    town = nil
+    town = _province.subregions.coded(self.town) if self.in_spain? and _province
+    town
   end
 
   def _vote_province
-    @vote_province_cache = begin
+    prov = nil
+    if self.has_vote_town?
+      prov = spanish_subregion_for(self.vote_town)
+    elsif in_spain?
+      prov = _province
+    else
       prov = nil
-      if self.has_vote_town?
-        prov = spanish_subregion_for(self.vote_town)
-      elsif in_spain?
-        prov = _province
-      else
-        prov = nil
-      end
-      prov
-    end if not defined? @vote_province_cache
-    @vote_province_cache
+    end
+    prov
   end
 
   def _vote_town
-    @vote_town_cache = begin
-      town = nil
-      if self.has_vote_town?
-        town = _vote_province.subregions.coded(self.vote_town)
-      elsif in_spain?
-        town = _town
-      else
-        prov = nil
-      end
-      town
-    end if not defined? @vote_town_cache
-    @vote_town_cache
+    town = nil
+    if self.has_vote_town?
+      town = _vote_province.subregions.coded(self.vote_town)
+    elsif in_spain?
+      town = _town
+    else
+      prov = nil
+    end
+    town
   end
 
   def can_request_sms_check?
