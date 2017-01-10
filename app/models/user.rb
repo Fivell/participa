@@ -416,8 +416,6 @@ class User < ActiveRecord::Base
     self.in_spain? && _province ? "p_%02d" % + _province.index : ""
   end
 
-  attr_reader :catalonia_resident
-
   def catalonia_resident
     @catalonia_resident ||= in_catalonia?
   end
