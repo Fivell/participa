@@ -62,8 +62,10 @@ ca:
               not_a_date: "No és una data vàlida. Comprova que el format amb el qual estàs escrivint la data sigui el correcte"
             province:
               blank: "La teva provincia no pot estar en blanc"
+              present: "ha d'estar en blanc"
             town:
               blank: "El teu municipi no pot estar en blanc"
+              present: "El teu municipi ha d'estar en blanco"
             address:
               blank: "La teva adreça no pot estar en blanc"
             postal_code:
@@ -82,7 +84,7 @@ ca:
             current_password:
               blank: "Has d'indicar la teva contrasenya per validar els canvis."
             age_restriction:
-              accepted: "Has declarar que ets major de 16 anys"
+              accepted: "Has de declarar que ets major de 16 anys"
             terms_of_service:
               accepted: "Has d'acceptar les condicions"
     attributes:

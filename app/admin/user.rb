@@ -256,16 +256,14 @@ ActiveAdmin.register User do
 
   form partial: "form"
 
-  csv do
+  csv column_names: false do
     column :id
-    column("Nombre") { |u| u.full_name }
-    column :email
-    column :document_vatid
-    column :address
-    column :postal_code
-    column :phone
-    column :current_sign_in_ip
-    column :last_sign_in_ip
+    column :town_idescat_code
+    column :comarca_code
+    column :vegueria_code
+    column :amb
+    column(:year) { |u| u.born_at.strftime("%Y") }
+    column :gender_identity
   end
 
   action_item(:edit, :only => :show) do
@@ -444,6 +442,10 @@ ActiveAdmin.register User do
   end
 
   controller do
+    def scoped_collection
+      super.includes(:catalan_town)
+    end
+
     def show
       @user = User.with_deleted.find(params[:id])
       @versions = @user.versions

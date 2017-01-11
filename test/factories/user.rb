@@ -31,6 +31,24 @@ FactoryGirl.define do
     flags 0
   end
 
+  trait :catalan do
+    transient do
+      comarca 13
+      vegueria "AT01"
+    end
+
+    country "ES"
+    province "B"
+    town "m_08_019_3"
+    postal_code "08001"
+
+    catalan_town do
+      create(:catalan_town, code: town,
+                            comarca_code: comarca,
+                            vegueria_code: vegueria)
+    end
+  end
+
   trait :spanish do
     country "ES"
     province "M"
@@ -72,12 +90,6 @@ FactoryGirl.define do
   trait :foreign do
     document_type 3
     sequence(:document_vatid) { |n| "83482#{n}D" }
-  end
-
-  trait :foreign_address do
-    country "US"
-    province "AL"
-    town "Jefferson County"
   end
 
   trait :island do

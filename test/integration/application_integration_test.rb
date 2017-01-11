@@ -6,7 +6,7 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
 
   setup do
     @user = FactoryGirl.create(:user)
-    @user_foreign = FactoryGirl.create(:user, :foreign_address)
+    @user_foreign = FactoryGirl.create(:user, :foreigner)
   end
 
   test "should default_url_options locale" do
@@ -23,7 +23,7 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
   test "should success when login with a foreign user" do
     @user.update_attribute(:country, "DE")
     @user.update_attribute(:province, "BE")
-    @user.update_attribute(:town, "Berlin")
+    @user.update_attribute(:town, nil)
     login @user
     get '/es'
     assert_response :success
@@ -31,8 +31,8 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
 
   test "should success when login with a rare foreign user (no provinces)" do
     @user.update_attribute(:country, "PS")
-    @user.update_attribute(:province, "Cisjordania")
-    @user.update_attribute(:town, "Belén")
+    @user.update_attribute(:province, nil)
+    @user.update_attribute(:town, nil)
     login @user
     
     get '/es'
@@ -72,27 +72,6 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     @user.update_attribute(:born_at, Date.civil(1900,1,1))
     login @user
     assert_text "Debes indicar tu fecha de nacimiento."
-    assert_landed_in_profile_edition
-  end
-
-  test "should redirect to profile with invalid country data" do
-    @user.update_attribute(:country, "España")
-    login @user
-    assert_text "Debes indicar el país donde resides."
-    assert_landed_in_profile_edition
-  end
-
-  test "should redirect to profile with invalid province data" do
-    @user.update_attribute(:province, "Madrid")
-    login @user
-    assert_text "Debes indicar la provincia donde resides."
-    assert_landed_in_profile_edition
-  end
-
-  test "should redirect to profile with invalid town data" do
-    @user.update_attribute(:town, "Madrid")
-    login @user
-    assert_text "Debes indicar el municipio donde resides."
     assert_landed_in_profile_edition
   end
 

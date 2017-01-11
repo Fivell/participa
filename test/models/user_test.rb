@@ -7,44 +7,46 @@ class UserTest < ActiveSupport::TestCase
     @admin = FactoryGirl.create(:user, :admin)
   end
 
-  test "should validate presence:true" do
+  test "validates presence:true" do
     u = User.new
     u.valid?
-    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :postal_code, :province, :country]
+    fields = [ :email, :password, :first_name, :last_name, :document_type, :document_vatid, :born_at, :postal_code]
     fields.each do |type|
       assert_includes u.errors[type], I18n.t("activerecord.errors.models.user.attributes.#{type}.blank")
     end
   end
 
-  test "should validate presence of town only in Spain" do
-    u = User.new(country: 'ES')
+  test "validates presence of town for Spain users" do
+    u = FactoryGirl.build(:user, country: 'ES', town: nil)
     u.valid?
-    assert_includes u.errors[:town], I18n.t("activerecord.errors.models.user.attributes.town.blank")
-
-    u = User.new(country: 'BR')
-    u.valid?
-    assert_empty u.errors[:town]
+    assert_includes u.errors[:town], "Tu municipio no puede estar en blanco"
   end
 
-  test "should document_vatid validates with DNI/NIE" do 
-    u = User.new(document_type: 1, document_vatid: "222222E")
+  test "validates absence of town for foreign users" do
+    u = FactoryGirl.build(:user, country: 'BR', town: 'Río de Janeiro')
+    u.valid?
+    assert_includes u.errors[:town], "Tu municipio debe estar en blanco"
+  end
+
+  test "validates document_vatid with DNI/NIE" do 
+    u = FactoryGirl.build(:user, document_type: 1, document_vatid: "222222E")
     u.valid?
     assert_includes u.errors[:document_vatid], "El DNI no es válido"
 
-    u = User.new(document_type: 2, document_vatid: "222222E")
+    u = FactoryGirl.build(:user, document_type: 2, document_vatid: "222222E")
     u.valid?
     assert_includes u.errors[:document_vatid], "El NIE no es válido"
 
-    u = User.new(document_type: 1, document_vatid: "99115002K")
+    u = FactoryGirl.build(:user, document_type: 1, document_vatid: "99115002K")
     u.valid?
     assert(u.errors[:document_vatid] == [])
 
-    u = User.new(document_type: 2, document_vatid: "Z4901305X")
+    u = FactoryGirl.build(:user, document_type: 2, document_vatid: "Z4901305X")
     u.valid?
     assert(u.errors[:document_vatid] == [])
   end
 
-  test "should email be unique" do
+  test "validates email uniqueness" do
     error_message = I18n.t "activerecord.errors.models.user.attributes.email.taken"
     user2 = FactoryGirl.build(:user, email: @user.email)
     user2.valid?
@@ -54,7 +56,7 @@ class UserTest < ActiveSupport::TestCase
     assert(user2.errors[:email] == [])
   end
 
-  test "should validate email format" do
+  test "validates email format" do
     user = FactoryGirl.build :user, email: "right_format@example.com"
     user.valid?
     assert_equal [], user.errors[:email], "Right format detected as invalid"
@@ -100,13 +102,13 @@ class UserTest < ActiveSupport::TestCase
     assert_equal ["La dirección de correo es incorrecta"], user.errors[:email], "Wrong domain (no dots) not detected"
   end
 
-  test "should validate email confirmation in a case insensitive way" do
+  test "validates email confirmation in a case insensitive way" do
     user = FactoryGirl.build :user, email: "email@example.org", email_confirmation: "Email@example.org"
     user.valid?
     assert_empty user.errors[:email_confirmation]
   end
 
-  test "should document_vatid be unique" do
+  test "validates document_vatid uniqueness" do
     error_message = I18n.t "activerecord.errors.models.user.attributes.document_vatid.taken"
 
     # try to save with the same document
@@ -129,72 +131,72 @@ class UserTest < ActiveSupport::TestCase
     assert(user5.valid?)
   end
 
-  test "should accept terms of service and age_restriction" do
-    u = User.new(terms_of_service: false, age_restriction: false)
+  test "accepts terms of service and age_restriction" do
+    u = FactoryGirl.build(:user, terms_of_service: false, age_restriction: false)
     u.valid?
     assert_includes u.errors[:terms_of_service], "Debes aceptar las condiciones"
     assert_includes u.errors[:age_restriction], "Debes declarar que eres mayor de 16 años"
   end
 
-  test "should be over 16 years old" do
-    u = User.new(born_at: Date.today - (16.years - 1.day))
+  test "validates user is over 16 years old" do
+    u = FactoryGirl.build(:user, born_at: Date.today - (16.years - 1.day))
     u.valid?
     assert_includes u.errors[:born_at], "debes ser mayor de 16 años"
-    u = User.new(born_at: Date.civil(1888, 2, 1))
+    u = FactoryGirl.build(:user, born_at: Date.civil(1888, 2, 1))
     u.valid?
     assert_includes u.errors[:born_at], "debes ser mayor de 16 años"
-    u = User.new(born_at: Date.today - (16.years + 1.day))
+    u = FactoryGirl.build(:user, born_at: Date.today - (16.years + 1.day))
     u.valid?
     assert(u.errors[:born_at], [])
   end
 
-  test "should document_type inclusion work" do
-    u = User.new(document_type: 4)
+  test "validates document_type" do
+    u = FactoryGirl.build(:user, document_type: 4)
     u.valid? 
     assert_includes u.errors[:document_type],  "Tipo de documento no válido"
 
-    u = User.new(document_type: 0)
+    u = FactoryGirl.build(:user, document_type: 0)
     u.valid? 
     assert_includes u.errors[:document_type],  "Tipo de documento no válido"
 
-    u = User.new(document_type: 1)
+    u = FactoryGirl.build(:user, document_type: 1)
     u.valid? 
     assert_empty u.errors[:document_type]
 
-    u = User.new(document_type: 2)
+    u = FactoryGirl.build(:user, document_type: 2)
     u.valid? 
     assert_empty u.errors[:document_type]
 
-    u = User.new(document_type: 3)
+    u = FactoryGirl.build(:user, document_type: 3)
     u.valid? 
     assert_empty u.errors[:document_type]
   end
 
-  test "should .document_type not give redundant errors" do
-    u = User.new(document_type: '')
+  test "doesn't generate redundant errors for document_type" do
+    u = FactoryGirl.build(:user, document_type: '')
     u.valid?
     assert_equal ["Tu tipo de documento no puede estar en blanco"],
                  u.errors[:document_type]
   end
 
-  test "should .postal_code not give redundant errors" do
+  test "doesn't generate redundante errors for postal_code" do
     u = User.new(country: 'ES', postal_code: '')
     u.valid?
     assert_equal ["Tu código postal no puede estar en blanco"],
                  u.errors[:postal_code]
   end
 
-  test "should .full_name work" do
+  test ".full_name" do
     u = User.new(first_name: "Juan", last_name: "Perez")
     assert_equal("Juan Perez", u.full_name)
     assert_equal("Perez Pepito", @user.full_name)
   end
 
-  test "should .full_address work" do
+  test ".full_address" do
     assert_equal("C/ Inventada, 123, Madrid, Madrid, CP 28021, España", @user.full_address)
   end
 
-  test "should .is_admin? method work" do
+  test ".is_admin?" do
     u = User.new
     assert_not u.is_admin?
     assert_not @user.is_admin?
@@ -205,35 +207,41 @@ class UserTest < ActiveSupport::TestCase
     assert new_admin.is_admin?
   end
 
-  test "should phone be numeric or nil work" do
+  test "phone accepts nil" do
     @user.phone = nil
     assert @user.valid?
+  end
+
+  test "phone rejects letters" do
     @user.phone = "aaaa"
     assert_not @user.valid?
     assert_includes @user.errors[:phone], "Revisa el formato de tu teléfono"
   end
 
-  test "should unconfirmed_phone be numeric or nil work" do
+  test "unconfirmed_phone accepts nil" do
     @user.unconfirmed_phone = nil
     assert @user.valid?
+  end
+
+  test "unconfirmed_phone rejects letters" do
     @user.unconfirmed_phone = "aaaa"
     assert_not @user.valid?
     assert_includes @user.errors[:unconfirmed_phone], "Revisa el formato de tu teléfono"
   end
 
-  test "should validates_phone_format work" do
+  test ".validates_phone_format does not accept invalid phone numbers" do
     @user.phone = "12345"
     assert_not @user.valid?
     assert_includes @user.errors[:phone], "Revisa el formato de tu teléfono"
   end
 
-  test "should validates_unconfirmed_phone_format work" do 
+  test ".validates_unconfirmed_phone does not accept invalid phone numbers" do
     @user.unconfirmed_phone = "12345"
     assert_not @user.valid?
     assert_includes @user.errors[:unconfirmed_phone], "Revisa el formato de tu teléfono"
   end
 
-  test "should validates_unconfirmed_phone_format only accept numbers starting with 6 or 7" do 
+  test ".validates_unconfirmed_phone_format only accepts numbers starting with 6 or 7" do 
     @user.unconfirmed_phone = "0034661234567"
     assert @user.valid?
     @user.unconfirmed_phone = "0034771234567"
@@ -244,7 +252,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   if Rails.application.secrets.features["verification_sms"]
-    test "should validates_unconfirmed_phone_phone_uniqueness work" do
+    test ".validates_unconfirmed_phone_uniqueness" do
       phone = "0034612345678"
       @user.update_attribute(:phone, phone)
       user = FactoryGirl.create(:user)
@@ -254,14 +262,14 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  #test "should .is_valid_phone? work" do
+  #test ".is_valid_phone?" do
   #  u = User.new
   #  assert_not(u.is_valid_phone?)
   #  u.sms_confirmed_at = DateTime.now
   #  assert(u.is_valid_phone?)
   #end
 
-  test "should .can_change_phone? work" do 
+  test ".can_change_phone?" do 
     @user.update_attribute(:sms_confirmed_at, DateTime.now-1.month )
     assert_not @user.can_change_phone?
     @user.update_attribute(:sms_confirmed_at, DateTime.now-7.month )
@@ -270,7 +278,7 @@ class UserTest < ActiveSupport::TestCase
     assert @user.can_change_phone?
   end
 
-  test "should .phone_normalize work" do 
+  test ".phone_normalize" do 
     assert_equal( "0034661234567", @user.phone_normalize("661234567", "ES") ) 
     assert_equal( "0034661234567", @user.phone_normalize("0034661234567", "ES") )
     assert_equal( "0034661234567", @user.phone_normalize("+34661234567", "ES") )
@@ -281,45 +289,45 @@ class UserTest < ActiveSupport::TestCase
     assert_equal( "0054661234567", @user.phone_normalize("661234567", "AR") )
   end
 
-  test "should .phone_prefix work" do 
+  test ".phone_prefix" do 
     assert_equal "34", @user.phone_prefix
     @user.update_attribute(:country, "AR")
     assert_equal "54", @user.phone_prefix
   end
 
-  test "should .phone_country_name work" do 
+  test ".phone_country_name" do 
     assert_equal "España", @user.phone_country_name
     @user.update_attribute(:phone, "005446311234")
     assert_equal "Argentina", @user.phone_country_name
   end
 
-  test "should .phone_no_prefix work" do 
+  test ".phone_no_prefix" do 
     @user.update_attribute(:phone, "00346611111222")
     assert_equal "6611111222", @user.phone_no_prefix
     @user.update_attribute(:phone, "005446311234")
     assert_equal "46311234", @user.phone_no_prefix
   end
 
-  test "should .generate_sms_token work" do
+  test ".generate_sms_token" do
     u = User.new
     token = u.generate_sms_token
     assert(!!(token.match(/^[[:alnum:]]+$/)))
   end
 
-  test "should .set_sms_token! work" do
+  test ".set_sms_token!" do
     u = FactoryGirl.create(:user)
     assert(u.sms_confirmation_token.nil?)
     u.set_sms_token!
     assert(u.sms_confirmation_token?)
   end
 
-  test "should .send_sms_token! work" do
+  test ".send_sms_token!" do
     @user.send_sms_token!
     # comprobamos que el SMS se haya enviado en los últimos 10 segundos
     assert( @user.confirmation_sms_sent_at - DateTime.now  > -10 )
   end
 
-  test "should .check_sms_token and ActiveAdmin::Comment work" do
+  test ".check_sms_token" do
     u = FactoryGirl.create(:user)
     u.set_sms_token!
     token = u.sms_confirmation_token
@@ -327,7 +335,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not(u.check_sms_token("LALALAAL"))
   end
 
-  test "should .check_sms_token work ban user with spam data" do
+  test ".check_sms_token bans user with spam data" do
     u = FactoryGirl.create(:user)
     u.set_sms_token!
     spam = FactoryGirl.create(:spam_filter)
@@ -342,7 +350,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "Usuario baneado automáticamente por el filtro: #{spam.name}", comment.body
   end
   
-  test "should .document_type_name work" do 
+  test ".document_type_name" do 
     @user.update_attribute(:document_type, 1)
     assert_equal "DNI", @user.document_type_name
     @user.update_attribute(:document_type, 2)
@@ -351,26 +359,45 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "Pasaporte", @user.document_type_name
   end
 
-  test "should .country_name work" do 
+  test ".country_name works when country code is valid" do 
     @user.update_attribute(:country, "ES")
     assert_equal "España", @user.country_name
     @user.update_attribute(:country, "AR")
     assert_equal "Argentina", @user.country_name
+  end
+
+  test ".country_name returns empty when country code is invalid" do
     @user.update_attribute(:country, "Testing")
-    assert_equal "Testing", @user.country_name
+    assert_equal "", @user.country_name
   end
 
-  test "should .province_name work" do 
-    @user.update_attributes(country: "ES", province: "C", town: "m_15_006_3")
-    assert_equal "A Coruña", @user.province_name
-    @user.update_attribute(:country, "AR")
-    @user.update_attribute(:province, "C")
-    assert_equal "Ciudad Autónoma de Buenos Aires", @user.province_name
-    @user.update_attribute(:province, "Testing")
-    assert_equal "Testing", @user.province_name
+  test ".province_name works when province code is valid" do 
+    user = FactoryGirl.build(:user, country: "ES", province: "C", town: "m_15_006_3")
+    assert_equal "A Coruña", user.province_name
+    user = FactoryGirl.build(:user, country: "AR", province: "C", town: "m_15_006_3")
+    assert_equal "Ciudad Autónoma de Buenos Aires", user.province_name
   end
 
-  test "should scope .wants_newsletter work" do 
+  test ".province_name returns empty when province code is invalid" do 
+    user = FactoryGirl.build(:user, country: "AR", province: "Testing", town: "m_15_006_3")
+    assert_equal "", user.province_name
+    user = FactoryGirl.build(:user, country: "ES", province: "Patata", town: "m_28_079_6")
+    assert_equal "", user.province_name
+  end
+
+  test ".province_name returns empty when country code is invalid" do
+    user = FactoryGirl.build(:user, country: "España", province: "M", town: "m_28_079_6")
+    assert_equal "", user.province_name
+    user = FactoryGirl.build(:user, country: "España", province: "Madrid", town: "m_28_079_6")
+    assert_equal "", user.province_name
+  end
+
+  test ".town_name returns empty when town code is invalid" do
+    user = FactoryGirl.build(:user, country: "ES", province: "M", town: "mm_28_079_6")
+    assert_equal "", user.town_name
+  end
+
+  test "scope .wants_newsletter works" do 
     assert_equal 2, User.wants_newsletter.count
     FactoryGirl.create(:user, :no_newsletter_user)
     assert_equal 2, User.wants_newsletter.count
@@ -378,7 +405,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 3, User.wants_newsletter.count
   end
 
-  test "should act_as_paranoid" do 
+  test "act_as_paranoid" do 
     @user.destroy
     assert_not User.exists?(@user.id)
     assert User.with_deleted.exists?(@user.id)
@@ -386,20 +413,19 @@ class UserTest < ActiveSupport::TestCase
     assert User.exists?(@user.id)
   end
 
-  test "should scope uniqueness with paranoia" do 
+  test "scope uniqueness with paranoia" do 
     @user.destroy
     # allow save after the @user is destroyed but is with deleted_at
     user1 = FactoryGirl.build(:user, email: @user.email, email_confirmation: @user.email, document_vatid: @user.document_vatid, phone: @user.phone)
     assert user1.valid?
     user1.save
 
-
     # don't allow save after the @user is created again (uniqueness is working)
     user2 = FactoryGirl.build(:user, email: @user.email, document_vatid: @user.document_vatid, phone: @user.phone)
     assert_not user2.valid?
   end
 
-  test "should uniqueness work" do 
+  test "uniqueness works" do 
     user = FactoryGirl.build(:user, email: @user.email, document_vatid: @user.document_vatid, phone: @user.phone)
     assert_not user.valid?
     assert user.errors.include? :email
@@ -410,14 +436,14 @@ class UserTest < ActiveSupport::TestCase
     assert user.valid?
   end
 
-  test "should uniqueness not be case sensitive" do 
+  test "uniqueness is not case sensitive" do 
     user = FactoryGirl.build(:user, document_vatid: @user.document_vatid.downcase)
     assert_not user.valid?
     user = FactoryGirl.build(:user, document_vatid: @user.document_vatid.upcase)
     assert_not user.valid?
   end
 
-  test "should password confirmation work" do
+  test "password confirmation works" do
     user = FactoryGirl.build(:user, password_confirmation: '')
     assert_not user.valid?
     assert_includes user.errors[:password_confirmation], "Tu contraseña no coincide con la confirmación"
@@ -427,7 +453,7 @@ class UserTest < ActiveSupport::TestCase
     assert_includes user.errors[:password_confirmation], "Tu contraseña no coincide con la confirmación"
   end
 
-  test "should email confirmation work" do 
+  test "email confirmation works" do 
     user = FactoryGirl.build(:user, email_confirmation: '')
     assert_not user.valid?
     assert_includes user.errors[:email_confirmation], "Tu correo electrónico no coincide con la confirmación"
@@ -437,26 +463,62 @@ class UserTest < ActiveSupport::TestCase
     assert_includes user.errors[:email_confirmation], "Tu correo electrónico no coincide con la confirmación"
   end
 
-  test "should province_name work with all kind of profile data" do
-    user = FactoryGirl.create(:user)
+  test "province_name works with all kind of profile data" do
+    user = FactoryGirl.create(:user, country: "ES", province: "M", town: "m_28_079_6")
     assert_equal("Madrid", user.province_name)
-    user = FactoryGirl.build(:user, country: "FR", province: "A")
+    user = FactoryGirl.build(:user, country: "FR", province: "A", town: "m_28_079_6")
     assert_equal("Alsace", user.province_name)
-    user = FactoryGirl.build(:user, country: "España", province: "Madrid")
-    assert_equal("Madrid", user.province_name)
-    user = FactoryGirl.build(:user, town: "Patata")
-    assert_equal("Madrid", user.province_name)
-    user = FactoryGirl.build(:user, province: "Patata")
+    user = FactoryGirl.build(:user, country: "ES", province: "M", town: "Patata")
     assert_equal("Madrid", user.province_name)
   end
 
-  test "should province_code work with invalid data" do
+  test "country is a valid ISO code" do
+    user = FactoryGirl.build(:user, country: "ES")
+    assert user.valid?
+
+    ["España", "", nil].each do |value|
+      user = FactoryGirl.build(:user, country: value)
+      assert_not user.valid?
+      assert_includes user.errors[:country], "no está incluido en la lista"
+    end
+  end
+
+  test "province_code works with invalid data" do
     user = FactoryGirl.create(:user)
     user.update_attributes(town: "Prueba", province: "tt")
     assert_equal("", user.province_code)    
   end
 
-  test "should vote_town_name, vote_province_name and vote_autonomy_name work" do
+  test "province is in the list of ISO codes for the country" do
+    user = FactoryGirl.build(:user, country: "ES", province: "M")
+    assert user.valid?
+
+    user = FactoryGirl.build(:user, country: "ES", province: "Madrid")
+    assert_not user.valid?
+    assert_includes user.errors[:province], "no está incluido en la lista"
+  end
+
+  test "province is invalid unless blank if country has no regions" do
+    user = FactoryGirl.build(:user, country: "MC", province: "Patata")
+    assert_not user.valid?
+    assert_includes user.errors[:province], "debe estar en blanco"
+
+    user = FactoryGirl.build(:user, country: "MC", province: nil)
+    user.valid?
+    assert_empty user.errors[:province]
+  end
+
+  test "province is invalid unless blank if country is invalid" do
+    user = FactoryGirl.build(:user, country: "España", province: "Madrid")
+    assert_not user.valid?
+    assert_includes user.errors[:province], "debe estar en blanco"
+
+    user = FactoryGirl.build(:user, country: "España", province: nil)
+    user.valid?
+    assert_empty user.errors[:province]
+  end
+
+  test "vote_town_name, vote_province_name and vote_autonomy_name work" do
     user = FactoryGirl.create(:user)
     assert_equal("Madrid", user.vote_town_name)
     assert_equal("Madrid", user.vote_province_name)
@@ -466,27 +528,27 @@ class UserTest < ActiveSupport::TestCase
     assert_equal("Araba/Álava", user.vote_province_name)
     #assert_equal("", user.vote_ca_name)
 
-    user.update_attributes(country: "US", province: "AL", town: "Jefferson County", vote_town: "m_01_001_4")
+    user.update_attributes(country: "US", province: "AL", town: nil, vote_town: "m_01_001_4")
     assert_equal("Araba/Álava", user.vote_province_name)
     assert_equal("Alegría-Dulantzi", user.vote_town_name)
 
-    user.update_attributes(country: "US", province: "AL", town: "Jefferson County", vote_town: "m_01_")
+    user.update_attributes(country: "US", province: "AL", town: nil, vote_town: "m_01_")
     assert_equal("Araba/Álava", user.vote_province_name)
     assert_equal("", user.vote_town_name)
 
-    user.update_attributes(country: "US", province: "AL", town: "Jefferson County", vote_town: nil)
+    user.update_attributes(country: "US", province: "AL", town: nil, vote_town: nil)
     assert_equal("", user.vote_province_name)
     assert_equal("", user.vote_town_name)
   end
 
-  test "should update vote_town when changes the town, both in Spain" do
+  test "updates vote_town when town is changed and both are in Spain" do
     @user.town = "m_37_262_6"
     @user.save
     assert_equal @user.town, @user.vote_town, "User has changed his town (from Spain to Spain) and vote town didn't changed"
   end
 
-  test "should update vote_town when changes the town, from foreign country to Spain" do 
-    user = FactoryGirl.build(:user, :foreign_address)
+  test "update vote_town when town is changed from foreign country to Spain" do 
+    user = FactoryGirl.build(:user, :foreign)
     user.save
     user.country = "ES"
     user.province = "SA"
@@ -495,7 +557,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal @user.town, @user.vote_town, "User has changed his town (from foreign to Spain) and vote town didn't changed"
   end
   
-  test "should update vote_town when changes the town, from Spain to a foreign country" do 
+  test "update vote_town when town is changed from Spain to a foreign country" do 
     @user.country = "US"
     @user.province = "AL"
     @user.town = "Jefferson County"
@@ -507,7 +569,7 @@ class UserTest < ActiveSupport::TestCase
    # español
    # extranjero
 
-  #test "should all scopes work" do 
+  #test "all scopes work" do 
   #  skip("TODO")
   #end
   #
@@ -521,7 +583,7 @@ class UserTest < ActiveSupport::TestCase
   #scope :legacy_password, -> { where(has_legacy_password: true) }
   #
 
-  test "should get_or_create_vote for elections work" do 
+  test "get_or_create_vote for elections work" do 
     e1 = FactoryGirl.create(:election)
     v1 = @user.get_or_create_vote(e1.id)
     sleep(2)
@@ -541,7 +603,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not_equal v3.voter_id, v5.voter_id, "Diferente municipio de voto debería implicar diferente voter_id"
   end
 
-  test "should not change vote location to a user without old user" do
+  test "dest not change vote location to a user without old user" do
     with_blocked_change_location do
       new_user = FactoryGirl.create(:user, town: "m_03_003_6" )
       new_user.apply_previous_user_vote_location

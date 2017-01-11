@@ -11,37 +11,53 @@ feature "UserRegistrations" do
   end
 
   scenario "create a user in Catalonia", js: true do
-    base_register(@user) do
-      fill_in_location_data(province: 'Barcelona',
-                            town: 'Badalona',
-                            postal_code: '08008')
-    end
+    @user = FactoryGirl.build(:user, :catalan, town: 'm_08_015_5',
+                                               comarca: 13,
+                                               vegueria: 'AT01')
 
-    assert_location 'Badalona, Barcelona, España', User.first
+    base_register(@user) { fill_in_location_data(@user) }
+
+    assert_location User.first, town: 'Badalona',
+                                province: 'Barcelona',
+                                country: 'España'
+
+    assert User.first.comarca_code, 13
+    assert User.first.vegueria_code, 'AT01'
   end
 
   scenario "create a user outside of Catalonia", js: true do
-    base_register(@user) do
-      fill_in_location_data(country: 'España',
-                            province: 'Albacete',
-                            town: 'Albacete',
-                            postal_code: '02002')
-    end
+    @user = FactoryGirl.build(:user, :spanish, province: 'AB',
+                                               town: 'm_02_003_0',
+                                               postal_code: '02002')
 
-    assert_location 'Albacete, Albacete, España', User.first
+    base_register(@user) { fill_in_location_data(@user) }
+
+    assert_location User.first, town: 'Albacete',
+                                province: 'Albacete',
+                                country: 'España'
   end
 
   scenario "create a user outside of Spain", js: true do
-    base_register(@user) do
-      fill_in_location_data(country: 'Estados Unidos', province: 'Alabama')
-    end
+    @user = FactoryGirl.build(:user, :foreigner, country: 'US', province: 'AL')
 
-    assert_location 'Alabama, Estados Unidos', User.first
+    base_register(@user) { fill_in_location_data(@user) }
+
+    assert_location User.first, province: 'Alabama', country: 'Estados Unidos'
+  end
+
+  scenario "create a user in a country without regions", js: true do
+    @user = FactoryGirl.build(:user, :foreigner, country: 'MC', province: nil)
+
+    base_register(@user) { fill_in_location_data(@user) }
+
+    assert_location User.first, province: '', country: 'Mónaco'
   end
 
   scenario "location is preserved upon form errors", js: true do
+    @user = FactoryGirl.build(:user, :foreigner, country: 'US', province: 'AL')
+
     visit new_user_registration_path
-    fill_in_location_data(country: 'Estados Unidos', province: 'Alabama')
+    fill_in_location_data(@user)
     click_button 'Inscribirse'
 
     assert page.has_select?('País', selected: 'Estados Unidos')
@@ -49,6 +65,8 @@ feature "UserRegistrations" do
   end
 
   scenario "create a user with gender identity information", js: true do
+    @user = FactoryGirl.build(:user, :catalan)
+
     visit new_user_registration_path
     fill_in_user_registration(@user, @user.document_vatid, @user.email)
     select 'Mujer (cis)', from: 'Identidad de género'
@@ -61,11 +79,11 @@ feature "UserRegistrations" do
   end
 
   scenario "captcha skipped", js: true do
+    @user = FactoryGirl.build(:user, :catalan)
+
     visit new_user_registration_path
     fill_in_personal_data(@user, @user.document_vatid)
-    fill_in_location_data(province: 'Barcelona',
-                          town: 'Barcelona',
-                          postal_code: '08021')
+    fill_in_location_data(@user)
     fill_in_login_data(@user, @user.email)
     acknowledge_terms
     acknowledge_age
@@ -74,11 +92,11 @@ feature "UserRegistrations" do
   end
 
   scenario "captcha skipped and another error", js: true do
+    @user = FactoryGirl.build(:user, :catalan)
+
     visit new_user_registration_path
     fill_in_personal_data(@user, @user.document_vatid)
-    fill_in_location_data(province: 'Barcelona',
-                          town: 'Barcelona',
-                          postal_code: '08021')
+    fill_in_location_data(@user)
     fill_in_login_data(@user, @user.email)
     acknowledge_age
     # Investigate and fix
@@ -102,17 +120,8 @@ feature "UserRegistrations" do
       I18n.t("devise.registrations.signed_up_but_unconfirmed")
   end
 
-  def assert_location(location, user)
-    components = location.split(', ')
-
-    if components.size == 3
-      town, province, country = *components
-
-      assert_equal town, user.town_name
-    else
-      province, country = *components
-    end
-
+  def assert_location(user, town: nil, province:,  country:)
+    assert_equal town, user.town_name if town
     assert_equal province, user.province_name
     assert_equal country, user.country_name
   end

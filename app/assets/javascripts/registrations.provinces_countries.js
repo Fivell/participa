@@ -10,6 +10,7 @@ function show_provinces(country_code, catalonia_resident){
 
   $('#user_town').disable_control();
   $('#user_postal_code').val('');
+
   $select_wrapper.load(url + ' ' + select_id + '> *', function() {
     var $prov_select = $('select#user_province');
     if ($prov_select.length > 0 && $prov_select.select2)
@@ -81,10 +82,6 @@ $(function() {
     $(document.body).on('change', 'select#user_province', function() {
       show_towns( 'user_province', 'user_town', $country.val(), $(this).val(), 'regions' );
     });
-
-    if ($('select#user_province').is(':disabled')) {
-      $country.trigger('change');
-    }
 
     if (can_change_vote_location) {
       toggle_vote_town($country.val());

@@ -5,6 +5,8 @@
   <% end %>
     <span class="form-wrapper">
     <% countries = get_countries %>
-    <%= select_tag "user[country]", options_from_collection_for_select(countries, "code", "name", resource.country), { disabled: false, required: true, data: {allowClear: true} } %>
+    <%= select_tag "user[country]",
+                   options_from_collection_for_select(countries, "code", "name", resource.country),
+                   disabled: false, required: true, data: {allowClear: true} %>
     </span>
 </div>

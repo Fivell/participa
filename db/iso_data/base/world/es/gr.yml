@@ -113,6 +113,8 @@
   type: municipality
 - code: m_18_064_9
   type: municipality
+- code: m_18_065_2
+  type: municipality
 - code: m_18_066_5
   type: municipality
 - code: m_18_067_1
@@ -120,6 +122,8 @@
 - code: m_18_068_7
   type: municipality
 - code: m_18_069_0
+  type: municipality
+- code: m_18_915_4
   type: municipality
 - code: m_18_070_4
   type: municipality
@@ -178,6 +182,8 @@
 - code: m_18_103_6
   type: municipality
 - code: m_18_105_4
+  type: municipality
+- code: m_18_106_7
   type: municipality
 - code: m_18_107_3
   type: municipality
@@ -305,6 +311,8 @@
   type: municipality
 - code: m_18_182_3
   type: municipality
+- code: m_18_914_1
+  type: municipality
 - code: m_18_907_5
   type: municipality
 - code: m_18_902_2
@@ -334,6 +342,4 @@
 - code: m_18_193_7
   type: municipality
 - code: m_18_194_2
-  type: municipality
-- code: m_18_914_1
   type: municipality

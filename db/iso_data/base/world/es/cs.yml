@@ -81,8 +81,6 @@
   type: municipality
 - code: m_12_044_5
   type: municipality
-- code: m_12_052_1
-  type: municipality
 - code: m_12_053_7
   type: municipality
 - code: m_12_055_5
@@ -264,6 +262,8 @@
 - code: m_12_139_7
   type: municipality
 - code: m_12_140_1
+  type: municipality
+- code: m_12_052_1
   type: municipality
 - code: m_12_141_8
   type: municipality

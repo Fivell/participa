@@ -163,6 +163,8 @@
   type: municipality
 - code: m_08_078_7
   type: municipality
+- code: m_08_254_1
+  type: municipality
 - code: m_08_079_0
   type: municipality
 - code: m_08_134_7
@@ -514,8 +516,6 @@
 - code: m_08_251_5
   type: municipality
 - code: m_08_253_6
-  type: municipality
-- code: m_08_254_1
   type: municipality
 - code: m_08_256_7
   type: municipality

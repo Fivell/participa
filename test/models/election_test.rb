@@ -133,7 +133,7 @@ class ElectionTest < ActiveSupport::TestCase
     election = FactoryGirl.create(:election, :island_election)
     assert_equal(1730, election.scoped_agora_election_id(user))
 
-    user = FactoryGirl.create(:user, :foreign_address)
+    user = FactoryGirl.create(:user, :foreigner)
     election = FactoryGirl.create(:election, :foreign_election)
     assert_equal(1000, election.scoped_agora_election_id(user))
   end

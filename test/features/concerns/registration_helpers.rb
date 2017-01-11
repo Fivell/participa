@@ -5,8 +5,6 @@ module Participa
         @old_always_pass = SimpleCaptcha.always_pass
         SimpleCaptcha.always_pass = false
 
-        @user = FactoryGirl.build(:user)
-
         super
       end
 
@@ -24,33 +22,30 @@ module Participa
 
       def fill_in_user_registration(user, document_vatid, email)
         fill_in_personal_data(user, document_vatid)
-        fill_in_location_data(province: 'Barcelona',
-                              town: 'Barcelona',
-                              postal_code: '08021')
+        fill_in_location_data(user)
         fill_in_login_data(user, email)
         acknowledge_stuff
       end
 
-      def fill_in_location_data(country: nil,
-                                province:,
-                                town: nil,
-                                postal_code: '08021')
-        if country
+      def fill_in_location_data(user)
+        unless user.in_catalonia?
           uncheck 'Resido en Cataluña'
           sleep 1 
-          assert page.has_select?('País', with_options: [country])
-          select(country, from: 'País')
+          assert page.has_select?('País', with_options: [user.country_name])
+          select(user.country_name, from: 'País')
         end
 
-        assert page.has_select?('Provincia', with_options: [province])
-        select(province, from: 'Provincia')
-
-        if town
-          assert page.has_select?('Municipio', with_options: [town])
-          select(town, from: 'Municipio')
+        if user.province
+          assert page.has_select?('Provincia', with_options: [user.province_name])
+          select(user.province_name, from: 'Provincia')
         end
 
-        fill_in('Código postal', with: postal_code)
+        if user.in_spain?
+          assert page.has_select?('Municipio', with_options: [user.town_name])
+          select(user.town_name, from: 'Municipio')
+        end
+
+        fill_in('Código postal', with: user.postal_code)
         fill_in('Dirección', with: 'C/El Muro, S/N')
       end
 

@@ -6,7 +6,9 @@
   <div class="form-wrapper">
   <% provinces = get_provinces(country, catalonia_resident) %>
   <% placeholder = "-- #{t('bec.registration.choose_province')} --" %>
-  <%= select_tag "user[province]", options_from_collection_for_select(provinces, "code", "name", province), {required: "required", data: {placeholder: placeholder, allowClear: true}, prompt: placeholder } %>
+  <%= select_tag "user[province]",
+                 options_from_collection_for_select(provinces, "code", "name", province),
+                 disabled: provinces.none?, required: "required", data: {placeholder: placeholder, allowClear: true}, prompt: placeholder %>
   <% if resource %>
     <span class="help-block">
       <%= resource.errors[:province].join(', ') %>

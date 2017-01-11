@@ -183,8 +183,6 @@ es:
           name: "Doneztebe/Santesteban"
         m_31_083_2:
           name: "Echarri"
-        m_31_086_3:
-          name: "Egüés"
         m_31_087_9:
           name: "Elgorriaga"
         m_31_089_8:
@@ -210,7 +208,7 @@ es:
         m_31_082_6:
           name: "Etxalar"
         m_31_084_7:
-          name: "Etxarri-Aranatz"
+          name: "Etxarri Aranatz"
         m_31_085_0:
           name: "Etxauri"
         m_31_100_0:
@@ -398,7 +396,7 @@ es:
         m_31_186_2:
           name: "Odieta"
         m_31_187_8:
-          name: "Oitz"
+          name: "Oiz"
         m_31_188_4:
           name: "Olaibar"
         m_31_189_7:
@@ -490,7 +488,7 @@ es:
         m_31_234_6:
           name: "Ucar"
         m_31_123_4:
-          name: "Uharte-Arakil"
+          name: "Uharte Arakil"
         m_31_235_9:
           name: "Ujué"
         m_31_236_2:
@@ -508,7 +506,7 @@ es:
         m_31_242_3:
           name: "Urraul Bajo"
         m_31_244_4:
-          name: "Urrotz"
+          name: "Urroz"
         m_31_243_9:
           name: "Urroz-Villa"
         m_31_245_7:
@@ -517,6 +515,8 @@ es:
           name: "Uterga"
         m_31_247_6:
           name: "Uztárroz/Uztarroze"
+        m_31_086_3:
+          name: "Valle de Egüés/Eguesibar"
         m_31_260_6:
           name: "Valle de Yerri/Deierri"
         m_31_249_5:

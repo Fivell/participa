@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable, :timeoutable,
          :recoverable, :rememberable, :trackable, :lockable
 
-  before_update :_clear_caches
   before_save :before_save
 
   acts_as_paranoid
@@ -35,6 +34,8 @@ class User < ActiveRecord::Base
   has_many :microcredit_loans
   has_many :verificated_users, class_name: "User", foreign_key: "verified_by_id"
 
+  belongs_to :catalan_town, foreign_key: :town, primary_key: :code
+
   extend Enumerize
   enumerize :gender_identity,
             in: %i(cis_man cis_woman trans_man trans_woman fluid)
@@ -46,8 +47,13 @@ class User < ActiveRecord::Base
   validates :email, email: true, if: :email_changed?
 
   validates :first_name, :last_name, :document_type, :document_vatid, presence: true
-  validates :postal_code, :province, :country, :born_at, presence: true
-  validates :town, presence: true, if: :in_spain?
+  validates :postal_code, :born_at, presence: true
+  validates :country, inclusion: { in: Carmen::Country.all.map(&:code) }
+  validates :province,
+            inclusion: { in: proc { |u| u.province_codes }, unless: :in_mini_country? },
+            absence: { if: :in_mini_country? }
+  validates :town, presence: { if: :in_spain? }, absence: { unless: :in_spain? }
+  validates :catalan_town, presence: { if: :in_catalonia? }, absence: { unless: :in_catalonia? }
   validates :terms_of_service, acceptance: true
   validates :age_restriction, acceptance: true
   validates :document_type,
@@ -81,11 +87,11 @@ class User < ActiveRecord::Base
   end
 
   def validates_postal_code
-    if self.country == "ES"
+    if in_spain?
       if (self.postal_code =~ /^\d{5}$/) != 0
         self.errors.add(:postal_code, "El código postal debe ser un número de 5 cifras")
       else
-        province = spain.subregions.coded(self.province)
+        province = spanish_regions.coded(self.province)
         if province and self.postal_code[0...2] != province.subregions[0].code[2...4]
           self.errors.add(:postal_code, "El código postal no coincide con la provincia indicada")
         end
@@ -105,7 +111,7 @@ class User < ActiveRecord::Base
 
   def validates_unconfirmed_phone_format
     self.errors.add(:unconfirmed_phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.unconfirmed_phone)
-    if self.country.downcase == "es" and not (self.unconfirmed_phone.starts_with?('00346') or self.unconfirmed_phone.starts_with?('00347'))
+    if in_spain? and not (self.unconfirmed_phone.starts_with?('00346') or self.unconfirmed_phone.starts_with?('00347'))
       self.errors.add(:unconfirmed_phone, "Debes poner un teléfono móvil válido de España empezando por 6 o 7.")
     end
   end
@@ -124,9 +130,6 @@ class User < ActiveRecord::Base
 
     # User have a valid born date
     issue ||= check_issue (self.born_at.nil? || (self.born_at == Date.civil(1900,1,1))), :edit_user_registration, { alert: "born_at"}, "registrations"
-
-    # User have a valid location
-    issue ||= check_issue self.verify_user_location, :edit_user_registration, { alert: "location"}, "registrations"
 
     # User don't have a legacy password, verify if profile is valid before request to change it
     if self.has_legacy_password?
@@ -153,7 +156,6 @@ class User < ActiveRecord::Base
 
   attr_accessor :sms_user_token_given
   attr_accessor :login
-  attr_accessor :skip_before_save
 
   scope :all_with_deleted, -> { where "deleted_at IS null AND deleted_at IS NOT null"  }
   scope :wants_newsletter, -> {where(wants_newsletter: true)}
@@ -285,7 +287,7 @@ class User < ActiveRecord::Base
   # Region in Spain whose code matches xx in a +code+ of the form ..xx.*
   #
   def self.spanish_subregion_for(code)
-    spain.subregions[code[2..3].to_i-1]
+    spanish_regions[code[2..3].to_i-1]
   end
 
   delegate :spanish_subregion_for, to: :class
@@ -382,44 +384,40 @@ class User < ActiveRecord::Base
     User::DOCUMENTS_TYPE.select{|v| v[1] == self.document_type }[0][0]
   end
 
-  def self.spain
-    Carmen::Country.coded("ES")
+  def self.spanish_regions
+    Carmen::Country.coded("ES").subregions
   end
 
-  delegate :spain, to: :class
+  delegate :spanish_regions, to: :class
 
   def in_spain?
     self.country=="ES"
   end
 
+  def in_catalonia?
+    %w(B T L GI).include?(province) && in_spain?
+  end
+
+  def in_mini_country?
+    provinces.empty?
+  end
+
   def country_name
-    if _country
-      _country.name
-    else
-      self.country or ""
-    end
+    _country ? _country.name : ""
   end
 
   def province_name
-    if _province
-      _province.name
-    else
-      self.province or ""
-    end
+    _province ? _province.name : ""
   end
+
+  delegate :comarca_code, :vegueria_code, :amb, to: :catalan_town, allow_nil: true
 
   def province_code
-    if self.in_spain? and _province
-      "p_%02d" % + _province.index
-    else
-      ""
-    end
+    self.in_spain? && _province ? "p_%02d" % + _province.index : ""
   end
 
-  attr_reader :catalonia_resident
-
   def catalonia_resident
-    @catalonia_resident ||= %w(B T L GI).include?(province) && in_spain?
+    @catalonia_resident ||= in_catalonia?
   end
 
   def catalonia_resident=(value)
@@ -427,11 +425,11 @@ class User < ActiveRecord::Base
   end
 
   def town_name
-    if self.in_spain? and _town
-      _town.name
-    else
-      self.town or ""
-    end
+    _town ? _town.name : ""
+  end
+
+  def town_idescat_code
+    town ? town.gsub(/[m_]/, '').to_i : ""
   end
 
   def autonomy_code
@@ -499,11 +497,7 @@ class User < ActiveRecord::Base
   end
 
   def vote_town_name
-    if _vote_town
-      _vote_town.name
-    else
-      ""
-    end
+    _vote_town ? _vote_town.name : ""
   end
 
   def vote_province_persisted
@@ -516,26 +510,18 @@ class User < ActiveRecord::Base
       end
     end
 
-    if prov
-      prov.code
-    else
-      ""
-    end
+    prov ? prov.code : ""
   end
 
   def vote_province
-    if _vote_province
-      _vote_province.code
-    else
-      ""
-    end
+    _vote_province ? _vote_province.code : ""
   end
 
   def vote_province= value
     if value.nil? or value.empty? or value == "-"
       self.vote_town = nil
     else
-      prefix = "m_%02d_"% (spain.subregions.coded(value).index)
+      prefix = "m_%02d_"% (spanish_regions.coded(value).index)
       if self.vote_town.nil? or not self.vote_town.starts_with? prefix then
         self.vote_town = prefix
       end
@@ -543,21 +529,12 @@ class User < ActiveRecord::Base
   end
 
   def vote_province_code
-    if _vote_province
-      "p_%02d" % + _vote_province.index
-    else
-      ""
-    end
+    _vote_province ? "p_%02d" % + _vote_province.index : ""
   end
 
   def vote_province_name
-    if _vote_province
-      _vote_province.name
-    else
-      ""
-    end
+    _vote_province ? _vote_province.name : ""
   end
-
 
   def vote_island_code
     if self.vote_in_spanish_island?
@@ -576,41 +553,19 @@ class User < ActiveRecord::Base
   end
 
   def vote_autonomy_numeric
-    if _vote_province
-      self.vote_autonomy_code[2..-1]
-    else
-      "-"
-    end
+    _vote_province ? self.vote_autonomy_code[2..-1] : "-"
   end
 
   def vote_province_numeric
-    if _vote_province
-      "%02d" % + _vote_province.index
-    else
-      ""
-    end
+    _vote_province ? "%02d" % + _vote_province.index : ""
   end
 
   def vote_town_numeric
-    if _vote_town
-      _vote_town.code.split("_")[1,3].join
-    else
-      ""
-    end
+    _vote_town ? _vote_town.code.split("_")[1,3].join : ""
   end
 
   def vote_island_numeric
-    if self.vote_in_spanish_island?
-      self.vote_island_code[2..-1]
-    else
-      ""
-    end
-  end
-
-  def verify_user_location()
-    return "country" if not _country
-    return "province" if not _country.subregions.empty? and not _country.subregions.coded(self.province)
-    return "town" if self.in_spain? and not _town
+    self.vote_in_spanish_island? ? self.vote_island_code[2..-1] : ""
   end
 
   def vote_town_notice()
@@ -623,11 +578,9 @@ class User < ActiveRecord::Base
   end
 
   def before_save
-    unless @skip_before_save
-      # Spanish users can't set a different town for vote, except when blocked
-      if self.in_spain? and self.can_change_vote_location?
-        self.vote_town = self.town
-      end
+    # Spanish users can't set a different town for vote, except when blocked
+    if self.in_spain? and self.can_change_vote_location?
+      self.vote_town = self.town
     end
   end
 
@@ -635,65 +588,44 @@ class User < ActiveRecord::Base
     admin_user_path(self)
   end
 
-  def _clear_caches
-    remove_instance_variable :@country_cache if defined? @country_cache
-    remove_instance_variable :@province_cache if defined? @province_cache
-    remove_instance_variable :@town_cache if defined? @town_cache
-    remove_instance_variable :@vote_province_cache if defined? @vote_province_cache
-    remove_instance_variable :@vote_town_cache if defined? @vote_town_cache
-  end
-
   def _country
-    @country_cache ||= Carmen::Country.coded(self.country)
+    Carmen::Country.coded(self.country)
   end
 
   def _province
-    @province_cache = begin
-      prov = nil
-      prov = spanish_subregion_for(self.town) if self.in_spain? and self.town and self.town.downcase.starts_with? "m_"
-      prov = _country.subregions.coded(self.province) if prov.nil? and _country and self.province and not _country.subregions.empty?
-      prov
-    end if not defined? @province_cache
-    @province_cache
+    provinces.coded(self.province) if self.province and not provinces.empty?
   end
 
   def _town
-    @town_cache = begin
-      town = nil
-      town = _province.subregions.coded(self.town) if self.in_spain? and _province
-      town
-    end if not defined? @town_cache
-    @town_cache
+    towns.coded(self.town) if self.town and not towns.empty?
   end
 
   def _vote_province
-    @vote_province_cache = begin
-      prov = nil
-      if self.has_vote_town?
-        prov = spanish_subregion_for(self.vote_town)
-      elsif self.country=="ES"
-        prov = _province
-      else
-        prov = nil
-      end
-      prov
-    end if not defined? @vote_province_cache
-    @vote_province_cache
+    if self.has_vote_town?
+      spanish_subregion_for(self.vote_town)
+    elsif in_spain?
+      _province
+    end
   end
 
   def _vote_town
-    @vote_town_cache = begin
-      town = nil
-      if self.has_vote_town?
-        town = _vote_province.subregions.coded(self.vote_town)
-      elsif self.country=="ES"
-        town = _town
-      else
-        prov = nil
-      end
-      town
-    end if not defined? @vote_town_cache
-    @vote_town_cache
+    if self.has_vote_town?
+      _vote_province.subregions.coded(self.vote_town)
+    elsif in_spain?
+      _town
+    end
+  end
+
+  def provinces
+    _country ? _country.subregions : []
+  end
+
+  def towns
+    _province ? _province.subregions : []
+  end
+
+  def province_codes
+    provinces.map(&:code)
   end
 
   def can_request_sms_check?

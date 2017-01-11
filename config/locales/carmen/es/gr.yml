@@ -117,6 +117,8 @@ es:
           name: "Darro"
         m_18_064_9:
           name: "Dehesas de Guadix"
+        m_18_065_2:
+          name: "Dehesas Viejas"
         m_18_066_5:
           name: "Deifontes"
         m_18_067_1:
@@ -125,6 +127,8 @@ es:
           name: "Dílar"
         m_18_069_0:
           name: "Dólar"
+        m_18_915_4:
+          name: "Domingo Pérez de Granada"
         m_18_070_4:
           name: "Dúdar"
         m_18_071_1:
@@ -158,11 +162,11 @@ es:
         m_18_089_6:
           name: "Guadix"
         m_18_906_9:
-          name: "Guajares, Los"
+          name: "Guájares, Los"
         m_18_093_8:
           name: "Gualchos"
         m_18_094_3:
-          name: "Güejar Sierra"
+          name: "Güéjar Sierra"
         m_18_095_6:
           name: "Güevéjar"
         m_18_096_9:
@@ -180,9 +184,11 @@ es:
         m_18_102_0:
           name: "Illora"
         m_18_103_6:
-          name: "Itrabo"
+          name: "Ítrabo"
         m_18_105_4:
           name: "Iznalloz"
+        m_18_106_7:
+          name: "Játar"
         m_18_107_3:
           name: "Jayena"
         m_18_108_9:
@@ -309,6 +315,8 @@ es:
           name: "Turón"
         m_18_182_3:
           name: "Ugíjar"
+        m_18_914_1:
+          name: "Valderrubio"
         m_18_907_5:
           name: "Valle del Zalabí"
         m_18_902_2:
@@ -339,5 +347,3 @@ es:
           name: "Zubia, La"
         m_18_194_2:
           name: "Zújar"
-        m_18_914_1:
-          name: "Valderrubio"
