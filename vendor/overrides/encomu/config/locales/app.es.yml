@@ -52,49 +52,6 @@ es:
       verification/centers: "Puntos de Verificación"
       verification/slot: "Horario"
       verification/slots: "Horarios"
-    errors:
-      models:
-        user:
-          attributes:
-            first_name:
-              blank: "Tu nombre no puede estar en blanco"
-            last_name:
-              blank: "Tu apellido no puede estar en blanco"
-            document_type:
-              blank: "Tu tipo de documento no puede estar en blanco"
-            document_vatid:
-              blank: "Tu documento no puede estar en blanco"
-              taken: "Hubo un error al guardar este dato. Inténtalo de nuevo"
-            born_at:
-              blank: "Tu fecha de nacimiento no puede estar en blanco"
-              not_a_date: "No es una fecha válida. Comprueba que el formato con el que estás poniendo la fecha sea el correcto"
-            province:
-              blank: "Tu provincia no puede estar en blanco"
-              present: "debe estar en blanco"
-            town:
-              blank: "Tu municipio no puede estar en blanco"
-              present: "Tu municipio debe estar en blanco"
-            address:
-              blank: "Tu dirección no puede estar en blanco"
-            postal_code:
-              blank: "Tu código postal no puede estar en blanco"
-            email:
-              blank: "Tu correo electrónico no puede estar en blanco"
-              taken: "Hubo un error al guardar este dato. Inténtalo de nuevo"
-            email_confirmation:
-              confirmation: "Tu correo electrónico no coincide con la confirmación"
-            password:
-              blank: "Tu contraseña no puede estar en blanco"
-              too_short: "Tu contraseña es demasiado corta (6 carácteres mínimo)"
-              too_long: "Tu contraseña es demasiado larga (128 carácteres máximo)"
-            password_confirmation:
-              confirmation: "Tu contraseña no coincide con la confirmación"
-            current_password:
-              blank: "Debes indicar tu contraseña para validar los cambios."
-            age_restriction:
-              accepted: "Debes declarar que eres mayor de 16 años"
-            terms_of_service:
-              accepted: "Debes aceptar las condiciones"
     attributes:
       verification/center:
         name: Nombre
