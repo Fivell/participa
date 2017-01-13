@@ -258,6 +258,7 @@ ActiveAdmin.register User do
 
   csv column_names: false do
     column :id
+    column :email
     column :town_idescat_code
     column :town_name
     column :comarca_code
