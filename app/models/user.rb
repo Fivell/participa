@@ -410,7 +410,9 @@ class User < ActiveRecord::Base
     _province ? _province.name : ""
   end
 
-  delegate :comarca_code, :vegueria_code, :amb, to: :catalan_town, allow_nil: true
+  delegate :comarca_code, :comarca_name, :vegueria_code, :vegueria_name, :amb,
+           to: :catalan_town,
+           allow_nil: true
 
   def province_code
     self.in_spain? && _province ? "p_%02d" % + _province.index : ""

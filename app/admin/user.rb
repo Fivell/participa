@@ -259,8 +259,11 @@ ActiveAdmin.register User do
   csv column_names: false do
     column :id
     column :town_idescat_code
+    column :town_name
     column :comarca_code
+    column :comarca_name
     column :vegueria_code
+    column :vegueria_name
     column :amb
     column(:year) { |u| u.born_at.strftime("%Y") }
     column :gender_identity
