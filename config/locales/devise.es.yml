@@ -5,7 +5,6 @@ es:
   devise:
     confirmations:
       confirmed: "Tu dirección de correo electrónico ya ha sido confirmada."
-      confirmed_and_signed_in: "Tu dirección de correo electrónico ya ha sido confirmada. Has sido identificado."
       send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo restablecer tu contraseña."
       send_paranoid_instructions: "Hemos enviado a %{email} los pasos para recuperar tu contraseña. Si no recibes nuestro correo en unos minutos, es posible que usaras una cuenta de email diferente cuando te inscribiste en Podemos: prueba con otras cuentas que tengas, y si no lo consigues con ninguna, envía un correo a soportevotaciones@podemos.info para recibir ayuda."
     failure:

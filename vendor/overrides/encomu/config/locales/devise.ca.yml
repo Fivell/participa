@@ -4,8 +4,7 @@
 ca:
   devise:
     confirmations:
-      confirmed: "La teva adreça de correu electrònic ja ha estat confirmada."
-      confirmed_and_signed_in: "La teva direcció de correu electrònic ja ha estat confirmada. Has estat identificat."
+      confirmed: "La teva adreça de correu electrònic ha estat confirmada. Pots iniciar sessió."
       send_instructions: "Rebràs un correu electrònic en uns minuts amb instruccions sobre com restablir la teva contrasenya."
       send_paranoid_instructions: "Si el teu correu electrònic existeix a la nostra base de dades, rebràs un correu electrònic d'aquí a uns minuts amb instruccions sobre com reiniciar la teva contrasenya."
     failure:
