@@ -34,7 +34,7 @@
   </nav>
 
   <% if user_signed_in? && Rails.application.secrets.features["verification_presencial"] %>
-    <div class="col-h-1a12">
+    <div>
 
       <nav class="menu" id="top_menu">
         <%= link_to t('voting.continue'), 'https://participa.unpaisencomu.cat', class:"js-return-vote menu-return-vote", style:"display: none;" %>
@@ -87,7 +87,7 @@
           <% end %>
         </ul>
       </nav><%#.menu%>
-  </div><%#.col-h-2a4%>
+  </div>
 <%= render partial: 'sidr_menu' %>
     <% end %>
 
