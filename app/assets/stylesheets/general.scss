@@ -62,21 +62,6 @@ iframe{}
 em.bec{font-style:normal;font-weight:bold;}
 
 /* -----------------------------------
-columnas responsive (diseño)
------------------------------------ */
-
-.col-h-4a12{
-  display:block;
-
-  float:left;
-}
-.col-h-4a12{
-  display:block;
-  overflow:hidden;
-  float:right;
-}
-
-/* -----------------------------------
 general
 ----------------------------------- */
 
@@ -170,21 +155,6 @@ general
     margin-bottom: .9em;
   }
 }
-.footer{
-  margin: auto;
-  width: 96%;
-  padding: 0 1%;
-  position:relative;
-  overflow:hidden;
-  display:none;
-}
-.footer-content{
-  margin: auto;
-  width: 100%;
-  position:relative;
-  overflow:hidden;
-}
-
 /* -----------------------------------
 home
 ----------------------------------- */
@@ -252,77 +222,42 @@ home
 footer
 ----------------------------------- */
 
-.footer a{
-  color:#c3a6cf;
+.footer{
+  background: #fff;
+  margin: auto;
+  width: 100%;
+  padding: 15px 15px 10px 15px;
+  position:relative;
+  overflow:hidden;
 }
-.footer strong{
-  text-transform:uppercase;
-  font-weight:bold;
-}
-.footer-content h2{
-  text-transform:uppercase;
-  color:#c3a6cf;
-  font-weight:bold;
-  margin-top:1.1em;
-  margin-bottom:0.5em;
-}
-.footer-content h2.footer-logo{
-  margin-top:0;
-}
-.footer-content .footer-logo p{
-  margin-bottom:0.3em;
+.footer-content{
+  margin: auto;
+  width: 100%;
+  position:relative;
+  overflow:hidden;
 }
 .footer-content ul{
   overflow:hidden;
 }
-.footer-content .footer-siguenos li{
-  float:left;
-  margin-right:1em;
-}
-.footer-content .footer-siguenos li:nth-child(4){
-  margin-right:0;
-}
-.footer-contact{
-  color:#c3a6cf;
-  margin-bottom:1em;
-}
-.footer-contact a{
-  font-style: italic;
-  font-weight: normal;
-  font-family: "Helvetica Neue",Arial,sans-serif;
-}
+.footer-content ul li{
+  display:inline;
 
-.footer-contact .languages{
-  width:auto;
-  display:inline-block;
-  background:image-url("bg.purple-divide-h.png") 0 0 repeat-x;
-  margin-top:1em;
-  padding-top:1em;
+  &:after{
+    content: "/";
+    font-size: 16px;
+    margin: 0 5px;
+  }
+  &:last-child:after{
+    content: "";
+  }
 }
-.footer-contact .languages ul li{
-  display:block;
-  float:left;
-  margin-right:0.5em;
-  color:#8e618c;
-}
-.footer-contact .languages ul li a{
-  color:#8e618c;
-}
-.footer-contact .languages ul li a.active,
-.footer-contact .languages ul li a:hover{
-  color:#c3a6cf;
-}
-.disclaimer-links{
-  background:image-url("bg.purple-divide-h.png") 0 0 repeat-x;
-  padding:3em 0 0;
-  margin:3em 0 0;
-  clear:both;
-  float:none;
-  overflow:hidden;
-}
-.disclaimer-links li{
-  float:left;
-  margin-right:1em;
+.footer-content ul li a{
+  color: #333;
+  font-size: 16px;
+  line-height: 1.4em;
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  padding-bottom: 1px;
 }
 
 
@@ -1496,39 +1431,10 @@ input.button-primary:hover{
 columns
 ----------------------------------- */
 
-.col-f-1a3,
-.col-f-4a5,
-.col-f-6a7,
-.col-f-8a9,
-.col-f-10a12{
-  float:left;
-}
-.col-f-1a12{
-  width:100%;
-}
-
-
 /* --------------------------------------------------------------------------------------------------------------------------------------------
 layout 1: 0-459 (simple) # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 -------------------------------------------------------------------------------------------------------------------------------------------- */
 
-.col-h-1a3{
-  width:70%;
-}
-.col-h-4a12{
-  width:30%;
-}
-.col-f-1a3{
-  width:100%;
-}
-.col-f-4a5,
-.col-f-6a7,
-.col-f-8a9{
-  display:none;
-}
-.col-f-10a12{
-  width:100%;
-}
 .col-md-6{
   width:100%;
 }
@@ -1703,8 +1609,6 @@ font sizes
 .button,
 .login-box form input,
 .login-box form div.remember label,
-.footer-contact p,
-.footer .languages a,
 .submenu li a,
 .steps3 li span.block span.tab-text{
   font-size:1.2em;
@@ -1716,31 +1620,21 @@ font sizes
   font-size:2em;
 }
 .content .login-box p,
-.footer ul.disclaimer-links li a,
 .pagination li a{
   font-size:1.3em;
 }
-.login-box form legend,
-.footer-content h2{
+.login-box form legend{
   font-size:1.4em;
   line-height:1em;
 }
 .login-box form legend{
   display:block;
 }
-.footer-content h2{
-  display:none;
-}
 .content-content h2{
   font-size:1.6em;
 }
 .content-content h3{
   font-size:1.6em;
-}
-.footer-content h2.footer-logo{
-  display:block;
-  font-size:3em;
-  margin-bottom:0.33em;
 }
 .subtitle {
   font-size: 1.6em;
@@ -1776,23 +1670,6 @@ layout 2: 460-600 (intermedia 1) # # # # # # # # # # # # # # # # # # # # # # # #
 
 @media only screen and (min-width: 460px) and (max-width: 600px)
 {
-  .col-h-1a3{
-    width:70%;
-  }
-  .col-h-4a12{
-    width:30%;
-  }
-  .col-f-1a3{
-    width:50%;
-  }
-  .col-f-4a5,
-  .col-f-6a7,
-  .col-f-8a9{
-    display:none;
-  }
-  .col-f-10a12{
-    width:50%;
-  }
   .col-md-6{
     width:100%;
   }
@@ -1857,8 +1734,6 @@ layout 2: 460-600 (intermedia 1) # # # # # # # # # # # # # # # # # # # # # # # #
   .button,
   .login-box form input,
   .login-box form div.remember label,
-  .footer-contact p,
-  .footer .languages a,
   .submenu li a,
   .steps3 li span.block span.tab-text{
     font-size:1.2em;
@@ -1870,12 +1745,10 @@ layout 2: 460-600 (intermedia 1) # # # # # # # # # # # # # # # # # # # # # # # #
     font-size:2em;
   }
   .content .login-box p,
-  .footer ul.disclaimer-links li a,
   .pagination li a{
     font-size:1.3em;
   }
-  .login-box form legend,
-  .footer-content h2{
+  .login-box form legend{
     display:block;
     font-size:1.4em;
   }
@@ -1884,10 +1757,6 @@ layout 2: 460-600 (intermedia 1) # # # # # # # # # # # # # # # # # # # # # # # #
   }
   .content-content h3{
     font-size:1.6em;
-  }
-  .footer-content h2.footer-logo{
-    font-size:3em;
-    margin-bottom:0.33em;
   }
   .content-content fieldset.verification {
     label {
@@ -1907,23 +1776,6 @@ layout 3: 600-768 (intermedia 2) # # # # # # # # # # # # # # # # # # # # # # # #
 
 @media only screen and (min-width: 600px) and (max-width: 768px)
 {
-  .col-h-1a3{
-    width:35%;
-  }
-  .col-h-4a12{
-    width:65%;
-  }
-  .col-f-1a3{
-    width:50%;
-  }
-  .col-f-4a5,
-  .col-f-6a7,
-  .col-f-8a9{
-    display:none;
-  }
-  .col-f-10a12{
-    width:50%;
-  }
   .col-md-6{
     width:100%;
   }
@@ -2004,8 +1856,6 @@ layout 3: 600-768 (intermedia 2) # # # # # # # # # # # # # # # # # # # # # # # #
   .button,
   .login-box form input,
   .login-box form div.remember label,
-  .footer-contact p,
-  .footer .languages a,
   .submenu li a,
   .steps3 li span.block span.tab-text{
     font-size:1.3em;
@@ -2017,12 +1867,10 @@ layout 3: 600-768 (intermedia 2) # # # # # # # # # # # # # # # # # # # # # # # #
     font-size:2.4em;
   }
   .content .login-box p,
-  .footer ul.disclaimer-links li a,
   .pagination li a{
     font-size:1.3em;
   }
-  .login-box form legend,
-  .footer-content h2{
+  .login-box form legend{
     display:block;
     font-size:1.5em;
     line-height:1em;
@@ -2033,10 +1881,6 @@ layout 3: 600-768 (intermedia 2) # # # # # # # # # # # # # # # # # # # # # # # #
   }
   .content-content h3{
     font-size:1.7em;
-  }
-  .footer-content h2.footer-logo{
-    font-size:3em;
-    margin-bottom:0.33em;
   }
   .content-content fieldset.verification {
     label {
@@ -2055,23 +1899,6 @@ layout 4: 769-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 @media only screen and (min-width: 769px)
 {
-  .col-h-1a3{
-    width:25%;
-  }
-  .col-h-4a12{
-    width:75%;
-  }
-  .col-f-1a3{
-    width:50%;
-  }
-  .col-f-4a5,
-  .col-f-6a7,
-  .col-f-8a9{
-    display:none;
-  }
-  .col-f-10a12{
-    width:50%;
-  }
   .col-md-6{
     width:100%;
   }
@@ -2157,8 +1984,6 @@ layout 4: 769-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   .button,
   .login-box form input,
   .login-box form div.remember label,
-  .footer-contact p,
-  .footer .languages a,
   .submenu li a,
   .steps3 li span.block span.tab-text{
     font-size:1.2em;
@@ -2170,12 +1995,10 @@ layout 4: 769-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     font-size:2.8em;
   }
   .content .login-box p,
-  .footer ul.disclaimer-links li a,
   .pagination li a{
     font-size:1.4em;
   }
-  .login-box form legend,
-  .footer-content h2{
+  .login-box form legend{
     display:block;
     font-size:1.5em;
     line-height:1em;
@@ -2186,10 +2009,6 @@ layout 4: 769-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   }
   .content-content h3{
     font-size:1.8em;
-  }
-  .footer-content h2.footer-logo{
-    font-size:3em;
-    margin-bottom:0.33em;
   }
   .content-content fieldset.verification {
     label {
@@ -2208,24 +2027,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 @media only screen and (min-width: 978px)
 {
-  .col-h-1a3{
-    width:25%;
-  }
-  .col-h-4a12{
-    width:75%;
-  }
-  .col-f-1a3{
-    width:25%;
-  }
-  .col-f-4a5,
-  .col-f-6a7,
-  .col-f-8a9{
-    display:block;
-    width:16.5%;
-  }
-  .col-f-10a12{
-    width:25%;
-  }
   .col-md-6{
     width:100%;
   }
@@ -2312,9 +2113,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   .button,
   .login-box form input,
   .login-box form div.remember label,
-  .footer ul li a,
-  .footer-contact p,
-  .footer .languages a,
   .submenu li a,
   .steps3 li span.block span.tab-text{
     font-size:1.5em;
@@ -2326,12 +2124,10 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
     font-size:3em;
   }
   .content .login-box p,
-  .footer ul.disclaimer-links li a,
   .pagination li a{
     font-size:1.4em;
   }
-  .login-box form legend,
-  .footer-content h2{
+  .login-box form legend{
     display:block;
     font-size:1.8em;
     line-height:1em;
@@ -2342,11 +2138,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   .content-content h3{
     font-size:1.6em;
   }
-  .footer-content h2.footer-logo{
-    font-size:4em;
-    margin-bottom:0.25em;
-  }
-
 }
 .language-switcher-locale-url{
   text-align:right;

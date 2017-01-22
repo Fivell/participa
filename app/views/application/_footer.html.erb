@@ -1,53 +1,24 @@
 <div class="footer">
   <div class="footer-content">
-    <div class="row">
+      <ul>
+        <li>
+          <%= link_to "Català", url_for(locale: :ca) %>
+        </li>
+        <li>
+          <%= link_to "Castellano", url_for(locale: :es) %>
+        </li>
+      </ul>
 
-      <div class="col-f-1a3">
-        <div class="footer-contact">
-          <h2 class="footer-logo">Un País en Comú</h2>
-        </div><%#!--.footer-contact--%>
-      </div><%#!--.col-f-1a3--%>
-
-      <div class="col-f-4a5">
-        <div class="footer-conoce">
-          <h2>Conoce</h2>
-          <ul>
-          </ul>
-        </div><%#!--.footer-conoce--%>
-      </div><%#!--.col-f-4a5--%>
-
-      <div class="col-f-6a7">
-        <div class="footer-participa">
-          <h2>Infórmate</h2>
-          <ul>
-          </ul>
-        </div><%#!--.footer-participa--%>
-      </div><%#!--.col-f-6a7--%>
-
-      <div class="col-f-8a9">
-        <div class="footer-informate">
-          <h2>Colabora</h2>
-          <ul>
-          </ul>
-        </div><%#!--.footer-participa--%>
-      </div><%#!--.col-f-8a9--%>
-
-      <div class="col-f-10a12">
-        <div class="footer-siguenos">
-          <h2>Síguenos</h2>
-          <ul>
-          </ul>
-        </div><%#!--.footer-participa--%>
-      </div><%#!--.col-f-10a12--%>
-
-    </div><!--.row-->
-
-    <div class="row">
-      <div class="col-f-1a12">
-        <ul class="disclaimer-links">
-        </ul>
-      </div><%#!--.col-f-1a12--%>
-    </div><%#!--.row--%>
-
-  </div><%#!--.footer-content--%>
-</div><%#!--#pie--%>
+      <ul>
+        <li>
+          <%= link_to t('static.privacy'), page_privacy_policy_path %>
+        </li>
+        <li>
+          <%= link_to t('static.legal'), page_legal_path %>
+        </li>
+        <li>
+          <%= link_to t('static.cookies'), page_cookie_policy_path %>
+        </li>
+      </ul>
+  </div>
+</div>
