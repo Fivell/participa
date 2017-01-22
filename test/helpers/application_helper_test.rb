@@ -28,24 +28,6 @@ class ApplicationHelperTest < ActionView::TestCase
     assert_equal "", new_notifications_class
   end
 
-  test "should current_lang? work" do 
-    I18n.locale = :ca 
-    assert_equal true, current_lang?(:ca)
-    assert_equal false, current_lang?(:es)
-    I18n.locale = :es 
-    assert_equal false, current_lang?(:ca)
-    assert_equal true, current_lang?(:es)
-  end
-
-  test "should current_lang_class work" do 
-    I18n.locale = :ca 
-    assert_equal "active", current_lang_class(:ca)
-    assert_equal "", current_lang_class(:es)
-    I18n.locale = :es 
-    assert_equal "active", current_lang_class(:es)
-    assert_equal "", current_lang_class(:ca)
-  end
-
   test "should info_box work" do 
     result = info_box do "bla" end
     expected = "<div class=\"box\">\n  <div class=\"box-info\">\n    \n  </div>\n</div>\n"

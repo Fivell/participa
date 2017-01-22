@@ -22,18 +22,6 @@ module ApplicationHelper
     ""
   end
 
-  def current_lang? lang
-    I18n.locale.to_s.downcase == lang.to_s.downcase
-  end
-
-  def current_lang_class lang
-    if current_lang? lang
-      "active"
-    else
-      ""
-    end
-  end
-
   def info_box &block
     content = with_output_buffer(&block)
     render partial: 'application/info', locals: { content: content }
