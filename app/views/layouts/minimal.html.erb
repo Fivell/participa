@@ -43,11 +43,11 @@
             <header class="entry-header">
               <% if I18n.locale == :ca %>
               <h3>
-                <%= link_to "Ver en Castellano", url_for(locale: :es), class: current_lang_class(:es) %>
+                <%= link_to "Ver en Castellano", url_for(locale: :es) %>
               </h3>
               <% else %>
               <h3>
-                <%= link_to "Veure a Català", url_for(locale: :ca), class: current_lang_class(:ca) %>
+                <%= link_to "Veure a Català", url_for(locale: :ca) %>
               </h3>
               <% end %>
             </header><!-- .entry-header -->

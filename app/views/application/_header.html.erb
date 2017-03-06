@@ -7,34 +7,27 @@
       </li>
 
       <% if user_signed_in? %>
-        <li class="nav-action">
+        <li class="nav-right">
           <%= link_to t("devise.links.sign_out"), destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
         <% unless current_page?(new_user_registration_path) %>
-          <li class="nav-action">
+          <li class="nav-right">
             <%= link_to t("devise.buttons.sign_up"), new_user_registration_path %>
           </li>
         <% end %>
 
         <% unless current_page?(new_user_session_path) %>
-          <li class="nav-action">
+          <li class="nav-right">
             <%= link_to t("devise.buttons.sign_in"), new_user_session_path %>
           </li>
         <% end %>
       <% end %>
-
-      <li class="nav-lang">
-        <%= link_to "Cat", url_for(locale: :ca), class: current_lang_class(:ca) %>
-      </li>
-      <li class="nav-lang">
-        <%= link_to "Cast", url_for(locale: :es), class: current_lang_class(:es) %>
-      </li>
     </ul>
   </nav>
 
   <% if user_signed_in? && Rails.application.secrets.features["verification_presencial"] %>
-    <div class="col-h-1a12">
+    <div>
 
       <nav class="menu" id="top_menu">
         <%= link_to t('voting.continue'), 'https://participa.unpaisencomu.cat', class:"js-return-vote menu-return-vote", style:"display: none;" %>
@@ -87,7 +80,7 @@
           <% end %>
         </ul>
       </nav><%#.menu%>
-  </div><%#.col-h-2a4%>
+  </div>
 <%= render partial: 'sidr_menu' %>
     <% end %>
 

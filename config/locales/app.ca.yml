@@ -65,3 +65,7 @@ ca:
     refresh_button_text: "Regenerar"
     message:
       default: "El text introductori no es correspon amb el de la imatge"
+  static:
+    privacy: Política de privacitat
+    legal: Avís legal
+    cookies: Política de cookies
