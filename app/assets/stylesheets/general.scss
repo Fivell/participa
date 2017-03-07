@@ -1527,8 +1527,13 @@ elementos
   color: #FFF;
 }
 .verif-new-second{
+  position: relative;
   padding: 3em;
   font-weight: bold;
+
+  &:after {
+    clear: both;
+  }
 }
 .verif-new-second .title{
   font-weight: bold;
@@ -1549,15 +1554,15 @@ elementos
   margin-left: 1em;
 }
 .verif-new-or {
+  position: absolute;
   background-color: #EB5A59;
   border-radius: 50%;
-  padding: 1em;
   color: #FFF;
-  height: 5em;
-  width: 5em;
-  line-height: 5em;
-  margin-left: 12em;
-  margin-right: 3em;
+  height: 6em;
+  width: 6em;
+  line-height: 6em;
+  text-align: center;
+  left: calc(50% - 3em);
 }
 
 .verif-new-third{
