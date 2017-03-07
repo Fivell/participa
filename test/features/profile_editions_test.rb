@@ -46,6 +46,7 @@ feature "ProfileEditions" do
   private
 
   def change_password(new_pass, new_pass_confirmation, current_pass)
+    click_link "Datos personales"
     click_link "Cambiar contraseña"
 
     within '#change-password' do
