@@ -656,13 +656,16 @@ tools
   clear:both;
 }
 .box-large {
-  padding-top: 5em;
-  padding-bottom: 5em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 .box-large .title {
   font-size: 2em;
   color: #FFF;
   font-weight: bold;
+}
+.box-large .action {
+  margin-top: 30px;
 }
 .tools ul{
   position:relative;

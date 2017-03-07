@@ -11,11 +11,10 @@
           <p>
           <%= t('verification.alerts.ko.msg_html', email: @user.email) %>
           </p>
-          <br>
-          <br>
-          <br>
-          <br>
+
+          <div class="action">
           <%= link_to t('verification.next_user'), verification_step1_path, class: "button-primary" %>
+          </div>
         </div>
       <% end %>
     </div>
