@@ -789,7 +789,7 @@ Gracias por inscribirte en Un País en Comú."
     form:
       document: He verificado el documento original del inscrito/a
       age: El inscrito/a es mayor de 16 años - nacido/a antes de %{date}
-      town: He verificado un documento (DNI/NIE/Pasaporte, recibo de un suministro) que acredita que el inscrito/a vive en Cataluña
+      town: He verificado un documento (DNI/NIE/Pasaporte, recibo de un suministro) que acredita que el inscrito/a vive en Cataluña.
   podemos:
     error:
       title: "No se han podido actualizar los datos"
