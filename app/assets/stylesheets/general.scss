@@ -682,19 +682,6 @@ tools
   margin-right:0;
   clear:right;
 }
-.tools li div.box-tool{
-  position:relative;
-}
-.tools li div.tool-text{
-  padding-top:20em;
-}
-.tools li div.box-tool:before{
-  display: inline-block;
-  margin: 0;
-  position:absolute;
-  top: -1.7em;
-  left: -1.7em;
-}
 .tools li h3{
   position: absolute;
   width: 75%;
@@ -1968,9 +1955,6 @@ layout 4: 769-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     width:29%;
     margin-right:2%;
   }
-  .tools li div.tool-text{
-    height:20em;
-  }
   .tools li h3{
     width:75%;
   }
@@ -2081,9 +2065,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   .tools li{
     width:45%;
     margin-right:2%;
-  }
-  .tools li div.tool-text{
-    height:12em;
   }
   .tools li h3{
     width:75%;
