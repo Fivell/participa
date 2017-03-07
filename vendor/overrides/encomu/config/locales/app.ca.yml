@@ -667,9 +667,9 @@ Amb tres passos molt senzills:
     user_unverified: No t'has verificat
     pending0_html: No has acabat la verificació
     pending1_html: Per acabar el procés de verificació necessites aportar documentació de forma presencial.
-    pending2_html: <b>Porta un DNI o NIE</b> que tingui l'adreça de Barcelona
-    pending3_html: No tens adreça a Barcelona?
-    pending4_html: "<li>Porta el:</li><li><b>DNI/NIE</b> amb adreça</li><li><li> de fora de Barcelona </li><li> o el <b>passaport</b></li><li> o el <b>carnet de conduir</b></li>"
+    pending2_html: <b>Porta un DNI o NIE</b> que tingui l'adreça de Catalunya
+    pending3_html: No tens adreça a Catalunya?
+    pending4_html: "<li>Porta el:</li><li><b>DNI/NIE</b> amb adreça</li><li><li> de fora de Catalunya </li><li> o el <b>passaport</b></li><li> o el <b>carnet de conduir</b></li>"
     pending5_html: i també
     pending6_html: "<li><b>empadronament</b>,</li><li><b>targeta censal</b></li><li> o qualsevol <b>rebut</b></li><li> (llum, aigua o gas)</li><li> de l'últim any.</li>"
     pending7_html: Dissabte 6 de juny publicarem els punts on pots verificar-te.
@@ -711,5 +711,5 @@ Amb tres passos molt senzills:
     form:
       document: "He verificat el document original de l'inscrit/a"
       age: "L'inscrit/a és major de 16 anys - nascut abans de %{date}"
-      town: "He verificat un document (DNI/NIE/Passaport, rebut d'un subministrament) que acredita que l'inscrit/a viu a Barcelona."
+      town: "He verificat un document (DNI/NIE/Passaport, rebut d'un subministrament) que acredita que l'inscrit/a viu a Catalunya."
 

@@ -708,9 +708,9 @@ Un País en Comú cumple con todas las medidas de seguridad para la protección 
       link_title: "inscribirte"
     pending0_html: No has finalizado la verificación
     pending1_html: Para acabar el proceso de verificación necesitas aportar documentación de forma presencial.
-    pending2_html: <b>Trae un DNI o NIE</b> que tenga la dirección de Barcelona
-    pending3_html: ¿No tienes dirección en Barcelona?
-    pending4_html: "<li>Trae el:</li><li><b>DNI/NIE</b> con dirección</li><li><li> de fuera de Barcelona </li><li> o el <b>Pasaporte</b></li><li> o el <b>Carnet de conducir</b></li>"
+    pending2_html: <b>Trae un DNI o NIE</b> que tenga la dirección de Cataluña
+    pending3_html: ¿No tienes dirección en Cataluña?
+    pending4_html: "<li>Trae el:</li><li><b>DNI/NIE</b> con dirección</li><li><li> de fuera de Cataluña </li><li> o el <b>Pasaporte</b></li><li> o el <b>Carnet de conducir</b></li>"
     pending5_html: y también
     pending6_html: "<li><b>Empadronamiento</b>,</li><li><b>tarjeta censal</b></li><li> o cualquier <b>recibo</b></li><li> (luz, agua o gas)</li><li> del último año.</li>"
     pending7_html: "Trae la documentación a:"
@@ -789,7 +789,7 @@ Gracias por inscribirte en Un País en Comú."
     form:
       document: He verificado el documento original del inscrito/a
       age: El inscrito/a es mayor de 16 años - nacido/a antes de %{date}
-      town: He verificado un documento (DNI/NIE/Pasaporte, recibo de un suministro) que acredita que el inscrito/a vive en Barcelona
+      town: He verificado un documento (DNI/NIE/Pasaporte, recibo de un suministro) que acredita que el inscrito/a vive en Cataluña
   podemos:
     error:
       title: "No se han podido actualizar los datos"
