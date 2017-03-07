@@ -25,20 +25,20 @@
       <% end %>
 
       <% if user_signed_in? && Rails.application.secrets.features["verification_presencial"] %>
-        <li class="menu-tools">
+        <li class="nav-action">
           <%= nav_menu_link_to "Portada", "home", root_path, [root_path], title: "Portada" %>
         </li>
         <% if can? :step1, :verification %>
-          <li class="menu-verif">
+          <li class="nav-action">
             <%= nav_menu_link_to t("verification.admin"), "verifications", verification_step1_path, [verification_step1_path], title: t("verification.admin") %>
           </li>
         <% end %>
         <% if Rails.application.secrets.features["collaborations"] %>
-          <li class="menu-econ">
+          <li class="nav-action">
             <%= nav_menu_link_to t("podemos.collaboration.title"), "euro", new_collaboration_path, [new_collaboration_path], title: t("podemos.collaboration.title")  %>
           </li>
         <% end %>
-        <li class="menu-profile">
+        <li class=nav-action">
           <%= nav_menu_link_to t("bec.user.personal_data"), "user", edit_user_registration_path, [edit_user_registration_path], title: t("bec.user.personal_data") %>
         </li>
       <% end %>
