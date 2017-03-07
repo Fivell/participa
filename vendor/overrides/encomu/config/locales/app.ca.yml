@@ -228,7 +228,7 @@ aquest missatge. Si ho reps diverses vegades, avisa'ns a %{mail}."
     home:
       button: "No estàs inscrit? Inscriu-t'hi!"
       p1: "Barcelona En Comú neix amb la voluntat de construir una forma nova de fer política, i per fer-ho necessitem desenvolupar estructures organitzatives diferents de les tradicionals, per no repetir errors del passat, per avançar cap a una societat més democràtica. Estem construint una estructura transparent, ciutadana, oberta, democràtica, eficaç. Una organització que respongui a l'impuls democratitzador de Barcelona En Comú, en què discutim, debatem i decidim entre tots. "
-      p2: "Passes a formar part del cens d'inscrits de Barcelona En Comú, des del qual es realitzaran a partir d'ara totes les votacions. És un procediment senzill i ràpid que et permetrà ser part activa de la comunitat Barcelona En Comú."
+      p2: "Passes a formar part del cens d'inscrits de En Comú, des del qual es realitzaran a partir d'ara totes les votacions. És un procediment senzill i ràpid que et permetrà ser part activa de la comunitat En Comú."
     valid:
       phone:
         p1: "Introdueix el teu nou número de telèfon mòbil."
@@ -644,7 +644,7 @@ Amb tres passos molt senzills:
   voting:
     title: "Benvingut a Participa!"
     election_one: Hi ha una votació en curs.
-    election_none: No hi ha cap votació en curs. Quan hi hagi cap votació t'avisarem per correu electrònic. Gràcies per pertànyer a la comunitat de Barcelona En Comú.
+    election_none: No hi ha cap votació en curs. Quan hi hagi cap votació t'avisarem per correu electrònic. Gràcies per pertànyer a la comunitat de En Comú.
     election_mul_html: "Hi ha 3 votacions. Cada votació és independent. No oblidis votar a totes 3.<br/><br/>
   Pots canviar el vot al llarg del procés (votant de nou en la mateixa opció). El nou vot reemplaçarà l'emès anteriorment de forma automàtica. Només l'últim és vàlid.<br/>"
     election_use_one: La votació utilitza
