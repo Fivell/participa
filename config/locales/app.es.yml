@@ -78,19 +78,29 @@ es:
               blank: "Tu dirección no puede estar en blanco"
             town:
               blank: "Tu municipio no puede estar en blanco"
+              present: "Tu municipio debe estar en blanco"
             postal_code:
               blank: "Tu código postal no puede estar en blanco"
             province: 
               blank: "Tu provincia no puede estar en blanco"
+              present: "debe estar en blanco"
             email: 
               blank: "Tu correo electrónico no puede estar en blanco"
               taken: "Hubo un error al guardar este dato. Inténtalo de nuevo"
+            email_confirmation:
+              confirmation: "Tu correo electrónico no coincide con la confirmación"
             password: 
               blank: "Tu contraseña no puede estar en blanco"
+              too_short: "Tu contraseña es demasiado corta (6 caracteres mínimo)"
+              too_long: "Tu contraseña es demasiado larga (128 caracteres máximo)"
             current_password: 
               blank: "Debes indicar tu contraseña para validar los cambios."
-            password_confirmation: "Contraseña (repetir)"
-            wants_newsletter: "Desmarca esta casilla si no quieres recibir nuestra newsletter. Sólo enviamos información importante." 
+            password_confirmation:
+              confirmation: "Tu contraseña no coincide con la confirmación"
+            age_restriction:
+              accepted: "Debes declarar que eres mayor de 16 años"
+            terms_of_service:
+              accepted: "Debes aceptar las condiciones"
         impulsa_edition:
           attributes:
             terms_of_service: "Acepto las condiciones generales"
