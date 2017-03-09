@@ -30,7 +30,7 @@ module Participa
       def fill_in_location_data(user)
         unless user.in_catalonia?
           uncheck 'Resido en Cataluña'
-          sleep 1 
+          TransactionalCapybara::AjaxHelpers.wait_for_ajax(page)
           assert page.has_select?('País', with_options: [user.country_name])
           select(user.country_name, from: 'País')
         end

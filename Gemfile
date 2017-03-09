@@ -84,6 +84,7 @@ end
 group :test do
   gem 'minitest-rails'
   gem 'capybara'
+  gem 'transactional_capybara'
   gem 'poltergeist'
   gem 'launchy'
   gem 'database_cleaner'
