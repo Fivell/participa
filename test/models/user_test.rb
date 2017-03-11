@@ -586,7 +586,6 @@ class UserTest < ActiveSupport::TestCase
   test "get_or_create_vote for elections work" do 
     e1 = FactoryGirl.create(:election)
     v1 = @user.get_or_create_vote(e1.id)
-    sleep(2)
     v2 = @user.get_or_create_vote(e1.id)
     # same election id, same scope, same voter_id
     assert_equal( v1.voter_id, v2.voter_id )
@@ -594,7 +593,6 @@ class UserTest < ActiveSupport::TestCase
     # same election id, different scope, different voter_id
     e2 = FactoryGirl.create(:election, :town)
     v3 = @user.get_or_create_vote(e2.id)
-    sleep(2)
     v4 = @user.get_or_create_vote(e2.id)
     assert_equal( v3.voter_id, v4.voter_id )
     e2.election_locations.create(location: "010014", agora_version: 0)

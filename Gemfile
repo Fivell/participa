@@ -54,7 +54,6 @@ gem 'ffi-icu'
 gem 'unicode'
 gem 'rack-openid'
 gem 'ruby-openid'
-gem 'minitest-rails'
 gem 'rake-progressbar'
 gem 'rails_autolink'
 gem 'flag_shih_tzu'
@@ -80,7 +79,12 @@ group :development, :test do
   gem 'rubocop'
   gem 'ruby-prof'
   gem 'simplecov'
+end
+
+group :test do
+  gem 'minitest-rails'
   gem 'capybara'
+  gem 'transactional_capybara'
   gem 'poltergeist'
   gem 'launchy'
   gem 'database_cleaner'
