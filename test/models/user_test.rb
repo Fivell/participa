@@ -428,14 +428,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not user2.valid?
   end
 
-  test "uniqueness works" do 
-    user = build(:user, email: @user.email, document_vatid: @user.document_vatid, phone: @user.phone)
+  test "phone uniqueness works" do 
+    user = build(:user, phone: @user.phone)
     assert_not user.valid?
-    assert user.errors.include? :email
-    assert user.errors.include? :document_vatid
     assert user.errors.include? :phone
 
-    user = build(:user, email: "testwithnewmail@example.com", phone: "0034661234567")
+    user = build(:user, phone: "0034661234567")
     assert user.valid?
   end
 
