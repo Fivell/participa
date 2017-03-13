@@ -2,12 +2,12 @@ require 'test_helper'
 
 class ToolsControllerTest < ActionController::TestCase
 
-  test "should not get index as anonymous" do
+  test "gets index as anonymous" do
     get :index
     assert_response :redirect
   end
 
-  test "should redirect to edit profile when verifications not enabled" do
+  test "redirects to edit profile when verifications not enabled" do
     with_verifications(false) do
       sign_in create(:user)
       get :index
@@ -16,7 +16,7 @@ class ToolsControllerTest < ActionController::TestCase
     end
   end
 
-  test "should get index as user when verifications enabled" do
+  test "gets index as user when verifications enabled" do
     with_verifications(true) do
       sign_in create(:user)
       get :index

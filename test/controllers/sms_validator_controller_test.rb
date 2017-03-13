@@ -8,7 +8,7 @@ if available_features["verification_sms"]
       @user = create(:user, :sms_non_confirmed_user)
     end
   
-    test "should not get steps as anonymous" do
+    test "does not get steps as anonymous" do
       get :step1
       assert_response :redirect
       assert_redirected_to "/users/sign_in"
@@ -20,7 +20,7 @@ if available_features["verification_sms"]
       assert_redirected_to "/users/sign_in"
     end
   
-    test "should not get steps as sms_confirmed user if already confirmed" do
+    test "does not get steps as sms_confirmed user if already confirmed" do
       user = create(:user)
       user.update_attribute(:sms_confirmed_at, DateTime.now-1.week)
       sign_in user
@@ -30,7 +30,7 @@ if available_features["verification_sms"]
       assert_equal "Ya has confirmado tu número en los últimos meses.", flash[:error]
     end
   
-    test "should get steps as user" do
+    test "gets steps as user" do
       user = create(:user)
       user.update_attribute(:sms_confirmed_at, nil)
       sign_in user
@@ -44,7 +44,7 @@ if available_features["verification_sms"]
       assert_response :success
     end
   
-    test "should redirect to steps as non sms_confirmed_user" do
+    test "redirects to steps as non sms_confirmed_user" do
       sign_in @user
       @controller = ToolsController.new
       get :index
@@ -52,7 +52,7 @@ if available_features["verification_sms"]
       assert_redirected_to sms_validator_step1_path
     end
   
-    test "should set phone on step1 save it and go to step2" do
+    test "sets phone on step1 save it and go to step2" do
       phone = '666666666'
       sign_in @user
       post :phone, params: { user: { unconfirmed_phone: phone } } 
@@ -61,7 +61,7 @@ if available_features["verification_sms"]
       assert_redirected_to sms_validator_step2_path
     end
   
-    test "should set phone on step1 on update save it as unconfirmed and go to step2" do
+    test "sets phone on step1 on update save it as unconfirmed and go to step2" do
       phone = '666666666'
       sign_in @user
       post :phone, params: { user: { unconfirmed_phone: phone } }
@@ -70,14 +70,14 @@ if available_features["verification_sms"]
       assert_redirected_to sms_validator_step2_path
     end
   
-    test "should get step2 as user with phone" do
+    test "gets step2 as user with phone" do
       @user.update_attribute(:unconfirmed_phone, "0034666888999")
       sign_in @user
       get :step2 
       assert_response :success
     end
   
-    test "should not get step2 as user with no phone" do
+    test "does not get step2 as user with no phone" do
       @user.update_attribute(:phone, nil)
       @user.update_attribute(:unconfirmed_phone, nil)
       sign_in @user
@@ -86,7 +86,7 @@ if available_features["verification_sms"]
       assert_redirected_to sms_validator_step1_path
     end
   
-    test "should not get step3 as user with no phone" do
+    test "does not get step3 as user with no phone" do
       @user.update_attribute(:unconfirmed_phone, nil)
       sign_in @user
       get :step3 
@@ -94,7 +94,7 @@ if available_features["verification_sms"]
       assert_redirected_to sms_validator_step1_path
     end
   
-    test "should not get step3 as user with no sms_confirmation_token" do
+    test "does not get step3 as user with no sms_confirmation_token" do
       @user.update_attribute(:unconfirmed_phone, '0034666888999')
       @user.update_attribute(:sms_confirmation_token, nil)
       sign_in @user
@@ -103,7 +103,7 @@ if available_features["verification_sms"]
       assert_redirected_to sms_validator_step2_path
     end
   
-    test "should confirm sms token if user give it OK" do
+    test "confirms sms token if user give it OK" do
       token = 'AAA123'
       @user.update_attribute(:sms_confirmation_token, token)
       sign_in @user
@@ -112,7 +112,7 @@ if available_features["verification_sms"]
       assert_redirected_to root_path
     end
   
-    test "should not confirm sms token if user give it wrong" do
+    test "does not confirm sms token if user give it wrong" do
       token = 'AAA123'
       @user.update_attribute(:sms_confirmation_token, 'BBB123')
       sign_in @user
@@ -121,7 +121,7 @@ if available_features["verification_sms"]
       assert_equal "El código que has puesto no corresponde con el que te enviamos por SMS.", flash[:error]
     end
   
-    test "should change vote location from previous user when sms token if user give it OK" do
+    test "changes vote location from previous user when sms token if user give it OK" do
       with_blocked_change_location do
         old_user = create(:user)
         old_user.confirm
