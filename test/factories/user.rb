@@ -71,15 +71,15 @@ FactoryGirl.define do
     superadmin true
   end
 
-  trait :sms_non_confirmed_user do
+  trait :not_confirmed_by_sms do
     sms_confirmed_at nil
   end
 
-  trait :no_newsletter_user do
+  trait :newsletter_disabled do
     wants_newsletter false
   end
 
-  trait :newsletter_user do
+  trait :newsletter_enabled do
     wants_newsletter true
   end
 

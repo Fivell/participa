@@ -400,11 +400,11 @@ class UserTest < ActiveSupport::TestCase
 
   test "scope .wants_newsletter works" do 
     assert_difference -> { User.wants_newsletter.count }, 0 do
-      create(:user, :no_newsletter_user)
+      create(:user, :newsletter_disabled)
     end
 
     assert_difference -> { User.wants_newsletter.count }, 1 do
-      create(:user, :newsletter_user)
+      create(:user, :newsletter_enabled)
     end
   end
 

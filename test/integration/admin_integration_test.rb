@@ -64,8 +64,8 @@ class AdminIntegrationTest < ActionDispatch::IntegrationTest
   #  csv = CSV.parse response.body
   #  assert_equal 2, csv.count
 
-  #  # should not change count with a no_newsletter_user
-  #  create(:no_newsletter_user)
+  #  # should not change count with a user with newsletter disabled
+  #  create(:user, :newsletter_disabled)
   #  get '/admin/users/download_newsletter_csv'
   #  assert_response :success
   #  assert response["Content-Type"].include? "text/csv"
@@ -73,7 +73,7 @@ class AdminIntegrationTest < ActionDispatch::IntegrationTest
   #  assert_equal 2, csv.count
 
   #  # should change count with a newsletter_user
-  #  create(:newsletter_user)
+  #  create(:user, :newsletter_enabled)
   #  get '/admin/users/download_newsletter_csv'
   #  assert_response :success
   #  assert response["Content-Type"].include? "text/csv"

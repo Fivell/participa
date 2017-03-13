@@ -5,7 +5,7 @@ if available_features["verification_sms"]
   class SmsValidatorControllerTest < ActionController::TestCase
   
     setup do 
-      @user = create(:user, :sms_non_confirmed_user)
+      @user = create(:user, :not_confirmed_by_sms)
     end
   
     test "does not get steps as anonymous" do
@@ -128,8 +128,8 @@ if available_features["verification_sms"]
         old_user.delete
         
         token = 'AAA123'
-        new_user = create(:user, :sms_non_confirmed_user, town: "m_03_003_6", document_vatid: old_user.document_vatid, 
-                                                          sms_confirmation_token: token, unconfirmed_phone: old_user.phone)
+        new_user = create(:user, :not_confirmed_by_sms, town: "m_03_003_6", document_vatid: old_user.document_vatid, 
+                                                        sms_confirmation_token: token, unconfirmed_phone: old_user.phone)
         sign_in new_user
         post :valid, params: { user: { sms_user_token_given: token } }
         new_user = User.where(phone: old_user.phone).last
