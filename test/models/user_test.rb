@@ -52,6 +52,7 @@ class UserTest < ActiveSupport::TestCase
     assert_includes user2.errors[:email], error_message
 
     user2 = build(:user, email: "newuniqueemail@example.com")
+    user2.valid?
     assert_empty user2.errors[:email]
   end
 
