@@ -54,7 +54,6 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
 
   test "should set_new_password, set_phone and check_born_at, but allow access to profile" do 
     @user.update_attribute(:born_at, Date.civil(1900,1,1))
-    @user.update_attribute(:has_legacy_password, true)
     @user.update_attribute(:sms_confirmed_at, nil)
     login @user
     assert_text "Debes indicar tu fecha de nacimiento."
@@ -81,13 +80,6 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     assert_text "Si lo deseas, puedes indicar el municipio en España donde deseas votar."
     get '/es'
     assert_response :success
-  end
-
-  test "should redirect to profile when has has_legacy_password and invalid profile" do
-    @user.update_attribute(:has_legacy_password, true)
-    @user.update_attribute(:postal_code, "as")
-    login @user
-    assert_landed_in_profile_edition
   end
 
   test "should not redirect to profile when has invalid profile but no issues" do

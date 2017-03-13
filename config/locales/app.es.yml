@@ -848,7 +848,6 @@ PODEMOS cumple con todas las medidas de seguridad para la protección de datos p
       total_price: "Importe del premio concedido"
   issues:
     confirm_sms: "Por seguridad, debes confirmar tu teléfono."
-    legacy_password: "Por seguridad, debes cambiar tu contraseña."
     born_at: "Debes indicar tu fecha de nacimiento."
     location: "Por favor, verifica que los datos de tu domicilio son correctos y guarda los datos."
     country: "Debes indicar el país donde resides."
@@ -869,7 +868,6 @@ PODEMOS cumple con todas las medidas de seguridad para la protección de datos p
       unconfirmed_phone: "Teléfono sin confirmar"
       confirmed_mail: "Email confirmado"
       confirmed_phone: "Teléfono confirmado"
-      legacy_password: "Contraseña antigua (legacy)"
       signed_in: "Ha iniciado sesión"
       not_signed_in: "No ha iniciado sesión"
       has_collaboration: "Con colaboración económica"

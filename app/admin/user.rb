@@ -8,7 +8,6 @@ ActiveAdmin.register User do
   scope :deleted
   scope :unconfirmed_mail
   scope :unconfirmed_phone
-  scope :legacy_password
   scope :confirmed_mail
   scope :confirmed_phone
   scope :signed_in
@@ -161,7 +160,6 @@ ActiveAdmin.register User do
       row :confirmation_sent_at
       row :confirmed_at
       row :unconfirmed_email
-      row :has_legacy_password
       row "Teléfono móvil (confirmado)" do
         user.phone
       end
@@ -242,7 +240,6 @@ ActiveAdmin.register User do
   filter :current_sign_in_ip
   filter :last_sign_in_at
   filter :last_sign_in_ip
-  filter :has_legacy_password
   filter :created_at
   filter :confirmed_at
   filter :verified_at

@@ -582,7 +582,6 @@ class UserTest < ActiveSupport::TestCase
   #scope :deleted, -> { where "deleted_at is not null" }
   #scope :unconfirmed_mail, -> { where "confirmed_at is null" }
   #scope :unconfirmed_phone, -> { where "sms_confirmed_at is null" }
-  #scope :legacy_password, -> { where(has_legacy_password: true) }
   #
 
   test "get_or_create_vote for elections work" do 

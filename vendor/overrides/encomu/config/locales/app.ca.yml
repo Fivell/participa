@@ -374,7 +374,6 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
 "
   issues:
     confirm_sms: "Per seguretat, has de confirmar el teu telèfon."
-    legacy_password: "Per seguretat, has de canviar la teva contrasenya."
     born_at: "Has d'indicar la teva data de naixement."
     location: "Sisplau, verifica que les dades de la teva adreça són correctes i desa les dades."
 
@@ -394,7 +393,6 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
       unconfirmed_phone: "Telèfon sense confirmar"
       confirmed_mail: "Correu electrònic confirmat"
       confirmed_phone: "Telèfon confirmat"
-      legacy_password: "Contrasenya antiga (legacy)"
       signed_in: "Has iniciat sessió"
       not_signed_in: "No has iniciat sessió"
       has_collaboration: "Amb col·laboració econòmica"

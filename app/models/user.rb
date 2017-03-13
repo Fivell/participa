@@ -134,13 +134,6 @@ class User < ActiveRecord::Base
     # User have a valid born date
     issue ||= check_issue (self.born_at.nil? || (self.born_at == Date.civil(1900,1,1))), :edit_user_registration, { alert: "born_at"}, "registrations"
 
-    # User don't have a legacy password, verify if profile is valid before request to change it
-    if self.has_legacy_password?
-      issue ||= check_issue self.invalid?, :edit_user_registration, nil, "registrations"
-
-      issue ||= check_issue true, :new_legacy_password, { alert: "legacy_password" }, "legacy_password"
-    end
-
     if Rails.application.secrets.features["verification_sms"]
       # User has confirmed SMS code
       issue ||= check_issue self.sms_confirmed_at.nil?, :sms_validator_step1, { alert: "confirm_sms" }, "sms_validator"
@@ -169,7 +162,6 @@ class User < ActiveRecord::Base
   scope :unconfirmed_phone, -> { where(sms_confirmed_at: nil) }
   scope :confirmed_mail, -> { where.not(confirmed_at: nil) }
   scope :confirmed_phone, -> { where.not(sms_confirmed_at: nil) }
-  scope :legacy_password, -> { where(has_legacy_password: true) }
   scope :confirmed, -> { where.not(confirmed_at: nil).where.not(sms_confirmed_at: nil) }
   scope :signed_in, -> { where.not(sign_in_count: nil) }
   scope :participation_team, -> { includes(:participation_team).where.not(participation_team_at: nil) }

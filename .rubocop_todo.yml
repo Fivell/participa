@@ -496,7 +496,6 @@ Style/CommentAnnotation:
     - 'app/admin/collaboration.rb'
     - 'config/environments/staging.rb'
     - 'test/controllers/collaborations_controller_test.rb'
-    - 'test/controllers/legacy_password_controller_test.rb'
     - 'test/controllers/vote_controller_test.rb'
     - 'test/features/proposals_test.rb'
 
@@ -512,7 +511,6 @@ Style/CommentIndentation:
     - 'config/environments/staging.rb'
     - 'test/controllers/collaborations_controller_test.rb'
     - 'test/models/order_test.rb'
-    - 'test/models/podemos_import_test.rb'
     - 'test/models/user_test.rb'
 
 # Offense count: 13
@@ -530,7 +528,6 @@ Style/ConditionalAssignment:
     - 'app/models/order.rb'
     - 'app/models/report.rb'
     - 'app/models/user.rb'
-    - 'lib/podemos_import.rb'
 
 # Offense count: 1
 Style/ConstantName:
@@ -729,7 +726,6 @@ Style/IfUnlessModifier:
     - 'app/validators/email_validator.rb'
     - 'lib/municipy_extractor.rb'
     - 'lib/podemos_export.rb'
-    - 'lib/podemos_import.rb'
     - 'test/models/order_test.rb'
 
 # Offense count: 5
@@ -940,7 +936,6 @@ Style/NestedParenthesizedCalls:
 Style/NestedTernaryOperator:
   Exclude:
     - 'app/admin/microcredit.rb'
-    - 'lib/podemos_import.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -1365,7 +1360,6 @@ Style/Tab:
 Style/TernaryParentheses:
   Exclude:
     - 'app/controllers/registrations_controller.rb'
-    - 'lib/podemos_import.rb'
 
 # Offense count: 26
 # Cop supports --auto-correct.

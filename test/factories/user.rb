@@ -71,10 +71,6 @@ FactoryGirl.define do
     superadmin true
   end
 
-  trait :legacy_password_user do
-    has_legacy_password true
-  end
-
   trait :sms_non_confirmed_user do
     sms_confirmed_at nil
   end
