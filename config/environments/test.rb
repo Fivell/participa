@@ -30,6 +30,11 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.asset_host = 'http://localhost:3000'
 
+  # Debug mode disables concatenation and preprocessing of assets.
+  # This option may cause significant delays in view rendering with a large
+  # number of complex assets.
+  config.assets.debug = true
+
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
