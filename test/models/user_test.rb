@@ -38,11 +38,11 @@ class UserTest < ActiveSupport::TestCase
 
     u = build(:user, document_type: 1, document_vatid: "99115002K")
     u.valid?
-    assert(u.errors[:document_vatid] == [])
+    assert_empty u.errors[:document_vatid]
 
     u = build(:user, document_type: 2, document_vatid: "Z4901305X")
     u.valid?
-    assert(u.errors[:document_vatid] == [])
+    assert_empty u.errors[:document_vatid]
   end
 
   test "validates email uniqueness" do
@@ -52,7 +52,7 @@ class UserTest < ActiveSupport::TestCase
     assert_includes user2.errors[:email], error_message
 
     user2 = build(:user, email: "newuniqueemail@example.com")
-    assert(user2.errors[:email] == [])
+    assert_empty user2.errors[:email]
   end
 
   test "validates email format" do
