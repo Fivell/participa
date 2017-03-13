@@ -74,14 +74,6 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     assert_landed_in_profile_edition
   end
 
-  test "should redirect to profile and allow to change vote town to foreign users" do
-    @user_foreign.update_attribute(:vote_town, "NOTICE")
-    login @user_foreign
-    assert_text "Si lo deseas, puedes indicar el municipio en España donde deseas votar."
-    get '/es'
-    assert_response :success
-  end
-
   test "should not redirect to profile when has invalid profile but no issues" do
     @user.update_attribute(:postal_code, "as")
     login @user

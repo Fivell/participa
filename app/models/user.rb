@@ -143,8 +143,6 @@ class User < ActiveRecord::Base
       return issue
     end
 
-    issue ||= check_issue self.vote_town_notice, :edit_user_registration, { notice: "vote_town"}, "registrations"
-
     if issue
       return issue
     end
@@ -470,7 +468,7 @@ class User < ActiveRecord::Base
   end
 
   def has_vote_town?
-    not self.vote_town.nil? and not self.vote_town.empty? and not self.vote_town=="NOTICE"
+    not self.vote_town.nil? and not self.vote_town.empty?
   end
 
   def has_verified_vote_town?
@@ -563,10 +561,6 @@ class User < ActiveRecord::Base
 
   def vote_island_numeric
     self.vote_in_spanish_island? ? self.vote_island_code[2..-1] : ""
-  end
-
-  def vote_town_notice()
-    self.vote_town == "NOTICE"
   end
 
   def self.ban_users ids, value

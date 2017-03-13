@@ -56,18 +56,6 @@ class RegistrationsControllerTest < ActionController::TestCase
     end
   end
 
-  test "should allow to change vote location when previous user has an invalid vote_town" do
-    with_blocked_change_location do
-      old_user = create(:user)
-      old_user.delete
-      old_user.update_attributes vote_town: "NOTICE"
-
-      post :create, { "user" => attributes_for(:user, document_vatid: old_user.document_vatid, town: "m_03_003_6") }
-      new_user = User.where(document_vatid: old_user.document_vatid).last
-      assert_not_equal old_user.vote_town, new_user.vote_town, "New user vote location should be keep"
-    end
-  end
-
   test "should allow to change vote location when previous user has an unverified vote_town" do
     with_blocked_change_location do
       old_user = create(:user)
