@@ -6,14 +6,14 @@ feature "Active Admin Test" do
     visit admin_users_path
     page.must_have_content "No tienes permisos para acceder a esa sección "
 
-    user = FactoryGirl.create(:user)
+    user = create(:user)
     login_as(user)
     visit admin_collaborations_path
     page.must_have_content "No tienes permisos para acceder a esa sección "
   end
 
   scenario "admin user should access the admin" do
-    user = FactoryGirl.create(:user, :admin)
+    user = create(:user, :admin)
     login_as(user)
     visit admin_users_path
     page.must_have_content "Salir"

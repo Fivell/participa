@@ -9,12 +9,12 @@ class PasswordsIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test "should login with password as user" do
-    login FactoryGirl.create(:user)
+    login create(:user)
     assert_logged_in
   end
 
   test "should login with password as foreign user" do
-    login FactoryGirl.create(:user, :foreigner)
+    login create(:user, :foreigner)
     assert_logged_in
   end
 

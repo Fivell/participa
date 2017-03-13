@@ -6,7 +6,7 @@ feature "ParticipationTeams" do
     visit participation_teams_path
     page.must_have_content "Necesitas iniciar sesión o registrarte para continuar."
 
-    user = FactoryGirl.create(:user)
+    user = create(:user)
     login_as(user)
     visit participation_teams_path
     page.must_have_content "Nos encontramos a un momento decisivo para cambiar"

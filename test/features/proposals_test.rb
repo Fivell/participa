@@ -5,8 +5,8 @@ if Rails.application.secrets.features["proposals"]
   feature "Proposals" do
     
     scenario "Support", js: true do
-      user = FactoryGirl.create(:user)
-      proposal = FactoryGirl.create(:proposal)
+      user = create(:user)
+      proposal = create(:proposal)
   
       login_as(user)
   

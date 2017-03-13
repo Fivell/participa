@@ -24,8 +24,8 @@ feature "VerificationPresencial" do
     assert_equal page.current_path, root_path(locale: :es)
 
     # initialize
-    user = FactoryGirl.create(:user)
-    election = FactoryGirl.create(:election)
+    user = create(:user)
+    election = create(:election)
 
     # should see the pending verification message if isn't verified
     login_as(user)
@@ -45,7 +45,7 @@ feature "VerificationPresencial" do
   scenario "user verifications_admin can verify", js: true do
 
     # should see the pending verification message if isn't verified
-    user2 = FactoryGirl.create(:user)
+    user2 = create(:user)
     login_as(user2)
     visit root_path
     #page.must_have_content I18n.t('verification.pending0_html')
@@ -53,7 +53,7 @@ feature "VerificationPresencial" do
     Capybara.reset_sessions!
 
     # user1 can verify to user2
-    user1 = FactoryGirl.create(:user)
+    user1 = create(:user)
     user1.verifications_admin = true
     user1.save
     login_as(user1)

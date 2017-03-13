@@ -5,8 +5,8 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
   include Participa::Test::LoginHelpers
 
   setup do
-    @user = FactoryGirl.create(:user)
-    @user_foreign = FactoryGirl.create(:user, :foreigner)
+    @user = create(:user)
+    @user_foreign = create(:user, :foreigner)
   end
 
   test "should default_url_options locale" do

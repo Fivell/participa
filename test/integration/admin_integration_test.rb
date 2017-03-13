@@ -3,8 +3,8 @@ require 'test_helper'
 class AdminIntegrationTest < ActionDispatch::IntegrationTest
 
   setup do
-    @user = FactoryGirl.create(:user)
-    @admin = FactoryGirl.create(:user, :admin)
+    @user = create(:user)
+    @admin = create(:user, :admin)
   end
 
   test "should not get /admin as anon" do
@@ -65,7 +65,7 @@ class AdminIntegrationTest < ActionDispatch::IntegrationTest
   #  assert_equal 2, csv.count
 
   #  # should not change count with a no_newsletter_user
-  #  FactoryGirl.create(:no_newsletter_user)
+  #  create(:no_newsletter_user)
   #  get '/admin/users/download_newsletter_csv'
   #  assert_response :success
   #  assert response["Content-Type"].include? "text/csv"
@@ -73,7 +73,7 @@ class AdminIntegrationTest < ActionDispatch::IntegrationTest
   #  assert_equal 2, csv.count
 
   #  # should change count with a newsletter_user
-  #  FactoryGirl.create(:newsletter_user)
+  #  create(:newsletter_user)
   #  get '/admin/users/download_newsletter_csv'
   #  assert_response :success
   #  assert response["Content-Type"].include? "text/csv"

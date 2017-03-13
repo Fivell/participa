@@ -2,7 +2,7 @@ require "test_helper"
 
 def create_resource_and_delete_itself klass, factory, final_count
   assert_equal 0, klass.all.count 
-  resource = FactoryGirl.create(factory)
+  resource = create(factory)
   assert_equal 1, klass.all.count
 
   login_as(resource.user)
@@ -19,7 +19,7 @@ feature "CanUserDeleteItselfTest" do
 
   scenario "a logged in user should delete itself" do
     assert_equal 0, User.all.count 
-    user = FactoryGirl.create(:user)
+    user = create(:user)
     assert_equal 1, User.all.count 
 
     login_as(user)
@@ -36,8 +36,8 @@ feature "CanUserDeleteItselfTest" do
 
   scenario "a logged in user should delete itself after making a support on a proposal", js: true do
     assert_equal 0, Support.all.count 
-    proposal = FactoryGirl.create(:proposal)
-    user = FactoryGirl.create(:user)
+    proposal = create(:proposal)
+    user = create(:user)
 
     login_as(user)
     visit proposals_path

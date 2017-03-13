@@ -5,7 +5,7 @@ feature "UsersAreParanoid" do
   include Participa::Test::RegistrationHelpers
 
   scenario "regular registration", js: true do
-    @user = FactoryGirl.build(:user)
+    @user = build(:user)
     # first creation attempt, receive OK message and create it
     assert_equal 0, User.all.count
     create_user_registration(@user, @user.document_vatid, @user.email)
@@ -14,7 +14,7 @@ feature "UsersAreParanoid" do
   end
 
   scenario "creation with dup document and email", js: true do
-    @user = FactoryGirl.create(:user)
+    @user = create(:user)
     # receive OK message
     # but don't create the user and mail them a message
     create_user_registration(@user, @user.document_vatid, @user.email)
@@ -23,7 +23,7 @@ feature "UsersAreParanoid" do
   end
 
   scenario "creation with same document and invalid email", js: true do
-    @user = FactoryGirl.create(:user)
+    @user = create(:user)
     # receive KO message
     # don't create it because it has errors.
     # should receive validation error.
@@ -33,7 +33,7 @@ feature "UsersAreParanoid" do
   end
 
   scenario "creation the same document and different email", js: true do
-    @user = FactoryGirl.create(:user)
+    @user = create(:user)
     # receive OK message
     # but don't create the user and mail them a message to original account
     create_user_registration(@user, @user.document_vatid, "trolololo@example.com")

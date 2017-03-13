@@ -12,9 +12,12 @@ WebMock.disable_net_connect!(allow_localhost: true)
 include Warden::Test::Helpers
 Warden.test_mode!
 
+class ActiveSupport::TestCase
+  include FactoryGirl::Syntax::Methods
+end
+
 class ActionController::TestCase
   include Devise::Test::ControllerHelpers
-  include FactoryGirl::Syntax::Methods
 end
 
 def with_blocked_change_location

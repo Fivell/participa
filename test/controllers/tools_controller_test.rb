@@ -9,7 +9,7 @@ class ToolsControllerTest < ActionController::TestCase
 
   test "should redirect to edit profile when verifications not enabled" do
     with_verifications(false) do
-      sign_in FactoryGirl.create(:user)
+      sign_in create(:user)
       get :index
       assert_response :redirect
       assert_redirected_to edit_user_registration_path
@@ -18,7 +18,7 @@ class ToolsControllerTest < ActionController::TestCase
 
   test "should get index as user when verifications enabled" do
     with_verifications(true) do
-      sign_in FactoryGirl.create(:user)
+      sign_in create(:user)
       get :index
       assert_response :success
     end

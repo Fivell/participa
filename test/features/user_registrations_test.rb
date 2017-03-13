@@ -11,9 +11,9 @@ feature "UserRegistrations" do
   end
 
   scenario "create a user in Catalonia", js: true do
-    @user = FactoryGirl.build(:user, :catalan, town: 'm_08_015_5',
-                                               comarca: 13,
-                                               vegueria: 'AT01')
+    @user = build(:user, :catalan, town: 'm_08_015_5',
+                                   comarca: 13,
+                                   vegueria: 'AT01')
 
     base_register(@user) { fill_in_location_data(@user) }
 
@@ -26,9 +26,9 @@ feature "UserRegistrations" do
   end
 
   scenario "create a user outside of Catalonia", js: true do
-    @user = FactoryGirl.build(:user, :spanish, province: 'AB',
-                                               town: 'm_02_003_0',
-                                               postal_code: '02002')
+    @user = build(:user, :spanish, province: 'AB',
+                                   town: 'm_02_003_0',
+                                   postal_code: '02002')
 
     base_register(@user) { fill_in_location_data(@user) }
 
@@ -38,7 +38,7 @@ feature "UserRegistrations" do
   end
 
   scenario "create a user outside of Spain", js: true do
-    @user = FactoryGirl.build(:user, :foreigner, country: 'US', province: 'AL')
+    @user = build(:user, :foreigner, country: 'US', province: 'AL')
 
     base_register(@user) { fill_in_location_data(@user) }
 
@@ -46,7 +46,7 @@ feature "UserRegistrations" do
   end
 
   scenario "create a user in a country without regions", js: true do
-    @user = FactoryGirl.build(:user, :foreigner, country: 'MC', province: nil)
+    @user = build(:user, :foreigner, country: 'MC', province: nil)
 
     base_register(@user) { fill_in_location_data(@user) }
 
@@ -54,7 +54,7 @@ feature "UserRegistrations" do
   end
 
   scenario "location is preserved upon form errors", js: true do
-    @user = FactoryGirl.build(:user, :foreigner, country: 'US', province: 'AL')
+    @user = build(:user, :foreigner, country: 'US', province: 'AL')
 
     visit new_user_registration_path
     fill_in_location_data(@user)
@@ -65,7 +65,7 @@ feature "UserRegistrations" do
   end
 
   scenario "create a user with gender identity information", js: true do
-    @user = FactoryGirl.build(:user, :catalan)
+    @user = build(:user, :catalan)
 
     visit new_user_registration_path
     fill_in_user_registration(@user, @user.document_vatid, @user.email)
@@ -79,7 +79,7 @@ feature "UserRegistrations" do
   end
 
   scenario "captcha skipped", js: true do
-    @user = FactoryGirl.build(:user, :catalan)
+    @user = build(:user, :catalan)
 
     visit new_user_registration_path
     fill_in_personal_data(@user, @user.document_vatid)
@@ -92,7 +92,7 @@ feature "UserRegistrations" do
   end
 
   scenario "captcha skipped and another error", js: true do
-    @user = FactoryGirl.build(:user, :catalan)
+    @user = build(:user, :catalan)
 
     visit new_user_registration_path
     fill_in_personal_data(@user, @user.document_vatid)
