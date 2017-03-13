@@ -8,7 +8,7 @@ if available_features["verification_sms"]
       @user = create(:user, :sms_non_confirmed_user)
     end
   
-    test "should not get steps as anonimous" do
+    test "should not get steps as anonymous" do
       get :step1
       assert_response :redirect
       assert_redirected_to "/users/sign_in"

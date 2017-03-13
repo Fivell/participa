@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
       if user_signed_in?
         tracking.info "** #{current_user.full_name} ** #{request.method()} #{request.path}"
       else
-        tracking.info "** Anonimous ** #{request.method()} #{request.path}"
+        tracking.info "** Anonymous ** #{request.method()} #{request.path}"
       end
       tracking.info params.to_s
       #tracking.info request

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ToolsControllerTest < ActionController::TestCase
 
-  test "should not get index as anonimous" do
+  test "should not get index as anonymous" do
     get :index
     assert_response :redirect
   end
