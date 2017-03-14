@@ -9,18 +9,18 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     @user_foreign = create(:user, :foreigner)
   end
 
-  test "should default_url_options locale" do
+  test "sets locale from default_url_options by default" do
     get '/'
     assert_response :redirect
     assert_redirected_to '/es'
   end
 
-  test "should set_locale" do
+  test "sets locale from url" do
     get '/ca'
     assert_equal(:ca, I18n.locale)
   end
 
-  test "should success when login with a foreign user" do
+  test "logins successfully for foreign users" do
     @user.update_attribute(:country, "DE")
     @user.update_attribute(:province, "BE")
     @user.update_attribute(:town, nil)
@@ -29,7 +29,7 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should success when login with a rare foreign user (no provinces)" do
+  test "logins successfully for rare foreign users (no provinces)" do
     @user.update_attribute(:country, "PS")
     @user.update_attribute(:province, nil)
     @user.update_attribute(:town, nil)
@@ -40,7 +40,7 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   if available_features["verification_sms"]
-    test "should set_phone if non sms confirmed user, but allow access to profile" do
+    test "starts sms verification for unconfirmed users, allows access to profile" do
       login @user
       assert_equal sms_validator_step1_path(locale: 'es'), current_path
       assert_text "Por seguridad, debes confirmar tu teléfono."
