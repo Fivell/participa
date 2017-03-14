@@ -17,6 +17,16 @@ jQuery(function() {
       var tab = $('a[href="' + submenu + '"]', $submenu);
       tab.parent().addClass('active');
       $(submenu).show();
+      $('#language-menu li a').attr('href', function (_, oldHref) {
+        var anchor = /#.*$/;
+
+        if (anchor.test(oldHref)) {
+          return oldHref.replace(anchor, submenu);
+        } else {
+          return oldHref + submenu;
+        }
+      });
+    };
 
     $submenu.on('click', 'a.js-change-tab', function(evt) {
       evt.preventDefault();
