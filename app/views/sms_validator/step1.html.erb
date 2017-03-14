@@ -1,4 +1,4 @@
-<% content_for :title, "Comprova el teu telèfon mòbil / Comprueba tu teléfono móvil" %>
+<% content_for :title, t("sms_validator.steps.step1") %>
 
 <div class="content-content">
   <div class="row">
@@ -12,7 +12,9 @@
 
           <p><%= t('sms_validator.phone.p2') %></p>
 
-          <p>Has d'ingressar un telèfon mòbil vàlid per al país on et trobes, sense prefix internacional, només amb números (sense espais ni guions). Segons el formulari que has emplenat et trobes a Espanya (prefix internacional +34) / Debes ingresar un teléfono móvil válido para el país en el que te encuentras, sin prefijo internacional, sólo con números (sin espacios ni guiones). Según el formulario que has rellenado te encuentras en <b><%= current_user.country_name %></b> (prefijo internacional +<%= current_user.phone_prefix %>). </p>
+          <p><%= t('sms_validator.phone.information_html',
+                   country: current_user.country_name,
+                   prefix: current_user.phone_prefix) %></p>
 
           <%= errors_in_form current_user %>
 

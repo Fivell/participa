@@ -213,6 +213,7 @@ ca:
       token: Codi SMS
       button: "Comprova"
       captcha_invalid: "Captcha invàlid"
+      information_html: "Has d'ingressar un telèfon mòbil vàlid per al país on et trobes, sense prefix internacional, només amb números (sense espais ni guions). Segons el formulari que has emplenat et trobes a <b>%{country}</b> (prefix internacional +%{prefix})."
   static:
     privacy: Política de privacitat
     legal: Avís legal
