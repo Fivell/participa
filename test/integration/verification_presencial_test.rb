@@ -52,7 +52,7 @@ class VerificationPresencialTest < JsFeatureTest
     logout(user2)
     Capybara.reset_sessions!
 
-    # user1 can verify to user2
+    # user1 can verify user2
     user1 = create(:user, :verifying_presentially)
     login_as(user1)
     visit verification_step1_path
