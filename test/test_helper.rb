@@ -8,7 +8,6 @@ require 'support/database_cleaner'
 
 SimpleCov.start
 WebMock.disable_net_connect!(allow_localhost: true)
-include Warden::Test::Helpers
 Warden.test_mode!
 
 class ActiveSupport::TestCase
@@ -23,6 +22,7 @@ require 'capybara/rails'
 require 'capybara/minitest'
 
 class ActionDispatch::IntegrationTest
+  include Warden::Test::Helpers
   include Capybara::DSL
   include Capybara::Minitest::Assertions
 
