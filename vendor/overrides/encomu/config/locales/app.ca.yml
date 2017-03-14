@@ -111,7 +111,7 @@ La quantitat que vós doneu no us ha sigut lliurada per part d’alguna persona 
       change_email: "Canvia correu electrònic"
       change_email_explain: "Si canvies el teu correu electrònic t'enviarem un altre correu perquè el confirmis."
       change_phone: "Canvia el telèfon mòbil"
-      change_phone_explain_html: "Ara mateix tens el mòbil <b> %{phone} </b>"
+      change_phone_explain_html: "T'has validat amb el telèfon mòbil <b>%{unprefixed_phone}</b> de <b>%{phone_country}</b> (prefix internacional %{phone_prefix})."
       change_password: "Canvia contrasenya"
       cancel_account: "Dóna'm de baixa"
       cancel_account_explain_html: "<p>Si cliques ‘Dóna'm de baixa’ deixaràs de ser membre de Un País En Comú i cancel·larem les teves dades personals conforme a allò convingut a la Llei Orgànica 15/1999 de Protecció de Dades de Caràcter Personal.</p>
