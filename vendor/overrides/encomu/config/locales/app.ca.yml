@@ -107,8 +107,6 @@ La quantitat que vós doneu no us ha sigut lliurada per part d’alguna persona 
     home_address: "Adreça"
     unauthorized: "No tens permisos per accedir a aquesta secció"
     user:
-      general_data: "Dades generals"
-      collaborations: "Col·laboracions econòmiques"
       personal_data: "Dades personals"
       change_email: "Canvia correu electrònic"
       change_email_explain: "Si canvies el teu correu electrònic t'enviarem un altre correu perquè el confirmis."

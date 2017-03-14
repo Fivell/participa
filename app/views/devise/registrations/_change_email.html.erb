@@ -19,7 +19,7 @@
       <div class="inputlabel-box">
         <%= f.input :current_password,
                     required: true,
-                    hint: raw(t("devise.hints.current_password", :link => link_to(t("devise.links.here"), "#recover-password", class: "js-change-tab"))),
+                    hint: t("devise.hints.current_password"),
                     input_html: { class: 'input-m' } %>
       </div>
 

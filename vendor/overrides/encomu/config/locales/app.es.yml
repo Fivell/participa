@@ -43,8 +43,6 @@ es:
     home_address: "Domicilio"
     unauthorized: "No tienes permisos para acceder a esa sección"
     user:
-      general_data: "Datos generales"
-      collaborations: "Colaboraciones económicas"
       personal_data: "Datos personales"
       change_email: "Cambiar correo electrónico"
       change_email_explain: "Si cambias tu correo electrónico te enviaremos otro correo para que lo confirmes."
