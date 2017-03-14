@@ -161,7 +161,7 @@ aquest missatge. Si ho reps diverses vegades, avisa'ns a %{mail}."
       phone:
         p1: "Introdueix el teu nou número de telèfon mòbil."
         p2: "Rebràs el codi de verificació per validar el nou número en uns segons."
-        p3: "Si ja has participat en alguna votació de Barcelona En Comú, t'enviarem el codi per correu electrònic."
+        p3: "Si ja has participat en alguna votació de Un País En Comú, t'enviarem el codi per correu electrònic."
         p4: "Introdueix el text que apareix a la imatge."
         p5: "Introdueix el codi que hagis rebut per SMS per confirmar-lo"
         valid: "Has validat correctament el teu nou número de telèfon."
