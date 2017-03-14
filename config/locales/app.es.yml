@@ -944,7 +944,7 @@ PODEMOS cumple con todas las medidas de seguridad para la protección de datos p
   sms_validator:
     steps:
       step1: "Introduce tu número de teléfono móvil"
-      step2: "Rellena el captcha"
+      step2: "Rellena el código de la imagen"
       step3: "Introduce el código recibido por SMS"
     phone:
       p1: "Introduce tu nuevo número de teléfono móvil."

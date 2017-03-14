@@ -190,7 +190,7 @@ ca:
   sms_validator:
     steps:
       step1: "Introdueix el teu número de telèfon mòbil"
-      step2: "Emplena el captcha"
+      step2: "Emplena el codi de la imatge"
       step3: "Introdueix el codi rebut per SMS"
     phone:
       p1: "Introdueix el teu nou número de telèfon mòbil."
