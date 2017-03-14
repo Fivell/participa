@@ -1,7 +1,7 @@
-<%= content_tag(:h2, t("bec.user.change_email"))%>
+<%= content_tag(:h2, t("user.change_email"))%>
 
 <section class="content-text">
-  <p> <%= t('bec.user.change_email_explain') %> </p>
+  <p> <%= t('user.change_email_explain') %> </p>
 </section>
 
 <% if resource.class.reconfirmable && resource.unconfirmed_email.present? %>
@@ -24,7 +24,7 @@
       </div>
 
       <%= f.actions class: 'enter' do %>
-          <%= f.action :submit, label: t("bec.user.change_email"), button_html: {class: "button"} %>
+          <%= f.action :submit, label: t("user.change_email"), button_html: {class: "button"} %>
       <% end %>
     </fieldset>
 <% end %>

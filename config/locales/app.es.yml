@@ -369,20 +369,6 @@ es:
     home_address: "Domicilio"
     unauthorized: "No tienes permisos para acceder a esa sección"
     banned: "Gracias, %{full_name}. Lamentamos decirte que para poder participar debes enviarnos además una fotocopia de tu documento de identidad a la dirección LOPD@podemos.info o, si te viene mejor, pasarte por cualquier Delegación del Partido. Si quieres más información puedes consultarnos también en organos.autonomicos@podemos.info. Pero lo más eficaz para poder participar de forma inmediata es escanear tu documento y mandárnoslos al primer correo. Muchas gracias y perdona las molestias."
-    user:
-      personal_data: "Datos personales"
-      change_email: "Cambiar correo electrónico"
-      change_email_explain: "Si cambias tu correo electrónico te enviaremos otro correo para que lo confirmes."
-      change_phone: "Cambiar teléfono móvil"
-      change_phone_explain_html: "Ahora mismo tienes el móvil <b> %{phone} </b>"
-      change_password: "Cambiar contraseña"
-      cancel_account: "Darme de baja"
-      cancel_account_explain_html: "<p>Al pulsar el botón ‘Darme de baja’ dejarás de ser miembro de Podemos y cancelaremos tus datos personales de conformidad con lo dispuesto en la Ley Orgánica 15/1999 de Protección de Datos de Carácter Personal.</p>
-<p> A partir de este momento tu cuenta de acceso al portal de participación de Podemos quedará eliminada.</p>
-<p>
-De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Protección de Datos, la cancelación dará lugar al bloqueo de los datos, conservándose únicamente a disposición de las Administraciones públicas, Jueces y Tribunales, para la atención de las posibles responsabilidades nacidas del tratamiento, durante el plazo de prescripción de éstas. Cumplido el citado plazo se procederá a la supresión de los datos.
-</p>
-"
     devise:
       mailer:
         hello: "Hola"
@@ -838,6 +824,20 @@ PODEMOS cumple con todas las medidas de seguridad para la protección de datos p
       incorrect-captcha-sol: "Hubo un error con el captcha, por favor completalo de nuevo"
       verification_failed: "Hubo un error con el captcha, por favor completalo de nuevo"
       recaptcha_unreachable: "Hubo un error con el captcha, por favor completalo de nuevo"
+  user:
+    personal_data: "Datos personales"
+    change_email: "Cambiar correo electrónico"
+    change_email_explain: "Si cambias tu correo electrónico te enviaremos otro correo para que lo confirmes."
+    change_phone: "Cambiar teléfono móvil"
+    change_phone_explain_html: "Te has validado con el teléfono móvil <b>%{unprefixed_phone}</b> de <b>%{phone_country}</b> (prefijo internacional %{phone_prefix})."
+    change_password: "Cambiar contraseña"
+    cancel_account: "Darme de baja"
+    cancel_account_explain_html: "<p>Al pulsar el botón \"Darme de baja\" dejarás de ser miembro de Un País En Comú y cancelaremos tus datos personales de conformidad con lo dispuesto en la Ley Orgánica 15/1999 de Protección de Datos de Carácter Personal.</p>
+<p> A partir de este momento tu cuenta de acceso al portal de participación de Un País En Comú quedará eliminada.</p>
+<p>
+De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Protección de Datos, la cancelación dará lugar al bloqueo de los datos, conservándose únicamente a disposición de las Administraciones Públicas, Jueces y Tribunales, para la atención de las posibles responsabilidades nacidas del tratamiento, durante el plazo de prescripción de las mismas. Cumplido el citado plazo se procederá a la supresión de los datos.
+</p>
+"
   active_admin:
     scopes:
       created: "Creados"
