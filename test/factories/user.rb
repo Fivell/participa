@@ -27,7 +27,6 @@ FactoryGirl.define do
     address "C/ Inventada, 123" 
     vote_town "m_28_079_6"
     phone
-    #sms_confirmed_at DateTime.now
     flags 0
   end
 
@@ -73,6 +72,16 @@ FactoryGirl.define do
 
   trait :not_confirmed_by_sms do
     sms_confirmed_at nil
+  end
+
+  trait :confirmed_by_sms do
+    sms_confirmed_at { DateTime.now }
+  end
+
+  trait :previously_confirmed_by_sms do
+    sms_confirmed_at do
+      DateTime.now - User.sms_confirmation_period - 1.day
+    end
   end
 
   trait :newsletter_disabled do

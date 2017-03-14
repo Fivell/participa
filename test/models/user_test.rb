@@ -255,7 +255,7 @@ class UserTest < ActiveSupport::TestCase
   if available_features["verification_sms"]
     test ".validates_unconfirmed_phone_uniqueness" do
       phone = "0034612345678"
-      @user.update_attribute(:phone, phone)
+      sms_confirmed_user = create(:user, :confirmed_by_sms, phone: phone)
       user = create(:user)
       user.unconfirmed_phone = phone
       assert_not user.valid?
@@ -429,12 +429,13 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "phone uniqueness works" do 
-    user = build(:user, phone: @user.phone)
-    assert_not user.valid?
-    assert user.errors.include? :phone
+    original = create(:user, phone: "0034661234567")
+    dup = build(:user, phone: original.phone)
+    assert_not dup.valid?
+    assert dup.errors.include? :phone
 
-    user = build(:user, phone: "0034661234567")
-    assert user.valid?
+    non_dup = build(:user, phone: "0034661234566")
+    assert non_dup.valid?
   end
 
   test "uniqueness is not case sensitive" do 

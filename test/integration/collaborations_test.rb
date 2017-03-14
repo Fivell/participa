@@ -8,7 +8,7 @@ class CollaborationsTest < ActionDispatch::IntegrationTest
     assert_content "Necesitas iniciar sesión o registrarte para continuar."
 
     # logged in user (no collaboration)
-    user = create(:user)
+    user = create(:user, :confirmed_by_sms)
     login_as(user)
     visit new_collaboration_path
     assert_content "Declaro ser mayor de 18 años."
@@ -20,7 +20,7 @@ class CollaborationsTest < ActionDispatch::IntegrationTest
   end
 
   test "a user should be able to add and destroy a new collaboration" do
-    user = create(:user)
+    user = create(:user, :confirmed_by_sms)
     assert_equal 0, Collaboration.all.count 
 
     # logged in user, fill collaboration
@@ -55,7 +55,7 @@ class CollaborationsTest < ActionDispatch::IntegrationTest
   end
 
   test "a user should be able to add and destroy a new collaboration with orders" do
-    user = create(:user)
+    user = create(:user, :confirmed_by_sms)
     assert_equal 0, Collaboration.all.count 
 
     login_as(user)

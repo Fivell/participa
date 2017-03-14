@@ -3,7 +3,7 @@ require 'test_helper'
 class VoteControllerTest < ActionController::TestCase
 
   setup do
-    @user = create(:user)
+    @user = create(:user, :confirmed_by_sms)
     @election = create(:election)
   end
 

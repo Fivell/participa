@@ -268,7 +268,12 @@ class User < ActiveRecord::Base
   end
 
   def can_change_phone?
-    self.sms_confirmed_at.nil? or self.sms_confirmed_at < DateTime.now-3.months
+    self.sms_confirmed_at.nil? or
+      self.sms_confirmed_at < DateTime.now-self.class.sms_confirmation_period
+  end
+
+  def self.sms_confirmation_period
+    3.months
   end
 
   def self.blocked_provinces

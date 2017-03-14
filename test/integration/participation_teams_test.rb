@@ -6,7 +6,7 @@ class ParticipationTeamsTest < JsFeatureTest
     visit participation_teams_path
     assert_content "Necesitas iniciar sesión o registrarte para continuar."
 
-    user = create(:user)
+    user = create(:user, :confirmed_by_sms)
     login_as(user)
     visit participation_teams_path
     assert_content "Nos encontramos a un momento decisivo para cambiar"

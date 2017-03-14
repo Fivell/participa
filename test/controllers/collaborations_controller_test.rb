@@ -3,8 +3,8 @@ require 'test_helper'
 class CollaborationsControllerTest < ActionController::TestCase
   
   setup do
-    @collaboration = create(:collaboration)
-    @user = @collaboration.user
+    @user = create(:user, :confirmed_by_sms)
+    @collaboration = create(:collaboration, user: @user)
   end
 
   test "should authenticate user" do
@@ -22,7 +22,7 @@ class CollaborationsControllerTest < ActionController::TestCase
   end
 
   test "should create collaboration" do
-    user = create(:user)
+    user = create(:user, :confirmed_by_sms)
     sign_in user
     assert_difference('Collaboration.count') do
       post :create, params: { collaboration: { amount: 500, frequency: 12, payment_type: 1, terms_of_service: 1, minimal_year_old: 1 } }
