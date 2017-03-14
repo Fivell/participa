@@ -2127,20 +2127,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
     font-size:1.6em;
   }
 }
-.language-switcher-locale-url{
-  text-align:right;
-  display: inline;
-}
-.language-switcher-locale-url li{
-  display:block;
-  width:30px;
-  float:right;
-  font-size:12px;
-}
-.language-switcher-locale-url li a:hover{
-  text-decoration:underline;
-}
-
 .tools li {
  margin-left: -10px;
  text-align: left;
@@ -2179,31 +2165,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 }
 
 /* styles by felip @ guanyem web team */
-
-#block-locale-language {
-  @include make-md-column(6);
-  @include make-sm-column(6);
-}
-
-.language-switcher-locale-url { }
-
-.language-switcher-locale-url li {
-  width: auto;
-  float: none;
-  display: inline;
-  font-size: 12px;
-}
-
-.language-switcher-locale-url li a {
-  color: #777;
-  text-decoration: none;
-  padding: 3px 5px;
-}
-
-.language-switcher-locale-url li a:hover, .language-switcher-locale-url li a.active {
-  color: black;
-  text-decoration: none;
-}
 
 #top_menu {
   clear: both;
