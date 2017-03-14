@@ -36,8 +36,7 @@ gem 'simple_captcha2', github: 'pludoni/simple-captcha',
                        require: 'simple_captcha'
 gem 'carmen-rails'
 gem 'esendex'
-gem 'activeadmin', github: 'activeadmin'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'activeadmin', '1.0.0.pre5'
 gem 'active_skin'
 
 gem 'resque', github: 'resque/resque', require: 'resque/server'
