@@ -20,6 +20,13 @@ class ActionController::TestCase
   include Devise::Test::ControllerHelpers
 end
 
+class ActionDispatch::IntegrationTest
+
+  teardown do
+    Capybara.reset_sessions!
+  end
+end
+
 def with_blocked_change_location
   begin
     Rails.application.secrets.users["allows_location_change"] = false
