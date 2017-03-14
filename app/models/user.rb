@@ -121,9 +121,6 @@ class User < ActiveRecord::Base
 
   def check_issue(validation_response, path, message, controller)
     if validation_response
-      if message and validation_response.class == String
-          message[message.first[0]] = validation_response
-      end
       return {path: path, message: message, controller: controller}
     end
   end
@@ -132,11 +129,11 @@ class User < ActiveRecord::Base
   def get_unresolved_issue(only_blocking = false)
 
     # User have a valid born date
-    issue ||= check_issue (self.born_at.nil? || (self.born_at == Date.civil(1900,1,1))), :edit_user_registration, { alert: "born_at"}, "registrations"
+    issue ||= check_issue (self.born_at.nil? || (self.born_at == Date.civil(1900,1,1))), :edit_user_registration, "born_at", "registrations"
 
     if Rails.application.secrets.features["verification_sms"]
       # User has confirmed SMS code
-      issue ||= check_issue self.sms_confirmed_at.nil?, :sms_validator_step1, { alert: "confirm_sms" }, "sms_validator"
+      issue ||= check_issue self.sms_confirmed_at.nil?, :sms_validator_step1, "confirm_sms", "sms_validator"
     end
 
     if issue || only_blocking  # End of blocking issues

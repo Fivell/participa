@@ -48,9 +48,7 @@ class ApplicationController < ActionController::Base
       user.errors.messages.clear
 
       flash.delete(:notice) # remove succesfully logged message
-      if issue[:message]
-        issue[:message].each { |type, text| flash[type] = t("issues."+text) }
-      end
+      flash[:alert] = issue[:message]
       return issue[:path]
     end
 
@@ -80,7 +78,7 @@ class ApplicationController < ActionController::Base
         # user is in the right page to fix problem, just inform about the issue
         if params[:controller] == issue[:controller]
           if issue[:message] and request.method != "POST" # only inform in the first request of the page
-            issue[:message].each { |type, text| flash.now[type] = t("issues."+text) }
+            flash.now[:alert] = t("issues."+issue[:message])
           end
         # user wants to log out or edit his profile
         elsif params[:controller] == 'devise/sessions' or params[:controller] == "registrations" or params[:controller].start_with? "admin/"
