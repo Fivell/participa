@@ -158,18 +158,6 @@ aquest missatge. Si ho reps diverses vegades, avisa'ns a %{mail}."
       p1: "Barcelona En Comú neix amb la voluntat de construir una forma nova de fer política, i per fer-ho necessitem desenvolupar estructures organitzatives diferents de les tradicionals, per no repetir errors del passat, per avançar cap a una societat més democràtica. Estem construint una estructura transparent, ciutadana, oberta, democràtica, eficaç. Una organització que respongui a l'impuls democratitzador de Barcelona En Comú, en què discutim, debatem i decidim entre tots. "
       p2: "Passes a formar part del cens d'inscrits de En Comú, des del qual es realitzaran a partir d'ara totes les votacions. És un procediment senzill i ràpid que et permetrà ser part activa de la comunitat En Comú."
     valid:
-      phone:
-        p1: "Introdueix el teu nou número de telèfon mòbil."
-        p2: "Rebràs el codi de verificació per validar el nou número en uns segons."
-        p3: "Si ja has participat en alguna votació de Un País En Comú, t'enviarem el codi per correu electrònic."
-        p4: "Introdueix el text que apareix a la imatge."
-        p5: "Introdueix el codi que hagis rebut per SMS per confirmar-lo"
-        valid: "Has validat correctament el teu nou número de telèfon."
-        invalid: "El codi que has posat no correspon amb el que t'hem enviar per SMS."
-        captcha: "Validar Captcha"
-        token: Codi SMS
-        button: "Comprova"
-        captcha_invalid: "Captcha invàlid"
       terms_of_service:
         title: 'Condicions generals'
         p1_html: " <h2>Condicions generals d'inscripció i política de privacitat</h2>

@@ -10,7 +10,7 @@
         <fieldset>
           <legend class="invisible">Captcha</legend>
 
-          <p><%= t('bec.valid.phone.p4') %></p>
+          <p><%= t('sms_validator.phone.p4') %></p>
 
           <div class="inputlabel-box">
             <%= f.label :captcha %>
@@ -20,7 +20,8 @@
           </div>
 
           <%= f.actions class: 'enter' do %>
-            <%= f.action :submit, label: t('bec.valid.phone.captcha'), button_html: {class: 'button'} %>
+            <%= f.action :submit, label: t('sms_validator.phone.captcha'),
+                                  button_html: {class: 'button'} %>
           <% end %>
         </fieldset>
       <% end %>

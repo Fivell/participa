@@ -411,19 +411,6 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
       button: "¿No estás inscripto? ¡Inscríbete!"
       p1: "Podemos nace con la voluntad de construir una forma nueva de hacer política, y para ello necesitamos desarrollar estructuras organizativas diferentes de las tradicionales, para no repetir errores del pasado, para avanzar hacia una sociedad más democrática. Estamos construyendo una estructura transparente, ciudadana, abierta, democrática, eficaz. Una organización que responda al impulso democratizador de Podemos, en la que discutamos, debatamos y decidamos entre todos. "
       p2: "Pasar a formar parte del censo de inscritos de Podemos, desde el que se realizarán a partir de ahora todas las votaciones. Es un procedimiento sencillo y rápido que te permitirá ser parte activa de la comunidad Podemos. Juntos Podemos, claro que podemos."
-    valid: 
-      phone:
-        p1: "Introduce tu nuevo número de teléfono móvil."
-        p2: "Recibirás el código de verificación para validar el nuevo número en unos segundos."
-        p3: "Si ya has participado en alguna votación de PODEMOS, te enviaremos el código por e-mail."
-        p4: "Introduce el texto que aparece en la imagen."
-        p5: "Introduce el código que hayas recibido por SMS para confirmarlo"
-        valid: "Has validado correctamente."
-        invalid: "El código que has puesto no corresponde con el que te enviamos por SMS."
-        captcha: "Validar Captcha"
-        token: Código SMS
-        button: "Comprobar"
-        captcha_invalid: "Captcha invalido"
     collaboration:
       title: "Colaboración económica" 
       p1: "Colaborando con Podemos conseguirás que este proyecto siga creciendo mes a mes y garantizarás la independencia necesaria para un proyecto cuyas únicas lealtades van a estar del lado de la gente. Convirtamos la indignación en cambio. Es el momento, estamos preparados: Hagámoslo posible."
@@ -959,6 +946,18 @@ PODEMOS cumple con todas las medidas de seguridad para la protección de datos p
       step1: "Introduce tu número de teléfono móvil"
       step2: "Rellena el captcha"
       step3: "Introduce el código recibido por SMS"
+    phone:
+      p1: "Introduce tu nuevo número de teléfono móvil."
+      p2: "Recibirás el código de verificación para validar el nuevo número en unos segundos."
+      p3: "Si ya has participado en alguna votación de Un País en Comú, te enviaremos el código por correo electrónico."
+      p4: "Introduce el texto que aparece en la imagen."
+      p5: "Introduce el código que hayas recibido por SMS para confirmarlo"
+      valid: "Has validado correctamente."
+      invalid: "El código que has puesto no corresponde con el que te enviamos por SMS."
+      captcha: "Validar Captcha"
+      token: Código SMS
+      button: "Comprobar"
+      captcha_invalid: "Captcha inválido"
   static:
     privacy: Política de privacidad
     legal: Aviso legal

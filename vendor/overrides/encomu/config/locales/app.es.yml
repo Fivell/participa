@@ -94,18 +94,6 @@ este mensaje. Si lo recibes varias veces, avísanos a %{mail}."
       p1: "Un País en Comú nace con la voluntad de construir una forma nueva de hacer política, y para ello necesitamos desarrollar estructuras organizativas diferentes de las tradicionales, para no repetir errores del pasado, para avanzar hacia una sociedad más democrática. Estamos construyendo una estructura transparente, ciudadana, abierta, democrática, eficaz. Una organización que responda al impulso democratizador de Un País en Comú, en la que discutamos, debatamos y decidamos entre todos y todas. "
       p2: "Pasar a formar parte del censo de inscritos de Un País en Comú, desde el que se realizarán a partir de ahora todas las votaciones. Es un procedimiento sencillo y rápido que te permitirá ser parte activa de la comunidad Un País en Comú."
     valid:
-      phone:
-        p1: "Introduce tu nuevo número de teléfono móvil."
-        p2: "Recibirás el código de verificación para validar el nuevo número en unos segundos."
-        p3: "Si ya has participado en alguna votación de Un País en Comú, te enviaremos el código por correo electrónico."
-        p4: "Introduce el texto que aparece en la imagen."
-        p5: "Introduce el código que hayas recibido por SMS para confirmarlo"
-        valid: "Has validado correctamente."
-        invalid: "El código que has puesto no corresponde con el que te enviamos por SMS."
-        captcha: "Validar Captcha"
-        token: Código SMS
-        button: "Comprobar"
-        captcha_invalid: "Captcha inválido"
       terms_of_service:
         title: 'Condiciones generales'
         p1_html: '
