@@ -34,7 +34,7 @@ class VerificationPresencialTest < JsFeatureTest
 
     # can't access verification admin
     visit verification_step1_path
-    assert_equal page.current_path, root_path(locale: :es)
+    assert_equal root_path(locale: :es), page.current_path
 
     # can't access vote
     visit create_vote_path(election_id: election.id)
