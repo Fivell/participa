@@ -4,7 +4,6 @@ require 'rails/test_help'
 require 'simplecov'
 require 'webmock/minitest'
 require 'minitest/rails/capybara'
-require 'capybara/poltergeist'
 
 require 'support/database_cleaner'
 
@@ -26,6 +25,8 @@ def with_blocked_change_location
     Rails.application.secrets.users["allows_location_change"] = true
   end
 end
+
+require 'capybara/poltergeist'
 
 # Poltergeist customization
 Capybara.register_driver :poltergeist do |app|
