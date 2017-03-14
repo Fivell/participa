@@ -3,25 +3,27 @@
   <div class="row">
     <div class="col-md-6">
       <% if flash[:error].present? %>
-          <%= error_box "Error" do %>
-              <%= flash[:error] %>
-          <% end %>
+        <%= error_box "Error" do %>
+          <%= flash[:error] %>
+        <% end %>
       <% end %>
+
       <% if flash[:notice].present? %>
-          <%= alert_box "Informació" do %>
-              <%= flash[:notice] %>
-          <% end %>
+        <%= alert_box "Informació" do %>
+          <%= flash[:notice] %>
+        <% end %>
       <% end %>
+
       <% if flash[:recaptcha_error].present? %>
-          <%= error_box "Error" do %>
-              <%= flash[:recaptcha_error] %>
-          <% end %>
+        <%= error_box "Error" do %>
+          <%= flash[:recaptcha_error] %>
+        <% end %>
       <% end %>
 
       <% if flash[:alert].present? %>
-          <%= error_box "Atenció" do %>
-              <%= flash[:alert] %>
-          <% end %>
+        <%= error_box "Atenció" do %>
+          <%= flash[:alert] %>
+        <% end %>
       <% end %>
     </div>
   </div>
