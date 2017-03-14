@@ -1,9 +1,9 @@
 <% content_for :title, t("sms_validator.steps.step1") %>
 
 <div class="content-content">
-  <div class="row">
+  <div class="box-info">
 
-    <div class="col-md-6">
+    <div class="row">
       <%= render partial: "steps", locals: {step: 1} %>
 
       <%= semantic_form_for(current_user, url: sms_validator_phone_path, html: {method: :post}) do |f| %>

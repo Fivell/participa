@@ -1,9 +1,9 @@
 <% content_for :title, t('sms_validator.steps.step3') %>
 
 <div class="content-content">
-  <div class="row">
+  <div class="box-info">
 
-    <div class="col-md-6">
+    <div class="row">
       <%= render partial: "steps", locals: {step: 3} %>
 
       <%= errors_in_form current_user %>
