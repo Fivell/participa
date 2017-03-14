@@ -21,8 +21,7 @@ if available_features["verification_sms"]
     end
   
     test "does not allow sms confirmation when confirmed by sms recently" do
-      user = create(:user)
-      user.update_attribute(:sms_confirmed_at, DateTime.now-1.week)
+      user = create(:user, sms_confirmed_at: DateTime.now-1.week)
       sign_in user
       get :step1
       assert_response :redirect
@@ -31,16 +30,14 @@ if available_features["verification_sms"]
     end
   
     test "allows sms confirmation when not confirmed by sms" do
-      user = create(:user)
-      user.update_attribute(:sms_confirmed_at, nil)
+      user = create(:user, sms_confirmed_at: nil)
       sign_in user
       get :step1
       assert_response :success
     end
   
     test "allows sms confirmation when sms confirmation expired" do
-      user = create(:user)
-      user.update_attribute(:sms_confirmed_at, DateTime.now-1.month)
+      user = create(:user, sms_confirmed_at: DateTime.now-1.month)
       sign_in user
       get :step1
       assert_response :success

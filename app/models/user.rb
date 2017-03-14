@@ -228,8 +228,7 @@ class User < ActiveRecord::Base
 
   def apply_previous_user_vote_location
     if self.previous_user(true) and self.previous_user.has_verified_vote_town? and (self.vote_town != self.previous_user.vote_town)
-      self.vote_town = self.previous_user.vote_town
-      self.save
+      self.update(vote_town: self.previous_user.vote_town)
       true
     else
       false
@@ -663,9 +662,7 @@ class User < ActiveRecord::Base
   end
 
   def verify! user
-    self.verified_at = DateTime.now
-    self.verified_by = user
-    self.save
+    self.update(verified_at: DateTime.now, verified_by: user)
     VerificationMailer.verified(self).deliver_now
   end
 end

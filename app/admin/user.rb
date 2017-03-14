@@ -316,9 +316,7 @@ ActiveAdmin.register User do
       u.verify! current_user
     else
       # use flags
-      u.verified = true
-      u.banned = false
-      u.save
+      u.update(verified: true, banned: false)
     end
     flash[:notice] = "El usuario ha sido modificado"
     redirect_to action: :show
@@ -334,8 +332,7 @@ ActiveAdmin.register User do
 
   member_action :impulsa_author, :method => [:post, :delete] do
     u = User.find( params[:id] )
-    u.impulsa_author = request.post?
-    u.save
+    u.update(impulsa_author: request.post?)
     flash[:notice] = "El usuario ya #{"no" if request.delete?} puede crear proyectos especiales en Impulsa"
     redirect_to action: :show
   end
