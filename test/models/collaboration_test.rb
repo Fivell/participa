@@ -154,7 +154,7 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should .payment_type_name work" do
-    if Rails.application.secrets.features["collaborations_redsys"]
+    if available_features["collaborations_redsys"]
       @collaboration.update_attribute(:payment_type, 1)
       assert_equal( "Suscripción con Tarjeta de Crédito/Débito", @collaboration.payment_type_name )
     end
@@ -326,7 +326,7 @@ class CollaborationTest < ActiveSupport::TestCase
     @collaboration.payment_processed! order
     assert_equal 1, @collaboration.status
 
-    if Rails.application.secrets.features["collaborations_redsys"]
+    if available_features["collaborations_redsys"]
       credit_card = create(:collaboration, :credit_card)
       credit_card_order = credit_card.create_order Date.today
       credit_card_order.save
@@ -416,7 +416,7 @@ class CollaborationTest < ActiveSupport::TestCase
     assert_equal @collaboration.ko_url, "http://localhost/colabora/KO"
   end
 
-  if Rails.application.secrets.features["collaborations_redsys"]
+  if available_features["collaborations_redsys"]
     test "should .charge! work" do
       collaboration = create(:collaboration, :credit_card)
       collaboration.update_attribute(:status, 2)

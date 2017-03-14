@@ -1,6 +1,6 @@
 require "test_helper"
 
-if Rails.application.secrets.features["proposals"]
+if available_features["proposals"]
 
   feature "Proposals" do
     

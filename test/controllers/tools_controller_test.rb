@@ -27,11 +27,11 @@ class ToolsControllerTest < ActionController::TestCase
   private
 
   def with_verifications(status)
-    prev_status = Rails.application.secrets.features["verification_presencial"]
-    Rails.application.secrets.features["verification_presencial"] = status
+    prev_status = available_features["verification_presencial"]
+    available_features["verification_presencial"] = status
 
     yield
   ensure
-    Rails.application.secrets.features["verification_presencial"] = prev_status
+    available_features["verification_presencial"] = prev_status
   end
 end

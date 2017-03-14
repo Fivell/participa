@@ -1,6 +1,6 @@
 require 'test_helper'
 
-if Rails.application.secrets.features["verification_sms"]
+if available_features["verification_sms"]
 
   class SmsValidatorControllerTest < ActionController::TestCase
   

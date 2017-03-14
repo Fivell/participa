@@ -39,7 +39,7 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  if Rails.application.secrets.features["verification_sms"]
+  if available_features["verification_sms"]
     test "should set_phone if non sms confirmed user, but allow access to profile" do
       @user.update_attribute(:sms_confirmed_at, nil)
       login @user
