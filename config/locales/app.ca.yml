@@ -173,6 +173,15 @@ ca:
       account_number: "Número de compte"
       concept: "Concepte de l'ingrés"
       thanks: "Moltes gràcies per col·laborar! El canvi comença gràcies a tu."
+  issues:
+    confirm_sms: "Per seguretat, has de confirmar el teu telèfon."
+    born_at: "Has d'indicar la teva data de naixement."
+    location: "Sisplau, verifica que les dades de la teva adreça són correctes i desa les dades."
+  recaptcha:
+    errors:
+      incorrect-captcha-sol: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
+      verification_failed: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
+      recaptcha_unreachable: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
   formtastic:
     labels:
       first_name: "Nom"

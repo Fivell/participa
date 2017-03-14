@@ -837,9 +837,6 @@ PODEMOS cumple con todas las medidas de seguridad para la protección de datos p
     confirm_sms: "Por seguridad, debes confirmar tu teléfono."
     born_at: "Debes indicar tu fecha de nacimiento."
     location: "Por favor, verifica que los datos de tu domicilio son correctos y guarda los datos."
-    country: "Debes indicar el país donde resides."
-    province: "Debes indicar la provincia donde resides."
-    town: "Debes indicar el municipio donde resides."
   recaptcha:
     errors:
       incorrect-captcha-sol: "Hubo un error con el captcha, por favor completalo de nuevo"

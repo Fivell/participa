@@ -360,16 +360,6 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
 </p>
 <p> <b> Barcelona En Comú Barcelona<br><br> Versió 20 de febrer de 2015 12:55<br> </b> </p>
 "
-  issues:
-    confirm_sms: "Per seguretat, has de confirmar el teu telèfon."
-    born_at: "Has d'indicar la teva data de naixement."
-    location: "Sisplau, verifica que les dades de la teva adreça són correctes i desa les dades."
-
-  recaptcha:
-    errors:
-      incorrect-captcha-sol: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
-      verification_failed: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
-      recaptcha_unreachable: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
   election:
     close_message: "Ha arribat la data límit per votar. La votació està tancada."
   active_admin:
