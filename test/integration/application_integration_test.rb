@@ -46,43 +46,8 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
       assert_text "Por seguridad, debes confirmar tu teléfono."
 
       click_link 'Datos personales'
-      assert_landed_in_profile_edition
+      assert_title 'Datos personales'
+      assert_equal edit_user_registration_path(locale: 'es'), current_path
     end
-  end
-
-  test "should set_new_password, set_phone and check_born_at, but allow access to profile" do 
-    @user.update_attribute(:born_at, Date.civil(1900,1,1))
-    @user.update_attribute(:sms_confirmed_at, nil)
-    login @user
-    assert_text "Debes indicar tu fecha de nacimiento."
-    assert_landed_in_profile_edition
-  end
-
-  test "should check_born_at if born_at is null" do
-    @user.update_attribute(:born_at, nil)
-    login @user
-    assert_text "Debes indicar tu fecha de nacimiento."
-    assert_landed_in_profile_edition
-  end
-
-  test "should check_born_at if born_at 1900,1,1" do
-    @user.update_attribute(:born_at, Date.civil(1900,1,1))
-    login @user
-    assert_text "Debes indicar tu fecha de nacimiento."
-    assert_landed_in_profile_edition
-  end
-
-  test "should not redirect to profile when has invalid profile but no issues" do
-    @user.update_attribute(:postal_code, "as")
-    login @user
-    get '/es'
-    assert_response :success
-  end
-
-  private
-
-  def assert_landed_in_profile_edition
-    assert_title 'Datos personales'
-    assert_equal edit_user_registration_path(locale: 'es'), current_path
   end
 end

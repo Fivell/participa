@@ -127,10 +127,6 @@ class User < ActiveRecord::Base
 
   # returns issues with user profile, blocking first
   def get_unresolved_issue(only_blocking = false)
-
-    # User have a valid born date
-    issue ||= check_issue (self.born_at.nil? || (self.born_at == Date.civil(1900,1,1))), :edit_user_registration, "born_at", "registrations"
-
     if Rails.application.secrets.features["verification_sms"]
       # User has confirmed SMS code
       issue ||= check_issue self.sms_confirmed_at.nil?, :sms_validator_step1, "confirm_sms", "sms_validator"
