@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :set_locale
   before_action :banned_user
   before_action :verified_user
   before_action :configure_sign_in_params, if: :devise_controller?
-  before_action :set_locale
   before_action :allow_iframe_requests
   before_action :admin_logger
 

@@ -22,6 +22,17 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "properly translates flash messages when changing locale" do
+    with_verifications(presential: false, sms: true) do
+      I18n.with_locale(:es) do
+        login @user
+        assert_text "Por seguridad, debes confirmar tu teléfono."
+        click_link "Català"
+        assert_text "Per seguretat, has de confirmar el teu telèfon."
+      end
+    end
+  end
+
   test "logins successfully for foreign users" do
     @user.update_attribute(:country, "DE")
     @user.update_attribute(:province, "BE")
