@@ -12,15 +12,21 @@
   display: inline-block;
   color: #555;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-sefif;
-  font-size: 1.6em;
+  font-size: 16px;
   font-weight: normal;
-  height: 20px;
-  line-height: 20px;
+  height: 100%;
+  line-height: 100%;
   min-width: 16px;
-  padding: 0.85em 1.5%;
+  padding: 15px 1.5%;
   text-align: center;
   width: auto;
   float: left;
+}
+
+fieldset .inputlabel-box .unconfirmed-phone {
+  line-height: 100%;
+  font-size: 15px;
+  padding: 15.5px 1.5%;
 }
 
 input[type='number'] {
