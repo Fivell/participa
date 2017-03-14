@@ -954,6 +954,11 @@ PODEMOS cumple con todas las medidas de seguridad para la protección de datos p
     refresh_button_text: "Regenerar"
     message:
       default: "El texto introducido no corresponde con el de la imagen"
+  sms_validator:
+    steps:
+      step1: "Introduce tu número de teléfono móvil"
+      step2: "Rellena el captcha"
+      step3: "Introduce el código recibido por SMS"
   static:
     privacy: Política de privacidad
     legal: Aviso legal

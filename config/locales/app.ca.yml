@@ -187,6 +187,11 @@ ca:
     refresh_button_text: "Regenerar"
     message:
       default: "El text introductori no es correspon amb el de la imatge"
+  sms_validator:
+    steps:
+      step1: "Introdueix el teu número de telèfon mòbil"
+      step2: "Emplena el captcha"
+      step3: "Introdueix el codi rebut per SMS"
   static:
     privacy: Política de privacitat
     legal: Avís legal
