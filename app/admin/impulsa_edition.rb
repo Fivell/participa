@@ -129,7 +129,6 @@ end
 ActiveAdmin.register ImpulsaEditionTopic do
   menu false
   belongs_to :impulsa_edition
-  navigation_menu :default
 
   permit_params :impulsa_edition_id, :name
 

@@ -1,7 +1,6 @@
 ActiveAdmin.register ImpulsaEditionCategory do
   menu false
   belongs_to :impulsa_edition
-  navigation_menu :default
 
   permit_params :impulsa_edition_id, :name, :category_type, :winners, :prize, :only_authors, :coofficial_language, :schedule_model_override, :activities_resources_model_override, :requested_budget_model_override, :monitoring_evaluation_model_override, territories: []
 

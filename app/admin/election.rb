@@ -116,7 +116,7 @@ end
 ActiveAdmin.register ElectionLocation do
   menu false
   belongs_to :election
-  navigation_menu :default
+  navigation_menu :election
     
   permit_params :election_id, :location, :agora_version, :new_agora_version, :override, :title, :layout, :description, :share_text, :theme, :has_voting_info,
                 election_location_questions_attributes: [ :id, :_destroy, :title, :description, :voting_system, :layout, :winners, :minimum, :maximum, :random_order, :totals, :options, options_headers: [] ]
