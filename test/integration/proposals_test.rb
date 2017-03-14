@@ -2,9 +2,9 @@ require "test_helper"
 
 if available_features["proposals"]
 
-  feature "Proposals" do
+  class ProposalsTest < JsFeatureTest
     
-    scenario "Support", js: true do
+    test "Support" do
       user = create(:user)
       proposal = create(:proposal)
   
@@ -12,14 +12,14 @@ if available_features["proposals"]
   
       visit proposals_path
   
-      page.must_have_content "Iniciativas Ciudadanas"
+      assert_content "Iniciativas Ciudadanas"
       
       click_button "Apoyar propuesta"
-      page.must_have_content "¡Muchas gracias!"
+      assert_content "¡Muchas gracias!"
   
       debugger
       visit proposal_path(id: proposal)
-      page.must_have_content "Ya has apoyado esta propuesta. ¡Muchas gracias!"
+      assert_content "Ya has apoyado esta propuesta. ¡Muchas gracias!"
   
       # TODO Proposal.frozen?
     end

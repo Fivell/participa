@@ -1,7 +1,7 @@
 require "test_helper"
 
-feature "Cookies" do
-  scenario "dismissing cookie alert applies to all site", js: true do
+class CookiesTest < JsFeatureTest
+  test "dismissing cookie alert applies to all site" do
     visit new_user_registration_path(locale: 'es')
     click_link 'cerrar aviso'
 

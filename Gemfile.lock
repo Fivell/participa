@@ -135,7 +135,7 @@ GEM
     capistrano-rails (1.2.2)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
-    capybara (2.12.1)
+    capybara (2.13.0)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -246,20 +246,6 @@ GEM
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
-    minitest-capybara (0.8.2)
-      capybara (~> 2.2)
-      minitest (~> 5.0)
-      rake
-    minitest-metadata (0.6.0)
-      minitest (>= 4.7, < 6.0)
-    minitest-rails (3.0.0)
-      minitest (~> 5.8)
-      railties (~> 5.0)
-    minitest-rails-capybara (3.0.0)
-      capybara (~> 2.7)
-      minitest-capybara (~> 0.8)
-      minitest-metadata (~> 0.6)
-      minitest-rails (~> 3.0)
     mono_logger (1.1.0)
     multi_json (1.12.1)
     multi_xml (0.6.0)
@@ -446,7 +432,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-passenger
   capistrano-rails
-  capybara
+  capybara (~> 2.13)
   carmen-rails
   cocoon
   coffee-rails (~> 4.1.0)
@@ -466,8 +452,6 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy
-  minitest-rails
-  minitest-rails-capybara
   norma43!
   paper_trail
   paperclip

@@ -1,16 +1,16 @@
 require "test_helper"
-require "features/concerns/registration_helpers"
+require "integration/concerns/registration_helpers"
 
-feature "UserRegistrations" do
+class UserRegistrationsTest < JsFeatureTest
   include Participa::Test::RegistrationHelpers
 
-  scenario "catalonia_residence is checked by default", js: true do
+  test "catalonia_residence is checked by default" do
     visit new_user_registration_path
 
     assert page.has_checked_field?("Resido en Cataluña")
   end
 
-  scenario "create a user in Catalonia", js: true do
+  test "create a user in Catalonia" do
     @user = build(:user, :catalan, town: 'm_08_015_5',
                                    comarca: 13,
                                    vegueria: 'AT01')
@@ -25,7 +25,7 @@ feature "UserRegistrations" do
     assert User.first.vegueria_code, 'AT01'
   end
 
-  scenario "create a user outside of Catalonia", js: true do
+  test "create a user outside of Catalonia" do
     @user = build(:user, :spanish, province: 'AB',
                                    town: 'm_02_003_0',
                                    postal_code: '02002')
@@ -37,7 +37,7 @@ feature "UserRegistrations" do
                                 country: 'España'
   end
 
-  scenario "create a user outside of Spain", js: true do
+  test "create a user outside of Spain" do
     @user = build(:user, :foreigner, country: 'US', province: 'AL')
 
     base_register(@user) { fill_in_location_data(@user) }
@@ -45,7 +45,7 @@ feature "UserRegistrations" do
     assert_location User.first, province: 'Alabama', country: 'Estados Unidos'
   end
 
-  scenario "create a user in a country without regions", js: true do
+  test "create a user in a country without regions" do
     @user = build(:user, :foreigner, country: 'MC', province: nil)
 
     base_register(@user) { fill_in_location_data(@user) }
@@ -53,7 +53,7 @@ feature "UserRegistrations" do
     assert_location User.first, province: '', country: 'Mónaco'
   end
 
-  scenario "location is preserved upon form errors", js: true do
+  test "location is preserved upon form errors" do
     @user = build(:user, :foreigner, country: 'US', province: 'AL')
 
     visit new_user_registration_path
@@ -64,7 +64,7 @@ feature "UserRegistrations" do
     assert page.has_select?('Provincia', selected: 'Alabama')
   end
 
-  scenario "create a user with gender identity information", js: true do
+  test "create a user with gender identity information" do
     @user = build(:user, :catalan)
 
     visit new_user_registration_path
@@ -72,13 +72,13 @@ feature "UserRegistrations" do
     select 'Mujer (cis)', from: 'Identidad de género'
     click_button 'Inscribirse'
 
-    page.must_have_content \
+    assert_content \
       I18n.t("devise.registrations.signed_up_but_unconfirmed")
 
     assert_equal true, User.first.gender_identity.cis_woman?
   end
 
-  scenario "captcha skipped", js: true do
+  test "captcha skipped" do
     @user = build(:user, :catalan)
 
     visit new_user_registration_path
@@ -91,7 +91,7 @@ feature "UserRegistrations" do
     assert_text 'El texto introducido no corresponde con el de la imagen'
   end
 
-  scenario "captcha skipped and another error", js: true do
+  test "captcha skipped and another error" do
     @user = build(:user, :catalan)
 
     visit new_user_registration_path
@@ -116,7 +116,7 @@ feature "UserRegistrations" do
     acknowledge_stuff
     click_button "Inscribirse"
 
-    page.must_have_content \
+    assert_content \
       I18n.t("devise.registrations.signed_up_but_unconfirmed")
   end
 

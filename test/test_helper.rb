@@ -3,7 +3,6 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'simplecov'
 require 'webmock/minitest'
-require 'minitest/rails/capybara'
 
 require 'support/database_cleaner'
 
@@ -20,10 +19,25 @@ class ActionController::TestCase
   include Devise::Test::ControllerHelpers
 end
 
+require 'capybara/rails'
+require 'capybara/minitest'
+
 class ActionDispatch::IntegrationTest
+  include Capybara::DSL
+  include Capybara::Minitest::Assertions
 
   teardown do
     Capybara.reset_sessions!
+  end
+end
+
+class JsFeatureTest < ActionDispatch::IntegrationTest
+  setup do
+    Capybara.current_driver = Capybara.javascript_driver
+  end
+
+  teardown do
+    Capybara.use_default_driver
   end
 end
 

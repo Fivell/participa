@@ -81,13 +81,11 @@ group :development, :test do
 end
 
 group :test do
-  gem 'minitest-rails'
-  gem 'capybara'
+  gem 'capybara', '~> 2.13'
   gem 'transactional_capybara'
   gem 'poltergeist'
   gem 'launchy'
   gem 'database_cleaner'
-  gem 'minitest-rails-capybara'
 end
 
 gem 'webmock', group: :development
