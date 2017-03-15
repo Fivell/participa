@@ -3,6 +3,17 @@ ca:
     language: "Idioma"
     language_name: "Català"
   activerecord:
+    models:
+      user: Usuari/ària
+      users: Usuaris/àries
+      collaboration: Col·laboració econòmica
+      collaborations: Col·laboracions econòmiques
+      order: Ordre de pagament
+      orders: Ordres de pagament
+      election: Elecció
+      elections: Eleccions
+      notice: Avís
+      notices: Avisos
     errors:
       models:
         user:
@@ -46,6 +57,66 @@ ca:
               accepted: "Has de declarar que ets major de 16 anys"
             terms_of_service:
               accepted: "Has d'acceptar les condicions"
+    attributes:
+      collaboration:
+        user: "Usuari/ària"
+        created_at: "Creada el"
+        updated_at: "Actualitzada el"
+        amount: "Import mensual"
+        frequency: "Freqüència de pagament"
+        frequency_name: "Freqüència de pagament"
+        minimal_year_old: "Edat mínima requerida"
+        terms_of_service: "Acord legal"
+        order_id: "Número d'ordre a Redsys"
+        payment_type: "Mètode de pagament"
+        payment_type_name: "Mètode de pagament"
+        ccc_entity: "Entitat"
+        ccc_office: "Oficina"
+        ccc_dc: "DC"
+        ccc_account: "Número de compte"
+        iban_account: "IBAN"
+        iban_bic: "BIC/SWIFT"
+      order:
+        status: "Estat"
+        status_name: "Estat"
+        collaboration: "Col·laboració"
+        user: "Usuari/ària"
+        payable_at: "A cobrar el"
+        payed_at: "Cobrada el"
+        created_at: "Creada el"
+        deleted_at: "Esborrada el"
+        updated_at: "Actualitzada el"
+      election:
+        title: "Títol"
+        agora_election_id: "ID a AgoraVoting"
+        starts_at: "Comença"
+        ends_at: "Acaba"
+        close_message: "Missatge de tancament"
+      notice:
+        title: "Títol"
+        body: "Missatge"
+      user:
+        login: "Correu electrónic o núm. de document"
+        first_name: "Nom"
+        last_name: "Cognoms"
+        document_type: "Tipus de document"
+        document_vatid: "Núm. de document"
+        born_at: "Data de naixement"
+        gender_identity: "Identitat de gènere"
+        email: "Correu electrònic"
+        email_confirmation: "Correu electrònic (repetir)"
+        phone: "Telèfon mòbil"
+        unconfirmed_phone: "Telèfon mòbil"
+        address: "Adreça"
+        postal_code: "Codi postal"
+        password: "Contrasenya"
+        password_confirmation: "Contrasenya (repetir)"
+        remember_me: "Recorda'm"
+        wants_newsletter: 'Butlletí'
+        terms_of_service: "He llegit les condicions i accepto inscriure'm"
+        age_restriction: "Declaro ser major de 16 anys"
+        captcha: "Captcha"
+        current_password: "Contrasenya actual"
   microcredit:
     common:
       title: "Microcrèdits %{name}"

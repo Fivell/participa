@@ -28,9 +28,9 @@ es:
       spam_filter: Filtro anti-spam
       spam_filters: Filtros anti-spam
       collaboration: Colaboración económica
-      collaborations: Colaboraciónes económicas
+      collaborations: Colaboraciones económicas
       order: Orden de pago
-      orders: Ordenes de pago
+      orders: Órdenes de pago
       election: Elección
       elections: Elecciones
       proposal: Iniciativa ciudadana
@@ -39,8 +39,8 @@ es:
       notices: Avisos
       participation_team: Equipo de Acción Participativa
       participation_teams: Equipos de Acción Participativa
-      report: Informe
-      reports: Informes
+      report: Reporte
+      reports: Reportes
       report_group: Parte de Informe
       report_groups: Partes de Informe
       microcredit: Microcrédito
@@ -59,6 +59,10 @@ es:
       impulsa_edition_categories: Categorías de Impulsa
       impulsa_project: Proyecto de Impulsa
       impulsa_projects: Proyectos de Impulsa
+      verification/center: "Punto de Verificación"
+      verification/centers: "Puntos de Verificación"
+      verification/slot: "Horario"
+      verification/slots: "Horarios"
     errors:
       models: 
         user:
@@ -251,14 +255,14 @@ es:
         loan_renewals: "Microcréditos suscritos"
         renewal_terms: "Condiciones generales de extinción del anterior microcrédito y renovación de la suscripción"
         terms_of_service: "Condiciones generales de la suscripción del nuevo microcrédito"
-      collaboration: 
+      collaboration:
         user: "Usuario"
         created_at: "Creada el"
         updated_at: "Actualizada el"
         amount: "Importe mensual"
-        frequency: "Frecuencia de pago" 
-        frequency_name: "Frecuencia de pago" 
-        minimal_year_old: "Edad mínima requerida" 
+        frequency: "Frecuencia de pago"
+        frequency_name: "Frecuencia de pago"
+        minimal_year_old: "Edad mínima requerida"
         terms_of_service: "Acuerdo legal"
         order_id: "Número de orden en Redsys"
         payment_type: "Método de pago"
@@ -274,12 +278,12 @@ es:
         status_name: "Estado"
         collaboration: "Colaboración"
         user: "Usuario"
-        payable_at: "A cobrarse el" 
+        payable_at: "A cobrarse el"
         payed_at: "Cobrada el"
         created_at: "Creada el"
         deleted_at: "Borrada el"
         updated_at: "Actualizada el"
-      election: 
+      election:
         title: "Título"
         agora_election_id: "ID en AgoraVoting"
         starts_at: "Empieza"
@@ -291,7 +295,7 @@ es:
         image_url: "URL de la imagen"
       notice:
         title: "Título"
-        body: "Mensaje" 
+        body: "Mensaje"
       user:
         login: "Correo electrónico o Nº de documento"
         first_name: "Nombre"
@@ -299,6 +303,7 @@ es:
         document_type: "Tipo de documento"
         document_vatid: "Nº de documento"
         born_at: "Fecha de nacimiento"
+        gender_identity: "Identidad de género"
         email: "Correo electrónico"
         email_confirmation: "Correo electrónico (repetir)"
         phone: "Teléfono móvil"
@@ -314,13 +319,25 @@ es:
         password_confirmation: "Contraseña (repetir)"
         remember_me: "Recordarme"
         wants_newsletter: 'Newsletter'
-        terms_of_service: "He leído y acepto las condiciones generales"
-        age_restriction: "Declaro ser mayor de 18 años"
-        captcha: "Captcha"
+        terms_of_service: "He leído las condiciones y acepto inscribirme"
+        age_restriction: "Declaro ser mayor de 16 años"
+        captcha: "Escribe el siguiente texto o número"
         current_password: "Contraseña actual"
         circle: "Círculo"
       category:
         name: "nombre"
+      verification/center:
+        name: Nombre
+        address: Dirección
+        latitude: Latitud
+        longitude: Longitud
+        created_at: "Creada el"
+        updated_at: "Actualizada el"
+      verification/slot:
+        starts_at: Empieza
+        ends_at: Termina
+        created_at: "Creada el"
+        updated_at: "Actualizada el"
   podemos:
     election:
       no_location: "No hay votaciones en tu municipio."
