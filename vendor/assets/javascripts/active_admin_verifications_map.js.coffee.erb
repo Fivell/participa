@@ -1,6 +1,6 @@
 
 map_search_address = (query, map, marker) ->
-  $('#js-verification-map-error').hide('slow');
+  $('#js-verification-map-error').hide('slow')
   if marker
     map.removeLayer(marker)
   url = "https://nominatim.openstreetmap.org/search?q=#{query},Catalunya,Spain&format=json"
@@ -12,12 +12,12 @@ map_search_address = (query, map, marker) ->
       $('#verification_center_longitude').val(lon)
       map_add_marker lat, lon, map, marker
     else
-      $('#js-verification-map-error').show('slow');
+      $('#js-verification-map-error').show('slow')
       console.log("NO RESULTS")
   )
 
 map_show = () ->
-  map = L.map('js-verification-map').setView([ 41.380256, 2.183807 ], 12);
+  map = L.map('js-verification-map').setView([ 41.380256, 2.183807 ], 12)
   # map type
   map_tile_provider = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
   map_tile_attribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
