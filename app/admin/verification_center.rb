@@ -20,7 +20,7 @@ ActiveAdmin.register Verification::Center do
   end
 
   sidebar "Horarios", only: :show do
-    table_for verification_center.verification_slots do
+    table_for resource.verification_slots do
       column :starts_at
       column :ends_at
     end
