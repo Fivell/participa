@@ -27,4 +27,20 @@
 
 //= require organization
 
-//= require_tree .
+//= require box_close
+//= require collaborations
+//= require credits
+//= require faq
+//= require formview_iframe
+//= require hamburger_menu
+//= require iframeSize_impl
+//= require impulsa
+//= require microcredit
+//= require mobile
+//= require participation_teams
+//= require proposals
+//= require registrations
+//= require registrations.provinces_countries
+//= require select2_impl
+//= require slicknav_menu
+//= require verifications_map
