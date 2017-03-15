@@ -19,7 +19,7 @@ ActiveAdmin.register Verification::Center do
     active_admin_comments
   end
 
-  sidebar "Horarios", only: :show do
+  sidebar I18n.t("activerecord.models.verification/slot.other"), only: :show do
     table_for resource.verification_slots do
       column :starts_at
       column :ends_at
