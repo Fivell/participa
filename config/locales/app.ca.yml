@@ -1,5 +1,6 @@
 ca:
   meta:
+    language: "Idioma"
     language_name: "Català"
   activerecord:
     errors:
