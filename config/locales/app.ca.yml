@@ -4,16 +4,21 @@ ca:
     language_name: "Català"
   activerecord:
     models:
-      user: Usuari/ària
-      users: Usuaris/àries
-      collaboration: Col·laboració econòmica
-      collaborations: Col·laboracions econòmiques
-      order: Ordre de pagament
-      orders: Ordres de pagament
-      election: Elecció
-      elections: Eleccions
-      notice: Avís
-      notices: Avisos
+      user:
+        one: Usuari/ària
+        other: Usuaris/àries
+      collaboration:
+        one: Col·laboració econòmica
+        other: Col·laboracions econòmiques
+      order:
+        one: Ordre de pagament
+        other: Ordres de pagament
+      election:
+        one: Elecció
+        other: Eleccions
+      notice:
+        one: Avís
+        other: Avisos
     errors:
       models:
         user:

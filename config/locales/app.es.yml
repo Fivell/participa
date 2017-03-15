@@ -23,46 +23,66 @@ es:
       url: "no es una dirección web válida (debe comenzar con http:// o https://)"
   activerecord:
     models:
-      user: Usuario
-      users: Usuarios
-      spam_filter: Filtro anti-spam
-      spam_filters: Filtros anti-spam
-      collaboration: Colaboración económica
-      collaborations: Colaboraciones económicas
-      order: Orden de pago
-      orders: Órdenes de pago
-      election: Elección
-      elections: Elecciones
-      proposal: Iniciativa ciudadana
-      proposals: Iniciativas ciudadanas
-      notice: Aviso
-      notices: Avisos
-      participation_team: Equipo de Acción Participativa
-      participation_teams: Equipos de Acción Participativa
-      report: Reporte
-      reports: Reportes
-      report_group: Parte de Informe
-      report_groups: Partes de Informe
-      microcredit: Microcrédito
-      microcredits: Microcréditos
-      microcredit_loan: Suscripción
-      microcredit_loans: Suscripciones
-      page: Formulario
-      pages: Formularios
-      category: Categoría
-      categories: Categorías
-      impulsa_edition: Edición de Impulsa
-      impulsa_editions: Ediciones de Impulsa
-      impulsa_edition_topic: Temática de Impulsa
-      impulsa_edition_topics: Temáticas de Impulsa
-      impulsa_edition_category: Categoría de Impulsa
-      impulsa_edition_categories: Categorías de Impulsa
-      impulsa_project: Proyecto de Impulsa
-      impulsa_projects: Proyectos de Impulsa
-      verification/center: "Punto de Verificación"
-      verification/centers: "Puntos de Verificación"
-      verification/slot: "Horario"
-      verification/slots: "Horarios"
+      user:
+        one: Usuario
+        other: Usuarios
+      spam_filter:
+        one: Filtro anti-spam
+        other: Filtros anti-spam
+      collaboration:
+        one: Colaboración económica
+        other: Colaboraciónes económicas
+      order:
+        one: Orden de pago
+        other: Ordenes de pago
+      election:
+        one: Elección
+        other: Elecciones
+      proposal:
+        one: Iniciativa ciudadana
+        other: Iniciativas ciudadanas
+      notice:
+        one: Aviso
+        other: Avisos
+      participation_team:
+        one: Equipo de Acción Participativa
+        other: Equipos de Acción Participativa
+      report:
+        one: Informe
+        other: Informes
+      report_group:
+        one: Parte de Informe
+        other: Partes de Informe
+      microcredit:
+        one: Microcrédito
+        other: Microcréditos
+      microcredit_loan:
+        one: Suscripción
+        other: Suscripciones
+      page:
+        one: Formulario
+        other: Formularios
+      category:
+        one: Categoría
+        other: Categorías
+      impulsa_edition:
+        one: Edición de Impulsa
+        other: Ediciones de Impulsa
+      impulsa_edition_topic:
+        one: Temática de Impulsa
+        other: Temáticas de Impulsa
+      impulsa_edition_category:
+        one: Categoría de Impulsa
+        other: Categorías de Impulsa
+      impulsa_project:
+        one: Proyecto de Impulsa
+        other: Proyectos de Impulsa
+      verification/center:
+        one: "Punto de Verificación"
+        other: "Puntos de Verificación"
+      verification/slot:
+        one: "Horario"
+        other: "Horarios"
     errors:
       models: 
         user:
