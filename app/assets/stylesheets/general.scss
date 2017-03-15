@@ -1496,7 +1496,6 @@ elementos
   margin: 1em 0;
 }
 .verif-new-first{
-  background-color: #eb5a59;
   padding: 3em;
 }
 .verif-new-first .title{
@@ -1514,7 +1513,7 @@ elementos
   font-weight: bold;
 }
 .verif-docu-txt b{
-  color: #FFF;
+  color: #000;
 }
 .verif-new-second{
   position: relative;
@@ -1532,7 +1531,7 @@ elementos
   margin-top: 0.5em;
 }
 .verif-new-second b{
-  color: #eb5a59;
+  color: #000;
 }
 .verif-new-second span, .verif-new-second ul {
   float: left;
@@ -1545,7 +1544,7 @@ elementos
 }
 .verif-new-or {
   position: absolute;
-  background-color: #EB5A59;
+  background-color: #303030;
   border-radius: 50%;
   color: #FFF;
   height: 6em;
