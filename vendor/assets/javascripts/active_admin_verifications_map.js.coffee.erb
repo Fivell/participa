@@ -9,7 +9,7 @@ map_search_address = (query, map, marker) ->
       lon = data[0].lon
       $('#verification_center_latitude').val(lat)
       $('#verification_center_longitude').val(lon)
-      map_add_marker lat, lon, map, marker
+      map_add_marker lat, lon, map
     else
       $('#js-verification-map-error').show('slow')
       console.log("NO RESULTS")
@@ -28,7 +28,7 @@ map_show = () ->
   }).addTo(map)
   return map
 
-map_add_marker = (lat, lng, map, marker) ->
+map_add_marker = (lat, lng, map) ->
   # marker icon with color red
   icon = L.icon({
       iconUrl: "<%= asset_url("map_marker_on.png") %>",
@@ -46,12 +46,12 @@ $ ->
   if (  $("#verification_center_latitude").length > 0 and  $("#verification_center_latitude").val() != "" )
     lat = $('#verification_center_latitude').val()
     lon = $('#verification_center_longitude').val()
-    marker = map_add_marker lat, lon, map, marker
+    marker = map_add_marker lat, lon, map
 
   if ( $('.js-verification-map-latitude td').length > 0 and $('.js-verification-map-latitude td').html() != "" )
     lat = $('.js-verification-map-latitude td').html()
     lon = $('.js-verification-map-longitude td').html()
-    map_add_marker lat, lon, map, marker
+    map_add_marker lat, lon, map
 
   $("#js-verification-map-search").on 'click', (event) ->
     event.preventDefault()
