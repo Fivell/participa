@@ -6,7 +6,7 @@
     <ul class="js-verification-map-centers">
   <% end %>
 
-    <% @centers.each do |center| %>
+    <% centers.each do |center| %>
       <li class="today" data-district="0" data-location="<%= center.latitude %>, <%= center.longitude %>">
         <h5><%= center.name %></h5>
         <div>
