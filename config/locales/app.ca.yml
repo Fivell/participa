@@ -1,5 +1,6 @@
 ca:
   meta:
+    flatpickr_code: "cat"
     language: "Idioma"
     language_name: "Català"
   activerecord:

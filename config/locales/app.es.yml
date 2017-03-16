@@ -1,5 +1,6 @@
 es:
   meta:
+    flatpickr_code: "es"
     language: "Idioma"
     language_name: "Castellano"
     languages:

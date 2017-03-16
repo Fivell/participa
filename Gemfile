@@ -89,3 +89,5 @@ group :test do
 end
 
 gem 'webmock', group: :development
+
+gem 'rails-assets-flatpickr-calendar', source: 'https://rails-assets.org'

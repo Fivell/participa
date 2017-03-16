@@ -51,9 +51,9 @@ ActiveAdmin.register Verification::Center do
             %i(starts_at ends_at).each do |datetime|
               slot.input datetime,
                 required: true,
-                as: :datetime_picker,
-                input_html: { class: "js-datetime-picker" },
-                local: true
+                as: :string,
+                input_html: { class: "js-datetime-picker",
+                              data: { locale: I18n.t("meta.flatpickr_code") } }
             end
           end
         end
