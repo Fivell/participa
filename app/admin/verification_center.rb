@@ -48,8 +48,13 @@ ActiveAdmin.register Verification::Center do
       tab "Horarios" do
         f.inputs "Horarios" do
           f.has_many :verification_slots, allow_destroy: true, heading: false do |slot|
-            slot.input :starts_at, required: true, as: :datetime_picker, input_html: {class: "js-datetime-picker"}, local: true
-            slot.input :ends_at, required: true, as: :datetime_picker, input_html: {class: "js-datetime-picker"}, local: true
+            %i(starts_at ends_at).each do |datetime|
+              slot.input datetime,
+                required: true,
+                as: :datetime_picker,
+                input_html: { class: "js-datetime-picker" },
+                local: true
+            end
           end
         end
       end
