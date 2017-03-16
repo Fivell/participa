@@ -250,7 +250,7 @@ ActiveAdmin.register User do
   filter :wants_participation
   filter :participation_team_id, as: :select, collection: ParticipationTeam.all
   filter :votes_election_id, as: :select, collection: Election.all
-  if defined? User.verifications_admin
+  if Rails.application.secrets.features["verification_presencial"]
     filter :verified_by_id, as: :select, collection: User.verifications_admin.all
   end
 
