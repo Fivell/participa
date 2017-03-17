@@ -17,7 +17,7 @@ class VerificationPresencialTest < JsFeatureTest
     Rails.application.reload_routes!
   end
 
-  test "user should verificate to access tools" do
+  test "users need to be verified to access other tools" do
 
     # cant access as anon
     visit verification_step1_path
@@ -42,7 +42,7 @@ class VerificationPresencialTest < JsFeatureTest
 
   end
 
-  test "user verifications_admin can verify" do
+  test "presential verifiers can verify users presentially" do
 
     # should see the pending verification message if isn't verified
     user2 = create(:user)
