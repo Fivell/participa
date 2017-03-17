@@ -4,7 +4,6 @@ class UserTest < ActiveSupport::TestCase
 
   setup do 
     @user = create(:user)
-    @admin = create(:user, :admin)
   end
 
   test "validates presence:true" do
@@ -197,10 +196,11 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test ".is_admin?" do
+    admin = create(:user, :admin)
     u = User.new
     assert_not u.is_admin?
     assert_not @user.is_admin?
-    assert @admin.is_admin?
+    assert admin.is_admin?
     new_admin = create(:user, document_type: 3, document_vatid: '2222222')
     assert_not new_admin.is_admin?
     new_admin.update_attribute(:admin, true)
@@ -398,11 +398,13 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "scope .wants_newsletter works" do 
-    assert_equal 2, User.wants_newsletter.count
-    create(:user, :no_newsletter_user)
-    assert_equal 2, User.wants_newsletter.count
-    create(:user, :newsletter_user)
-    assert_equal 3, User.wants_newsletter.count
+    assert_difference -> { User.wants_newsletter.count }, 0 do
+      create(:user, :no_newsletter_user)
+    end
+
+    assert_difference -> { User.wants_newsletter.count }, 1 do
+      create(:user, :newsletter_user)
+    end
   end
 
   test "act_as_paranoid" do 
