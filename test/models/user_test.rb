@@ -621,4 +621,50 @@ class UserTest < ActiveSupport::TestCase
     carioca = build(:user, country: "BR", province: "RJ")
     assert_equal false, carioca.catalonia_resident
   end
+
+  test ".presential_verifier_ever gives past & present presential verifiers" do
+    active_presential_verifier = create(:user, :verifying_presentially,
+                                               starts_at: 1.day.ago,
+                                               ends_at: 1.day.from_now)
+
+    online_verifier = create(:user, :verifying_online,
+                                    starts_at: 1.day.ago,
+                                    ends_at: 1.day.from_now)
+
+    inactive_presential_verifier = create(:user, :verifying_presentially,
+                                                 starts_at: 2.days.ago,
+                                                 ends_at: 1.day.ago)
+
+    assert_equal \
+      [active_presential_verifier, inactive_presential_verifier].sort,
+      User.presential_verifier_ever.sort
+  end
+
+  test "#verifying presentially?" do
+    user = create(:user, :verifying_presentially, starts_at: 1.day.ago,
+                                                  ends_at: 1.day.from_now)
+    assert_equal true, user.verifying_presentially?
+
+    user = create(:user, :verifying_presentially, starts_at: 2.days.ago,
+                                                  ends_at: 1.day.ago)
+    assert_equal false, user.verifying_presentially?
+
+    user = create(:user, :verifying_presentially, starts_at: 1.day.from_now,
+                                                  ends_at: 2.days.from_now)
+    assert_equal false, user.verifying_presentially?
+  end
+
+  test "#verifying_online?" do
+    user = create(:user, :verifying_online, starts_at: 1.day.ago,
+                                            ends_at: 1.day.from_now)
+    assert_equal true, user.verifying_online?
+
+    user = create(:user, :verifying_online, starts_at: 2.days.ago,
+                                            ends_at: 1.day.ago)
+    assert_equal false, user.verifying_online?
+
+    user = create(:user, :verifying_online, starts_at: 1.day.from_now,
+                                            ends_at: 2.days.from_now)
+    assert_equal false, user.verifying_online?
+  end
 end

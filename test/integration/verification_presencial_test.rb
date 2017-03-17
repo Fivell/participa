@@ -53,9 +53,7 @@ class VerificationPresencialTest < JsFeatureTest
     Capybara.reset_sessions!
 
     # user1 can verify to user2
-    user1 = create(:user)
-    user1.verifications_admin = true
-    user1.save
+    user1 = create(:user, :verifying_presentially)
     login_as(user1)
     visit verification_step1_path
     assert_content I18n.t('verification.form.document')

@@ -97,4 +97,37 @@ FactoryGirl.define do
     postal_code "07021"
     town "m_07_003_3"
   end
+
+  trait :verifying_presentially do
+    transient do
+      starts_at { 1.day.ago }
+      ends_at { 1.day.from_now }
+      center nil
+    end
+
+    after(:create) do |user, evaluator|
+      attrs = {
+        user: user,
+        starts_at: evaluator.starts_at,
+        ends_at: evaluator.ends_at
+      }
+
+      attrs[:verification_center] = evaluator.center if evaluator.center
+
+      create(:verification_slot, :presential, attrs)
+    end
+  end
+
+  trait :verifying_online do
+    transient do
+      starts_at { 1.day.ago }
+      ends_at { 1.day.from_now }
+    end
+
+    after(:create) do |user, evaluator|
+      create(:verification_slot, :online, user: user,
+                                          starts_at: evaluator.starts_at,
+                                          ends_at: evaluator.ends_at)
+    end
+  end
 end

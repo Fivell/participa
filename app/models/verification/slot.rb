@@ -1,8 +1,22 @@
 class Verification::Slot < ActiveRecord::Base
   belongs_to :verification_center, class_name: 'Verification::Center', foreign_key: 'verification_center_id'
+  belongs_to :user
 
   validates :starts_at, :ends_at, presence: true
   validate :proper_interval
+
+  scope :active, -> do
+    now = Time.zone.now
+
+    where("starts_at <= ? AND ends_at >= ?", now, now)
+  end
+
+  scope :past_or_current, -> { where("starts_at <= ?", Time.zone.now) }
+
+  scope :presential, -> { where.not(verification_center: nil) }
+  scope :online, -> { where(verification_center: nil) }
+
+  scope :for_center, -> { where(user: nil) }
 
   private
 

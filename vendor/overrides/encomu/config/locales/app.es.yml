@@ -417,7 +417,8 @@ Un País en Comú cumple con todas las medidas de seguridad para la protección 
       has_collaboration_bank_international: "Con colaboración económica (banco internacional)"
       verified_presencial: "Verificado presencialmente"
       unverified_presencial: "No verificado presencialmente"
-      verifications_admin: "Equipo de Verificación"
+      verifying_online: "Verificando Online"
+      verifying_presentially: "Verificando Presencialmente"
       voting_right: "Con derecho a voto"
   page:
     faq:

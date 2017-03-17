@@ -20,8 +20,11 @@ ActiveAdmin.register User do
   scope :has_circle
   scope :banned
   scope :admins
+  if Rails.application.secrets.features["verification_sms"]
+    scope :verifying_online
+  end
   if Rails.application.secrets.features["verification_presencial"]
-    scope :verifications_admin
+    scope :verifying_presentially
     scope :verified_presencial
     scope :unverified_presencial
     scope :voting_right
@@ -64,9 +67,7 @@ ActiveAdmin.register User do
     attributes_table do
       row :id
       row :status do
-        if Rails.application.secrets.features["verification_presencial"]
-          status_tag("Equipo de Verificación", :ok) if user.verifications_admin?
-        end
+        render partial: "admin/verification_status", partials: { user: user }
         status_tag("Verificado", :ok) if user.is_verified?
         status_tag("Baneado", :error) if user.banned?
         user.deleted? ? status_tag("¡Atención! este usuario está borrado, no podrá iniciar sesión", :error) : ""
@@ -251,7 +252,7 @@ ActiveAdmin.register User do
   filter :participation_team_id, as: :select, collection: ParticipationTeam.all
   filter :votes_election_id, as: :select, collection: Election.all
   if Rails.application.secrets.features["verification_presencial"]
-    filter :verified_by_id, as: :select, collection: User.verifications_admin.all
+    filter :verified_by_id, as: :select, collection: User.presential_verifier_ever
   end
 
   form partial: "form"
@@ -282,11 +283,7 @@ ActiveAdmin.register User do
 
   if Rails.application.secrets.features["verification_presencial"]
     action_item(:edit, :only => :show) do
-      if user.verifications_admin?
-        link_to('Quitar de Equipo de Verificación', verification_unteam_admin_user_path(user), method: :post, data: { confirm: "¿Estas segura de querer que este usuario ya no verifique a otros?" })
-      else
-        link_to('Agregar a Equipo de Verificación', verification_team_admin_user_path(user), method: :post, data: { confirm: "¿Estas segura de querer que este usuario verifique a otros? Recuerda que debe ser una persona de confianza y que debes haber comprobado que haya firmado el documento legal." })
-      end
+      link_to('Perfil de Verificador', edit_admin_verifier_profile_path(user))
     end
   end
 
@@ -328,25 +325,6 @@ ActiveAdmin.register User do
     end
     flash[:notice] = "El usuario ha sido modificado"
     redirect_to action: :show
-  end
-
-  if Rails.application.secrets.features["verification_presencial"]
-    member_action :verification_team, :method => [:post] do
-      u = User.find( params[:id] )
-      u.verify! current_user
-      u.verifications_admin = true
-      u.save
-      flash[:notice] = "El usuario ha sido modificado"
-      redirect_to action: :show
-    end
-
-    member_action :verification_unteam, :method => [:post] do
-      u = User.find( params[:id] )
-      u.verifications_admin = false
-      u.save
-      flash[:notice] = "El usuario ha sido modificado"
-      redirect_to action: :show
-    end
   end
 
   action_item(:impulsa_author, only: :show) do

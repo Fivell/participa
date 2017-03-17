@@ -84,6 +84,7 @@ es:
       verification/slot:
         one: "Horario"
         other: "Horarios"
+      verifier_profile: "Perfil de Verificador"
     errors:
       models: 
         user:
@@ -355,6 +356,7 @@ es:
         created_at: "Creada el"
         updated_at: "Actualizada el"
       verification/slot:
+        verification_center: Centro
         starts_at: Empieza
         ends_at: Termina
         created_at: "Creada el"

@@ -1,6 +1,8 @@
 require 'securerandom'
 
 class User < ActiveRecord::Base
+  include Verifierable
+
   belongs_to :verified_by, class_name: "User", foreign_key: "verified_by_id" #, counter_cache: :verified_by_id
 
   apply_simple_captcha
@@ -14,7 +16,6 @@ class User < ActiveRecord::Base
             2 => :superadmin,
             3 => :verified,
             4 => :finances_admin,
-            5 => :verifications_admin,
             6 => :impulsa_author,
             7 => :impulsa_admin,
             check_for_column: false

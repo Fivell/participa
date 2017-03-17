@@ -1,0 +1,15 @@
+if Rails.application.secrets.features["verification_presencial"]
+  if user.verifying_presentially?
+    status_tag("Actualmente verifica presencialmente", :ok)
+  else
+    status_tag("Actualmente no verifica presencialmente", :error)
+  end
+end
+
+if Rails.application.secrets.features["verification_sms"]
+  if user.verifying_online?
+    status_tag("Actualmente verifica online", :ok)
+  else
+    status_tag("Actualmente no verifica online", :error)
+  end
+end
