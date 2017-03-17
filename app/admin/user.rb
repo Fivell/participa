@@ -304,12 +304,6 @@ ActiveAdmin.register User do
     end
   end
 
-  action_item(:verify, only: :show) do
-    if user.not_verified?
-      link_to('Verificar usuario', verify_admin_user_path(user), method: :post, data: { confirm: "¿Estas segura de querer verificar a este usuario?" })
-    end
-  end
-
   batch_action :ban, if: proc{ can? :ban, User } do |ids|
     User.ban_users(ids, true)
     redirect_to collection_path, alert: "Los usuarios han sido baneados."
