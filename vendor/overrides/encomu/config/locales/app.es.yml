@@ -357,26 +357,6 @@ Un País en Comú cumple con todas las medidas de seguridad para la protección 
 '
   election:
     close_message: "Ha llegado la fecha límite para votar. La votación está cerrada."
-  active_admin:
-    scopes:
-      created: "Creados"
-      confirmed: "Confirmados"
-      deleted: "Borrados"
-      unconfirmed_mail: "Correo electrónico sin confirmar"
-      unconfirmed_phone: "Teléfono sin confirmar"
-      confirmed_mail: "Correo electrónico confirmado"
-      confirmed_phone: "Teléfono confirmado"
-      signed_in: "Ha iniciado sesión"
-      not_signed_in: "No ha iniciado sesión"
-      has_collaboration: "Con colaboración económica"
-      has_collaboration_credit_card: "Con colaboración económica (tarjeta de crédito)"
-      has_collaboration_bank_national: "Con colaboración económica (banco nacional)"
-      has_collaboration_bank_international: "Con colaboración económica (banco internacional)"
-      verified_presencial: "Verificado presencialmente"
-      unverified_presencial: "No verificado presencialmente"
-      verifying_online: "Verificando Online"
-      verifying_presentially: "Verificando Presencialmente"
-      voting_right: "Con derecho a voto"
   page:
     faq:
       title: "Preguntas Frecuentes - Votaciones"
