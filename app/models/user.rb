@@ -155,16 +155,16 @@ class User < ActiveRecord::Base
   scope :confirmed, -> { where.not(confirmed_at: nil).where.not(sms_confirmed_at: nil) }
   scope :signed_in, -> { where.not(sign_in_count: nil) }
   scope :participation_team, -> { includes(:participation_team).where.not(participation_team_at: nil) }
-  scope :has_circle, -> { where("circle IS NOT NULL") }
+  scope :has_circle, -> { where.not(circle: nil) }
 
   scope :verified_presencial, -> { where.not(verified_by: nil) }
   scope :unverified_presencial, -> { where(verified_by: nil).where(sms_confirmed_at: nil)}
-  scope :voting_right, -> { where("verified_by_id IS NOT NULL OR sms_confirmed_at IS NOT NULL") }
+  scope :voting_right, -> { where.not(verified_by_id: nil, sms_confirmed_at: nil) }
 
-  scope :has_collaboration, -> { joins(:collaboration).where("collaborations.user_id IS NOT NULL") }
-  scope :has_collaboration_credit_card, -> { joins(:collaboration).where('collaborations.payment_type' => 1) }
-  scope :has_collaboration_bank_national, -> { joins(:collaboration).where('collaborations.payment_type' => 2) }
-  scope :has_collaboration_bank_international, -> { joins(:collaboration).where('collaborations.payment_type' => 3) }
+  scope :has_collaboration, -> { joins(:collaboration).where.not(collaborations: { user_id: nil }) }
+  scope :has_collaboration_credit_card, -> { joins(:collaboration).where(collaborations: { payment_type: 1 }) }
+  scope :has_collaboration_bank_national, -> { joins(:collaboration).where(collaborations: { payment_type: 2 }) }
+  scope :has_collaboration_bank_international, -> { joins(:collaboration).where(collaborations: { payment_type: 3 }) }
 
   ransacker :vote_province, formatter: proc { |value|
     spanish_subregion_for(value).subregions.map {|r| r.code }
