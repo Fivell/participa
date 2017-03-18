@@ -32,8 +32,7 @@ gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem 'spanish_vat_validators', github: 'deivid-rodriguez/spanish_vat_validators',
                               branch: 'rails_5_deprecations'
-gem 'simple_captcha2', github: 'pludoni/simple-captcha',
-                       require: 'simple_captcha'
+gem 'simple_captcha2', require: 'simple_captcha'
 gem 'carmen-rails'
 gem 'esendex'
 gem 'activeadmin', github: 'activeadmin'
