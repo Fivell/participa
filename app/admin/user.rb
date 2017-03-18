@@ -311,13 +311,8 @@ ActiveAdmin.register User do
 
   member_action :verify, :method => [:post] do
     u = User.find( params[:id] )
-    if Rails.application.secrets.features["verification_presencial"]
-      # use verified_at and verified_by fields
-      u.verify! current_user
-    else
-      # use flags
-      u.update(verified: true, banned: false)
-    end
+    u.verify! current_user
+    u.update(banned: false)
     flash[:notice] = "El usuario ha sido modificado"
     redirect_to action: :show
   end

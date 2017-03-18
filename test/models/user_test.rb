@@ -666,4 +666,38 @@ class UserTest < ActiveSupport::TestCase
                                             ends_at: 2.days.from_now)
     assert_equal false, user.verifying_online?
   end
+
+  test "#is_verified? when no verifications enabled" do
+    check_verifications(presential: false, sms: false)
+  end
+
+  test "#is_verified? when only presential verifications enabled" do
+    check_verifications(presential: true, sms: false)
+  end
+
+  test "#is_verified? when only sms verifications enabled" do
+    check_verifications(presential: false, sms: true)
+  end
+
+  test "#is_verified? when presential & sms verifications enabled" do
+    check_verifications(presential: true, sms: true)
+  end
+
+  private
+
+  def check_verifications(presential:, sms:)
+    with_verifications(presential: presential, sms: sms) do
+      user = create(:user, :not_confirmed_by_sms, :not_verified_presentially)
+      assert_equal false, user.is_verified?
+
+      user = create(:user, :confirmed_by_sms, :not_verified_presentially)
+      assert_equal sms, user.is_verified?
+
+      user = create(:user, :not_confirmed_by_sms, :verified_presentially)
+      assert_equal presential, user.is_verified?
+
+      user = create(:user, :confirmed_by_sms, :verified_presentially)
+      assert_equal presential || sms, user.is_verified?
+    end
+  end
 end

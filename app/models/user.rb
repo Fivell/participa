@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
 
   has_flags 1 => :banned,
             2 => :superadmin,
-            3 => :verified,
             4 => :finances_admin,
             6 => :impulsa_author,
             7 => :impulsa_admin,
@@ -307,12 +306,11 @@ class User < ActiveRecord::Base
 
   def check_sms_token(token)
     if token == self.sms_confirmation_token
-      self.update_attribute(:sms_confirmed_at, DateTime.now)
       if self.unconfirmed_phone
         self.update_attribute(:phone, self.unconfirmed_phone)
         self.update_attribute(:unconfirmed_phone, nil)
 
-        if not self.verified? and not self.is_admin?
+        if not self.is_verified? and not self.is_admin?
           filter = SpamFilter.any? self
           if filter
             self.update_attribute(:banned, true)
@@ -320,6 +318,7 @@ class User < ActiveRecord::Base
           end
         end
       end
+      self.update_attribute(:sms_confirmed_at, DateTime.now)
       true
     else
       false
@@ -655,11 +654,19 @@ class User < ActiveRecord::Base
   end
 
   def is_verified?
-    if Rails.application.secrets.features["verification_presencial"]
-      self.verified_by_id? or self.confirmed_by_sms?
-    else
-      self.verified?
-    end
+    is_verified_online? || is_verified_presentially?
+  end
+
+  def is_verified_online?
+    return false unless Rails.application.secrets.features["verification_sms"]
+
+    self.confirmed_by_sms?
+  end
+
+  def is_verified_presentially?
+    return false unless Rails.application.secrets.features["verification_presencial"]
+
+    self.verified_by_id?
   end
 
   def verify! user

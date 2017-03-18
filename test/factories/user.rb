@@ -78,6 +78,14 @@ FactoryGirl.define do
     sms_confirmed_at { DateTime.now }
   end
 
+  trait :not_verified_presentially do
+    verified_by_id nil
+  end
+
+  trait :verified_presentially do
+    verified_by_id 1
+  end
+
   trait :previously_confirmed_by_sms do
     sms_confirmed_at do
       DateTime.now - User.sms_confirmation_period - 1.day
