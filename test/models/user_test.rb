@@ -564,16 +564,25 @@ class UserTest < ActiveSupport::TestCase
    # español
    # extranjero
 
-  #test "all scopes work" do 
-  #  skip("TODO")
-  #end
-  #
-  #scope :wants_newsletter, -> {where(wants_newsletter: true)}
-  #scope :created, -> { where "deleted_at is null"  }
-  #scope :deleted, -> { where "deleted_at is not null" }
-  #scope :unconfirmed_mail, -> { where "confirmed_at is null" }
-  #scope :unconfirmed_phone, -> { where "sms_confirmed_at is null" }
-  #
+  test ".wants_newsletter work" do 
+    skip("TODO")
+  end
+
+  test ".created work" do 
+    skip("TODO")
+  end
+
+  test ".deleted work" do 
+    skip("TODO")
+  end
+
+  test ".unconfirmed_mail work" do 
+    skip("TODO")
+  end
+
+  test ".unconfirmed_phone work" do 
+    skip("TODO")
+  end
 
   test "get_or_create_vote for elections work" do 
     e1 = create(:election)
