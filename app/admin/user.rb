@@ -7,9 +7,9 @@ ActiveAdmin.register User do
   scope :confirmed
   scope :deleted
   scope :unconfirmed_mail
-  scope :unconfirmed_phone
+  scope :unconfirmed_by_sms
   scope :confirmed_mail
-  scope :confirmed_phone
+  scope :confirmed_by_sms
   scope :signed_in
   scope :has_collaboration
   scope :has_collaboration_credit_card
@@ -54,7 +54,7 @@ ActiveAdmin.register User do
       status_tag("Verificado", :ok) + br if user.is_verified?
       status_tag("Baneado", :error) + br if user.banned?
       user.confirmed_at? ? status_tag("Email", :ok) : status_tag("Email", :error)
-      user.sms_confirmed_at? ? status_tag("Tel", :ok) : status_tag("Tel", :error)
+      user.confirmed_by_sms? ? status_tag("Tel", :ok) : status_tag("Tel", :error)
       user.valid? ? status_tag("Val", :ok) : status_tag("Val", :error)
       user.deleted? ? status_tag("Borrado", :error) : ""
     end
@@ -80,7 +80,7 @@ ActiveAdmin.register User do
         else
           status_tag("El usuario NO ha confirmado por email", :error)
         end
-        if user.sms_confirmed_at?
+        if user.confirmed_by_sms?
           status_tag("El usuario ha confirmado por SMS", :ok)
         else
           status_tag("El usuario NO ha confirmado por SMS", :error)
@@ -96,7 +96,7 @@ ActiveAdmin.register User do
         if user.phone?
           span link_to("Ver en panel de Elementos Enviados de Esendex (confirmado)", "https://www.esendex.com/echo/a/#{Rails.application.secrets.esendex[:account_reference]}/Sent/Messages?FilterRecipientValue=#{user.phone.sub(/^00/,'')}")
         end
-        if user.unconfirmed_phone? 
+        if user.unconfirmed_by_sms? 
           span link_to("Ver en panel de Elementos Enviados de Esendex (no confirmado)", "https://www.esendex.com/echo/a/#{Rails.application.secrets.esendex[:account_reference]}/Sent/Messages?FilterRecipientValue=#{user.unconfirmed_phone.sub(/^00/,'')}")
         end
       end

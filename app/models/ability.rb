@@ -47,7 +47,7 @@ class Ability
         can [:create, :create_token, :check], :vote if user.is_verified?
         can :show, :verification
       else
-        can [:create, :create_token, :check], :vote if user.sms_confirmed_at?
+        can [:create, :create_token, :check], :vote if user.confirmed_by_sms?
       end
 
       cannot :admin, :all

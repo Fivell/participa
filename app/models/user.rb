@@ -103,7 +103,7 @@ class User < ActiveRecord::Base
   end
 
   def validates_unconfirmed_phone_uniqueness
-    if User.confirmed_phone.where(phone: self.unconfirmed_phone).exists?
+    if User.confirmed_by_sms.where(phone: self.unconfirmed_phone).exists?
       self.errors.add(:phone, "Ya hay alguien con ese número de teléfono")
     end
   end
@@ -129,7 +129,7 @@ class User < ActiveRecord::Base
   def get_unresolved_issue(only_blocking = false)
     if Rails.application.secrets.features["verification_sms"]
       # User has confirmed SMS code
-      issue ||= check_issue self.sms_confirmed_at.nil?, :sms_validator_step1, "confirm_sms", "sms_validator"
+      issue ||= check_issue self.unconfirmed_by_sms?, :sms_validator_step1, "confirm_sms", "sms_validator"
     end
 
     if issue || only_blocking  # End of blocking issues
@@ -149,9 +149,9 @@ class User < ActiveRecord::Base
   scope :deleted, -> { where.not(deleted_at: nil) }
   scope :admins, -> { where(admin: true) }
   scope :unconfirmed_mail, -> { where(confirmed_at: nil)  }
-  scope :unconfirmed_phone, -> { where(sms_confirmed_at: nil) }
+  scope :unconfirmed_by_sms, -> { where(sms_confirmed_at: nil) }
   scope :confirmed_mail, -> { where.not(confirmed_at: nil) }
-  scope :confirmed_phone, -> { where.not(sms_confirmed_at: nil) }
+  scope :confirmed_by_sms, -> { where.not(sms_confirmed_at: nil) }
   scope :confirmed, -> { where.not(confirmed_at: nil).where.not(sms_confirmed_at: nil) }
   scope :signed_in, -> { where.not(sign_in_count: nil) }
   scope :participation_team, -> { includes(:participation_team).where.not(participation_team_at: nil) }
@@ -255,8 +255,16 @@ class User < ActiveRecord::Base
     self.admin
   end
 
+  def unconfirmed_by_sms?
+    self.sms_confirmed_at.nil?
+  end
+
+  def confirmed_by_sms?
+    !self.unconfirmed_by_sms?
+  end
+
   def can_change_phone?
-    self.sms_confirmed_at.nil? or
+    self.unconfirmed_by_sms? or
       self.sms_confirmed_at < DateTime.now-self.class.sms_confirmation_period
   end
 
@@ -300,7 +308,7 @@ class User < ActiveRecord::Base
   def check_sms_token(token)
     if token == self.sms_confirmation_token
       self.update_attribute(:sms_confirmed_at, DateTime.now)
-      if self.unconfirmed_phone?
+      if self.unconfirmed_phone
         self.update_attribute(:phone, self.unconfirmed_phone)
         self.update_attribute(:unconfirmed_phone, nil)
 
@@ -648,7 +656,7 @@ class User < ActiveRecord::Base
 
   def is_verified?
     if Rails.application.secrets.features["verification_presencial"]
-      self.verified_by_id? or self.sms_confirmed_at?
+      self.verified_by_id? or self.confirmed_by_sms?
     else
       self.verified?
     end
