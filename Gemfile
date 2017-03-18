@@ -22,7 +22,6 @@ gem 'spring',        group: :development
 gem 'sprockets-rails'
 
 gem 'pg'
-gem 'rb-readline'
 gem 'airbrake', group: :production
 
 gem 'devise'
