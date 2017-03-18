@@ -158,7 +158,7 @@ class User < ActiveRecord::Base
   scope :has_circle, -> { where.not(circle: nil) }
 
   scope :verified_presencial, -> { where.not(verified_by: nil) }
-  scope :unverified_presencial, -> { where(verified_by: nil).where(sms_confirmed_at: nil)}
+  scope :unverified_presencial, -> { where(verified_by: nil, sms_confirmed_at: nil)}
   scope :voting_right, -> { where.not(verified_by_id: nil, sms_confirmed_at: nil) }
 
   scope :has_collaboration, -> { joins(:collaboration).where.not(collaborations: { user_id: nil }) }
