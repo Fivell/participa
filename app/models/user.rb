@@ -144,7 +144,6 @@ class User < ActiveRecord::Base
   attr_accessor :sms_user_token_given
   attr_accessor :login
 
-  scope :all_with_deleted, -> { where "deleted_at IS null AND deleted_at IS NOT null"  }
   scope :wants_newsletter, -> {where(wants_newsletter: true)}
   scope :created, -> { where(deleted_at: nil)  }
   scope :deleted, -> { where.not(deleted_at: nil) }
@@ -254,10 +253,6 @@ class User < ActiveRecord::Base
 
   def is_admin?
     self.admin
-  end
-
-  def is_valid_phone?
-    self.phone? and self.confirmation_sms_sent_at? and self.sms_confirmed_at? and self.sms_confirmed_at > self.confirmation_sms_sent_at
   end
 
   def can_change_phone?

@@ -263,13 +263,6 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  #test ".is_valid_phone?" do
-  #  u = User.new
-  #  assert_not(u.is_valid_phone?)
-  #  u.sms_confirmed_at = DateTime.now
-  #  assert(u.is_valid_phone?)
-  #end
-
   test ".can_change_phone?" do 
     @user.update_attribute(:sms_confirmed_at, DateTime.now-1.month )
     assert_not @user.can_change_phone?
@@ -575,8 +568,6 @@ class UserTest < ActiveSupport::TestCase
   #  skip("TODO")
   #end
   #
-  #scope :all_with_deleted, -> { where "deleted_at IS null AND deleted_at IS NOT null"  }
-  #scope :users_with_deleted, -> { where "deleted_at IS NOT null"  }
   #scope :wants_newsletter, -> {where(wants_newsletter: true)}
   #scope :created, -> { where "deleted_at is null"  }
   #scope :deleted, -> { where "deleted_at is not null" }
