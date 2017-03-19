@@ -346,21 +346,6 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
 "
   election:
     close_message: "Ha arribat la data límit per votar. La votació està tancada."
-  active_admin:
-    scopes:
-      created: "Creats"
-      confirmed: "Confirmats"
-      deleted: "Esborrats"
-      unconfirmed_mail: "Correu electrònic sin confirmar"
-      unconfirmed_by_sms: "Telèfon sense confirmar"
-      confirmed_mail: "Correu electrònic confirmat"
-      confirmed_by_sms: "Telèfon confirmat"
-      signed_in: "Has iniciat sessió"
-      not_signed_in: "No has iniciat sessió"
-      has_collaboration: "Amb col·laboració econòmica"
-      has_collaboration_credit_card: "Amb col·laboració econòmica (targeta de crèdit)"
-      has_collaboration_bank_national: "Amb col·laboració econòmica (banc nacional)"
-      has_collaboration_bank_international: "Amb col·laboració econòmica (banc internacional)"
   page:
     faq:
       title: "Preguntes Freqüents - Votacions"
