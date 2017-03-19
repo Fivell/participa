@@ -6,40 +6,13 @@ require 'webmock/minitest'
 
 require 'support/database_cleaner'
 
+require 'support/base'
+require 'support/controllers'
+require 'support/integration'
+
 SimpleCov.start
 WebMock.disable_net_connect!(allow_localhost: true)
 Warden.test_mode!
-
-class ActiveSupport::TestCase
-  include FactoryGirl::Syntax::Methods
-end
-
-class ActionController::TestCase
-  include Devise::Test::ControllerHelpers
-end
-
-require 'capybara/rails'
-require 'capybara/minitest'
-
-class ActionDispatch::IntegrationTest
-  include Warden::Test::Helpers
-  include Capybara::DSL
-  include Capybara::Minitest::Assertions
-
-  teardown do
-    Capybara.reset_sessions!
-  end
-end
-
-class JsFeatureTest < ActionDispatch::IntegrationTest
-  setup do
-    Capybara.current_driver = Capybara.javascript_driver
-  end
-
-  teardown do
-    Capybara.use_default_driver
-  end
-end
 
 def with_blocked_change_location
   begin
