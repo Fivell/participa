@@ -60,8 +60,8 @@ class UserRegistrationsTest < JsFeatureTest
     fill_in_location_data(@user)
     click_button 'Inscribirse'
 
-    assert page.has_select?('País', selected: 'Estados Unidos')
-    assert page.has_select?('Provincia', selected: 'Alabama')
+    assert_select 'País', selected: 'Estados Unidos'
+    assert_select 'Provincia', selected: 'Alabama'
   end
 
   test "create a user with gender identity information" do

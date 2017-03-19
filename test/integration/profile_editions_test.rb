@@ -27,7 +27,7 @@ class ProfileEditionsTest < JsFeatureTest
     click_button "Actualizar datos"
 
     assert_text "No se han podido actualizar los datos"
-    assert page.has_select?('País', selected: 'Brasil')
+    assert_select 'País', selected: 'Brasil'
   end
 
   test "can change password" do

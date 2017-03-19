@@ -31,19 +31,19 @@ module Participa
         unless user.in_catalonia?
           uncheck 'Resido en Cataluña'
           TransactionalCapybara::AjaxHelpers.wait_for_ajax(page)
-          assert page.has_select?('País', with_options: [user.country_name])
+          assert_select 'País', with_options: [user.country_name]
           select(user.country_name, from: 'País')
         end
 
         if user.province
           TransactionalCapybara::AjaxHelpers.wait_for_ajax(page)
-          assert page.has_select?('Provincia', with_options: [user.province_name])
+          assert_select 'Provincia', with_options: [user.province_name]
           select(user.province_name, from: 'Provincia')
         end
 
         if user.in_spain?
           TransactionalCapybara::AjaxHelpers.wait_for_ajax(page)
-          assert page.has_select?('Municipio', with_options: [user.town_name])
+          assert_select 'Municipio', with_options: [user.town_name]
           select(user.town_name, from: 'Municipio')
         end
 
