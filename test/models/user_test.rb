@@ -2,10 +2,6 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
-  setup do 
-    @user = create(:user)
-  end
-
   test "validates presence:true" do
     u = User.new
     u.valid?
@@ -46,8 +42,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "validates email uniqueness" do
+    user = create(:user)
     error_message = I18n.t "activerecord.errors.models.user.attributes.email.taken"
-    user2 = build(:user, email: @user.email)
+    user2 = build(:user, email: user.email)
     user2.valid?
     assert_includes user2.errors[:email], error_message
 
@@ -187,20 +184,23 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test ".full_name" do
+    user = create(:user)
     u = User.new(first_name: "Juan", last_name: "Perez")
     assert_equal("Juan Perez", u.full_name)
-    assert_equal("Perez Pepito", @user.full_name)
+    assert_equal("Perez Pepito", user.full_name)
   end
 
   test ".full_address" do
-    assert_equal("C/ Inventada, 123, Madrid, Madrid, CP 28021, España", @user.full_address)
+    user = create(:user)
+    assert_equal("C/ Inventada, 123, Madrid, Madrid, CP 28021, España", user.full_address)
   end
 
   test ".is_admin?" do
+    user = create(:user)
     admin = create(:user, :admin)
     u = User.new
     assert_not u.is_admin?
-    assert_not @user.is_admin?
+    assert_not user.is_admin?
     assert admin.is_admin?
     new_admin = create(:user, document_type: 3, document_vatid: '2222222')
     assert_not new_admin.is_admin?
@@ -209,47 +209,51 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "phone accepts nil" do
-    @user.phone = nil
-    assert @user.valid?
+    user = create(:user, phone: nil)
+    assert user.valid?
   end
 
   test "phone rejects letters" do
-    @user.phone = "aaaa"
-    assert_not @user.valid?
-    assert_includes @user.errors[:phone], "Revisa el formato de tu teléfono"
+    user = create(:user)
+    user.phone = "aaaa"
+    assert_not user.valid?
+    assert_includes user.errors[:phone], "Revisa el formato de tu teléfono"
   end
 
   test "unconfirmed_phone accepts nil" do
-    @user.unconfirmed_phone = nil
-    assert @user.valid?
+    user = create(:user, unconfirmed_phone: nil)
+    assert user.valid?
   end
 
   test "unconfirmed_phone rejects letters" do
-    @user.unconfirmed_phone = "aaaa"
-    assert_not @user.valid?
-    assert_includes @user.errors[:unconfirmed_phone], "Revisa el formato de tu teléfono"
+    user = create(:user)
+    user.unconfirmed_phone = "aaaa"
+    assert_not user.valid?
+    assert_includes user.errors[:unconfirmed_phone], "Revisa el formato de tu teléfono"
   end
 
   test ".validates_phone_format does not accept invalid phone numbers" do
-    @user.phone = "12345"
-    assert_not @user.valid?
-    assert_includes @user.errors[:phone], "Revisa el formato de tu teléfono"
+    user = create(:user)
+    user.phone = "12345"
+    assert_not user.valid?
+    assert_includes user.errors[:phone], "Revisa el formato de tu teléfono"
   end
 
   test ".validates_unconfirmed_phone does not accept invalid phone numbers" do
-    @user.unconfirmed_phone = "12345"
-    assert_not @user.valid?
-    assert_includes @user.errors[:unconfirmed_phone], "Revisa el formato de tu teléfono"
+    user = create(:user)
+    user.unconfirmed_phone = "12345"
+    assert_not user.valid?
+    assert_includes user.errors[:unconfirmed_phone], "Revisa el formato de tu teléfono"
   end
 
   test ".validates_unconfirmed_phone_format only accepts numbers starting with 6 or 7" do 
-    @user.unconfirmed_phone = "0034661234567"
-    assert @user.valid?
-    @user.unconfirmed_phone = "0034771234567"
-    assert @user.valid?
-    @user.unconfirmed_phone = "0034881234567"
-    assert_not @user.valid?
-    assert_includes @user.errors[:unconfirmed_phone], "Debes poner un teléfono móvil válido de España empezando por 6 o 7."
+    user = create(:user, unconfirmed_phone: "0034661234567")
+    assert user.valid?
+    user.unconfirmed_phone = "0034771234567"
+    assert user.valid?
+    user.unconfirmed_phone = "0034881234567"
+    assert_not user.valid?
+    assert_includes user.errors[:unconfirmed_phone], "Debes poner un teléfono móvil válido de España empezando por 6 o 7."
   end
 
   if available_features["verification_sms"]
@@ -264,42 +268,45 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test ".can_change_phone?" do 
-    @user.update_attribute(:sms_confirmed_at, DateTime.now-1.month )
-    assert_not @user.can_change_phone?
-    @user.update_attribute(:sms_confirmed_at, DateTime.now-7.month )
-    assert @user.can_change_phone?
-    @user.update_attribute(:sms_confirmed_at, nil)
-    assert @user.can_change_phone?
+    user = create(:user, sms_confirmed_at: DateTime.now-1.month )
+    assert_not user.can_change_phone?
+    user.update_attribute(:sms_confirmed_at, DateTime.now-7.month )
+    assert user.can_change_phone?
+    user.update_attribute(:sms_confirmed_at, nil)
+    assert user.can_change_phone?
   end
 
   test ".phone_normalize" do 
-    assert_equal( "0034661234567", @user.phone_normalize("661234567", "ES") ) 
-    assert_equal( "0034661234567", @user.phone_normalize("0034661234567", "ES") )
-    assert_equal( "0034661234567", @user.phone_normalize("+34661234567", "ES") )
-    assert_equal( "0034661234567", @user.phone_normalize("+34 661 23 45 67", "ES") )
-    assert_equal( "0034661234567", @user.phone_normalize("0034661234567") )
-    assert_equal( "0034661234567", @user.phone_normalize("+34661234567") )
-    assert_equal( "0034661234567", @user.phone_normalize("+34 661 23 45 67") )
-    assert_equal( "0054661234567", @user.phone_normalize("661234567", "AR") )
+    user = create(:user)
+    assert_equal( "0034661234567", user.phone_normalize("661234567", "ES") ) 
+    assert_equal( "0034661234567", user.phone_normalize("0034661234567", "ES") )
+    assert_equal( "0034661234567", user.phone_normalize("+34661234567", "ES") )
+    assert_equal( "0034661234567", user.phone_normalize("+34 661 23 45 67", "ES") )
+    assert_equal( "0034661234567", user.phone_normalize("0034661234567") )
+    assert_equal( "0034661234567", user.phone_normalize("+34661234567") )
+    assert_equal( "0034661234567", user.phone_normalize("+34 661 23 45 67") )
+    assert_equal( "0054661234567", user.phone_normalize("661234567", "AR") )
   end
 
   test ".phone_prefix" do 
-    assert_equal "34", @user.phone_prefix
-    @user.update_attribute(:country, "AR")
-    assert_equal "54", @user.phone_prefix
+    user = create(:user)
+    assert_equal "34", user.phone_prefix
+    user.update_attribute(:country, "AR")
+    assert_equal "54", user.phone_prefix
   end
 
   test ".phone_country_name" do 
-    assert_equal "España", @user.phone_country_name
-    @user.update_attribute(:phone, "005446311234")
-    assert_equal "Argentina", @user.phone_country_name
+    user = create(:user)
+    assert_equal "España", user.phone_country_name
+    user.update_attribute(:phone, "005446311234")
+    assert_equal "Argentina", user.phone_country_name
   end
 
   test ".phone_no_prefix" do 
-    @user.update_attribute(:phone, "00346611111222")
-    assert_equal "6611111222", @user.phone_no_prefix
-    @user.update_attribute(:phone, "005446311234")
-    assert_equal "46311234", @user.phone_no_prefix
+    user = create(:user, phone: "00346611111222")
+    assert_equal "6611111222", user.phone_no_prefix
+    user.update_attribute(:phone, "005446311234")
+    assert_equal "46311234", user.phone_no_prefix
   end
 
   test ".generate_sms_token" do
@@ -316,9 +323,10 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test ".send_sms_token!" do
-    @user.send_sms_token!
+    user = create(:user)
+    user.send_sms_token!
     # comprobamos que el SMS se haya enviado en los últimos 10 segundos
-    assert( @user.confirmation_sms_sent_at - DateTime.now  > -10 )
+    assert( user.confirmation_sms_sent_at - DateTime.now  > -10 )
   end
 
   test ".check_sms_token" do
@@ -345,24 +353,25 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test ".document_type_name" do 
-    @user.update_attribute(:document_type, 1)
-    assert_equal "DNI", @user.document_type_name
-    @user.update_attribute(:document_type, 2)
-    assert_equal "NIE", @user.document_type_name
-    @user.update_attribute(:document_type, 3)
-    assert_equal "Pasaporte", @user.document_type_name
+    user = create(:user, document_type: 1)
+    assert_equal "DNI", user.document_type_name
+    user.update_attribute(:document_type, 2)
+    assert_equal "NIE", user.document_type_name
+    user.update_attribute(:document_type, 3)
+    assert_equal "Pasaporte", user.document_type_name
   end
 
   test ".country_name works when country code is valid" do 
-    @user.update_attribute(:country, "ES")
-    assert_equal "España", @user.country_name
-    @user.update_attribute(:country, "AR")
-    assert_equal "Argentina", @user.country_name
+    user = create(:user, country: "ES")
+    assert_equal "España", user.country_name
+    user.update_attribute(:country, "AR")
+    assert_equal "Argentina", user.country_name
   end
 
   test ".country_name returns empty when country code is invalid" do
-    @user.update_attribute(:country, "Testing")
-    assert_equal "", @user.country_name
+    user = create(:user)
+    user.update_attribute(:country, "Testing")
+    assert_equal "", user.country_name
   end
 
   test ".province_name works when province code is valid" do 
@@ -402,22 +411,24 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "act_as_paranoid" do 
-    @user.destroy
-    assert_not User.exists?(@user.id)
-    assert User.with_deleted.exists?(@user.id)
-    @user.restore
-    assert User.exists?(@user.id)
+    user = create(:user)
+    user.destroy
+    assert_not User.exists?(user.id)
+    assert User.with_deleted.exists?(user.id)
+    user.restore
+    assert User.exists?(user.id)
   end
 
   test "scope uniqueness with paranoia" do 
-    @user.destroy
-    # allow save after the @user is destroyed but is with deleted_at
-    user1 = build(:user, email: @user.email, email_confirmation: @user.email, document_vatid: @user.document_vatid, phone: @user.phone)
+    user = create(:user)
+    user.destroy
+    # allow save after the user is destroyed but is with deleted_at
+    user1 = build(:user, email: user.email, email_confirmation: user.email, document_vatid: user.document_vatid, phone: user.phone)
     assert user1.valid?
     user1.save
 
-    # don't allow save after the @user is created again (uniqueness is working)
-    user2 = build(:user, email: @user.email, document_vatid: @user.document_vatid, phone: @user.phone)
+    # don't allow save after the user is created again (uniqueness is working)
+    user2 = build(:user, email: user.email, document_vatid: user.document_vatid, phone: user.phone)
     assert_not user2.valid?
   end
 
@@ -432,10 +443,11 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "uniqueness is not case sensitive" do 
-    user = build(:user, document_vatid: @user.document_vatid.downcase)
-    assert_not user.valid?
-    user = build(:user, document_vatid: @user.document_vatid.upcase)
-    assert_not user.valid?
+    user = create(:user)
+    user2 = build(:user, document_vatid: user.document_vatid.downcase)
+    assert_not user2.valid?
+    user2 = build(:user, document_vatid: user.document_vatid.upcase)
+    assert_not user2.valid?
   end
 
   test "password confirmation works" do
@@ -537,27 +549,25 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "updates vote_town when town is changed and both are in Spain" do
-    @user.town = "m_37_262_6"
-    @user.save
-    assert_equal @user.town, @user.vote_town, "User has changed his town (from Spain to Spain) and vote town didn't changed"
+    user = create(:user, town: "m_37_262_6")
+    assert_equal user.town, user.vote_town, "User has changed his town (from Spain to Spain) and vote town didn't changed"
   end
 
   test "update vote_town when town is changed from foreign country to Spain" do 
-    user = build(:user, :foreign)
-    user.save
-    user.country = "ES"
-    user.province = "SA"
-    user.town = "m_37_262_6"
-    user.save
-    assert_equal @user.town, @user.vote_town, "User has changed his town (from foreign to Spain) and vote town didn't changed"
+    user = create(:user)
+    user2 = build(:user, :foreign)
+    user2.save
+    user2.country = "ES"
+    user2.province = "SA"
+    user2.town = "m_37_262_6"
+    user2.save
+    assert_equal user.town, user.vote_town, "User has changed his town (from foreign to Spain) and vote town didn't changed"
   end
   
   test "update vote_town when town is changed from Spain to a foreign country" do 
-    @user.country = "US"
-    @user.province = "AL"
-    @user.town = "Jefferson County"
-    @user.save
-    assert_not_equal @user.town, @user.vote_town, "User has changed his town (from Spain to a foreign country) and vote town changed"
+    user = create(:user)
+    user.update(country: "US", province: "AL", town: "Jefferson County")
+    assert_not_equal user.town, user.vote_town, "User has changed his town (from Spain to a foreign country) and vote town changed"
   end
   
   # actualizar vote_town cuando se guarda
@@ -585,20 +595,21 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "get_or_create_vote for elections work" do 
+    user = create(:user)
     e1 = create(:election)
-    v1 = @user.get_or_create_vote(e1.id)
-    v2 = @user.get_or_create_vote(e1.id)
+    v1 = user.get_or_create_vote(e1.id)
+    v2 = user.get_or_create_vote(e1.id)
     # same election id, same scope, same voter_id
     assert_equal( v1.voter_id, v2.voter_id )
    
     # same election id, different scope, different voter_id
     e2 = create(:election, :town)
-    v3 = @user.get_or_create_vote(e2.id)
-    v4 = @user.get_or_create_vote(e2.id)
+    v3 = user.get_or_create_vote(e2.id)
+    v4 = user.get_or_create_vote(e2.id)
     assert_equal( v3.voter_id, v4.voter_id )
     e2.election_locations.create(location: "010014", agora_version: 0)
-    @user.update_attribute(:town, "m_01_001_4")
-    v5 = @user.get_or_create_vote(e2.id)
+    user.update_attribute(:town, "m_01_001_4")
+    v5 = user.get_or_create_vote(e2.id)
     assert_not_equal v3.voter_id, v5.voter_id, "Diferente municipio de voto debería implicar diferente voter_id"
   end
 
