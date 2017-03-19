@@ -240,6 +240,7 @@ GEM
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    minitest-hooks (1.4.0)
     mono_logger (1.1.0)
     multi_json (1.12.1)
     multi_xml (0.6.0)
@@ -448,6 +449,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy
+  minitest-hooks
   norma43!
   paper_trail
   paperclip

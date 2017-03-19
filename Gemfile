@@ -84,6 +84,7 @@ group :test do
   gem 'poltergeist'
   gem 'launchy'
   gem 'database_cleaner'
+  gem 'minitest-hooks'
 end
 
 gem 'webmock', group: :development

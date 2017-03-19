@@ -2,9 +2,11 @@ require 'test_helper'
 
 class VoteControllerTest < ActionController::TestCase
 
-  setup do
+  around do |&block|
     @user = create(:user, :confirmed_by_sms)
     @election = create(:election)
+
+    with_verifications(sms: true) { super(&block) }
   end
 
   test "should not get create as anon" do
