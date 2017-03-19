@@ -2,16 +2,13 @@ require "test_helper"
 
 class VerificationPresencialTest < JsFeatureTest
 
-  setup do
-    @prev_verification_presential = available_features["verification_presencial"]
-    available_features["verification_presencial"] = true
+  around do |&block|
+    with_verifications(presential: true) do
+      # Routes are defined conditionally on the presence of this feature
+      Rails.application.reload_routes!
 
-    # Routes are defined conditionally on the presence of this feature
-    Rails.application.reload_routes!
-  end
-
-  teardown do
-    available_features["verification_presencial"] = @prev_verification_presential
+      super(&block)
+    end
 
     # Leave routes as they were previously
     Rails.application.reload_routes!
