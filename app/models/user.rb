@@ -102,7 +102,7 @@ class User < ActiveRecord::Base
   end
 
   def validates_unconfirmed_phone_uniqueness
-    if User.confirmed_by_sms.where(phone: self.unconfirmed_phone).exists?
+    if User.verified_online.where(phone: self.unconfirmed_phone).exists?
       self.errors.add(:phone, "Ya hay alguien con ese número de teléfono")
     end
   end
@@ -126,17 +126,20 @@ class User < ActiveRecord::Base
   scope :deleted, -> { where.not(deleted_at: nil) }
   scope :admins, -> { where(admin: true) }
   scope :unconfirmed_mail, -> { where(confirmed_at: nil)  }
-  scope :unconfirmed_by_sms, -> { where(sms_confirmed_at: nil) }
   scope :confirmed_mail, -> { where.not(confirmed_at: nil) }
-  scope :confirmed_by_sms, -> { where.not(sms_confirmed_at: nil) }
   scope :confirmed, -> { where.not(confirmed_at: nil).where.not(sms_confirmed_at: nil) }
   scope :signed_in, -> { where.not(sign_in_count: nil) }
   scope :participation_team, -> { includes(:participation_team).where.not(participation_team_at: nil) }
   scope :has_circle, -> { where.not(circle: nil) }
 
-  scope :verified_presencial, -> { where.not(verified_by: nil) }
-  scope :unverified_presencial, -> { where(verified_by: nil, sms_confirmed_at: nil)}
-  scope :voting_right, -> { where.not(verified_by_id: nil, sms_confirmed_at: nil) }
+  scope :verified, -> { where.not(verified_at: nil) }
+  scope :unverified, -> { where(verified_at: nil) }
+
+  scope :verified_presentially, -> { where.not(verified_at: nil, verified_by: nil) }
+  scope :unverified_presentially, -> { where(verified_by_id: nil)}
+
+  scope :verified_online, -> { where.not(verified_at: nil, sms_confirmed_at: nil) }
+  scope :unverified_online, -> { where(sms_confirmed_at: nil) }
 
   scope :has_collaboration, -> { joins(:collaboration).where.not(collaborations: { user_id: nil }) }
   scope :has_collaboration_credit_card, -> { joins(:collaboration).where(collaborations: { payment_type: 1 }) }

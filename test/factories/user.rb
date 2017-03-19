@@ -75,6 +75,7 @@ FactoryGirl.define do
   end
 
   trait :confirmed_by_sms do
+    verified_at { DateTime.now }
     sms_confirmed_at { DateTime.now }
   end
 
@@ -83,6 +84,7 @@ FactoryGirl.define do
   end
 
   trait :verified_presentially do
+    verified_at { DateTime.now }
     verified_by_id 1
   end
 

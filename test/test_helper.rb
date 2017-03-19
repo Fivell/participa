@@ -10,6 +10,8 @@ require 'support/base'
 require 'support/controllers'
 require 'support/integration'
 
+require 'support/assertions'
+
 SimpleCov.start
 WebMock.disable_net_connect!(allow_localhost: true)
 Warden.test_mode!

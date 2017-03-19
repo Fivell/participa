@@ -574,6 +574,35 @@ class UserTest < ActiveSupport::TestCase
    # español
    # extranjero
 
+  test ".verification scopes" do
+    unverified = create(:user)
+    verified_presentially = create(:user, :verified_presentially)
+    verified_online = create(:user, :confirmed_by_sms)
+    verified_both_ways = create(:user, :verified_presentially, :confirmed_by_sms)
+
+    assert_matches_array \
+      [verified_presentially, verified_online, verified_both_ways],
+      User.verified
+
+    assert_matches_array [unverified], User.unverified
+
+    assert_matches_array \
+      [verified_presentially, verified_both_ways],
+      User.verified_presentially
+
+    assert_matches_array \
+      [unverified, verified_online],
+      User.unverified_presentially
+
+    assert_matches_array \
+      [verified_online, verified_both_ways],
+      User.verified_online
+
+    assert_matches_array \
+      [unverified, verified_presentially],
+      User.unverified_online
+  end
+
   test ".created work" do 
     skip("TODO")
   end

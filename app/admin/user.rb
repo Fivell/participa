@@ -7,9 +7,7 @@ ActiveAdmin.register User do
   scope :confirmed
   scope :deleted
   scope :unconfirmed_mail
-  scope :unconfirmed_by_sms
   scope :confirmed_mail
-  scope :confirmed_by_sms
   scope :signed_in
   scope :has_collaboration
   scope :has_collaboration_credit_card
@@ -19,16 +17,23 @@ ActiveAdmin.register User do
   scope :has_circle
   scope :banned
   scope :admins
+
   if Rails.application.secrets.features["verification_sms"]
     scope :verifying_online
+    scope :verified_online
+    scope :unverified_online
   end
+
   if Rails.application.secrets.features["verification_presencial"]
     scope :verifying_presentially
-    scope :verified_presencial
-    scope :unverified_presencial
-    scope :voting_right
-  else
+    scope :verified_presentially
+    scope :unverified_presentially
+  end
+
+  if Rails.application.secrets.features["verification_presencial"] ||
+     Rails.application.secrets.features["verification_sms"]
     scope :verified
+    scope :unverified
   end
 
   permit_params :email, :password, :password_confirmation, :first_name, :last_name, :document_type, :document_vatid, :born_at, :address, :town, :postal_code, :province, :country, :vote_province, :vote_town, :wants_newsletter, :phone, :unconfirmed_phone
