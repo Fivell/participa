@@ -24,7 +24,10 @@
         <% end %>
       <% end %>
 
-      <% if user_signed_in? && Rails.application.secrets.features["verification_presencial"] %>
+      <% if user_signed_in? && (
+           Rails.application.secrets.features["verification_presencial"] ||
+           Rails.application.secrets.features["verification_sms"]
+         ) %>
         <li class="nav-action">
           <%= nav_menu_link_to "Portada", "home", root_path, [root_path], title: "Portada" %>
         </li>

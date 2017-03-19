@@ -2,9 +2,11 @@ require "test_helper"
 
 class ProfileEditionsTest < JsFeatureTest
   setup do
-    @user = create(:user, email: 'pepe@example.org',
-                          password: '111111',
-                          confirmed_at: Time.zone.now)
+    @user = create(:user,
+                   :confirmed_by_sms,
+                   email: 'pepe@example.org',
+                   password: '111111',
+                   confirmed_at: Time.zone.now)
     visit root_path
     fill_in 'Correo electrónico o Nº de documento', with: 'pepe@example.org'
     fill_in 'Contraseña', with: '111111'
