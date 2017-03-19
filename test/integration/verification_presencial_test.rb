@@ -50,7 +50,6 @@ class VerificationPresencialTest < JsFeatureTest
     visit root_path
     assert_content pending_verification_message
     logout(user2)
-    Capybara.reset_sessions!
 
     # user1 can verify user2
     user1 = create(:user, :verifying_presentially, :confirmed_by_sms)
