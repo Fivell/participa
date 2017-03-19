@@ -574,10 +574,6 @@ class UserTest < ActiveSupport::TestCase
    # español
    # extranjero
 
-  test ".wants_newsletter work" do 
-    skip("TODO")
-  end
-
   test ".created work" do 
     skip("TODO")
   end
