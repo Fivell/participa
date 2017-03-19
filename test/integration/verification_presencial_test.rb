@@ -39,6 +39,25 @@ class VerificationPresencialTest < JsFeatureTest
 
   end
 
+  test "users verified presentially are not bothered with sms confirmations" do
+    # initialize
+    user = create(:user, :verified_presentially)
+    election = create(:election)
+
+    # should see the pending verification message if isn't verified
+    login_as(user)
+    visit root_path
+    refute_content "Por seguridad, debes confirmar tu teléfono."
+
+    # can't access verification admin
+    visit verification_step1_path
+    assert_equal root_path(locale: "es"), page.current_path
+
+    # can't access vote
+    visit create_vote_path(election_id: election.id)
+    assert_equal root_path(locale: "es"), page.current_path
+  end
+
   test "presential verifiers can verify users presentially" do
 
     # should see the pending verification message if isn't verified

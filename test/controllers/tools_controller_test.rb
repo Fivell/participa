@@ -33,12 +33,36 @@ class ToolsControllerTest < ActionController::TestCase
     end
   end
 
-  test "redirects to sms verification when both verifications enabled" do
+  test "gets index when only sms verifications enabled & user already verified" do
+    with_verifications(presential: false, sms: true) do
+      sign_in create(:user, :confirmed_by_sms)
+      get :index
+      assert_response :success
+    end
+  end
+
+  test "redirects to sms verification when both verifications enabled & user not verified" do
     with_verifications(presential: true, sms: true) do
       sign_in create(:user)
       get :index
       assert_response :redirect
       assert_redirected_to sms_validator_step1_path
+    end
+  end
+
+  test "gets index when both verifications enabled & user verified presentially" do
+    with_verifications(presential: true, sms: true) do
+      sign_in create(:user, :verified_presentially)
+      get :index
+      assert_response :success
+    end
+  end
+
+  test "gets index when both verifications enabled & user verified by sms" do
+    with_verifications(presential: true, sms: true) do
+      sign_in create(:user, :confirmed_by_sms)
+      get :index
+      assert_response :success
     end
   end
 end

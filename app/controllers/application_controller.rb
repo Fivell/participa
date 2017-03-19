@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :banned_user
-  before_action :unresolved_issues
+  before_action :verified_user
   before_action :configure_sign_in_params, if: :devise_controller?
   before_action :set_locale
   before_action :allow_iframe_requests
@@ -38,23 +38,6 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     cookies.permanent[:cookiepolicy] = 'hide'
 
-    # reset session value
-    session[:no_unresolved_issues] = false
-
-    issue = user.get_unresolved_issue
-
-    if issue
-      # clear user validation errors if generated on issues check to avoid stop login process
-      user.errors.messages.clear
-
-      flash.delete(:notice) # remove succesfully logged message
-      flash[:alert] = issue[:message]
-      return issue[:path]
-    end
-
-    # no issues, don't check it again
-    session[:no_unresolved_issues] = true
-
     super    
   end
   
@@ -66,29 +49,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def unresolved_issues
+  def verified_user
     if current_user
-
-      if session[:no_unresolved_issues]
+      # user wants to log out or edit his profile
+      if params[:controller] == 'devise/sessions' or params[:controller] == "registrations" or params[:controller].start_with? "admin/"
         return nil
       end
-      # get an unresolved issue, if any
-      issue = current_user.get_unresolved_issue true
-      if issue
-        # user is in the right page to fix problem, just inform about the issue
-        if params[:controller] == issue[:controller]
-          if issue[:message] and request.method != "POST" # only inform in the first request of the page
-            flash.now[:alert] = t("issues."+issue[:message])
-          end
-        # user wants to log out or edit his profile
-        elsif params[:controller] == 'devise/sessions' or params[:controller] == "registrations" or params[:controller].start_with? "admin/"
-        # user can't do anything else but fix the issue
+
+      if !current_user.is_verified? && Rails.application.secrets.features["verification_sms"]
+        if params["controller"] == "sms_validator"
+          flash.now[:alert] = t("issues.confirm_sms")
         else
-          redirect_to issue[:path]
+          redirect_to sms_validator_step1_path
         end
-      else
-        # when everything is OK, stop checking issues
-        session[:no_unresolved_issues] = true
       end
     end
   end

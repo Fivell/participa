@@ -118,28 +118,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def check_issue(validation_response, path, message, controller)
-    if validation_response
-      return {path: path, message: message, controller: controller}
-    end
-  end
-
-  # returns issues with user profile, blocking first
-  def get_unresolved_issue(only_blocking = false)
-    if Rails.application.secrets.features["verification_sms"]
-      # User has confirmed SMS code
-      issue ||= check_issue self.unconfirmed_by_sms?, :sms_validator_step1, "confirm_sms", "sms_validator"
-    end
-
-    if issue || only_blocking  # End of blocking issues
-      return issue
-    end
-
-    if issue
-      return issue
-    end
-  end
-
   attr_accessor :sms_user_token_given
   attr_accessor :login
 
