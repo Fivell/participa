@@ -38,7 +38,7 @@ class VerificationPresencialTest < JsFeatureTest
 
     # can't access vote
     visit create_vote_path(election_id: election.id)
-    #assert_content I18n.t('app.unauthorized')
+    assert_content pending_verification_message
 
   end
 
