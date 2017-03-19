@@ -16,8 +16,10 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test "sets locale from url" do
-    get '/ca'
-    assert_equal(:ca, I18n.locale)
+    I18n.with_locale(:es) do
+      get '/ca'
+      assert_equal(:ca, I18n.locale)
+    end
   end
 
   test "logins successfully for foreign users" do
