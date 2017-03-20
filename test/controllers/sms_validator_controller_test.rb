@@ -20,6 +20,22 @@ class SmsValidatorControllerTest < ActionController::TestCase
     assert_redirected_to "/users/sign_in"
   end
 
+  test "redirects to root page when feature not enabled" do
+    with_verifications(sms: false) do
+      user = create(:user)
+      sign_in user
+      get :step1
+      assert_response :redirect
+      assert_redirected_to "/es"
+      get :step2
+      assert_response :redirect
+      assert_redirected_to "/es"
+      get :step3
+      assert_response :redirect
+      assert_redirected_to "/es"
+    end
+  end
+
   test "does not allow sms confirmation when confirmed by sms recently" do
     user = create(:user, :confirmed_by_sms)
     sign_in user

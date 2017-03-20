@@ -47,6 +47,10 @@ class Ability
         can :show, :verification
       end
 
+      if Rails.application.secrets.features["verification_sms"]
+        can [:step1, :step2, :step3, :phone, :captcha, :valid], :sms_validator
+      end
+
       if Rails.application.secrets.features["verification_presencial"] ||
          Rails.application.secrets.features["verification_sms"]
         can [:create, :create_token, :check], :vote if user.is_verified?
