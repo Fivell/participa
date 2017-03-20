@@ -42,15 +42,9 @@ function verification_map_show(district) {
 
   var map = L.map('js-verification-map').setView(get_coords(district), 13);
 
-  // marker icon with color red
-  var IconOn = L.icon({
+  // marker icon with color black
+  var icon = L.icon({
       iconUrl: "<%= asset_url("map_marker_on.png") %>",
-      iconSize:     [30, 30]
-  });
-
-  // marker icon with color grey
-  var IconOff = L.icon({
-      iconUrl: "<%= asset_url("map_marker_off.png") %>",
       iconSize:     [30, 30]
   });
 
@@ -66,17 +60,6 @@ function verification_map_show(district) {
     attribution: map_tile_attribution
   }).addTo(map);
 
-  // legend
-  var legend = L.control({position: 'bottomright'});
-  legend.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'map-info map-legend');
-    div.innerHTML +=
-        '<i style="background:#eb5a59"></i>Activo<br><br> ' +
-        '<i style="background:#d3d3d3"></i>Inactivo<br><br> '
-    return div;
-  }
-  legend.addTo(map);
-
   // all your markers are belong to us
   $('.js-verification-map-centers li:not(.strike)').each( function(){
     var latlng = $(this).data('location');
@@ -85,11 +68,6 @@ function verification_map_show(district) {
       var lng = parseFloat( latlng.split(',')[1] );
       var name = $(this).find('h5').html();
       var address = $(this).find('div').html();
-      if ( $(this).hasClass('today') ) {
-        var icon = IconOn;
-      } else {
-        var icon = IconOff;
-      }
       L.marker([lat, lng], {icon: icon}).addTo(map).bindPopup("<b>" + name + "</b><br />" + address);
     }
   });

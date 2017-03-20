@@ -7,7 +7,7 @@
   <% end %>
 
     <% Verification::Center.find_each do |center| %>
-      <li class="today" data-district="0" data-location="<%= center.latitude %>, <%= center.longitude %>">
+      <li data-district="0" data-location="<%= center.latitude %>, <%= center.longitude %>">
         <h5><%= center.name %></h5>
         <div>
           <%= center.address %>
