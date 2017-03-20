@@ -48,7 +48,7 @@ function verification_map_show(district) {
   }).addTo(map);
 
   // all your markers are belong to us
-  $('.js-verification-map-centers li:not(.strike)').each( function(){
+  $('.js-verification-map-centers li').each( function(){
     var latlng = $(this).data('location');
     if ( latlng && latlng != ', ' ) {
       var lat = parseFloat( latlng.split(',')[0] );
