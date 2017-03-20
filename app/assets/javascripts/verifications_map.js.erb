@@ -66,8 +66,8 @@ function verification_map_show(district) {
     if ( latlng && latlng != ", " ) {
       var lat = parseFloat( latlng.split(',')[0] );
       var lng = parseFloat( latlng.split(',')[1] );
-      var name = $(this).find('h5').html();
-      var address = $(this).find('div').html();
+      var name = $(this).find('.verification-center-name').html();
+      var address = $(this).find('.verification-center-address').html();
       L.marker([lat, lng], {icon: icon}).addTo(map).bindPopup("<b>" + name + "</b><br />" + address);
     }
   });

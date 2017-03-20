@@ -9,7 +9,7 @@
     <% Verification::Center.find_each do |center| %>
       <li class="verification-center" data-district="0" data-location="<%= center.latitude %>, <%= center.longitude %>">
         <h5 class="verification-center-name"><%= center.name %></h5>
-        <div>
+        <div class="verification-center-address">
           <%= center.address %>
         </div>
         <div>
