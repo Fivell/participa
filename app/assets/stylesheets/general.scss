@@ -2194,3 +2194,11 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 .menu ul li a:hover, .menu ul li a.active {
   color: #cc2626;
 }
+
+.verification-center {
+  padding-bottom: 20px;
+
+  .verification-center-name {
+    margin: 0 0 5px 0;
+  }
+}
