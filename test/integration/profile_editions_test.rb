@@ -45,6 +45,18 @@ class ProfileEditionsTest < JsFeatureTest
     assert_selector "h2", text: "Cambiar contraseña"
   end
 
+  test "can switch from a spanish to a foreign location" do
+    click_link "Datos personales"
+    select "Brasil", from: "País"
+    select "Rio de Janeiro", from: "Provincia"
+    fill_in "Código postal", with: "2950-000"
+    fill_in "Contraseña actual", with: "111111", match: :first
+    click_button "Actualizar datos"
+
+    assert_text "Has actualizado tu cuenta correctamente."
+    assert_equal "BR", @user.reload.country
+  end
+
   private
 
   def change_password(new_pass, new_pass_confirmation, current_pass)
