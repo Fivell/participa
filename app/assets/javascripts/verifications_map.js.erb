@@ -42,12 +42,6 @@ function verification_map_show(district) {
 
   var map = L.map('js-verification-map').setView(get_coords(district), 13);
 
-  // marker icon with color black
-  var icon = L.icon({
-      iconUrl: "<%= asset_url("map_marker_on.png") %>",
-      iconSize:     [30, 30]
-  });
-
   // map type
   // should support HTTPS
   // https://leaflet-extras.github.io/leaflet-providers/preview/
@@ -69,7 +63,13 @@ function verification_map_show(district) {
       var name = $(this).find('.verification-center-name').html();
       var address = $(this).find('.verification-center-address').html();
       var slots = $(this).find('.verification-center-slots').html();
-      L.marker([lat, lng], {icon: icon}).bindPopup(
+      var circle = L.circle([lat, lng], {
+        color: 'transparent',
+        fillColor: '#4d4d4d',
+        fillOpacity: 0.5,
+        radius: 500
+      });
+      circle.addTo(map).bindPopup(
         "<b>" + name + "</b><br />" + address + "<br />" + slots
       );
     }

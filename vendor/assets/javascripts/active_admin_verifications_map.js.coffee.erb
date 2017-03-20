@@ -29,12 +29,13 @@ map_show = () ->
   return map
 
 map_add_marker = (lat, lng, map) ->
-  # marker icon with color red
-  icon = L.icon({
-      iconUrl: "<%= asset_url("map_marker_on.png") %>",
-      iconSize:     [30, 30]
-  })
-  marker = L.marker([lat, lng], {icon: icon}).addTo(map)
+  circle = L.circle([lat, lng], {
+    color: 'transparent',
+    fillColor: '#4d4d4d',
+    fillOpacity: 0.5,
+    radius: 500
+    })
+  marker = circle.addTo(map)
   return marker
 
 $ ->
