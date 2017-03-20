@@ -937,7 +937,7 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
     message:
       dni: "El formato debe ser 8 números y una letra, sin guiones ni espacios."
       nie: "El formato debe ser una letra, 7 números y una letra, sin guiones ni espacios."
-      passport: "Envía una copia de tu pasaporte a info@unpaisencomu.cat para validar la inscripción."
+      passport: "El formato debe ser sin guiones ni espacios."
       existing_user_location: "Se ha recuperado tu lugar de participación de un usuario anterior."
       welcome_html: "
         <p>
