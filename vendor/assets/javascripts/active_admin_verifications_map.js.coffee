@@ -13,7 +13,6 @@ map_search_address = (query, map, marker) ->
       map_add_marker lat, lon, map
     else
       $('#js-verification-map-error').show('slow')
-      console.log("NO RESULTS")
   )
 
 map_show = () ->
