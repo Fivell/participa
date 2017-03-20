@@ -131,7 +131,7 @@ aquest missatge. Si ho reps diverses vegades, avisa'ns a %{mail}."
         password:
           p1: "Algú ha demanat que canviïs la teva contrasenya. Pots fer-ho a través de l'enllaç següent:"
           p2: "Aquest compte de correu electrònic no accepta respostes. Si tens qualsevol problema amb el registre, si et plau, contacta amb contacte@unpaisencomu.cat"
-          p3: "Si no has estat tu, si et plau, no facis cas d'aquest missatge. La teva contrasenya no canviarà fins que validis aquest enllaç i en creïs una de nova.."
+          p3: "Si no has estat tu, si et plau, no facis cas d'aquest missatge. La teva contrasenya no canviarà fins que validis aquest enllaç i en creïs una de nova."
           link: 'Canvia contrasenya'
     navbar:
       tools: "Pàgina Principal"
