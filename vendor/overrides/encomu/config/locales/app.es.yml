@@ -114,45 +114,6 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
 <p> <b> Un País en Comú </b></p>
 <p> <b>Versión 7 de octubre de 2014 16:01 </b> </p>
 '
-    registration:
-      catalonia_resident: "Resido en Cataluña"
-      choose_province: "Elige una provincia"
-      choose_town: "Elige un municipio"
-      country: "País"
-      province: "Provincia"
-      town: "Municipio"
-      inscription_policy: Condiciones de inscripción
-      legends:
-        inscription_html: "Inscribirse en En Comú te da derecho a participar en todas las consultas y procesos participativos que se lancen en esta aplicación. No supone ninguna obligación económica, aunque puedes colaborar en este sentido si lo deseas. Aceptando, recibirás nuestros newsletters informativos.<br><br> EN COMÚ con personalidad jurídica propia, de acuerdo con la Ley Orgánica 6/2002, de 27 de junio, de Partidos Políticos, e inscrita en el Registro de Partidos Políticos con fecha 1 de abril de 2015, Folio 113, Tomo IX. Domicilio social: C. Or, 44 3º-2ª (CP 08012 BARCELONA). Telèfon: 935.321.796. "
-        legal0: Véanse las condiciones de inscripción
-        legal1: Véase la política de privacidad
-        legal2: Véase el aviso legal
-        legal3: Véase la política de Cookies
-        password_limits: Mínimo 6 caracteres
-        cant_modify: No puedes modificarlo
-        cis_key: CIS (cisgénero)
-        cis_definition: persona que se identifica con el género que le fue asignado al nacer
-        trans_key: TRANS (transgénero)
-        trans_definition: persona que no se identifica con el género que le fue asignado al nacer y por tanto vive en otra identidad de género
-        fluid_key: Género No-binario
-        fluid_definition: persona que no se identifica con ninguno de los dos géneros binarios establecidos de forma única
-      message:
-        dni: "El formato debe ser 8 números y una letra, sin guiones ni espacios."
-        nie: "El formato debe ser una letra, 7 números y una letra, sin guiones ni espacios."
-        passport: "Envía una copia de tu pasaporte a info@unpaisencomu.cat para validar la inscripción."
-        welcome_html: "
-          <p>
-            Apúntate al formulario para recibir información y para poder
-            participar en la construcción del nuevo espacio.
-          </p>
-
-          <p>
-            Para votar en las próximas votaciones te tienes que registrar
-            rellenando este formulario. Te llegará un correo para validarte. Si
-            no recibes el correo ponte en contacto con nosotros
-            <a href='http://unpaisencomu.cat/es/contact'>aquí</a>.
-          </p>
-          "
     legacy:
       password:
         title: "Cambiar contraseña antigua"

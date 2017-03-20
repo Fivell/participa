@@ -443,57 +443,6 @@ y con la frecuencia de pago que ha indicado en el formulario.
 
 Los adeudos domiciliados y los cargos en tarjeta se realizarán entre el día 1 y 15 de cada
 mes, trimestre o año, dependiendo de la frecuencia de pago elegida.'
-    registration:
-      message: 
-        dni: "El formato deben ser 8 números y una letra, sin guiones ni espacios."
-        nie: "El formato deben ser una letra, 7 números y una letra, sin guiones ni espacios."
-        passport: "Envía una copia de tu pasaporte a partido@podemos.info para validar la inscripción."
-        existing_user_location: "Se ha recuperado tu lugar de participación de un usuario anterior."
-      p1_html: "<p> Rellenando este formulario con tus datos pasarás a formar parte del censo de inscritos de Podemos y podrás participar en todas las votaciones. Es un procedimiento sencillo que te permitirá ser parte activa de Podemos.  </p>
-<p> Tus datos se asociarán a un teléfono móvil, en el que recibirás un SMS con tu código de verificación para validar la inscripción.  </p>
-<p><b> ¿Es seguro el sistema de inscripción? </b> </p>
-<p> Totalmente. Hemos intentado buscar el equilibrio entre seguridad y facilidad del proceso, cada inscripción es asociada a un teléfono móvil al que se envía automáticamente el código de verificación personal. Nuestros equipos informáticos han trabajado en el desarrollo de un sistema seguro, fiable y de fácil acceso para todas y todos.  </p>
-<p> *El usuario y contraseña de este portal de votaciones es distinto al de Plaza Podemos y Appgree.  </p>
-<p><a href='/es/preguntas-frecuentes'>¿Problemas con la inscripción?</a></p>
-<p><strong>Si no recibes el correo electrónico para completar la inscripción, recuerda comprobar 
-si ha llegado a la carpeta de <em>correo electrónico no deseado</em>, <em>promociones</em> o <em>spam</em>.</strong></p>
-"
-      terms_of_service:
-        title: 'Condiciones generales'
-        p1_html: '
-<h2>Condiciones generales de inscripción y política de privacidad</h2>
-<p><b> 1. Condiciones legales de la inscripción en Podemos Partido Político</b></p>
-<p>
-Al cumplimentar y enviar el formulario de inscripción el interesado pasará a ser miembro de PODEMOS partido político con CIF G86976941 y será titular de los derechos y obligaciones reconocidos por la legislación española a todos los inscritos en partidos políticos.
-</p>
-<p>
-La inscripción supone la aceptación expresa de los estatutos del partido y los acuerdos éticos, organizativos y políticos que apruebe la Asamblea Ciudadana y demás órganos del partido, así como de los métodos de participación y las fórmulas de decisión que legítimamente se establezcan.
-</p>
-<p><b>2. Protección de datos personales</b></p>
-<p>
-PODEMOS, de acuerdo con la Ley Orgánica 15/1999 de Protección de Datos de Carácter Personal, informa a las personas que quieran inscribirse de que los datos personales que faciliten en el formulario de inscripción serán incorporados al fichero de “afiliados” del que es responsable PODEMOS Partido Político, con CIF G86976941, que los utilizará para gestionar los perfiles de los inscritos, contactar con ellos para gestionar su registro y hacerles llegar toda la información necesaria sobre su inscripción.
-</p>
-<p>
-El inscrito acepta y consiente expresamente el tratamiento de sus datos personales y la recepción de comunicaciones electrónicas para los fines indicados.
-</p>
-<p>
-Salvo imperativo legal, los datos personales de los inscritos no serán cedidos a terceras personas sin su consentimiento expreso.
-</p>
-<p>
-PODEMOS cumple con todas las medidas de seguridad para la protección de datos personales exigidas por el Real Decreto 1720/2007, de 21 de diciembre, por el que se aprueba el Reglamento de desarrollo de la Ley Orgánica 15/1999, de 13 de diciembre, de protección de datos de carácter personal.
-</p>
-<p>
-<p><b>3. Ejercicios de los derechos de acceso, rectificación, cancelación y oposición</b></p>
-<p>
-Para ejercer los derechos de acceso, rectificación, cancelación y posición el inscrito podrá utilizar los formularios disponibles en la página web del perfil de usuario de la web participa.podemos.info o dirigirse por correo electrónico a lopd@podemos.info indicando su nombre y apellidos y adjuntando copia de su DNI o documento legal de identificación.
-</p>
-<p><b>4. Aceptación de las presentes condiciones generales</b></p>
-<p>
-Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO declara haber leído este aviso legal y estar conforme con su contenido.
-</p>
-<p> <b> Podemos </b></p>
-<p> <b>Versión 7 de octubre de 2014 16:01 </b> </p>
-'
     legacy:
       password:
         title: "Cambiar contraseña antigua"
@@ -963,6 +912,46 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
     privacy: Política de privacidad
     legal: Aviso legal
     cookies: Política de cookies
+  registration:
+    catalonia_resident: "Resido en Cataluña"
+    choose_province: "Elige una provincia"
+    choose_town: "Elige un municipio"
+    country: "País"
+    province: "Provincia"
+    town: "Municipio"
+    inscription_policy: Condiciones de inscripción
+    legends:
+      inscription_html: "Inscribirse en En Comú te da derecho a participar en todas las consultas y procesos participativos que se lancen en esta aplicación. No supone ninguna obligación económica, aunque puedes colaborar en este sentido si lo deseas. Aceptando, recibirás nuestros newsletters informativos.<br><br> EN COMÚ con personalidad jurídica propia, de acuerdo con la Ley Orgánica 6/2002, de 27 de junio, de Partidos Políticos, e inscrita en el Registro de Partidos Políticos con fecha 1 de abril de 2015, Folio 113, Tomo IX. Domicilio social: C. Or, 44 3º-2ª (CP 08012 BARCELONA). Telèfon: 935.321.796. "
+      legal0: Véanse las condiciones de inscripción
+      legal1: Véase la política de privacidad
+      legal2: Véase el aviso legal
+      legal3: Véase la política de Cookies
+      password_limits: Mínimo 6 caracteres
+      cant_modify: No puedes modificarlo
+      cis_key: CIS (cisgénero)
+      cis_definition: persona que se identifica con el género que le fue asignado al nacer
+      trans_key: TRANS (transgénero)
+      trans_definition: persona que no se identifica con el género que le fue asignado al nacer y por tanto vive en otra identidad de género
+      fluid_key: Género No-binario
+      fluid_definition: persona que no se identifica con ninguno de los dos géneros binarios establecidos de forma única
+    message:
+      dni: "El formato debe ser 8 números y una letra, sin guiones ni espacios."
+      nie: "El formato debe ser una letra, 7 números y una letra, sin guiones ni espacios."
+      passport: "Envía una copia de tu pasaporte a info@unpaisencomu.cat para validar la inscripción."
+      existing_user_location: "Se ha recuperado tu lugar de participación de un usuario anterior."
+      welcome_html: "
+        <p>
+          Apúntate al formulario para recibir información y para poder
+          participar en la construcción del nuevo espacio.
+        </p>
+
+        <p>
+          Para votar en las próximas votaciones te tienes que registrar
+          rellenando este formulario. Te llegará un correo para validarte. Si
+          no recibes el correo ponte en contacto con nosotros
+          <a href='http://unpaisencomu.cat/es/contact'>aquí</a>.
+        </p>
+        "
   verification:
     to: a
     show:

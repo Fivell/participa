@@ -135,7 +135,7 @@ if available_features["verification_sms"]
         assert_equal old_user.vote_town, new_user.vote_town, "New user vote location should be the same of the old user"
         # XXX pasca - comento linea para saltar de momento validacion. Asegurar
         # que funcione 
-        # assert_equal I18n.t("podemos.registration.message.existing_user_location"), flash[:alert]
+        # assert_equal I18n.t("registration.message.existing_user_location"), flash[:alert]
         assert_response :redirect
         assert_redirected_to root_path
       end

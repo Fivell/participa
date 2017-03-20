@@ -72,7 +72,7 @@ class SmsValidatorController < ApplicationController
       flash.now[:notice] = t('sms_validator.phone.valid')
 
       if current_user.apply_previous_user_vote_location
-        flash.now[:alert] = t('podemos.registration.message.existing_user_location')        
+        flash.now[:alert] = t('registration.message.existing_user_location')        
       end
       redirect_to authenticated_root_path
     else

@@ -70,7 +70,7 @@ class RegistrationsController < Devise::RegistrationsController
           # his previous location
           #
           if resource.apply_previous_user_vote_location
-            flash[:alert] = t("podemos.registration.message.existing_user_location")
+            flash[:alert] = t("registration.message.existing_user_location")
           end
         end
       end
