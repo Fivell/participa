@@ -491,20 +491,6 @@ Un País en Comú cumple con todas las medidas de seguridad para la protección 
 <a target="_blank" href="https://barcelonaencomu.cat/es/aviso-legal">Véase el aviso legal</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/es/politica-de-cookies">Véase la política de Cookies</a></p>'
   welcome_count_html: "Usuarios inscritos: <span>%{count_all_users}</span><br>Usuarios inscritos y verificados: <span>%{count_verif_users}</span>"
-  voting:
-    title: "Bienvenido a Participa"
-    election_one: Hay una votación en curso.
-    election_none: No hay ninguna votación en curso. Cuando exista una votación te avisaremos por correo electrónico. Gracias por pertenecer a la comunidad de En Comú.
-    election_use_one: La votación utiliza
-    election_use_mul: Las votaciones utilizan
-    secure_system: el sistema seguro de
-    remember_last: "."
-    participate: ""
-    button: Votar
-    upcoming_1: Las votaciones están a punto de empezar.
-    upcoming_2: Las urnas se abrirán el
-    finished_1: Las votaciones ya han finalizado. Gracias por participar.
-    continue: "seguir votando"
   podemos:
     error:
       title: "No se han podido actualizar los datos"

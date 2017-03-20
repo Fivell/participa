@@ -351,3 +351,19 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
       document: "He verificat el document original de l'inscrit/a"
       age: "L'inscrit/a és major de 16 anys - nascut abans de %{date}"
       town: "He verificat un document (DNI/NIE/Passaport, rebut d'un subministrament) que acredita que l'inscrit/a viu a Catalunya."
+  voting:
+    title: "Benvingut a Participa!"
+    election_one: Hi ha una votació en curs.
+    election_none: No hi ha cap votació en curs. Quan hi hagi cap votació t'avisarem per correu electrònic. Gràcies per pertànyer a la comunitat de En Comú.
+    election_mul_html: "Hi ha 3 votacions. Cada votació és independent. No oblidis votar a totes 3.<br/><br/>
+  Pots canviar el vot al llarg del procés (votant de nou en la mateixa opció). El nou vot reemplaçarà l'emès anteriorment de forma automàtica. Només l'últim és vàlid.<br/>"
+    election_use_one: La votació utilitza
+    election_use_mul: Les votacions utilitzen
+    secure_system: el sistema segur de
+    remember_last: "."
+    participate: ""
+    button: Vota
+    upcoming_1: Les votacions estan a punt de començar.
+    upcoming_2: Les urnes s'obriran el
+    finished_1: Les votacions ja s'han tancat.
+    continue: "seguir votant"
