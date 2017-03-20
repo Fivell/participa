@@ -12,7 +12,7 @@
         <div class="verification-center-address">
           <%= center.address %>
         </div>
-        <div>
+        <div class="verification-center-slots">
           <% center.verification_slots.each do |slot| %>
             <%= l slot.starts_at, format: :short %> <%= t('verification.to') %> <%= l slot.ends_at, format: :time %>.
           <% end %>
