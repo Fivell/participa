@@ -86,14 +86,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def recover_and_logout
-    # Allow user to reset their password from his profile
-    #
-    current_user.send_reset_password_instructions
-    sign_out_and_redirect current_user
-    flash[:notice] = t("devise.confirmations.send_instructions")
-  end
-
   private
 
   def cast_catalonia_resident(param)

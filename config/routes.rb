@@ -111,7 +111,6 @@ Rails.application.routes.draw do
 
       authenticated :user do
         root 'tools#index', as: :authenticated_root
-        delete 'password/recover', to: 'registrations#recover_and_logout'
       end
       unauthenticated do
         root 'devise/sessions#new', as: :root
