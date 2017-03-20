@@ -65,6 +65,8 @@ function verification_map_show(district) {
       circle.addTo(map).bindPopup(
         '<b>' + name + '</b><br />' + address + '<br />' + slots
       );
+      circle.on('mouseover', function() { this.openPopup(); });
+      circle.on('mouseout', function() { this.closePopup(); });
     }
   });
 
