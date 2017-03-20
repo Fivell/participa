@@ -1044,7 +1044,7 @@ Gracias por inscribirte en Un País en Comú."
   voting:
     title: "Bienvenido a Participa"
     election_one: Hay una votación en curso.
-    election_none: No hay ninguna votación en curso. Cuando exista una votación te avisaremos por correo electrónico. Gracias por pertenecer a la comunidad de En Comú.
+    election_none: No hay ninguna votación en curso. Cuando exista una votación te avisaremos por correo electrónico.
     election_use_one: La votación utiliza
     election_use_mul: Las votaciones utilizan
     secure_system: el sistema seguro de
