@@ -101,7 +101,7 @@ ActiveAdmin.register User do
         if user.phone?
           span link_to("Ver en panel de Elementos Enviados de Esendex (confirmado)", "https://www.esendex.com/echo/a/#{Rails.application.secrets.esendex[:account_reference]}/Sent/Messages?FilterRecipientValue=#{user.phone.sub(/^00/,'')}")
         end
-        if user.unconfirmed_by_sms? 
+        if user.unconfirmed_phone? 
           span link_to("Ver en panel de Elementos Enviados de Esendex (no confirmado)", "https://www.esendex.com/echo/a/#{Rails.application.secrets.esendex[:account_reference]}/Sent/Messages?FilterRecipientValue=#{user.unconfirmed_phone.sub(/^00/,'')}")
         end
       end
