@@ -342,8 +342,6 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
         subject: Un País en Comú - Fin del primer proceso de verificación
       to_verify:
         subject: Un País en Comú - Faltan 2 días para verificarte
-      verified_legacy:
-        subject: Un País en Comú - No hace falta que te verifiques
       verified:
         subject: Un País en Comú - Has estat verificat correctament
         message: "Has sigut verificat i ja formes part de la comunitat de Un País en Comú. A partir d'ara ja no necessites verificar-te més i podràs participar a les consultes futures. Cada cop que hi hagi una consulta t'avisarem per coreru electrònic perquè puguis participar. Recorda que ara formes part de la comunitat de Un País en Comú."

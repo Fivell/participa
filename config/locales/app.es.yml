@@ -1021,8 +1021,6 @@ Número de teléfono y correo electrónico y comunícale que nos pondremos en co
         subject: Un País en Comú - Fin del primer proceso de verificación
       to_verify:
         subject: Un País en Comú - Hace falta que te verifiques
-      verified_legacy:
-        subject: Un País en Comú - No hace falta que te verifiques
       verified:
         subject: Un País en Comú - Has sido verificado correctamente
         message: "Enhorabuena!! Ya has sido verificado/a y formas parte de la comunidad de Un País en Comú.
