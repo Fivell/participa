@@ -89,4 +89,7 @@ end
 
 gem 'webmock', group: :development
 
-gem 'rails-assets-flatpickr-calendar', source: 'https://rails-assets.org'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-flatpickr-calendar'
+  gem 'rails-assets-leaflet'
+end
