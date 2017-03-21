@@ -86,13 +86,28 @@ function verification_map_show(postalcode) {
         color: 'transparent',
         fillColor: '#4d4d4d',
         fillOpacity: 0.5,
-        radius: 500
+        radius: 5000
       });
       circle.addTo(map).bindPopup(
         '<b>' + name + '</b><br />' + address + '<br />' + slots
       );
       circle.on('mouseover', function() { this.openPopup(); });
       circle.on('mouseout', function() { this.closePopup(); });
+
+      map.on('zoomend', function() {
+        var zoom2radius = {
+          8: 5000,
+          9: 3000,
+          10: 2000,
+          11: 1000,
+          12: 500,
+          13: 400,
+          14: 300,
+          15: 200
+        };
+        var currentZoom = map.getZoom();
+        circle.setRadius(zoom2radius[currentZoom]);
+      });
     }
   });
 
