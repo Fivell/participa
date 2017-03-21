@@ -24,7 +24,6 @@ map_show = () ->
   L.tileLayer(tile_provider, {
     maxZoom: 15,
     minZoom: 8,
-    id: 'examples.map-i875mjb7',
     attribution: tile_attribution
   }).addTo(map)
   return map
