@@ -16,14 +16,14 @@ map_search_address = (query, map, marker) ->
   )
 
 map_show = () ->
-  map = L.map('js-verification-map').setView([ 41.380256, 2.183807 ], 12)
+  map = L.map('js-verification-map').setView([ 41.380256, 2.183807 ], 8)
   # map type
   tile_provider = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
   tile_attribution =
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   L.tileLayer(tile_provider, {
     maxZoom: 15,
-    minZoom: 11,
+    minZoom: 8,
     id: 'examples.map-i875mjb7',
     attribution: tile_attribution
   }).addTo(map)
@@ -34,7 +34,7 @@ map_add_marker = (lat, lng, map) ->
     color: 'transparent',
     fillColor: '#4d4d4d',
     fillOpacity: 0.5,
-    radius: 500
+    radius: 5000
     })
   marker = circle.addTo(map)
   return marker
