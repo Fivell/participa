@@ -3,6 +3,12 @@ env:
   jquery: true
 extends: 'eslint:recommended'
 rules:
+  array-bracket-spacing:
+    - error
+    - never
+  object-curly-spacing:
+    - error
+    - never
   indent:
     - error
     - 2
