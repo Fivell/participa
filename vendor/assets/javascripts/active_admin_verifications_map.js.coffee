@@ -5,12 +5,14 @@ $ ->
     map = new CensusMap('js-verification-map')
     map.show()
 
+  # Edition form
   if (  $("#verification_center_latitude").length > 0 and
         $("#verification_center_latitude").val() != "" )
     lat = $('#verification_center_latitude').val()
     lon = $('#verification_center_longitude').val()
     map.set_temp_marker lat, lon
 
+  # Show page
   if ( $('.js-verification-map-latitude td').length > 0 and
        $('.js-verification-map-latitude td').html() != "" )
     lat = $('.js-verification-map-latitude td').html()
