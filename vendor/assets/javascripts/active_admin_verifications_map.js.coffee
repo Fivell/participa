@@ -3,7 +3,7 @@ map_search_address = (query, map, marker) ->
   if marker
     map.removeLayer(marker)
   baseUrl = 'https://nominatim.openstreetmap.org/search'
-  url = "#{baseUrl}?q=#{query},Catalunya,Spain&format=json"
+  url = "#{baseUrl}?q=#{query},Catalonia,Spain&format=json"
   $.getJSON(url, (data) ->
     if(data[0])
       lat = data[0].lat

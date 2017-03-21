@@ -1,39 +1,65 @@
 /* global L */
 
-function get_coords(district) {
-  if (!district) {
-    return [ 41.380256, 2.183807 ];
+function verification_map_set_view(map, postalcode) {
+  var catalonia = {
+    center: {
+      lat: 41.8523094,
+      lon: 1.5745043
+    },
+    sw: {
+      lat: 40.5230524,
+      lon: 3.3323241
+    },
+    ne: {
+      lat: 42.8615226,
+      lon: 0.1591812
+    }
+  };
+
+  if (!postalcode) {
+    map.setView([catalonia.center.lat, catalonia.center.lon], 8);
+    return map;
   }
 
-  switch (district) {
-  case 0: // Sant Martí
-    return [ 41.408131, 2.205780 ];
-  case 1: // Ciutat Vella
-    return [ 41.380256, 2.183807 ];
-  case 2: // Eixample
-    return [ 41.393738, 2.166360 ];
-  case 3: // Sants-Montjuïc
-    return [ 41.349833, 2.152386 ];
-  case 4: // Les Corts
-    return [ 41.385368, 2.120537 ];
-  case 5: // Sarrià-Sant Gervasi
-    return [ 41.401936, 2.136704 ];
-  case 6: // Gràcia
-    return [ 41.402203, 2.160836 ];
-  case 7: // Horta-Guinardó
-    return [ 41.426791, 2.155601 ];
-  case 8: // Nou Barris
-    return [ 41.445452, 2.179409 ];
-  case 9: // Sant Andreu
-    return [ 41.433091, 2.194042 ];
-  default:
-    return [ 41.380256, 2.183807 ];
-  }
+  var viewbox = [
+    catalonia.sw.lat, catalonia.ne.lat, catalonia.ne.lon, catalonia.sw.lon
+  ].join(',');
+  var bounded = '1';
+  var format = 'json';
+
+  var baseUrl = 'https://nominatim.openstreetmap.org/search';
+  var urlParams = $.param({
+    postalcode: postalcode,
+    viewbox: viewbox,
+    bounded: bounded,
+    format: format
+  });
+
+  $.getJSON(baseUrl + '?' + urlParams, function (data) {
+    var lat, lon, box;
+
+    if (data[0]) {
+      lat = data[0].lat;
+      lon = data[0].lon;
+      box = data[0].boundingbox;
+    } else {
+      lat = catalonia.center.lat;
+      lon = catalonia.center.lon;
+      box = viewbox;
+    }
+
+    map.setView([lat, lon], 8);
+    map.fitBounds(
+      L.latLngBounds(L.latLng(box[0], box[3]), L.latLng(box[1], box[2]))
+    );
+    return map;
+  });
 }
 
-function verification_map_show(district) {
+function verification_map_show(postalcode) {
+  var map = L.map('js-verification-map');
 
-  var map = L.map('js-verification-map').setView(get_coords(district), 13);
+  verification_map_set_view(map, postalcode);
 
   // map type
   // should support HTTPS
@@ -72,15 +98,15 @@ function verification_map_show(district) {
 
 }
 
-// show all the verifications centers for a given district
-function verification_list_show(district){
-  $('*[data-district="' + district + '"]').show();
+// show all the verifications centers for a given postalcode
+function verification_list_show(postalcode){
+  $('*[data-postalcode="' + postalcode + '"]').show();
 }
 
 function init_verification_map() {
-  var district = $('.js-verification-map-centers').data('user-district'); 
-  verification_map_show(district);
-  verification_list_show(district);
+  var postalcode = $('.js-verification-map-centers').data('user-postalcode');
+  verification_map_show(postalcode);
+  verification_list_show(postalcode);
 }
 
 $(function(){

@@ -1,7 +1,7 @@
 <% if Verification::Center.any? %>
 
   <% if user_signed_in? %>
-    <ul class="js-verification-map-centers" data-user-district="<%= current_user.district %>">
+    <ul class="js-verification-map-centers" data-user-postalcode="<%= current_user.postal_code %>">
   <% else %>
     <ul class="js-verification-map-centers">
   <% end %>
