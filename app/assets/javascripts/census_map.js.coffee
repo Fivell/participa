@@ -21,7 +21,7 @@ class CensusMap
   search: (query) ->
     $('#js-verification-map-error').hide('slow')
 
-    this.unset_temp_marker()
+    this.unsetTempMarker()
 
     baseUrl = 'https://nominatim.openstreetmap.org/search'
     url = "#{baseUrl}?q=#{query},Catalonia,Spain&format=json"
@@ -33,12 +33,12 @@ class CensusMap
         lon = data[0].lon
         $('#verification_center_latitude').val(lat)
         $('#verification_center_longitude').val(lon)
-        map.set_temp_marker(lat, lon)
+        map.setTempMarker(lat, lon)
       else
         $('#js-verification-map-error').show('slow')
     )
 
-  set_view: (postalcode) ->
+  setView: (postalcode) ->
     if (!postalcode)
       @map.setView([this.coords().center.lat, this.coords().center.lon], 8)
       return
@@ -80,7 +80,7 @@ class CensusMap
     )
 
   show: (postalcode) ->
-    this.set_view(postalcode)
+    this.setView(postalcode)
 
     # map type
     tile_provider = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -94,15 +94,15 @@ class CensusMap
       attribution: tile_attribution
     }).addTo(@map)
 
-  set_temp_marker: (lat, lng) ->
-    @marker = this.add_marker(lat, lng)
+  setTempMarker: (lat, lng) ->
+    @marker = this.addMarker(lat, lng)
 
-  unset_temp_marker: ->
+  unsetTempMarker: ->
     if @marker
       @map.removeLayer(@marker)
       @marker = undefined
 
-  add_marker: (lat, lng) ->
+  addMarker: (lat, lng) ->
     marker = L.circle([lat, lng], {
       color: 'transparent',
       fillColor: '#4d4d4d',
@@ -112,7 +112,7 @@ class CensusMap
 
     marker.addTo(@map)
 
-  add_verification_centers: (selector) ->
+  addVerificationCenters: (selector) ->
     censusMap = this
 
     $(selector).each ->
@@ -125,7 +125,7 @@ class CensusMap
         address = $(this).find('.verification-center-address').html()
         slots = $(this).find('.verification-center-slots').html()
 
-        circle = censusMap.add_marker(lat, lng)
+        circle = censusMap.addMarker(lat, lng)
 
         popUp ='<b>' + name + '</b><br />' + address + '<br />' + slots
         circle.bindPopup(popUp)

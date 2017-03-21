@@ -8,7 +8,7 @@ $ ->
     map.show(postalcode)
     $('*[data-postalcode="' + postalcode + '"]').show()
 
-    map.add_verification_centers('.js-verification-map-centers li')
+    map.addVerificationCenters('.js-verification-map-centers li')
 
     # show all the centers hidden
     $('.js-verification-map-centers-show').on('click', (e) ->
