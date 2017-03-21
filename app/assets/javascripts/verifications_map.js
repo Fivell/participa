@@ -69,7 +69,7 @@ function verification_map_show(postalcode) {
   var map_tile_attribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'; 
   L.tileLayer(map_tile_provider, {
     maxZoom: 15,
-    minZoom: 11,
+    minZoom: 8,
     attribution: map_tile_attribution
   }).addTo(map);
 
