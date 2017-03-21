@@ -22,4 +22,4 @@ $ ->
   $("#js-verification-map-search").on 'click', (event) ->
     event.preventDefault()
     q = $('#verification_center_address').val()
-    map.search q
+    map.searchAddress q

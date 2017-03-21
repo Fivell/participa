@@ -10,24 +10,44 @@ class CensusMap
       },
       sw: {
         lat: 40.5230524,
-        lon: 3.3323241
+        lon: 0.1591812
       },
       ne: {
         lat: 42.8615226,
-        lon: 0.1591812
+        lon: 3.3323241
       }
     }
 
-  search: (query) ->
+  search: (params, handler) ->
+    viewbox = [
+      this.coords().sw.lon,
+      this.coords().ne.lat,
+      this.coords().ne.lon,
+      this.coords().sw.lat
+    ].join(',')
+
+    bounded = '1'
+    format = 'json'
+
+    baseUrl = 'https://nominatim.openstreetmap.org/search'
+
+    defaultParams =
+      viewbox: viewbox
+      bounded: bounded
+      format: format
+
+    urlParams = $.param($.extend(defaultParams, params))
+
+    $.getJSON(baseUrl + '?' + urlParams, handler)
+
+  searchAddress: (query) ->
     $('#js-verification-map-error').hide('slow')
 
     this.unsetTempMarker()
 
-    baseUrl = 'https://nominatim.openstreetmap.org/search'
-    url = "#{baseUrl}?q=#{query},Catalonia,Spain&format=json"
     map = this
 
-    $.getJSON(url, (data) ->
+    this.search({ q: query }, (data) ->
       if(data[0])
         lat = data[0].lat
         lon = data[0].lon
@@ -43,27 +63,9 @@ class CensusMap
       @map.setView([this.coords().center.lat, this.coords().center.lon], 8)
       return
 
-    viewbox = [
-      this.coords().sw.lat,
-      this.coords().ne.lat,
-      this.coords().ne.lon,
-      this.coords().sw.lon
-    ].join(',')
-
-    bounded = '1'
-    format = 'json'
-
-    baseUrl = 'https://nominatim.openstreetmap.org/search'
-    urlParams = $.param({
-      postalcode: postalcode,
-      viewbox: viewbox,
-      bounded: bounded,
-      format: format
-    })
-
     map = @map
 
-    $.getJSON(baseUrl + '?' + urlParams, (data) ->
+    this.search({ postalcode: postalcode }, (data) ->
       if data[0]
         lat = data[0].lat
         lon = data[0].lon
