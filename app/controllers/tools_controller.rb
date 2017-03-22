@@ -8,11 +8,6 @@ class ToolsController < ApplicationController
 
   private
 
-  def verifications_enabled?
-    Rails.application.secrets.features["verification_presencial"] ||
-      Rails.application.secrets.features["verification_sms"]
-  end
-
   # Use callbacks to share common setup or constraints between actions.
   def user_elections
     @all_elections = Election.upcoming_finished.map { |e| e if e.has_valid_location_for? current_user } .compact

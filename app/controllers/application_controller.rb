@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Featurable
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -56,7 +58,7 @@ class ApplicationController < ActionController::Base
         return nil
       end
 
-      if !current_user.is_verified? && Rails.application.secrets.features["verification_sms"]
+      if !current_user.is_verified? && online_verifications_enabled?
         if params["controller"] == "sms_validator"
           flash.now[:alert] = t("issues.confirm_sms")
         else
