@@ -123,6 +123,13 @@ ca:
         age_restriction: "Declaro ser major de 16 anys"
         captcha: "Captcha"
         current_password: "Contrasenya actual"
+      verification/center:
+        name: Nom
+        address: Adreça
+        latitude: Latitud
+        longitude: Longitud
+        created_at: "Creada el"
+        updated_at: "Actualitzada el"
   microcredit:
     common:
       title: "Microcrèdits %{name}"
