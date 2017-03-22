@@ -18,6 +18,10 @@ class Verification::Slot < ActiveRecord::Base
 
   scope :for_center, -> { where(user: nil) }
 
+  def as_opening_time
+    "#{I18n.l(starts_at, format: :short)} #{I18n.t("verification.to")} #{I18n.l(ends_at, format: :short)}"
+  end
+
   private
 
   def proper_interval
