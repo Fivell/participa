@@ -40,14 +40,18 @@ class CensusMap
 
     $.getJSON(baseUrl + '?' + urlParams, handler)
 
-  searchAddress: (query) ->
+  searchAddress: (street, postalcode, city) ->
     $('#js-verification-map-error').hide('slow')
 
     this.unsetTempMarker()
 
+    params = { street: street, city: city }
+    if postalcode.trim() != ''
+      $.extend(params, { postalcode: postalcode })
+
     map = this
 
-    this.search({ q: query }, (data) ->
+    this.search(params, (data) ->
       if(data[0])
         lat = data[0].lat
         lon = data[0].lon

@@ -1,10 +1,28 @@
 ActiveAdmin.register Verification::Center do
   menu :parent => "Users"
 
-  permit_params :name, :address, :latitude, :longitude, verification_slots_attributes: [:id, :starts_at, :ends_at, :_destroy]
+  permit_params :name,
+                :street,
+                :postalcode,
+                :city,
+                :latitude,
+                :longitude,
+                verification_slots_attributes: [:id, :starts_at, :ends_at, :_destroy]
 
   filter :name
   filter :address
+
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :address
+    column :latitude
+    column :longitude
+    column :created_at
+    column :updated_at
+    actions
+  end
 
   show do
     attributes_table do
@@ -31,7 +49,9 @@ ActiveAdmin.register Verification::Center do
       tab "Localización" do
         f.inputs "Información" do
           f.input :name, required: true
-          f.input :address, required: true
+          f.input :street, required: true
+          f.input :postalcode
+          f.input :city
           a "Buscar", "#", class: "button", id: "js-verification-map-search", style: "margin: 2em 0 1em 1em; cursor: pointer;"
         end
         panel "Mapa" do

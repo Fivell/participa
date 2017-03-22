@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :verification_center, class: Verification::Center do
     name "Un lugar, pra relaxar"
-    address "Rua Bella"
+    street "Rua Bella"
+    city "Terrassa"
     latitude 1.0
     longitude -1.0
 

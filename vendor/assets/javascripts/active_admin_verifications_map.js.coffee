@@ -21,5 +21,7 @@ $ ->
 
   $("#js-verification-map-search").on 'click', (event) ->
     event.preventDefault()
-    q = $('#verification_center_address').val()
-    map.searchAddress q
+    street = $('#verification_center_street').val()
+    postalcode = $('#verification_center_postalcode').val()
+    city = $('#verification_center_city').val()
+    map.searchAddress street, postalcode, city

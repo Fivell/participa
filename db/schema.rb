@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317195506) do
+ActiveRecord::Schema.define(version: 20170322103431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -595,11 +595,13 @@ ActiveRecord::Schema.define(version: 20170317195506) do
 
   create_table "verification_centers", force: :cascade do |t|
     t.string   "name"
-    t.string   "address"
+    t.string   "street"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "postalcode"
+    t.string   "city"
   end
 
   create_table "verification_slots", force: :cascade do |t|

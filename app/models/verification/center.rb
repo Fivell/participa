@@ -9,6 +9,10 @@ class Verification::Center < ActiveRecord::Base
 
   end
 
+  def address
+    [street, postalcode.presence, city].compact.join(', ')
+  end
+
   def slots_text
     str = ""
     self.verification_slots.order(:starts_at).each do |slot|
