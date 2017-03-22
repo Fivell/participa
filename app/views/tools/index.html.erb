@@ -1,7 +1,7 @@
 <% if current_user.is_verified? %>
-<%= content_for :title, "#{t 'verification.user_verified'} | Votación | " %>
+<%= content_for :title, "#{t 'verification.user_verified'} | Votación" %>
 <% else %>
-  <%= content_for :title, "#{t 'verification.user_unverified'} | " %>
+  <%= content_for :title, t('verification.user_unverified') %>
 <% end %>
 
 <div class="content-content">
