@@ -76,7 +76,12 @@ Rails.application.configure do
   # Use mailer caching
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.asset_host = 'https://betaparticipa.unpaisencomu.cat'
+  config.action_mailer.asset_host = 'https://participa.unpaisencomu.cat'
+  config.action_mailer.default_url_options = { host: 'participa.unpaisencomu.cat' }
+
+  #config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = Rails.application.config_for(:mailserver).symbolize_keys()
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -101,8 +106,6 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
-
-  config.action_mailer.delivery_method = :sendmail
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
