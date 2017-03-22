@@ -36,7 +36,7 @@ ActiveAdmin.register Verification::Center do
         end
         panel "Mapa" do
           div id: "js-verification-map-error", class: "flash flash_error hide" do
-            "No se ha encontrado esta dirección. Corrigela y busca de nuevo o pon su latitud y longitud y agrega el marcador más abajo."
+            "No se ha encontrado esta dirección. Corrigela y busca de nuevo o pon su latitud y longitud manualmente."
           end
           div id: "js-verification-map", style: "width: 100%; height: 400px"
         end
