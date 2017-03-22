@@ -59,14 +59,6 @@ class SmsValidatorControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "redirects to sms confirmation after login when not confirmed by sms" do
-    sign_in @user
-    @controller = ToolsController.new
-    get :index
-    assert_response :redirect
-    assert_redirected_to sms_validator_step1_path
-  end
-
   test "advances to second step after setting phone for first time" do
     phone = '666666666'
     sign_in @user
