@@ -9,7 +9,7 @@
     <% Verification::Center.find_each do |center| %>
       <% slots = center.verification_slots.map(&:as_opening_time).join('. ') %>
 
-      <li class="verification-center" data-district="0" data-location="<%= center.latitude %>, <%= center.longitude %>">
+      <li class="verification-center" data-location="<%= center.latitude %>, <%= center.longitude %>">
         <h5 class="verification-center-name"><%= center.name %></h5>
         <div class="verification-center-address">
           <%= center.address %>
