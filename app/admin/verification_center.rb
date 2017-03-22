@@ -54,8 +54,8 @@ ActiveAdmin.register Verification::Center do
     tabs do
       tab "Localización" do
         f.inputs "Información" do
-          f.input :name, required: true
-          f.input :street, required: true
+          f.input :name
+          f.input :street
           f.input :postalcode
           f.input :city
           a "Buscar", "#", class: "button", id: "js-verification-map-search", style: "margin: 2em 0 1em 1em; cursor: pointer;"
