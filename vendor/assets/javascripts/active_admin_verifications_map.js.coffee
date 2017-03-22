@@ -1,23 +1,10 @@
-#= require census_map
+#= require searchable_census_map
 
 $ ->
   if ( $('#js-verification-map').length > 0 )
-    map = new CensusMap('js-verification-map')
+    map = new SearchableCensusMap('js-verification-map', 'verification_center')
     map.show()
-
-  # Edition form
-  if (  $("#verification_center_latitude").length > 0 and
-        $("#verification_center_latitude").val() != "" )
-    lat = $('#verification_center_latitude').val()
-    lon = $('#verification_center_longitude').val()
-    map.setTempMarker lat, lon
-
-  # Show page
-  if ( $('.js-verification-map-latitude td').length > 0 and
-       $('.js-verification-map-latitude td').html() != "" )
-    lat = $('.js-verification-map-latitude td').html()
-    lon = $('.js-verification-map-longitude td').html()
-    map.addMarker lat, lon
+    map.setResultMarker()
 
   $("#js-verification-map-search").on 'click', (event) ->
     event.preventDefault()

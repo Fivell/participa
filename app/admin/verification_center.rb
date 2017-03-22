@@ -25,11 +25,17 @@ ActiveAdmin.register Verification::Center do
   end
 
   show do
-    attributes_table do
-      row :name
-      row :address
-      row :latitude, class: "js-verification-map-latitude"
-      row :longitude, class: "js-verification-map-longitude"
+    div id: "verification_center",
+        :"data-name" => resource.name,
+        :"data-address" => resource.address,
+        :"data-longitude" => resource.longitude,
+        :"data-latitude" => resource.latitude do
+      attributes_table do
+        row :name
+        row :address
+        row :latitude
+        row :longitude
+      end
     end
     panel "Mapa" do
       div id: "js-verification-map", style: "width: 100%; height: 400px"
@@ -44,7 +50,7 @@ ActiveAdmin.register Verification::Center do
     end
   end
 
-  form do |f|
+  form html: { id: "verification_center" } do |f|
     tabs do
       tab "Localización" do
         f.inputs "Información" do

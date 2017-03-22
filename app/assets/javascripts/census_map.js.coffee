@@ -1,3 +1,5 @@
+#= require center_marker
+
 class CensusMap
   constructor: (selector) ->
     @map = L.map(selector)
@@ -40,28 +42,6 @@ class CensusMap
 
     $.getJSON(baseUrl + '?' + urlParams, handler)
 
-  searchAddress: (street, postalcode, city) ->
-    $('#js-verification-map-error').hide('slow')
-
-    this.unsetTempMarker()
-
-    params = { street: street, city: city }
-    if postalcode.trim() != ''
-      $.extend(params, { postalcode: postalcode })
-
-    map = this
-
-    this.search(params, (data) ->
-      if(data[0])
-        lat = data[0].lat
-        lon = data[0].lon
-        $('#verification_center_latitude').val(lat)
-        $('#verification_center_longitude').val(lon)
-        map.setTempMarker(lat, lon)
-      else
-        $('#js-verification-map-error').show('slow')
-    )
-
   setView: (postalcode) ->
     if (!postalcode)
       @map.setView([this.coords().center.lat, this.coords().center.lon], 8)
@@ -100,16 +80,8 @@ class CensusMap
       attribution: tile_attribution
     }).addTo(@map)
 
-  setTempMarker: (lat, lng) ->
-    @marker = this.addMarker(lat, lng)
-
-  unsetTempMarker: ->
-    if @marker
-      @map.removeLayer(@marker)
-      @marker = undefined
-
-  addMarker: (lat, lng) ->
-    marker = L.circle([lat, lng], {
+  addMarker: (centerMarker) ->
+    marker = L.circle([centerMarker.lat(), centerMarker.lng()], {
       color: 'transparent',
       fillColor: '#4d4d4d',
       fillOpacity: 0.5,
@@ -118,42 +90,42 @@ class CensusMap
 
     marker.addTo(@map)
 
+    name = centerMarker.name()
+    address = centerMarker.address()
+
+    label ='<b>' + name + '</b><br />' + address
+
+    if centerMarker.slots()
+      label = label + '<br />' + centerMarker.slots()
+
+    marker.bindPopup(label)
+
+    marker.on 'mouseover', -> @openPopup()
+    marker.on 'mouseout', -> @closePopup()
+
+    map = @map
+
+    @map.on 'zoomend', ->
+      zoom2radius =
+        8: 5000
+        9: 3000
+        10: 2000
+        11: 1000
+        12: 500
+        13: 400
+        14: 300
+        15: 200
+      currentZoom = map.getZoom()
+      marker.setRadius zoom2radius[currentZoom]
+
+    marker
+
   addVerificationCenters: (selector) ->
     censusMap = this
 
     $(selector).each ->
-      latlng = $(this).data('location')
+      centerMarker = new CenterMarker($(this))
 
-      if latlng and latlng != ', '
-        lat = parseFloat(latlng.split(',')[0])
-        lng = parseFloat(latlng.split(',')[1])
-        name = $(this).find('.verification-center-name').html()
-        address = $(this).find('.verification-center-address').html()
-        slots = $(this).find('.verification-center-slots').html()
-
-        circle = censusMap.addMarker(lat, lng)
-
-        popUp ='<b>' + name + '</b><br />' + address + '<br />' + slots
-        circle.bindPopup(popUp)
-
-        circle.on 'mouseover', ->
-          @openPopup()
-        circle.on 'mouseout', ->
-          @closePopup()
-
-        map = censusMap.map
-
-        map.on 'zoomend', ->
-          zoom2radius =
-            8: 5000
-            9: 3000
-            10: 2000
-            11: 1000
-            12: 500
-            13: 400
-            14: 300
-            15: 200
-          currentZoom = map.getZoom()
-          circle.setRadius zoom2radius[currentZoom]
+      censusMap.addMarker(centerMarker)
 
 window.CensusMap = CensusMap
