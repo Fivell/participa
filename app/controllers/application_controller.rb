@@ -53,10 +53,7 @@ class ApplicationController < ActionController::Base
 
   def verified_user
     if current_user
-      # user wants to log out or edit his profile
-      if params[:controller] == 'devise/sessions' or params[:controller] == "registrations" or params[:controller].start_with? "admin/"
-        return nil
-      end
+      return nil if allowed_for_unverified?
 
       if !current_user.is_verified? && online_verifications_enabled?
         if params["controller"] == "sms_validator"
@@ -94,5 +91,11 @@ class ApplicationController < ActionController::Base
 
   def sign_in_permitted_keys
     %i(login document_vatid email password remember_me)
+  end
+
+  def allowed_for_unverified?
+      params[:controller] == 'devise/sessions' or
+      params[:controller] == "registrations" or
+      params[:controller].start_with? "admin/"
   end
 end
