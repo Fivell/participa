@@ -191,5 +191,6 @@ ca:
       long: ! '%d de %B de %Y %H:%M'
       short: ! '%d de %b %H:%M'
       date: ! '%d/%m/%Y'
+      date_short: ! '%d de %B'
       time: ! '%k:%M'
     pm: pm

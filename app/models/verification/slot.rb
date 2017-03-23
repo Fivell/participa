@@ -19,7 +19,22 @@ class Verification::Slot < ActiveRecord::Base
   scope :for_center, -> { where(user: nil) }
 
   def as_opening_time
-    "#{I18n.l(starts_at, format: :short)} #{I18n.t("verification.to")} #{I18n.l(ends_at, format: :short)}"
+    if starts_at.to_date == ends_at.to_date
+      date = I18n.l(starts_at, format: :date_short)
+      start_time = I18n.l(starts_at, format: :time)
+      end_time = I18n.l(ends_at, format: :time)
+      from = I18n.t("verification.from")
+      to = I18n.t("verification.to")
+
+      "#{date} #{from} #{start_time} #{to} #{end_time}"
+    else
+      from = I18n.t("verification.from_with_article")
+      to = I18n.t("verification.to_with_article")
+      start_time = I18n.l(starts_at, format: :short)
+      end_time = I18n.l(ends_at, format: :short)
+
+      "#{from} #{start_time} #{to} #{end_time}"
+    end
   end
 
   private
