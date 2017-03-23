@@ -29,15 +29,15 @@
         <label class="control-label"></label>
         <div class="form-wrapper">
           <p class="js-registration-document-dni text-m invisible">
-            <%= t('bec.registration.message.dni') %>
+            <%= t('registration.message.dni') %>
           </p>
 
           <p class="js-registration-document-nie text-m invisible">
-            <%= t('bec.registration.message.nie') %>
+            <%= t('registration.message.nie') %>
           </p>
 
           <p class="js-registration-document-passport text-m invisible">
-            <%= t('bec.registration.message.passport') %>
+            <%= t('registration.message.passport') %>
           </p>
         </div>
       </div>
@@ -56,7 +56,7 @@
       <div class="inputlabel-box">
         <label class="control-label"></label>
         <div class="form-wrapper">
-          <p class="text-m"> <%= t('bec.registration.legends.cant_modify') %></p>
+          <p class="text-m"> <%= t('registration.legends.cant_modify') %></p>
         </div>
       </div>
 
@@ -67,7 +67,7 @@
       <div class="inputlabel-box">
         <label class="control-label"></label>
         <div class="form-wrapper">
-          <p class="text-m"> <%= t('bec.registration.legends.cant_modify') %></p>
+          <p class="text-m"> <%= t('registration.legends.cant_modify') %></p>
         </div>
       </div>
     <% end %>
@@ -92,8 +92,8 @@
         <ul class="info-list">
           <% %w(cis trans fluid).each do |term| %>
             <li>
-              <strong><%= t("bec.registration.legends.#{term}_key") %></strong>:
-              <%= t("bec.registration.legends.#{term}_definition") %>
+              <strong><%= t("registration.legends.#{term}_key") %></strong>:
+              <%= t("registration.legends.#{term}_definition") %>
             </li>
           <% end %>
         </ul>
@@ -106,7 +106,7 @@
 
     <div class="inputlabel-box">
       <%= label :user, :catalonia_resident, class: "control-label" do %>
-        <%= t('bec.registration.catalonia_resident') %>
+        <%= t('registration.catalonia_resident') %>
       <% end %>
 
       <div class="input-box">
@@ -148,7 +148,7 @@
     <div class="inputlabel-box">
       <label class="control-label"></label>
       <div class="form-wrapper">
-        <p class="text-m"> <%= t('bec.registration.legends.password_limits') %> </p>
+        <p class="text-m"> <%= t('registration.legends.password_limits') %> </p>
       </div>
     </div>
 
@@ -167,16 +167,16 @@
             <%= f.check_box :terms_of_service, class: 'checkbox' %>
             <ul class="terms-links">
               <li>
-                <%= link_to t('bec.registration.legends.legal0'), page_inscription_policy_path, target: '_blank' %>
+                <%= link_to t('registration.legends.legal0'), page_inscription_policy_path, target: '_blank' %>
               </li>
               <li>
-                <%= link_to t('bec.registration.legends.legal1'), page_privacy_policy_path, target: '_blank' %>
+                <%= link_to t('registration.legends.legal1'), page_privacy_policy_path, target: '_blank' %>
               </li>
               <li>
-                <%= link_to t('bec.registration.legends.legal2'), page_legal_path, target: '_blank' %>
+                <%= link_to t('registration.legends.legal2'), page_legal_path, target: '_blank' %>
               </li>
               <li>
-                <%= link_to t('bec.registration.legends.legal3'), page_cookie_policy_path, target: '_blank' %>
+                <%= link_to t('registration.legends.legal3'), page_cookie_policy_path, target: '_blank' %>
               </li>
             </ul>
             <span class="help-block">

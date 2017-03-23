@@ -1,6 +1,8 @@
 require 'securerandom'
 
 class User < ActiveRecord::Base
+  include Verifierable
+
   belongs_to :verified_by, class_name: "User", foreign_key: "verified_by_id" #, counter_cache: :verified_by_id
 
   apply_simple_captcha
@@ -12,9 +14,7 @@ class User < ActiveRecord::Base
 
   has_flags 1 => :banned,
             2 => :superadmin,
-            3 => :verified,
             4 => :finances_admin,
-            5 => :verifications_admin,
             6 => :impulsa_author,
             7 => :impulsa_admin,
             check_for_column: false
@@ -102,7 +102,7 @@ class User < ActiveRecord::Base
   end
 
   def validates_unconfirmed_phone_uniqueness
-    if User.confirmed_phone.where(phone: self.unconfirmed_phone).exists?
+    if User.verified_online.where(phone: self.unconfirmed_phone).exists?
       self.errors.add(:phone, "Ya hay alguien con ese número de teléfono")
     end
   end
@@ -118,70 +118,33 @@ class User < ActiveRecord::Base
     end
   end
 
-  def check_issue(validation_response, path, message, controller)
-    if validation_response
-      if message and validation_response.class == String
-          message[message.first[0]] = validation_response
-      end
-      return {path: path, message: message, controller: controller}
-    end
-  end
-
-  # returns issues with user profile, blocking first
-  def get_unresolved_issue(only_blocking = false)
-
-    # User have a valid born date
-    issue ||= check_issue (self.born_at.nil? || (self.born_at == Date.civil(1900,1,1))), :edit_user_registration, { alert: "born_at"}, "registrations"
-
-    # User don't have a legacy password, verify if profile is valid before request to change it
-    if self.has_legacy_password?
-      issue ||= check_issue self.invalid?, :edit_user_registration, nil, "registrations"
-
-      issue ||= check_issue true, :new_legacy_password, { alert: "legacy_password" }, "legacy_password"
-    end
-
-    if Rails.application.secrets.features["verification_sms"]
-      # User has confirmed SMS code
-      issue ||= check_issue self.sms_confirmed_at.nil?, :sms_validator_step1, { alert: "confirm_sms" }, "sms_validator"
-    end
-
-    if issue || only_blocking  # End of blocking issues
-      return issue
-    end
-
-    issue ||= check_issue self.vote_town_notice, :edit_user_registration, { notice: "vote_town"}, "registrations"
-
-    if issue
-      return issue
-    end
-  end
-
   attr_accessor :sms_user_token_given
   attr_accessor :login
 
-  scope :all_with_deleted, -> { where "deleted_at IS null AND deleted_at IS NOT null"  }
   scope :wants_newsletter, -> {where(wants_newsletter: true)}
   scope :created, -> { where(deleted_at: nil)  }
   scope :deleted, -> { where.not(deleted_at: nil) }
   scope :admins, -> { where(admin: true) }
   scope :unconfirmed_mail, -> { where(confirmed_at: nil)  }
-  scope :unconfirmed_phone, -> { where(sms_confirmed_at: nil) }
   scope :confirmed_mail, -> { where.not(confirmed_at: nil) }
-  scope :confirmed_phone, -> { where.not(sms_confirmed_at: nil) }
-  scope :legacy_password, -> { where(has_legacy_password: true) }
   scope :confirmed, -> { where.not(confirmed_at: nil).where.not(sms_confirmed_at: nil) }
   scope :signed_in, -> { where.not(sign_in_count: nil) }
   scope :participation_team, -> { includes(:participation_team).where.not(participation_team_at: nil) }
-  scope :has_circle, -> { where("circle IS NOT NULL") }
+  scope :has_circle, -> { where.not(circle: nil) }
 
-  scope :verified_presencial, -> { where.not(verified_by: nil) }
-  scope :unverified_presencial, -> { where(verified_by: nil).where(sms_confirmed_at: nil)}
-  scope :voting_right, -> { where("verified_by_id IS NOT NULL OR sms_confirmed_at IS NOT NULL") }
+  scope :verified, -> { where.not(verified_at: nil) }
+  scope :unverified, -> { where(verified_at: nil) }
 
-  scope :has_collaboration, -> { joins(:collaboration).where("collaborations.user_id IS NOT NULL") }
-  scope :has_collaboration_credit_card, -> { joins(:collaboration).where('collaborations.payment_type' => 1) }
-  scope :has_collaboration_bank_national, -> { joins(:collaboration).where('collaborations.payment_type' => 2) }
-  scope :has_collaboration_bank_international, -> { joins(:collaboration).where('collaborations.payment_type' => 3) }
+  scope :verified_presentially, -> { where.not(verified_at: nil, verified_by: nil) }
+  scope :unverified_presentially, -> { where(verified_by_id: nil)}
+
+  scope :verified_online, -> { where.not(verified_at: nil, sms_confirmed_at: nil) }
+  scope :unverified_online, -> { where(sms_confirmed_at: nil) }
+
+  scope :has_collaboration, -> { joins(:collaboration).where.not(collaborations: { user_id: nil }) }
+  scope :has_collaboration_credit_card, -> { joins(:collaboration).where(collaborations: { payment_type: 1 }) }
+  scope :has_collaboration_bank_national, -> { joins(:collaboration).where(collaborations: { payment_type: 2 }) }
+  scope :has_collaboration_bank_international, -> { joins(:collaboration).where(collaborations: { payment_type: 3 }) }
 
   ransacker :vote_province, formatter: proc { |value|
     spanish_subregion_for(value).subregions.map {|r| r.code }
@@ -237,8 +200,7 @@ class User < ActiveRecord::Base
 
   def apply_previous_user_vote_location
     if self.previous_user(true) and self.previous_user.has_verified_vote_town? and (self.vote_town != self.previous_user.vote_town)
-      self.vote_town = self.previous_user.vote_town
-      self.save
+      self.update(vote_town: self.previous_user.vote_town)
       true
     else
       false
@@ -273,12 +235,21 @@ class User < ActiveRecord::Base
     self.admin
   end
 
-  def is_valid_phone?
-    self.phone? and self.confirmation_sms_sent_at? and self.sms_confirmed_at? and self.sms_confirmed_at > self.confirmation_sms_sent_at
+  def unconfirmed_by_sms?
+    self.sms_confirmed_at.nil?
+  end
+
+  def confirmed_by_sms?
+    !self.unconfirmed_by_sms?
   end
 
   def can_change_phone?
-    self.sms_confirmed_at.nil? or self.sms_confirmed_at < DateTime.now-3.months
+    self.unconfirmed_by_sms? or
+      self.sms_confirmed_at < DateTime.now-self.class.sms_confirmation_period
+  end
+
+  def self.sms_confirmation_period
+    3.months
   end
 
   def self.blocked_provinces
@@ -316,12 +287,11 @@ class User < ActiveRecord::Base
 
   def check_sms_token(token)
     if token == self.sms_confirmation_token
-      self.update_attribute(:sms_confirmed_at, DateTime.now)
-      if self.unconfirmed_phone?
+      if self.unconfirmed_phone
         self.update_attribute(:phone, self.unconfirmed_phone)
         self.update_attribute(:unconfirmed_phone, nil)
 
-        if not self.verified? and not self.is_admin?
+        if not self.is_verified? and not self.is_admin?
           filter = SpamFilter.any? self
           if filter
             self.update_attribute(:banned, true)
@@ -329,6 +299,7 @@ class User < ActiveRecord::Base
           end
         end
       end
+      self.update_attribute(:sms_confirmed_at, DateTime.now)
       true
     else
       false
@@ -477,7 +448,7 @@ class User < ActiveRecord::Base
   end
 
   def has_vote_town?
-    not self.vote_town.nil? and not self.vote_town.empty? and not self.vote_town=="NOTICE"
+    not self.vote_town.nil? and not self.vote_town.empty?
   end
 
   def has_verified_vote_town?
@@ -572,10 +543,6 @@ class User < ActiveRecord::Base
     self.vote_in_spanish_island? ? self.vote_island_code[2..-1] : ""
   end
 
-  def vote_town_notice()
-    self.vote_town == "NOTICE"
-  end
-
   def self.ban_users ids, value
     t = User.arel_table
     User.where(id:ids).where(t[:admin].eq(false).or(t[:admin].eq(nil))).update_all User.set_flag_sql(:banned, value)
@@ -668,17 +635,23 @@ class User < ActiveRecord::Base
   end
 
   def is_verified?
-    if Rails.application.secrets.features["verification_presencial"]
-      self.verified_by_id? or self.sms_confirmed_at?
-    else
-      self.verified?
-    end
+    is_verified_online? || is_verified_presentially?
+  end
+
+  def is_verified_online?
+    return false unless Rails.application.secrets.features["verification_sms"]
+
+    self.confirmed_by_sms?
+  end
+
+  def is_verified_presentially?
+    return false unless Rails.application.secrets.features["verification_presencial"]
+
+    self.verified_by_id?
   end
 
   def verify! user
-    self.verified_at = DateTime.now
-    self.verified_by = user
-    self.save
+    self.update(verified_at: DateTime.now, verified_by: user)
     VerificationMailer.verified(self).deliver_now
   end
 end

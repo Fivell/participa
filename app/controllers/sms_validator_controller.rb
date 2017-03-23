@@ -12,16 +12,19 @@ class SmsValidatorController < ApplicationController
 
   # GET /validator/step1
   def step1 
+    authorize! :step1, :sms_validator
   end
 
   # GET /validator/step2
   def step2
+    authorize! :step2, :sms_validator
     redirect_to sms_validator_step1_path if current_user.unconfirmed_phone.nil? 
     @user = current_user
   end
 
   # GET /validator/step3
   def step3
+    authorize! :step3, :sms_validator
     if current_user.unconfirmed_phone.nil? 
       redirect_to sms_validator_step1_path 
       return
@@ -36,6 +39,7 @@ class SmsValidatorController < ApplicationController
 
   # POST /validator/phone
   def phone
+    authorize! :phone, :sms_validator
     begin 
       phone = current_user.phone_normalize(phone_params[:unconfirmed_phone])
     rescue
@@ -56,27 +60,29 @@ class SmsValidatorController < ApplicationController
 
   # POST /validator/captcha
   def captcha 
+    authorize! :captcha, :sms_validator
     if simple_captcha_valid?
       current_user.send_sms_token!
       render action: "step3"
     else
-      flash.now[:error] = t('podemos.valid.phone.captcha_invalid') 
+      flash.now[:error] = t('sms_validator.phone.captcha_invalid') 
       render action: "step2"
     end
   end
 
   # POST /validator/valid
   def valid
+    authorize! :valid, :sms_validator
     #if current_user.check_sms_token(params[:sms_token][:sms_user_token])
     if current_user.check_sms_token(sms_token_params[:sms_user_token_given])
-      flash.now[:notice] = t('podemos.valid.phone.valid')
+      flash.now[:notice] = t('sms_validator.phone.valid')
 
       if current_user.apply_previous_user_vote_location
-        flash.now[:alert] = t('podemos.registration.message.existing_user_location')        
+        flash.now[:alert] = t('registration.message.existing_user_location')        
       end
       redirect_to authenticated_root_path
     else
-      flash.now[:error] = t('podemos.valid.phone.invalid') 
+      flash.now[:error] = t('sms_validator.phone.invalid') 
       render action: "step3"
     end
   end

@@ -1,7 +1,25 @@
 ca:
   meta:
+    flatpickr_code: "cat"
+    language: "Idioma"
     language_name: "Català"
   activerecord:
+    models:
+      user:
+        one: Usuari/ària
+        other: Usuaris/àries
+      collaboration:
+        one: Col·laboració econòmica
+        other: Col·laboracions econòmiques
+      order:
+        one: Ordre de pagament
+        other: Ordres de pagament
+      election:
+        one: Elecció
+        other: Eleccions
+      notice:
+        one: Avís
+        other: Avisos
     errors:
       models:
         user:
@@ -45,6 +63,73 @@ ca:
               accepted: "Has de declarar que ets major de 16 anys"
             terms_of_service:
               accepted: "Has d'acceptar les condicions"
+    attributes:
+      collaboration:
+        user: "Usuari/ària"
+        created_at: "Creada el"
+        updated_at: "Actualitzada el"
+        amount: "Import mensual"
+        frequency: "Freqüència de pagament"
+        frequency_name: "Freqüència de pagament"
+        minimal_year_old: "Edat mínima requerida"
+        terms_of_service: "Acord legal"
+        order_id: "Número d'ordre a Redsys"
+        payment_type: "Mètode de pagament"
+        payment_type_name: "Mètode de pagament"
+        ccc_entity: "Entitat"
+        ccc_office: "Oficina"
+        ccc_dc: "DC"
+        ccc_account: "Número de compte"
+        iban_account: "IBAN"
+        iban_bic: "BIC/SWIFT"
+      order:
+        status: "Estat"
+        status_name: "Estat"
+        collaboration: "Col·laboració"
+        user: "Usuari/ària"
+        payable_at: "A cobrar el"
+        payed_at: "Cobrada el"
+        created_at: "Creada el"
+        deleted_at: "Esborrada el"
+        updated_at: "Actualitzada el"
+      election:
+        title: "Títol"
+        agora_election_id: "ID a AgoraVoting"
+        starts_at: "Comença"
+        ends_at: "Acaba"
+        close_message: "Missatge de tancament"
+      notice:
+        title: "Títol"
+        body: "Missatge"
+      user:
+        login: "Correu electrónic o núm. de document"
+        first_name: "Nom"
+        last_name: "Cognoms"
+        document_type: "Tipus de document"
+        document_vatid: "Núm. de document"
+        born_at: "Data de naixement"
+        gender_identity: "Identitat de gènere"
+        email: "Correu electrònic"
+        email_confirmation: "Correu electrònic (repetir)"
+        phone: "Telèfon mòbil"
+        unconfirmed_phone: "Telèfon mòbil"
+        address: "Adreça"
+        postal_code: "Codi postal"
+        password: "Contrasenya"
+        password_confirmation: "Contrasenya (repetir)"
+        remember_me: "Recorda'm"
+        wants_newsletter: 'Butlletí'
+        terms_of_service: "He llegit les condicions i accepto inscriure'm"
+        age_restriction: "Declaro ser major de 16 anys"
+        captcha: "Captcha"
+        current_password: "Contrasenya actual"
+      verification/center:
+        name: Nom
+        address: Adreça
+        latitude: Latitud
+        longitude: Longitud
+        created_at: "Creada el"
+        updated_at: "Actualitzada el"
   microcredit:
     common:
       title: "Microcrèdits %{name}"
@@ -95,6 +180,54 @@ ca:
       account_number: "Número de compte"
       concept: "Concepte de l'ingrés"
       thanks: "Moltes gràcies per col·laborar! El canvi comença gràcies a tu."
+  issues:
+    confirm_sms: "Per seguretat, has de confirmar el teu telèfon."
+    born_at: "Has d'indicar la teva data de naixement."
+    location: "Sisplau, verifica que les dades de la teva adreça són correctes i desa les dades."
+  recaptcha:
+    errors:
+      incorrect-captcha-sol: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
+      verification_failed: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
+      recaptcha_unreachable: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
+  user:
+    personal_data: "Dades personals"
+    change_email: "Canvia correu electrònic"
+    change_email_explain: "Si canvies el teu correu electrònic t'enviarem un altre correu perquè el confirmis."
+    change_phone: "Canvia el telèfon mòbil"
+    change_phone_explain_html: "T'has validat amb el telèfon mòbil <b>%{unprefixed_phone}</b> de <b>%{phone_country}</b> (prefix internacional %{phone_prefix})."
+    cannot_change_phone: "L'has confirmat fa menys de tres mesos, així que encara no pots canviar-lo."
+    change_password: "Canvia contrasenya"
+    cancel_account: "Dóna'm de baixa"
+    cancel_account_explain_html: "<p>Si cliques \"Dóna'm de baixa\" deixaràs de ser membre de Un País En Comú i cancel·larem les teves dades personals conforme a allò convingut a la Llei Orgànica 15/1999 de Protecció de Dades de Caràcter Personal.</p>
+<p> A partir d'aquest moment el teu compte d'accés al portal de participació de Un País En Comú quedarà eliminat.</p>
+<p>
+Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció de Dades, la cancel•lació donarà lloc al bloqueig de les dades, es conservaran únicament a disposició de les Administracions Públiques, Jutges i Tribunals, per a l'atenció de les possibles responsabilitats nascudes del tractament, durant el termini de prescripció d'aquestes possibles responsabilitats. Complert el citat termini es procedirà a la supressió de les dades.
+</p>
+"
+  active_admin:
+    scopes:
+      created: "Creats"
+      confirmed: "Confirmats"
+      deleted: "Esborrats"
+      unconfirmed_mail: "Correu electrònic sin confirmar"
+      confirmed_mail: "Correu electrònic confirmat"
+      signed_in: "Has iniciat sessió"
+      not_signed_in: "No has iniciat sessió"
+      has_collaboration: "Amb col·laboració econòmica"
+      has_collaboration_credit_card: "Amb col·laboració econòmica (targeta de crèdit)"
+      has_collaboration_bank_national: "Amb col·laboració econòmica (banc nacional)"
+      has_collaboration_bank_international: "Amb col·laboració econòmica (banc internacional)"
+      verified:
+      unverified:
+      verified_presentially:
+      unverified_presentially:
+      verified_online:
+      unverified_online:
+      verifying_online:
+      verifying_presentially:
+      voting_right:
+      participation_team:
+      has_circle:
   formtastic:
     labels:
       first_name: "Nom"
@@ -109,7 +242,133 @@ ca:
     refresh_button_text: "Regenerar"
     message:
       default: "El text introductori no es correspon amb el de la imatge"
+  sms_validator:
+    steps:
+      step1: "Introdueix el teu número de telèfon mòbil"
+      step2: "Emplena el codi de la imatge"
+      step3: "Introdueix el codi rebut per SMS"
+    phone:
+      p1: "Introdueix el teu nou número de telèfon mòbil."
+      p2: "Rebràs el codi de verificació per validar el nou número en uns segons."
+      p3: "Si ja has participat en alguna votació de Un País En Comú, t'enviarem el codi per correu electrònic."
+      p4: "Introdueix el text que apareix a la imatge."
+      p5: "Introdueix el codi que hagis rebut per SMS per confirmar-lo"
+      valid: "Has validat correctament el teu nou número de telèfon."
+      invalid: "El codi que has posat no correspon amb el que t'hem enviar per SMS."
+      captcha: "Validar Captcha"
+      token: Codi SMS
+      button: "Comprova"
+      captcha_invalid: "Captcha invàlid"
+      information_html: "Has d'ingressar un telèfon mòbil vàlid per al país on et trobes, sense prefix internacional, només amb números (sense espais ni guions). Segons el formulari que has emplenat et trobes a <b>%{country}</b> (prefix internacional +%{prefix})."
   static:
     privacy: Política de privacitat
     legal: Avís legal
     cookies: Política de cookies
+  registration:
+    catalonia_resident: Resideixo a Catalunya
+    choose_province: Tria una província
+    choose_town: Tria un municipi
+    country: País
+    province: Província
+    town: Municipi
+    inscription_policy: Condicions d'inscripció
+    legends:
+      inscription_html: "Inscriure's a En Comú et dóna dret a participar en totes les consultes i processos participatius que s'endeguin en aquesta aplicació. No representa cap mena d'obligació econòmica encara que pots col·laborar en aquest sentit si ho desitges. En acceptar-hi, rebràs tots els nostres butlletins informatius.<br><br> EN COMÚ amb personalitat jurídica pròpia, d'acord amb la Llei Orgànica 6/2002, de 27 de juny, de Partits Polítics, i inscrita en el Registre de Partits Polítics amb data de l'1 d'abril del 2015, Full 113, Volum IX. Domicili social: C. Or, 44 3º-2ª (CP 08012 BARCELONA). Telèfon: 935.321.796. "
+      legal0: Mira las condicions d'inscripció
+      legal1: Mira la política de privacitat
+      legal2: Mira avís legal
+      legal3: Mira la política de galetes
+      password_limits: Mínim 6 caràcters
+      cant_modify: No pots modificar-lo
+      cis_key: CIS (cisgènere)
+      cis_definition: persona que s'identifica amb el gènere que li va ser assignat al néixer
+      trans_key: TRANS (transgènere)
+      trans_definition: persona que no s'identifica amb el gènere que li va ser assignat al néixer i per tant viu en una altra identitat de gènere
+      fluid_key: Gènere No-binari
+      fluid_definition: persona que no s'identifica amb cap dels dos gèneres binaris establerts de forma única
+    message:
+      dni: "El format ha de ser 8 xifres i una lletra, sense guions ni espais."
+      nie: "El format ha de ser una lletra, 7 xifres i una lletra, sense guions ni espais."
+      passport: "El format ha de ser sense guions ni espais."
+      welcome_html: "
+        <p>
+          Apunta't al formulari per rebre informació i per poder participar
+          en la construcció del nou espai.
+        </p>
+
+        <p>
+          Per poder votar en les properes votacions t'has d'enregistrar
+          omplint aquest formulari. T'arribarà un correu per validar-te. Si no
+          reps el correu posa't en contacte amb nosaltres
+          <a href='http://unpaisencomu.cat/contact'>aquí</a>.
+        </p>
+        "
+  verification:
+    show:
+      title: "Mapa de punts de verificació"
+      explain_html: "Aquí pots veure tots els punts i horaris habilitats per a que puguis anar a verificar-te"
+      no_points: "No hi ha cap punt actiu actualment"
+      link_title: "inscriure't"
+    user_verified: Usuari verificat
+    user_unverified: No t'has verificat
+    pending0_html: No has acabat la verificació
+    pending1_html: Per acabar el procés de verificació necessites aportar documentació de forma presencial.
+    pending2_html: <b>Porta un DNI o NIE</b> que tingui l'adreça de Catalunya
+    pending3_html: No tens adreça a Catalunya?
+    pending4_html: "<li>Porta el:</li><li><b>DNI/NIE</b> amb adreça</li><li><li> de fora de Catalunya </li><li> o el <b>passaport</b></li><li> o el <b>carnet de conduir</b></li>"
+    pending5_html: i també
+    pending6_html: "<li><b>empadronament</b>,</li><li><b>targeta censal</b></li><li> o qualsevol <b>rebut</b></li><li> (llum, aigua o gas)</li><li> de l'últim any.</li>"
+    pending7_html: "Porta la documentació a:"
+    title: Verificació
+    step1: Documents
+    step2: Cerca
+    step3: Comprova
+    welcome_html: "<p>Demana-li amablement a l'usuari/ària els documents  que ha d'haver portat. S'haurien de complir els requisits següents:</p>"
+    next: Següent
+    confirm: Confirma
+    new: "Escriu en el fomulari següent el document o correu electrònic amb què s'ha inscrit"
+    document: "DNI/NIE/Passaport"
+    full_name: Nom complet
+    document_type: Tipus i número de document
+    email: Correu electrònic
+    result: Per acabar el procés has de comprovar que les dades siguin les mateixes que ha donat l'inscrit/a.
+    other: Verifica un altre usuari/ària.
+    sure: ¿Estàs segur/a que vols confirmar aquest usuari/ària?
+    admin: Gestor de verificacions
+    alerts:
+      already_presencial: "L'usuari/ària amb document %{document} ja estava  verificat, per %{by}, el %{when}. L'usuari/ària ja podrà votar."
+      already_sms: "L'usuari/ària amb document %{document} ja estava verificat, per SMS, el %{when}. L'usuari/ària ja podrà votar."
+      already: "L'usuari/ària amb document %{document} ja estava verificat. L'usuari/ària ja podrà votar."
+      ok: "S'ha verificat l'usuari/ària correctament. Li hem enviat un  correu avisant-lo. Podrà votar en les pròximes votacions. Pots  continuar amb el següent usuari/ària."
+      not_found: "No hem trobat un usuari/ària amb aquest document o correu electrònic. Búsqueda: %{query1} %{query2}"
+      problem: "Hi ha hagut un problema buscant aquest usuari/ària. Fes una foto al document, demana-li el seu correu electrònc i envia'l a  info@unpaisencomu.cat"
+    mailer:
+      hello: "Hola %{user},"
+      bye: Salutacions
+      finish:
+        subject: Un País en Comú - Fin del primer proceso de verificación
+      to_verify:
+        subject: Un País en Comú - Faltan 2 días para verificarte
+      verified:
+        subject: Un País en Comú - Has estat verificat correctament
+        message: "Has sigut verificat i ja formes part de la comunitat de Un País en Comú. A partir d'ara ja no necessites verificar-te més i podràs participar a les consultes futures. Cada cop que hi hagi una consulta t'avisarem per coreru electrònic perquè puguis participar. Recorda que ara formes part de la comunitat de Un País en Comú."
+    form:
+      document: "He verificat el document original de l'inscrit/a"
+      age: "L'inscrit/a és major de 16 anys - nascut abans de %{date}"
+      town: "He verificat un document (DNI/NIE/Passaport, rebut d'un subministrament) que acredita que l'inscrit/a viu a Catalunya."
+  voting:
+    title: "Benvingut a Participa!"
+    election_one: Hi ha una votació en curs.
+    election_none: No hi ha cap votació en curs. Quan hi hagi cap votació t'avisarem per correu electrònic.
+    election_mul_html: "Hi ha 3 votacions. Cada votació és independent. No oblidis votar a totes 3.<br/><br/>
+  Pots canviar el vot al llarg del procés (votant de nou en la mateixa opció). El nou vot reemplaçarà l'emès anteriorment de forma automàtica. Només l'últim és vàlid.<br/>"
+    election_use_one: La votació utilitza
+    election_use_mul: Les votacions utilitzen
+    secure_system: el sistema segur de
+    remember_last: "."
+    participate: ""
+    button: Vota
+    upcoming_1: Les votacions estan a punt de començar.
+    upcoming_2: Les urnes s'obriran el
+    finished_1: Les votacions ja s'han tancat.
+    continue: "seguir votant"

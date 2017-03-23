@@ -7,7 +7,6 @@ class VerificationController < ApplicationController
   # GET /verificaciones
   def show
     authorize! :show, :verification
-    @centers = Verification::Center.all
   end
 
   # GET /verificadores
@@ -45,7 +44,7 @@ class VerificationController < ApplicationController
         if @user.is_verified? 
           if @user.verified_by_id?
             flash.now[:notice] = t('verification.alerts.already_presencial', document: @user.document_vatid, by: @user.verified_by.full_name, when: @user.verified_at)
-          elsif @user.sms_confirmed_at? 
+          elsif @user.confirmed_by_sms? 
             flash.now[:notice] = t('verification.alerts.already_sms', document: @user.document_vatid, when: @user.sms_confirmed_at)
           else 
             flash.now[:notice] = t('verification.alerts.already', document: @user.document_vatid)

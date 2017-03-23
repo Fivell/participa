@@ -1,5 +1,7 @@
 class Verification::Center < ActiveRecord::Base
-  has_many :verification_slots, class_name: 'Verification::Slot', foreign_key: 'verification_center_id'
+  validates :name, :street, :city, presence: true
+
+  has_many :verification_slots, -> { for_center }, class_name: 'Verification::Slot', foreign_key: 'verification_center_id'
 
   accepts_nested_attributes_for :verification_slots, allow_destroy: true
 
@@ -7,6 +9,10 @@ class Verification::Center < ActiveRecord::Base
 
   def periods
 
+  end
+
+  def address
+    [street, postalcode.presence, city].compact.join(', ')
   end
 
   def slots_text

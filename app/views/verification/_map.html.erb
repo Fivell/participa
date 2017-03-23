@@ -1,21 +1,28 @@
-<% if centers %>
+<% if Verification::Center.any? %>
 
   <% if user_signed_in? %>
-    <ul class="js-verification-map-centers" data-user-district="<%= current_user.district %>">
+    <ul class="js-verification-map-centers" data-user-postalcode="<%= current_user.postal_code %>">
   <% else %>
     <ul class="js-verification-map-centers">
   <% end %>
 
-    <% @centers.each do |center| %>
-      <li class="today" data-district="0" data-location="<%= center.latitude %>, <%= center.longitude %>">
-        <h5><%= center.name %></h5>
+    <% Verification::Center.find_each do |center| %>
+      <% slots = center.verification_slots.map(&:as_opening_time).join('. ') %>
+
+      <li class="verification-center"
+          data-latitude="<%= center.latitude %>"
+          data-longitude="<%= center.longitude %>"
+          data-name="<%= center.name %>"
+          data-address="<%= center.address %>"
+          data-slots="<%= slots.to_s %>">
+        <h5 class="verification-center-name">
+          <%= center.name %>
+        </h5>
         <div>
           <%= center.address %>
         </div>
         <div>
-          <% center.verification_slots.each do |slot| %>
-            <%= l slot.starts_at, format: :short %> <%= t('verification.to') %> <%= l slot.ends_at, format: :time %>.
-          <% end %>
+          <%= slots.to_s %>
         </div>
       </li>
     <% end %>

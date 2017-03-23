@@ -27,7 +27,6 @@ FactoryGirl.define do
     address "C/ Inventada, 123" 
     vote_town "m_28_079_6"
     phone
-    #sms_confirmed_at DateTime.now
     flags 0
   end
 
@@ -71,19 +70,35 @@ FactoryGirl.define do
     superadmin true
   end
 
-  trait :legacy_password_user do
-    has_legacy_password true
-  end
-
-  trait :sms_non_confirmed_user do
+  trait :not_confirmed_by_sms do
     sms_confirmed_at nil
   end
 
-  trait :no_newsletter_user do
+  trait :confirmed_by_sms do
+    verified_at { DateTime.now }
+    sms_confirmed_at { DateTime.now }
+  end
+
+  trait :not_verified_presentially do
+    verified_by_id nil
+  end
+
+  trait :verified_presentially do
+    verified_at { DateTime.now }
+    verified_by_id 1
+  end
+
+  trait :previously_confirmed_by_sms do
+    sms_confirmed_at do
+      DateTime.now - User.sms_confirmation_period - 1.day
+    end
+  end
+
+  trait :newsletter_disabled do
     wants_newsletter false
   end
 
-  trait :newsletter_user do
+  trait :newsletter_enabled do
     wants_newsletter true
   end
 
@@ -96,5 +111,38 @@ FactoryGirl.define do
     province "IB"
     postal_code "07021"
     town "m_07_003_3"
+  end
+
+  trait :verifying_presentially do
+    transient do
+      starts_at { 1.day.ago }
+      ends_at { 1.day.from_now }
+      center nil
+    end
+
+    after(:create) do |user, evaluator|
+      attrs = {
+        user: user,
+        starts_at: evaluator.starts_at,
+        ends_at: evaluator.ends_at
+      }
+
+      attrs[:verification_center] = evaluator.center if evaluator.center
+
+      create(:verification_slot, :presential, attrs)
+    end
+  end
+
+  trait :verifying_online do
+    transient do
+      starts_at { 1.day.ago }
+      ends_at { 1.day.from_now }
+    end
+
+    after(:create) do |user, evaluator|
+      create(:verification_slot, :online, user: user,
+                                          starts_at: evaluator.starts_at,
+                                          ends_at: evaluator.ends_at)
+    end
   end
 end

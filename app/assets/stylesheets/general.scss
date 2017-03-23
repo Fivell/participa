@@ -656,13 +656,16 @@ tools
   clear:both;
 }
 .box-large {
-  padding-top: 5em;
-  padding-bottom: 5em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 .box-large .title {
   font-size: 2em;
   color: #FFF;
   font-weight: bold;
+}
+.box-large .action {
+  margin-top: 30px;
 }
 .tools ul{
   position:relative;
@@ -678,19 +681,6 @@ tools
 .tools li:nth-child(3n+0){
   margin-right:0;
   clear:right;
-}
-.tools li div.box-tool{
-  position:relative;
-}
-.tools li div.tool-text{
-  padding-top:20em;
-}
-.tools li div.box-tool:before{
-  display: inline-block;
-  margin: 0;
-  position:absolute;
-  top: -1.7em;
-  left: -1.7em;
 }
 .tools li h3{
   position: absolute;
@@ -1506,11 +1496,9 @@ elementos
   margin: 1em 0;
 }
 .verif-new-first{
-  background-color: #eb5a59;
   padding: 3em;
 }
 .verif-new-first .title{
-  color: #FFF;
   font-weight: bold;
 }
 .verif-new-docu {
@@ -1524,11 +1512,16 @@ elementos
   font-weight: bold;
 }
 .verif-docu-txt b{
-  color: #FFF;
+  color: #000;
 }
 .verif-new-second{
+  position: relative;
   padding: 3em;
   font-weight: bold;
+
+  &:after {
+    clear: both;
+  }
 }
 .verif-new-second .title{
   font-weight: bold;
@@ -1537,7 +1530,7 @@ elementos
   margin-top: 0.5em;
 }
 .verif-new-second b{
-  color: #eb5a59;
+  color: #000;
 }
 .verif-new-second span, .verif-new-second ul {
   float: left;
@@ -1549,15 +1542,15 @@ elementos
   margin-left: 1em;
 }
 .verif-new-or {
-  background-color: #EB5A59;
+  position: absolute;
+  background-color: #303030;
   border-radius: 50%;
-  padding: 1em;
   color: #FFF;
-  height: 5em;
-  width: 5em;
-  line-height: 5em;
-  margin-left: 12em;
-  margin-right: 3em;
+  height: 6em;
+  width: 6em;
+  line-height: 6em;
+  text-align: center;
+  left: calc(50% - 3em);
 }
 
 .verif-new-third{
@@ -1960,9 +1953,6 @@ layout 4: 769-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     width:29%;
     margin-right:2%;
   }
-  .tools li div.tool-text{
-    height:20em;
-  }
   .tools li h3{
     width:75%;
   }
@@ -2074,9 +2064,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
     width:45%;
     margin-right:2%;
   }
-  .tools li div.tool-text{
-    height:12em;
-  }
   .tools li h3{
     width:75%;
   }
@@ -2139,20 +2126,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
     font-size:1.6em;
   }
 }
-.language-switcher-locale-url{
-  text-align:right;
-  display: inline;
-}
-.language-switcher-locale-url li{
-  display:block;
-  width:30px;
-  float:right;
-  font-size:12px;
-}
-.language-switcher-locale-url li a:hover{
-  text-decoration:underline;
-}
-
 .tools li {
  margin-left: -10px;
  text-align: left;
@@ -2192,31 +2165,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 /* styles by felip @ guanyem web team */
 
-#block-locale-language {
-  @include make-md-column(6);
-  @include make-sm-column(6);
-}
-
-.language-switcher-locale-url { }
-
-.language-switcher-locale-url li {
-  width: auto;
-  float: none;
-  display: inline;
-  font-size: 12px;
-}
-
-.language-switcher-locale-url li a {
-  color: #777;
-  text-decoration: none;
-  padding: 3px 5px;
-}
-
-.language-switcher-locale-url li a:hover, .language-switcher-locale-url li a.active {
-  color: black;
-  text-decoration: none;
-}
-
 #top_menu {
   clear: both;
 }
@@ -2246,12 +2194,10 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   color: #cc2626;
 }
 
-.menu ul li a.home { }
+.verification-center {
+  padding-bottom: 20px;
 
-.menu ul li a.funding { }
-
-.menu ul li a.citizens { }
-
-.menu ul li a.teams { }
-
-.menu ul li a.blog { }
+  .verification-center-name {
+    margin: 0 0 5px 0;
+  }
+}

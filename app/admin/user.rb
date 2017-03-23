@@ -7,10 +7,7 @@ ActiveAdmin.register User do
   scope :confirmed
   scope :deleted
   scope :unconfirmed_mail
-  scope :unconfirmed_phone
-  scope :legacy_password
   scope :confirmed_mail
-  scope :confirmed_phone
   scope :signed_in
   scope :has_collaboration
   scope :has_collaboration_credit_card
@@ -20,13 +17,23 @@ ActiveAdmin.register User do
   scope :has_circle
   scope :banned
   scope :admins
+
+  if Rails.application.secrets.features["verification_sms"]
+    scope :verifying_online
+    scope :verified_online
+    scope :unverified_online
+  end
+
   if Rails.application.secrets.features["verification_presencial"]
-    scope :verifications_admin
-    scope :verified_presencial
-    scope :unverified_presencial
-    scope :voting_right
-  else
+    scope :verifying_presentially
+    scope :verified_presentially
+    scope :unverified_presentially
+  end
+
+  if Rails.application.secrets.features["verification_presencial"] ||
+     Rails.application.secrets.features["verification_sms"]
     scope :verified
+    scope :unverified
   end
 
   permit_params :email, :password, :password_confirmation, :first_name, :last_name, :document_type, :document_vatid, :born_at, :address, :town, :postal_code, :province, :country, :vote_province, :vote_town, :wants_newsletter, :phone, :unconfirmed_phone
@@ -52,7 +59,7 @@ ActiveAdmin.register User do
       status_tag("Verificado", :ok) + br if user.is_verified?
       status_tag("Baneado", :error) + br if user.banned?
       user.confirmed_at? ? status_tag("Email", :ok) : status_tag("Email", :error)
-      user.sms_confirmed_at? ? status_tag("Tel", :ok) : status_tag("Tel", :error)
+      user.confirmed_by_sms? ? status_tag("Tel", :ok) : status_tag("Tel", :error)
       user.valid? ? status_tag("Val", :ok) : status_tag("Val", :error)
       user.deleted? ? status_tag("Borrado", :error) : ""
     end
@@ -64,9 +71,7 @@ ActiveAdmin.register User do
     attributes_table do
       row :id
       row :status do
-        if Rails.application.secrets.features["verification_presencial"]
-          status_tag("Equipo de Verificación", :ok) if user.verifications_admin?
-        end
+        render partial: "admin/verification_status", partials: { user: user }
         status_tag("Verificado", :ok) if user.is_verified?
         status_tag("Baneado", :error) if user.banned?
         user.deleted? ? status_tag("¡Atención! este usuario está borrado, no podrá iniciar sesión", :error) : ""
@@ -80,7 +85,7 @@ ActiveAdmin.register User do
         else
           status_tag("El usuario NO ha confirmado por email", :error)
         end
-        if user.sms_confirmed_at?
+        if user.confirmed_by_sms?
           status_tag("El usuario ha confirmado por SMS", :ok)
         else
           status_tag("El usuario NO ha confirmado por SMS", :error)
@@ -160,7 +165,6 @@ ActiveAdmin.register User do
       row :confirmation_sent_at
       row :confirmed_at
       row :unconfirmed_email
-      row :has_legacy_password
       row "Teléfono móvil (confirmado)" do
         user.phone
       end
@@ -241,7 +245,6 @@ ActiveAdmin.register User do
   filter :current_sign_in_ip
   filter :last_sign_in_at
   filter :last_sign_in_ip
-  filter :has_legacy_password
   filter :created_at
   filter :confirmed_at
   filter :verified_at
@@ -250,8 +253,8 @@ ActiveAdmin.register User do
   filter :wants_participation
   filter :participation_team_id, as: :select, collection: ParticipationTeam.all
   filter :votes_election_id, as: :select, collection: Election.all
-  if defined? User.verifications_admin
-    filter :verified_by_id, as: :select, collection: User.verifications_admin.all
+  if Rails.application.secrets.features["verification_presencial"]
+    filter :verified_by_id, as: :select, collection: User.presential_verifier_ever
   end
 
   form partial: "form"
@@ -282,11 +285,7 @@ ActiveAdmin.register User do
 
   if Rails.application.secrets.features["verification_presencial"]
     action_item(:edit, :only => :show) do
-      if user.verifications_admin?
-        link_to('Quitar de Equipo de Verificación', verification_unteam_admin_user_path(user), method: :post, data: { confirm: "¿Estas segura de querer que este usuario ya no verifique a otros?" })
-      else
-        link_to('Agregar a Equipo de Verificación', verification_team_admin_user_path(user), method: :post, data: { confirm: "¿Estas segura de querer que este usuario verifique a otros? Recuerda que debe ser una persona de confianza y que debes haber comprobado que haya firmado el documento legal." })
-      end
+      link_to('Perfil de Verificador', edit_admin_verifier_profile_path(user))
     end
   end
 
@@ -304,12 +303,6 @@ ActiveAdmin.register User do
     end
   end
 
-  action_item(:verify, only: :show) do
-    if user.not_verified?
-      link_to('Verificar usuario', verify_admin_user_path(user), method: :post, data: { confirm: "¿Estas segura de querer verificar a este usuario?" })
-    end
-  end
-
   batch_action :ban, if: proc{ can? :ban, User } do |ids|
     User.ban_users(ids, true)
     redirect_to collection_path, alert: "Los usuarios han sido baneados."
@@ -323,36 +316,10 @@ ActiveAdmin.register User do
 
   member_action :verify, :method => [:post] do
     u = User.find( params[:id] )
-    if Rails.application.secrets.features["verification_presencial"]
-      # use verified_at and verified_by fields
-      u.verify! current_user
-    else
-      # use flags
-      u.verified = true
-      u.banned = false
-      u.save
-    end
+    u.verify! current_user
+    u.update(banned: false)
     flash[:notice] = "El usuario ha sido modificado"
     redirect_to action: :show
-  end
-
-  if Rails.application.secrets.features["verification_presencial"]
-    member_action :verification_team, :method => [:post] do
-      u = User.find( params[:id] )
-      u.verify! current_user
-      u.verifications_admin = true
-      u.save
-      flash[:notice] = "El usuario ha sido modificado"
-      redirect_to action: :show
-    end
-
-    member_action :verification_unteam, :method => [:post] do
-      u = User.find( params[:id] )
-      u.verifications_admin = false
-      u.save
-      flash[:notice] = "El usuario ha sido modificado"
-      redirect_to action: :show
-    end
   end
 
   action_item(:impulsa_author, only: :show) do
@@ -365,8 +332,7 @@ ActiveAdmin.register User do
 
   member_action :impulsa_author, :method => [:post, :delete] do
     u = User.find( params[:id] )
-    u.impulsa_author = request.post?
-    u.save
+    u.update(impulsa_author: request.post?)
     flash[:notice] = "El usuario ya #{"no" if request.delete?} puede crear proyectos especiales en Impulsa"
     redirect_to action: :show
   end

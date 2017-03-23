@@ -43,11 +43,17 @@ class Ability
       can :show, Notice
 
       if Rails.application.secrets.features["verification_presencial"]
-        can [:step1, :step2, :step3, :confirm, :search, :result_ok, :result_ko], :verification if user.verifications_admin?
-        can [:create, :create_token, :check], :vote if user.is_verified?
+        can [:step1, :step2, :step3, :confirm, :search, :result_ok, :result_ko], :verification if user.verifying_presentially?
         can :show, :verification
-      else
-        can [:create, :create_token, :check], :vote if user.sms_confirmed_at?
+      end
+
+      if Rails.application.secrets.features["verification_sms"]
+        can [:step1, :step2, :step3, :phone, :captcha, :valid], :sms_validator
+      end
+
+      if Rails.application.secrets.features["verification_presencial"] ||
+         Rails.application.secrets.features["verification_sms"]
+        can [:create, :create_token, :check], :vote if user.is_verified?
       end
 
       cannot :admin, :all

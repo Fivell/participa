@@ -5,9 +5,11 @@ pw = '123456789'
 
 puts "Creating Users"
 
-admin = FactoryGirl.create(:user, :admin, password: pw, email: "admin@example.com") 
-admin.verifications_admin = true
-admin.save
+admin = FactoryGirl.create(:user,
+                           :admin,
+                           :verifiying_presentially,
+                           password: pw,
+                           email: "admin@example.com") 
 puts "Creating admin user with email #{admin.email}"
 
 superadmin = FactoryGirl.create(:user, :superadmin, password: pw, email: "superadmin@example.com") 

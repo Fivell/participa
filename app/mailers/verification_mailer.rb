@@ -8,12 +8,6 @@ class VerificationMailer < ActionMailer::Base
     mail(to: @user.email, subject: t('verification.mailer.verified.subject'))
   end
 
-  # user is verified by SMS (legacy)
-  def verified_legacy user
-    @user = user
-    mail(to: @user.email, subject: t('verification.mailer.verified_legacy.subject'))
-  end
-
   # user needs to verify
   def to_verify user
     @user = user

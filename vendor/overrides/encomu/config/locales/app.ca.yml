@@ -31,78 +31,6 @@ ca:
       not_valid_nif: El DNI no és vàlid
       not_valid_cif: El CIF no és vàlid
       not_valid_nie: El NIE no és vàlid
-  activerecord:
-    models:
-      user: Usuari/ària
-      users: Usuaris/àries
-      collaboration: Col·laboració econòmica
-      collaborations: Col·laboracions econòmiques
-      order: Ordre de pagament
-      orders: Ordres de pagament
-      election: Elecció
-      elections: Eleccions
-      notice: Avís
-      notices: Avisos
-    attributes:
-      collaboration:
-        user: "Usuari/ària"
-        created_at: "Creada el"
-        updated_at: "Actualitzada el"
-        amount: "Import mensual"
-        frequency: "Freqüència de pagament"
-        frequency_name: "Freqüència de pagament"
-        minimal_year_old: "Edat mínima requerida"
-        terms_of_service: "Acord legal"
-        order_id: "Número d'ordre a Redsys"
-        payment_type: "Mètode de pagament"
-        payment_type_name: "Mètode de pagament"
-        ccc_entity: "Entitat"
-        ccc_office: "Oficina"
-        ccc_dc: "DC"
-        ccc_account: "Número de compte"
-        iban_account: "IBAN"
-        iban_bic: "BIC/SWIFT"
-      order:
-        status: "Estat"
-        status_name: "Estat"
-        collaboration: "Col·laboració"
-        user: "Usuari/ària"
-        payable_at: "A cobrar el"
-        payed_at: "Cobrada el"
-        created_at: "Creada el"
-        deleted_at: "Esborrada el"
-        updated_at: "Actualitzada el"
-      election:
-        title: "Títol"
-        agora_election_id: "ID a AgoraVoting"
-        starts_at: "Comença"
-        ends_at: "Acaba"
-        close_message: "Missatge de tancament"
-      notice:
-        title: "Títol"
-        body: "Missatge"
-      user:
-        login: "Correu electrónic o núm. de document"
-        first_name: "Nom"
-        last_name: "Cognoms"
-        document_type: "Tipus de document"
-        document_vatid: "Núm. de document"
-        born_at: "Data de naixement"
-        gender_identity: "Identitat de gènere"
-        email: "Correu electrònic"
-        email_confirmation: "Correu electrònic (repetir)"
-        phone: "Telèfon mòbil"
-        unconfirmed_phone: "Telèfon mòbil"
-        address: "Adreça"
-        postal_code: "Codi postal"
-        password: "Contrasenya"
-        password_confirmation: "Contrasenya (repetir)"
-        remember_me: "Recorda'm"
-        wants_newsletter: 'Butlletí'
-        terms_of_service: "He llegit les condicions i accepto inscriure'm"
-        age_restriction: "Declaro ser major de 16 anys"
-        captcha: "Captcha"
-        current_password: "Contrasenya actual"
   formtastic:
     hints:
       user:
@@ -178,22 +106,6 @@ La quantitat que vós doneu no us ha sigut lliurada per part d’alguna persona 
     other_locales: "Altres idiomes"
     home_address: "Adreça"
     unauthorized: "No tens permisos per accedir a aquesta secció"
-    user:
-      general_data: "Dades generals"
-      collaborations: "Col·laboracions econòmiques"
-      personal_data: "Dades personals"
-      change_email: "Canvia correu electrònic"
-      change_email_explain: "Si canvies el teu correu electrònic t'enviarem un altre correu perquè el confirmis."
-      change_phone: "Canvia el telèfon mòbil"
-      change_phone_explain_html: "Ara mateix tens el mòbil <b> %{phone} </b>"
-      change_password: "Canvia contrasenya"
-      cancel_account: "Dóna'm de baixa"
-      cancel_account_explain_html: "<p>Si cliques ‘Dóna'm de baixa’ deixaràs de ser membre de Un País En Comú i cancel·larem les teves dades personals conforme a allò convingut a la Llei Orgànica 15/1999 de Protecció de Dades de Caràcter Personal.</p>
-<p> A partir d'aquest moment el teu compte d'accés al portal de participació de Un País En Comú quedarà eliminat.</p>
-<p>
-Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció de Dades, la cancel•lació donarà lloc al bloqueig de les dades, es conservaran únicament a disposició de les Administracions Públiques, Jutges i Tribunals, per a l'atenció de les possibles responsabilitats nascudes del tractament, durant el termini de prescripció d'aquestes possibles responsabilitats. Complert el citat termini es procedirà a la supressió de les dades.
-</p>
-"
     devise:
       mailer:
         hello: "Hola %{user}!"
@@ -219,7 +131,7 @@ aquest missatge. Si ho reps diverses vegades, avisa'ns a %{mail}."
         password:
           p1: "Algú ha demanat que canviïs la teva contrasenya. Pots fer-ho a través de l'enllaç següent:"
           p2: "Aquest compte de correu electrònic no accepta respostes. Si tens qualsevol problema amb el registre, si et plau, contacta amb contacte@unpaisencomu.cat"
-          p3: "Si no has estat tu, si et plau, no facis cas d'aquest missatge. La teva contrasenya no canviarà fins que validis aquest enllaç i en creïs una de nova.."
+          p3: "Si no has estat tu, si et plau, no facis cas d'aquest missatge. La teva contrasenya no canviarà fins que validis aquest enllaç i en creïs una de nova."
           link: 'Canvia contrasenya'
     navbar:
       tools: "Pàgina Principal"
@@ -228,20 +140,8 @@ aquest missatge. Si ho reps diverses vegades, avisa'ns a %{mail}."
     home:
       button: "No estàs inscrit? Inscriu-t'hi!"
       p1: "Barcelona En Comú neix amb la voluntat de construir una forma nova de fer política, i per fer-ho necessitem desenvolupar estructures organitzatives diferents de les tradicionals, per no repetir errors del passat, per avançar cap a una societat més democràtica. Estem construint una estructura transparent, ciutadana, oberta, democràtica, eficaç. Una organització que respongui a l'impuls democratitzador de Barcelona En Comú, en què discutim, debatem i decidim entre tots. "
-      p2: "Passes a formar part del cens d'inscrits de Barcelona En Comú, des del qual es realitzaran a partir d'ara totes les votacions. És un procediment senzill i ràpid que et permetrà ser part activa de la comunitat Barcelona En Comú."
+      p2: "Passes a formar part del cens d'inscrits de En Comú, des del qual es realitzaran a partir d'ara totes les votacions. És un procediment senzill i ràpid que et permetrà ser part activa de la comunitat En Comú."
     valid:
-      phone:
-        p1: "Introdueix el teu nou número de telèfon mòbil."
-        p2: "Rebràs el codi de verificació per validar el nou número en uns segons."
-        p3: "Si ja has participat en alguna votació de Barcelona En Comú, t'enviarem el codi per correu electrònic."
-        p4: "Introdueix el text que apareix a la imatge."
-        p5: "Introdueix el codi que hagis rebut per SMS per confirmar-lo"
-        valid: "Has validat correctament el teu nou número de telèfon."
-        invalid: "El codi que has posat no correspon amb el que t'hem enviar per SMS."
-        captcha: "Validar Captcha"
-        token: Codi SMS
-        button: "Comprova"
-        captcha_invalid: "Captcha invàlid"
       terms_of_service:
         title: 'Condicions generals'
         p1_html: " <h2>Condicions generals d'inscripció i política de privacitat</h2>
@@ -276,45 +176,6 @@ Quan es marca la casella 'He llegit i accepto les condicions generals' l'USUARI/
 </p>
 <p> <b> Barcelona En Comú </b></p>
 <p> <b>Versió 28 de febrer de 2015 16:01 </b> </p> "
-    registration:
-      catalonia_resident: Resideixo a Catalunya
-      choose_province: Tria una província
-      choose_town: Tria un municipi
-      country: País
-      province: Província
-      town: Municipi
-      inscription_policy: Condicions d'inscripció
-      legends:
-        inscription_html: "Inscriure's a En Comú et dóna dret a participar en totes les consultes i processos participatius que s'endeguin en aquesta aplicació. No representa cap mena d'obligació econòmica encara que pots col·laborar en aquest sentit si ho desitges. En acceptar-hi, rebràs tots els nostres butlletins informatius.<br><br> EN COMÚ amb personalitat jurídica pròpia, d'acord amb la Llei Orgànica 6/2002, de 27 de juny, de Partits Polítics, i inscrita en el Registre de Partits Polítics amb data de l'1 d'abril del 2015, Full 113, Volum IX. Domicili social: C. Or, 44 3º-2ª (CP 08012 BARCELONA). Telèfon: 935.321.796. "
-        legal0: Mira las condicions d'inscripció
-        legal1: Mira la política de privacitat
-        legal2: Mira avís legal
-        legal3: Mira la política de galetes
-        password_limits: Mínim 6 caràcters
-        cant_modify: No pots modificar-lo
-        cis_key: CIS (cisgènere)
-        cis_definition: persona que s'identifica amb el gènere que li va ser assignat al néixer
-        trans_key: TRANS (transgènere)
-        trans_definition: persona que no s'identifica amb el gènere que li va ser assignat al néixer i per tant viu en una altra identitat de gènere
-        fluid_key: Gènere No-binari
-        fluid_definition: persona que no s'identifica amb cap dels dos gèneres binaris establerts de forma única
-      message:
-        dni: "El format ha de ser 8 xifres i una lletra, sense guions ni espais."
-        nie: "El format ha de ser una lletra, 7 xifres i una lletra, sense guions ni espais."
-        passport: "El format ha de ser sense guions ni espais."
-        welcome_html: "
-          <p>
-            Apunta't al formulari per rebre informació i per poder participar
-            en la construcció del nou espai.
-          </p>
-
-          <p>
-            Per poder votar en les properes votacions t'has d'enregistrar
-            omplint aquest formulari. T'arribarà un correu per validar-te. Si no
-            reps el correu posa't en contacte amb nosaltres
-            <a href='http://unpaisencomu.cat/contact'>aquí</a>.
-          </p>
-          "
     legacy:
       password:
         title: "Canviar contrasenya antiga"
@@ -444,35 +305,8 @@ El web podrà disposar de versions en altres llengües, en especial en català, 
 </p>
 <p> <b> Barcelona En Comú Barcelona<br><br> Versió 20 de febrer de 2015 12:55<br> </b> </p>
 "
-  issues:
-    confirm_sms: "Per seguretat, has de confirmar el teu telèfon."
-    legacy_password: "Per seguretat, has de canviar la teva contrasenya."
-    born_at: "Has d'indicar la teva data de naixement."
-    location: "Sisplau, verifica que les dades de la teva adreça són correctes i desa les dades."
-
-  recaptcha:
-    errors:
-      incorrect-captcha-sol: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
-      verification_failed: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
-      recaptcha_unreachable: "Hi ha hagut un error amb el captcha, sisplau, completa'l de nou"
   election:
     close_message: "Ha arribat la data límit per votar. La votació està tancada."
-  active_admin:
-    scopes:
-      created: "Creats"
-      confirmed: "Confirmats"
-      deleted: "Esborrats"
-      unconfirmed_mail: "Correu electrònic sin confirmar"
-      unconfirmed_phone: "Telèfon sense confirmar"
-      confirmed_mail: "Correu electrònic confirmat"
-      confirmed_phone: "Telèfon confirmat"
-      legacy_password: "Contrasenya antiga (legacy)"
-      signed_in: "Has iniciat sessió"
-      not_signed_in: "No has iniciat sessió"
-      has_collaboration: "Amb col·laboració econòmica"
-      has_collaboration_credit_card: "Amb col·laboració econòmica (targeta de crèdit)"
-      has_collaboration_bank_national: "Amb col·laboració econòmica (banc nacional)"
-      has_collaboration_bank_international: "Amb col·laboració econòmica (banc internacional)"
   page:
     faq:
       title: "Preguntes Freqüents - Votacions"
@@ -641,75 +475,3 @@ Amb tres passos molt senzills:
   <a target="_blank" href="https://barcelonaencomu.cat/ca/politica-de-privacitat">Mira la política de privacitat</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/ca/avis-legal">Mira avís legal</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/ca/politica-de-cookies">Mira la política de galetes</a></p>'
-  voting:
-    title: "Benvingut a Participa!"
-    election_one: Hi ha una votació en curs.
-    election_none: No hi ha cap votació en curs. Quan hi hagi cap votació t'avisarem per correu electrònic. Gràcies per pertànyer a la comunitat de Barcelona En Comú.
-    election_mul_html: "Hi ha 3 votacions. Cada votació és independent. No oblidis votar a totes 3.<br/><br/>
-  Pots canviar el vot al llarg del procés (votant de nou en la mateixa opció). El nou vot reemplaçarà l'emès anteriorment de forma automàtica. Només l'últim és vàlid.<br/>"
-    election_use_one: La votació utilitza
-    election_use_mul: Les votacions utilitzen
-    secure_system: el sistema segur de
-    remember_last: "."
-    participate: ""
-    button: Vota
-    upcoming_1: Les votacions estan a punt de començar.
-    upcoming_2: Les urnes s'obriran el
-    finished_1: Les votacions ja s'han tancat.
-    continue: "seguir votant"
-  verification:
-    show:
-      title: "Mapa de punts de verificació"
-      explain_html: "Aquí pots veure tots els punts i horaris habilitats per a que puguis anar a verificar-te"
-      no_points: "No hi ha cap punt actiu actualment"
-      link_title: "inscriure't"
-    user_verified: Usuari verificat
-    user_unverified: No t'has verificat
-    pending0_html: No has acabat la verificació
-    pending1_html: Per acabar el procés de verificació necessites aportar documentació de forma presencial.
-    pending2_html: <b>Porta un DNI o NIE</b> que tingui l'adreça de Barcelona
-    pending3_html: No tens adreça a Barcelona?
-    pending4_html: "<li>Porta el:</li><li><b>DNI/NIE</b> amb adreça</li><li><li> de fora de Barcelona </li><li> o el <b>passaport</b></li><li> o el <b>carnet de conduir</b></li>"
-    pending5_html: i també
-    pending6_html: "<li><b>empadronament</b>,</li><li><b>targeta censal</b></li><li> o qualsevol <b>rebut</b></li><li> (llum, aigua o gas)</li><li> de l'últim any.</li>"
-    pending7_html: Dissabte 6 de juny publicarem els punts on pots verificar-te.
-    title: Verificació
-    step1: Documents
-    step2: Cerca
-    step3: Comprova
-    welcome_html: "<p>Demana-li amablement a l'usuari/ària els documents  que ha d'haver portat. S'haurien de complir els requisits següents:</p>"
-    next: Següent
-    confirm: Confirma
-    new: "Escriu en el fomulari següent el document o correu electrònic amb què s'ha inscrit"
-    document: "DNI/NIE/Passaport"
-    full_name: Nom complet
-    document_type: Tipus i número de document
-    email: Correu electrònic
-    result: Per acabar el procés has de comprovar que les dades siguin les mateixes que ha donat l'inscrit/a.
-    other: Verifica un altre usuari/ària.
-    sure: ¿Estàs segur/a que vols confirmar aquest usuari/ària?
-    admin: Gestor de verificacions
-    alerts:
-      already_presencial: "L'usuari/ària amb document %{document} ja estava  verificat, per %{by}, el %{when}. L'usuari/ària ja podrà votar."
-      already_sms: "L'usuari/ària amb document %{document} ja estava verificat, per SMS, el %{when}. L'usuari/ària ja podrà votar."
-      already: "L'usuari/ària amb document %{document} ja estava verificat. L'usuari/ària ja podrà votar."
-      ok: "S'ha verificat l'usuari/ària correctament. Li hem enviat un  correu avisant-lo. Podrà votar en les pròximes votacions. Pots  continuar amb el següent usuari/ària."
-      not_found: "No hem trobat un usuari/ària amb aquest document o correu electrònic. Búsqueda: %{query1} %{query2}"
-      problem: "Hi ha hagut un problema buscant aquest usuari/ària. Fes una foto al document, demana-li el seu correu electrònc i envia'l a  info@unpaisencomu.cat"
-    mailer:
-      hello: "Hola %{user},"
-      bye: Salutacions
-      finish:
-        subject: Un País en Comú - Fin del primer proceso de verificación
-      to_verify:
-        subject: Un País en Comú - Faltan 2 días para verificarte
-      verified_legacy:
-        subject: Un País en Comú - No hace falta que te verifiques
-      verified:
-        subject: Un País en Comú - Has estat verificat correctament
-        message: "Has sigut verificat i ja formes part de la comunitat de Un País en Comú. A partir d'ara ja no necessites verificar-te més i podràs participar a les consultes futures. Cada cop que hi hagi una consulta t'avisarem per coreru electrònic perquè puguis participar. Recorda que ara formes part de la comunitat de Un País en Comú."
-    form:
-      document: "He verificat el document original de l'inscrit/a"
-      age: "L'inscrit/a és major de 16 anys - nascut abans de %{date}"
-      town: "He verificat un document (DNI/NIE/Passaport, rebut d'un subministrament) que acredita que l'inscrit/a viu a Barcelona."
-

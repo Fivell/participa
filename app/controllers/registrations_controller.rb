@@ -70,7 +70,7 @@ class RegistrationsController < Devise::RegistrationsController
           # his previous location
           #
           if resource.apply_previous_user_vote_location
-            flash[:alert] = t("podemos.registration.message.existing_user_location")
+            flash[:alert] = t("registration.message.existing_user_location")
           end
         end
       end
@@ -84,14 +84,6 @@ class RegistrationsController < Devise::RegistrationsController
       clean_up_passwords(resource)
       render :new
     end
-  end
-
-  def recover_and_logout
-    # Allow user to reset their password from his profile
-    #
-    current_user.send_reset_password_instructions
-    sign_out_and_redirect current_user
-    flash[:notice] = t("devise.confirmations.send_instructions")
   end
 
   private

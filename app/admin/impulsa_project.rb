@@ -1,7 +1,6 @@
 ActiveAdmin.register ImpulsaProject do
   menu false
   belongs_to :impulsa_edition
-  navigation_menu :default
 
   permit_params ImpulsaProject::ALL_FIELDS + ImpulsaProject::ADMIN_REVIEWABLE_FIELDS.map {|f| "#{f}_review".to_sym }, impulsa_edition_topic_ids: []
 

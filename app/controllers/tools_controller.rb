@@ -3,12 +3,11 @@ class ToolsController < ApplicationController
   before_action :user_elections
 
   def index
-    unless Rails.application.secrets.features["verification_presencial"]
-      redirect_to edit_user_registration_path
-    end
+    redirect_to edit_user_registration_path unless verifications_enabled?
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def user_elections
     @all_elections = Election.upcoming_finished.map { |e| e if e.has_valid_location_for? current_user } .compact

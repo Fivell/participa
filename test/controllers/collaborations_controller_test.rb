@@ -3,8 +3,8 @@ require 'test_helper'
 class CollaborationsControllerTest < ActionController::TestCase
   
   setup do
-    @collaboration = FactoryGirl.create(:collaboration)
-    @user = @collaboration.user
+    @user = create(:user, :confirmed_by_sms)
+    @collaboration = create(:collaboration, user: @user)
   end
 
   test "should authenticate user" do
@@ -22,7 +22,7 @@ class CollaborationsControllerTest < ActionController::TestCase
   end
 
   test "should create collaboration" do
-    user = FactoryGirl.create(:user)
+    user = create(:user, :confirmed_by_sms)
     sign_in user
     assert_difference('Collaboration.count') do
       post :create, params: { collaboration: { amount: 500, frequency: 12, payment_type: 1, terms_of_service: 1, minimal_year_old: 1 } }
@@ -56,7 +56,7 @@ class CollaborationsControllerTest < ActionController::TestCase
   end
 
  # test "should post callback" do
- #   collaboration = FactoryGirl.create(:collaboration, :credit_card) 
+ #   collaboration = create(:collaboration, :credit_card) 
  #   order = "1418300282"
  #   #collaboration.update_attribute(:redsys_order, order)
 
@@ -81,14 +81,14 @@ class CollaborationsControllerTest < ActionController::TestCase
  # end
 
   #test "should not get redsys_status for order as anon" do
-    #  collaboration = FactoryGirl.create(:collaboration, :credit_card) 
+    #  collaboration = create(:collaboration, :credit_card) 
   #  get :redsys_status, order: collaboration.redsys_order
   #  assert_response :redirect
   #  assert_redirected_to '/users/sign_in'
   #end
 
   #test "should get redsys_status for order as user" do
-  #  collaboration = FactoryGirl.create(:collaboration, :credit_card) 
+  #  collaboration = create(:collaboration, :credit_card) 
   #  sign_in collaboration.user
   #  get :redsys_status, order: collaboration.redsys_order, format: :json
   #  assert_response :success

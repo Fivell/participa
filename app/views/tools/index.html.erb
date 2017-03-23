@@ -1,32 +1,28 @@
 <% if current_user.is_verified? %>
-<%= content_for :title, "#{t 'verification.user_verified'} | Votación | " %>
+<%= content_for :title, "#{t 'verification.user_verified'} | Votación" %>
 <% else %>
-  <%= content_for :title, "#{t 'verification.user_unverified'} | " %>
+  <%= content_for :title, t('verification.user_unverified') %>
 <% end %>
 
 <div class="content-content">
-  <div class="row">
-    <div class="col-md-6">
+  <div class="box-info">
+    <% if can? :step1, :verification %>
+      <div style="margin-bottom: 1em;">
+        <%= alert_box "Info" do %>
+          <p>Puedes acceder al
+            <%= link_to verification_step1_path do %>
+              <%= image_tag("ico.menu-verif-on.svg") %>
+              <%= t('verification.admin') %>
+            <% end %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
 
-      <% if can? :step1, :verification %>
-        <div style="margin-bottom: 1em;">
-          <%= alert_box "Info" do %>
-            <p>Puedes acceder al
-              <%= link_to verification_step1_path do %>
-                <%= image_tag("ico.menu-verif-on.svg") %>
-                <%= t('verification.admin') %>
-              <% end %>
-            </p>
-          <% end %>
-        </div>
-      <% end %>
-
-      <% if current_user.is_verified? %>
-        <%= render partial: "election_wrapper", locals: { upcoming_elections: @upcoming_elections, elections: @elections, finished_elections: @finished_elections } %>
-      <% else %>
-        <%= render partial: "verification_pending" %>
-      <% end %>
-
-    </div>
+    <% if current_user.is_verified? %>
+      <%= render partial: "election_wrapper", locals: { upcoming_elections: @upcoming_elections, elections: @elections, finished_elections: @finished_elections } %>
+    <% else %>
+      <%= render partial: "verification_pending" %>
+    <% end %>
   </div>
 </div>

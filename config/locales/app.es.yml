@@ -1,6 +1,8 @@
 es:
   meta:
-    language_name: "Español"
+    flatpickr_code: "es"
+    language: "Idioma"
+    language_name: "Castellano"
     languages:
       ca: "catalán"
       es: "español"
@@ -22,42 +24,67 @@ es:
       url: "no es una dirección web válida (debe comenzar con http:// o https://)"
   activerecord:
     models:
-      user: Usuario
-      users: Usuarios
-      spam_filter: Filtro anti-spam
-      spam_filters: Filtros anti-spam
-      collaboration: Colaboración económica
-      collaborations: Colaboraciónes económicas
-      order: Orden de pago
-      orders: Ordenes de pago
-      election: Elección
-      elections: Elecciones
-      proposal: Iniciativa ciudadana
-      proposals: Iniciativas ciudadanas
-      notice: Aviso
-      notices: Avisos
-      participation_team: Equipo de Acción Participativa
-      participation_teams: Equipos de Acción Participativa
-      report: Informe
-      reports: Informes
-      report_group: Parte de Informe
-      report_groups: Partes de Informe
-      microcredit: Microcrédito
-      microcredits: Microcréditos
-      microcredit_loan: Suscripción
-      microcredit_loans: Suscripciones
-      page: Formulario
-      pages: Formularios
-      category: Categoría
-      categories: Categorías
-      impulsa_edition: Edición de Impulsa
-      impulsa_editions: Ediciones de Impulsa
-      impulsa_edition_topic: Temática de Impulsa
-      impulsa_edition_topics: Temáticas de Impulsa
-      impulsa_edition_category: Categoría de Impulsa
-      impulsa_edition_categories: Categorías de Impulsa
-      impulsa_project: Proyecto de Impulsa
-      impulsa_projects: Proyectos de Impulsa
+      user:
+        one: Usuario
+        other: Usuarios
+      spam_filter:
+        one: Filtro anti-spam
+        other: Filtros anti-spam
+      collaboration:
+        one: Colaboración económica
+        other: Colaboraciónes económicas
+      order:
+        one: Orden de pago
+        other: Ordenes de pago
+      election:
+        one: Elección
+        other: Elecciones
+      proposal:
+        one: Iniciativa ciudadana
+        other: Iniciativas ciudadanas
+      notice:
+        one: Aviso
+        other: Avisos
+      participation_team:
+        one: Equipo de Acción Participativa
+        other: Equipos de Acción Participativa
+      report:
+        one: Informe
+        other: Informes
+      report_group:
+        one: Parte de Informe
+        other: Partes de Informe
+      microcredit:
+        one: Microcrédito
+        other: Microcréditos
+      microcredit_loan:
+        one: Suscripción
+        other: Suscripciones
+      page:
+        one: Formulario
+        other: Formularios
+      category:
+        one: Categoría
+        other: Categorías
+      impulsa_edition:
+        one: Edición de Impulsa
+        other: Ediciones de Impulsa
+      impulsa_edition_topic:
+        one: Temática de Impulsa
+        other: Temáticas de Impulsa
+      impulsa_edition_category:
+        one: Categoría de Impulsa
+        other: Categorías de Impulsa
+      impulsa_project:
+        one: Proyecto de Impulsa
+        other: Proyectos de Impulsa
+      verification/center:
+        one: "Punto de Verificación"
+        other: "Puntos de Verificación"
+      verification/slot:
+        one: "Horario"
+        other: "Horarios"
+      verifier_profile: "Perfil de Verificador"
     errors:
       models: 
         user:
@@ -250,14 +277,14 @@ es:
         loan_renewals: "Microcréditos suscritos"
         renewal_terms: "Condiciones generales de extinción del anterior microcrédito y renovación de la suscripción"
         terms_of_service: "Condiciones generales de la suscripción del nuevo microcrédito"
-      collaboration: 
+      collaboration:
         user: "Usuario"
         created_at: "Creada el"
         updated_at: "Actualizada el"
         amount: "Importe mensual"
-        frequency: "Frecuencia de pago" 
-        frequency_name: "Frecuencia de pago" 
-        minimal_year_old: "Edad mínima requerida" 
+        frequency: "Frecuencia de pago"
+        frequency_name: "Frecuencia de pago"
+        minimal_year_old: "Edad mínima requerida"
         terms_of_service: "Acuerdo legal"
         order_id: "Número de orden en Redsys"
         payment_type: "Método de pago"
@@ -273,12 +300,12 @@ es:
         status_name: "Estado"
         collaboration: "Colaboración"
         user: "Usuario"
-        payable_at: "A cobrarse el" 
+        payable_at: "A cobrarse el"
         payed_at: "Cobrada el"
         created_at: "Creada el"
         deleted_at: "Borrada el"
         updated_at: "Actualizada el"
-      election: 
+      election:
         title: "Título"
         agora_election_id: "ID en AgoraVoting"
         starts_at: "Empieza"
@@ -290,7 +317,7 @@ es:
         image_url: "URL de la imagen"
       notice:
         title: "Título"
-        body: "Mensaje" 
+        body: "Mensaje"
       user:
         login: "Correo electrónico o Nº de documento"
         first_name: "Nombre"
@@ -298,6 +325,7 @@ es:
         document_type: "Tipo de documento"
         document_vatid: "Nº de documento"
         born_at: "Fecha de nacimiento"
+        gender_identity: "Identidad de género"
         email: "Correo electrónico"
         email_confirmation: "Correo electrónico (repetir)"
         phone: "Teléfono móvil"
@@ -313,13 +341,26 @@ es:
         password_confirmation: "Contraseña (repetir)"
         remember_me: "Recordarme"
         wants_newsletter: 'Newsletter'
-        terms_of_service: "He leído y acepto las condiciones generales"
-        age_restriction: "Declaro ser mayor de 18 años"
-        captcha: "Captcha"
+        terms_of_service: "He leído las condiciones y acepto inscribirme"
+        age_restriction: "Declaro ser mayor de 16 años"
+        captcha: "Escribe el siguiente texto o número"
         current_password: "Contraseña actual"
         circle: "Círculo"
       category:
         name: "nombre"
+      verification/center:
+        name: Nombre
+        address: Dirección
+        latitude: Latitud
+        longitude: Longitud
+        created_at: "Creada el"
+        updated_at: "Actualizada el"
+      verification/slot:
+        verification_center: Centro
+        starts_at: Empieza
+        ends_at: Termina
+        created_at: "Creada el"
+        updated_at: "Actualizada el"
   podemos:
     election:
       no_location: "No hay votaciones en tu municipio."
@@ -328,24 +369,6 @@ es:
     home_address: "Domicilio"
     unauthorized: "No tienes permisos para acceder a esa sección"
     banned: "Gracias, %{full_name}. Lamentamos decirte que para poder participar debes enviarnos además una fotocopia de tu documento de identidad a la dirección LOPD@podemos.info o, si te viene mejor, pasarte por cualquier Delegación del Partido. Si quieres más información puedes consultarnos también en organos.autonomicos@podemos.info. Pero lo más eficaz para poder participar de forma inmediata es escanear tu documento y mandárnoslos al primer correo. Muchas gracias y perdona las molestias."
-    user:
-      general_data: "Datos generales"
-      collaborations: "Colaboraciones económicas"
-      personal_data: "Datos personales"
-      change_email: "Cambiar correo electrónico"
-      change_email_explain: "Si cambias tu correo electrónico te enviaremos otro correo para que lo confirmes."
-      change_phone: "Cambiar teléfono móvil"
-      change_phone_explain_html: "Ahora mismo tienes el móvil <b> %{phone} </b>"
-      change_password: "Cambiar contraseña"
-      location_change_blocked: "El cambio de ubicación está bloqueado durante las votaciones. Por favor, espera a que estas acaben para cambiar tu domicilio o lugar de participación."
-      recover_password: "Recuperar contraseña"
-      cancel_account: "Darme de baja"
-      cancel_account_explain_html: "<p>Al pulsar el botón ‘Darme de baja’ dejarás de ser miembro de Podemos y cancelaremos tus datos personales de conformidad con lo dispuesto en la Ley Orgánica 15/1999 de Protección de Datos de Carácter Personal.</p>
-<p> A partir de este momento tu cuenta de acceso al portal de participación de Podemos quedará eliminada.</p>
-<p>
-De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Protección de Datos, la cancelación dará lugar al bloqueo de los datos, conservándose únicamente a disposición de las Administraciones públicas, Jueces y Tribunales, para la atención de las posibles responsabilidades nacidas del tratamiento, durante el plazo de prescripción de éstas. Cumplido el citado plazo se procederá a la supresión de los datos.
-</p>
-"
     devise:
       mailer:
         hello: "Hola"
@@ -370,19 +393,6 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
       button: "¿No estás inscripto? ¡Inscríbete!"
       p1: "Podemos nace con la voluntad de construir una forma nueva de hacer política, y para ello necesitamos desarrollar estructuras organizativas diferentes de las tradicionales, para no repetir errores del pasado, para avanzar hacia una sociedad más democrática. Estamos construyendo una estructura transparente, ciudadana, abierta, democrática, eficaz. Una organización que responda al impulso democratizador de Podemos, en la que discutamos, debatamos y decidamos entre todos. "
       p2: "Pasar a formar parte del censo de inscritos de Podemos, desde el que se realizarán a partir de ahora todas las votaciones. Es un procedimiento sencillo y rápido que te permitirá ser parte activa de la comunidad Podemos. Juntos Podemos, claro que podemos."
-    valid: 
-      phone:
-        p1: "Introduce tu nuevo número de teléfono móvil."
-        p2: "Recibirás el código de verificación para validar el nuevo número en unos segundos."
-        p3: "Si ya has participado en alguna votación de PODEMOS, te enviaremos el código por e-mail."
-        p4: "Introduce el texto que aparece en la imagen."
-        p5: "Introduce el código que hayas recibido por SMS para confirmarlo"
-        valid: "Has validado correctamente."
-        invalid: "El código que has puesto no corresponde con el que te enviamos por SMS."
-        captcha: "Validar Captcha"
-        token: Código SMS
-        button: "Comprobar"
-        captcha_invalid: "Captcha invalido"
     collaboration:
       title: "Colaboración económica" 
       p1: "Colaborando con Podemos conseguirás que este proyecto siga creciendo mes a mes y garantizarás la independencia necesaria para un proyecto cuyas únicas lealtades van a estar del lado de la gente. Convirtamos la indignación en cambio. Es el momento, estamos preparados: Hagámoslo posible."
@@ -433,57 +443,6 @@ y con la frecuencia de pago que ha indicado en el formulario.
 
 Los adeudos domiciliados y los cargos en tarjeta se realizarán entre el día 1 y 15 de cada
 mes, trimestre o año, dependiendo de la frecuencia de pago elegida.'
-    registration:
-      message: 
-        dni: "El formato deben ser 8 números y una letra, sin guiones ni espacios."
-        nie: "El formato deben ser una letra, 7 números y una letra, sin guiones ni espacios."
-        passport: "Envía una copia de tu pasaporte a partido@podemos.info para validar la inscripción."
-        existing_user_location: "Se ha recuperado tu lugar de participación de un usuario anterior."
-      p1_html: "<p> Rellenando este formulario con tus datos pasarás a formar parte del censo de inscritos de Podemos y podrás participar en todas las votaciones. Es un procedimiento sencillo que te permitirá ser parte activa de Podemos.  </p>
-<p> Tus datos se asociarán a un teléfono móvil, en el que recibirás un SMS con tu código de verificación para validar la inscripción.  </p>
-<p><b> ¿Es seguro el sistema de inscripción? </b> </p>
-<p> Totalmente. Hemos intentado buscar el equilibrio entre seguridad y facilidad del proceso, cada inscripción es asociada a un teléfono móvil al que se envía automáticamente el código de verificación personal. Nuestros equipos informáticos han trabajado en el desarrollo de un sistema seguro, fiable y de fácil acceso para todas y todos.  </p>
-<p> *El usuario y contraseña de este portal de votaciones es distinto al de Plaza Podemos y Appgree.  </p>
-<p><a href='/es/preguntas-frecuentes'>¿Problemas con la inscripción?</a></p>
-<p><strong>Si no recibes el correo electrónico para completar la inscripción, recuerda comprobar 
-si ha llegado a la carpeta de <em>correo electrónico no deseado</em>, <em>promociones</em> o <em>spam</em>.</strong></p>
-"
-      terms_of_service:
-        title: 'Condiciones generales'
-        p1_html: '
-<h2>Condiciones generales de inscripción y política de privacidad</h2>
-<p><b> 1. Condiciones legales de la inscripción en Podemos Partido Político</b></p>
-<p>
-Al cumplimentar y enviar el formulario de inscripción el interesado pasará a ser miembro de PODEMOS partido político con CIF G86976941 y será titular de los derechos y obligaciones reconocidos por la legislación española a todos los inscritos en partidos políticos.
-</p>
-<p>
-La inscripción supone la aceptación expresa de los estatutos del partido y los acuerdos éticos, organizativos y políticos que apruebe la Asamblea Ciudadana y demás órganos del partido, así como de los métodos de participación y las fórmulas de decisión que legítimamente se establezcan.
-</p>
-<p><b>2. Protección de datos personales</b></p>
-<p>
-PODEMOS, de acuerdo con la Ley Orgánica 15/1999 de Protección de Datos de Carácter Personal, informa a las personas que quieran inscribirse de que los datos personales que faciliten en el formulario de inscripción serán incorporados al fichero de “afiliados” del que es responsable PODEMOS Partido Político, con CIF G86976941, que los utilizará para gestionar los perfiles de los inscritos, contactar con ellos para gestionar su registro y hacerles llegar toda la información necesaria sobre su inscripción.
-</p>
-<p>
-El inscrito acepta y consiente expresamente el tratamiento de sus datos personales y la recepción de comunicaciones electrónicas para los fines indicados.
-</p>
-<p>
-Salvo imperativo legal, los datos personales de los inscritos no serán cedidos a terceras personas sin su consentimiento expreso.
-</p>
-<p>
-PODEMOS cumple con todas las medidas de seguridad para la protección de datos personales exigidas por el Real Decreto 1720/2007, de 21 de diciembre, por el que se aprueba el Reglamento de desarrollo de la Ley Orgánica 15/1999, de 13 de diciembre, de protección de datos de carácter personal.
-</p>
-<p>
-<p><b>3. Ejercicios de los derechos de acceso, rectificación, cancelación y oposición</b></p>
-<p>
-Para ejercer los derechos de acceso, rectificación, cancelación y posición el inscrito podrá utilizar los formularios disponibles en la página web del perfil de usuario de la web participa.podemos.info o dirigirse por correo electrónico a lopd@podemos.info indicando su nombre y apellidos y adjuntando copia de su DNI o documento legal de identificación.
-</p>
-<p><b>4. Aceptación de las presentes condiciones generales</b></p>
-<p>
-Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO declara haber leído este aviso legal y estar conforme con su contenido.
-</p>
-<p> <b> Podemos </b></p>
-<p> <b>Versión 7 de octubre de 2014 16:01 </b> </p>
-'
     legacy:
       password:
         title: "Cambiar contraseña antigua"
@@ -807,34 +766,49 @@ PODEMOS cumple con todas las medidas de seguridad para la protección de datos p
       total_price: "Importe del premio concedido"
   issues:
     confirm_sms: "Por seguridad, debes confirmar tu teléfono."
-    legacy_password: "Por seguridad, debes cambiar tu contraseña."
     born_at: "Debes indicar tu fecha de nacimiento."
     location: "Por favor, verifica que los datos de tu domicilio son correctos y guarda los datos."
-    country: "Debes indicar el país donde resides."
-    province: "Debes indicar la provincia donde resides."
-    town: "Debes indicar el municipio donde resides."
-    vote_town: "Si lo deseas, puedes indicar el municipio en España donde deseas votar."
   recaptcha:
     errors:
       incorrect-captcha-sol: "Hubo un error con el captcha, por favor completalo de nuevo"
       verification_failed: "Hubo un error con el captcha, por favor completalo de nuevo"
       recaptcha_unreachable: "Hubo un error con el captcha, por favor completalo de nuevo"
+  user:
+    personal_data: "Datos personales"
+    change_email: "Cambiar correo electrónico"
+    change_email_explain: "Si cambias tu correo electrónico te enviaremos otro correo para que lo confirmes."
+    change_phone: "Cambiar teléfono móvil"
+    change_phone_explain_html: "Te has validado con el teléfono móvil <b>%{unprefixed_phone}</b> de <b>%{phone_country}</b> (prefijo internacional %{phone_prefix})."
+    cannot_change_phone: "Lo has confirmado en los últimos tres meses, así que todavía no puedes cambiarlo."
+    change_password: "Cambiar contraseña"
+    cancel_account: "Darme de baja"
+    cancel_account_explain_html: "<p>Al pulsar el botón \"Darme de baja\" dejarás de ser miembro de Un País En Comú y cancelaremos tus datos personales de conformidad con lo dispuesto en la Ley Orgánica 15/1999 de Protección de Datos de Carácter Personal.</p>
+<p> A partir de este momento tu cuenta de acceso al portal de participación de Un País En Comú quedará eliminada.</p>
+<p>
+De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Protección de Datos, la cancelación dará lugar al bloqueo de los datos, conservándose únicamente a disposición de las Administraciones Públicas, Jueces y Tribunales, para la atención de las posibles responsabilidades nacidas del tratamiento, durante el plazo de prescripción de las mismas. Cumplido el citado plazo se procederá a la supresión de los datos.
+</p>
+"
   active_admin:
     scopes:
       created: "Creados"
       confirmed: "Confirmados"
       deleted: "Borrados"
-      unconfirmed_mail: "Email sin confirmar"
-      unconfirmed_phone: "Teléfono sin confirmar"
-      confirmed_mail: "Email confirmado"
-      confirmed_phone: "Teléfono confirmado"
-      legacy_password: "Contraseña antigua (legacy)"
+      unconfirmed_mail: "Correo electrónico sin confirmar"
+      confirmed_mail: "Correo electrónico confirmado"
       signed_in: "Ha iniciado sesión"
       not_signed_in: "No ha iniciado sesión"
       has_collaboration: "Con colaboración económica"
       has_collaboration_credit_card: "Con colaboración económica (tarjeta de crédito)"
       has_collaboration_bank_national: "Con colaboración económica (banco nacional)"
       has_collaboration_bank_international: "Con colaboración económica (banco internacional)"
+      verified: "Verificado"
+      unverified: "No verificado"
+      verified_presentially: "Verificado presencialmente"
+      unverified_presentially: "No verificado presencialmente"
+      verified_online: "Verificado online"
+      unverified_online: "No verificado online"
+      verifying_online: "Verificando Online"
+      verifying_presentially: "Verificando Presencialmente"
       participation_team: "En equipos de participación"
       has_circle: "En Círculo"
   microcredit:
@@ -916,7 +890,168 @@ PODEMOS cumple con todas las medidas de seguridad para la protección de datos p
     refresh_button_text: "Regenerar"
     message:
       default: "El texto introducido no corresponde con el de la imagen"
+  sms_validator:
+    steps:
+      step1: "Introduce tu número de teléfono móvil"
+      step2: "Rellena el código de la imagen"
+      step3: "Introduce el código recibido por SMS"
+    phone:
+      p1: "Introduce tu nuevo número de teléfono móvil."
+      p2: "Recibirás el código de verificación para validar el nuevo número en unos segundos."
+      p3: "Si ya has participado en alguna votación de Un País en Comú, te enviaremos el código por correo electrónico."
+      p4: "Introduce el texto que aparece en la imagen."
+      p5: "Introduce el código que hayas recibido por SMS para confirmarlo"
+      valid: "Has validado correctamente."
+      invalid: "El código que has puesto no corresponde con el que te enviamos por SMS."
+      captcha: "Validar Captcha"
+      token: Código SMS
+      button: "Comprobar"
+      captcha_invalid: "Captcha inválido"
+      information_html: "Debes ingresar un teléfono móvil válido para el país en el que te encuentras, sin prefijo internacional, sólo con números (sin espacios ni guiones). Según el formulario que has rellenado te encuentras en <b>%{country}</b> (prefijo internacional +%{prefix})."
   static:
     privacy: Política de privacidad
     legal: Aviso legal
     cookies: Política de cookies
+  registration:
+    catalonia_resident: "Resido en Cataluña"
+    choose_province: "Elige una provincia"
+    choose_town: "Elige un municipio"
+    country: "País"
+    province: "Provincia"
+    town: "Municipio"
+    inscription_policy: Condiciones de inscripción
+    legends:
+      inscription_html: "Inscribirse en En Comú te da derecho a participar en todas las consultas y procesos participativos que se lancen en esta aplicación. No supone ninguna obligación económica, aunque puedes colaborar en este sentido si lo deseas. Aceptando, recibirás nuestros newsletters informativos.<br><br> EN COMÚ con personalidad jurídica propia, de acuerdo con la Ley Orgánica 6/2002, de 27 de junio, de Partidos Políticos, e inscrita en el Registro de Partidos Políticos con fecha 1 de abril de 2015, Folio 113, Tomo IX. Domicilio social: C. Or, 44 3º-2ª (CP 08012 BARCELONA). Telèfon: 935.321.796. "
+      legal0: Véanse las condiciones de inscripción
+      legal1: Véase la política de privacidad
+      legal2: Véase el aviso legal
+      legal3: Véase la política de Cookies
+      password_limits: Mínimo 6 caracteres
+      cant_modify: No puedes modificarlo
+      cis_key: CIS (cisgénero)
+      cis_definition: persona que se identifica con el género que le fue asignado al nacer
+      trans_key: TRANS (transgénero)
+      trans_definition: persona que no se identifica con el género que le fue asignado al nacer y por tanto vive en otra identidad de género
+      fluid_key: Género No-binario
+      fluid_definition: persona que no se identifica con ninguno de los dos géneros binarios establecidos de forma única
+    message:
+      dni: "El formato debe ser 8 números y una letra, sin guiones ni espacios."
+      nie: "El formato debe ser una letra, 7 números y una letra, sin guiones ni espacios."
+      passport: "El formato debe ser sin guiones ni espacios."
+      existing_user_location: "Se ha recuperado tu lugar de participación de un usuario anterior."
+      welcome_html: "
+        <p>
+          Apúntate al formulario para recibir información y para poder
+          participar en la construcción del nuevo espacio.
+        </p>
+
+        <p>
+          Para votar en las próximas votaciones te tienes que registrar
+          rellenando este formulario. Te llegará un correo para validarte. Si
+          no recibes el correo ponte en contacto con nosotros
+          <a href='http://unpaisencomu.cat/es/contact'>aquí</a>.
+        </p>
+        "
+  verification:
+    to: a
+    show:
+      title: "Mapa de puntos de verificación"
+      explain_html: "Aquí puedes ver todos los puntos y horarios habilitados para que vayas a verificarte."
+      no_points: "No hay ningún punto activo actualmente."
+      link_title: "inscribirte"
+    pending0_html: No has finalizado la verificación
+    pending1_html: Para acabar el proceso de verificación necesitas aportar documentación de forma presencial.
+    pending2_html: <b>Trae un DNI o NIE</b> que tenga la dirección de Cataluña
+    pending3_html: ¿No tienes dirección en Cataluña?
+    pending4_html: "<li>Trae el:</li><li><b>DNI/NIE</b> con dirección</li><li><li> de fuera de Cataluña </li><li> o el <b>Pasaporte</b></li><li> o el <b>Carnet de conducir</b></li>"
+    pending5_html: y también
+    pending6_html: "<li><b>Empadronamiento</b>,</li><li><b>tarjeta censal</b></li><li> o cualquier <b>recibo</b></li><li> (luz, agua o gas)</li><li> del último año.</li>"
+    pending7_html: "Trae la documentación a:"
+    user_verified: Usuario/a verificado/a
+    user_unverified: No te has verificado
+    title: Verificación
+    step1: Pedir documentos
+    step2: Pedir correo electrónico
+    step3: Comprobar
+    welcome_html: "<p>Pídele amablemente al usuario/a los documentos que debe haber traído y comprueba que sea <b>mayor de 16 años y que la dirección sea de Barcelona</b>. En caso de que el DNI o NIE no tenga dirección en Barcelona, o en le caso de pasaporte y carnet de conducir, que no pone dirección, se deberá aportar: <ul>
+      <li>
+   -Algún documento que acredite dirección en Barcelona:
+     </li>
+      <li>
+   -empadronamiento o
+     </li>
+      <li>
+   -tarjeta censal o
+     </li>
+      <li>
+   -recibo de suministro (luz, agua o gas) de los últimos 12 meses. Deberían cumplirse los siguientes requisitos:
+     </li>
+     </ul>
+   </p>"
+    next: Siguiente
+    next_user: Continuar con el siguiente usuario
+    confirm: Si, estos datos coinciden
+    no_confirm: No, estos datos no coinciden
+    new: "Pídele a la persona el correo electrónico con el que se inscribió y escríbelo aquí."
+    document: "DNI/NIE/Pasaporte"
+    full_name: Nombre completo
+    born_at: Fecha de nacimiento
+    document_type: Tipo y número de documento
+    email: Correo electrónico
+    result: Para finalizar el proceso tienes que comprobar que coincidan los datos con los que aquí se muestran.
+    sure: ¿Estás seguro/a que quieres confirmar este usuario/a?
+    admin: Gestor de verificaciones
+    alerts:
+      already_presencial: "El usuario/a con documento %{document} ya estaba verificado, por %{by}, el %{when}. El usuario/a ya podrá votar."
+      already_sms: "El usuario/a con documento %{document} ya estaba verificado, por SMS, el %{when}. El usuario/a ya podrá votar."
+      already: "El usuario/a con documento %{document} ya estaba verificado. El usuario/a ya podrá votar."
+      ok:
+        title: Se ha verificado al usuario correctamente
+        msg_html: "La persona ha sido verificada correctamente. Le hemos enviado un correo avisándole. Podrá votar en futuras votaciones. Puedes verificar al siguiente usuario."
+      ko:
+        title: No se ha verificado al usuario.
+        msg_html: "No va a poder votar en las próximas consultas. Envíale un Telegram al Coordinador de tu distrito con los datos (nombre, correo electrónico y DNI) del usuario para que lo revise. Informa al usuario que nos pondremos en contacto con él o ella lo más pronto posible."
+      not_found: "No hemos encontrado un usuario/a con este correo electrónico %{query1} %{query2}. Presta atención y vuelve a escribir el correo. Si vuelve a ocurrir puede ser que el usuario no esté creado en el sistema o haya algún problema con su cuenta. Enviale sus datos al Responsable de tu Distrito para que lo revisemos. Ya lo contactaremos. "
+      problem: "No está inscrito/a, se inscribió con otro correo o escribió mal el correo al inscribirse. Envía a tu verificador vía Telegram la siguiente información: DNI
+Número de teléfono y correo electrónico y comunícale que nos pondremos en contacto con el o ella."
+    mailer:
+      hello: "Hola %{user},"
+      bye: Saludos
+      finish:
+        subject: Un País en Comú - Fin del primer proceso de verificación
+      to_verify:
+        subject: Un País en Comú - Hace falta que te verifiques
+      verified:
+        subject: Un País en Comú - Has sido verificado correctamente
+        message: "Enhorabuena!! Ya has sido verificado/a y formas parte de la comunidad de Un País en Comú.
+
+A partir de ahora ya no necesitas verificarte más y podrás participar de las futuras consultas.
+
+Cada vez que haya una votación te avisaremos por correo para que puedas participar. Recuerda, ahora formas parte de la comunidad y podrás participar en la toma colectiva de decisiones.
+
+Gracias por inscribirte en Un País en Comú."
+        message_html: "<p>Enhorabuena!! Ya has sido verificado/a y formas parte de la comunidad de Un País en Comú.</p>
+
+<p>A partir de ahora ya no necesitas verificarte más y podrás participar de las futuras consultas. </p>
+
+<p>Cada vez que haya una consulta te avisaremos por correo electrónico para que puedas ejercer tu derecho a voto. Recuerda, ahora formas parte de la comunidad y podrás  participar en la toma colectiva de decisiones. </p>
+
+<p>Gracias por inscribirte en Un País en Comú.</p>"
+    form:
+      document: He verificado el documento original del inscrito/a
+      age: El inscrito/a es mayor de 16 años - nacido/a antes de %{date}
+      town: He verificado un documento (DNI/NIE/Pasaporte, recibo de un suministro) que acredita que el inscrito/a vive en Cataluña.
+  voting:
+    title: "Bienvenido a Participa"
+    election_one: Hay una votación en curso.
+    election_none: No hay ninguna votación en curso. Cuando exista una votación te avisaremos por correo electrónico.
+    election_use_one: La votación utiliza
+    election_use_mul: Las votaciones utilizan
+    secure_system: el sistema seguro de
+    remember_last: "."
+    participate: ""
+    button: Votar
+    upcoming_1: Las votaciones están a punto de empezar.
+    upcoming_2: Las urnas se abrirán el
+    finished_1: Las votaciones ya han finalizado. Gracias por participar.
+    continue: "seguir votando"

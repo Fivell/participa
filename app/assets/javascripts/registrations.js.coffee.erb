@@ -25,8 +25,8 @@ has_passport = () ->
 
 init_registrations = () ->
 
-  if ( $('.js-registration-document:checked').length > 0 )
-    document_type = $('.js-registration-document:checked').find('option:selected').text()
+  if ( $('.js-registration-document').val() != '' )
+    document_type = $('.js-registration-document').find('option:selected').text()
     document_change(document_type)
 
   $('.js-registration-document').change (event) ->

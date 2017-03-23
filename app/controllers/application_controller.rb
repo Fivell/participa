@@ -1,12 +1,14 @@
 class ApplicationController < ActionController::Base
+  include Featurable
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :banned_user
-  before_action :unresolved_issues
-  before_action :configure_sign_in_params, if: :devise_controller?
   before_action :set_locale
+  before_action :banned_user
+  before_action :verified_user
+  before_action :configure_sign_in_params, if: :devise_controller?
   before_action :allow_iframe_requests
   before_action :admin_logger
 
@@ -20,7 +22,7 @@ class ApplicationController < ActionController::Base
       if user_signed_in?
         tracking.info "** #{current_user.full_name} ** #{request.method()} #{request.path}"
       else
-        tracking.info "** Anonimous ** #{request.method()} #{request.path}"
+        tracking.info "** Anonymous ** #{request.method()} #{request.path}"
       end
       tracking.info params.to_s
       #tracking.info request
@@ -38,25 +40,6 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     cookies.permanent[:cookiepolicy] = 'hide'
 
-    # reset session value
-    session[:no_unresolved_issues] = false
-
-    issue = user.get_unresolved_issue
-
-    if issue
-      # clear user validation errors if generated on issues check to avoid stop login process
-      user.errors.messages.clear
-
-      flash.delete(:notice) # remove succesfully logged message
-      if issue[:message]
-        issue[:message].each { |type, text| flash[type] = t("issues."+text) }
-      end
-      return issue[:path]
-    end
-
-    # no issues, don't check it again
-    session[:no_unresolved_issues] = true
-
     super    
   end
   
@@ -68,29 +51,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def unresolved_issues
+  def verified_user
     if current_user
+      return nil if allowed_for_unverified?
 
-      if session[:no_unresolved_issues]
-        return nil
-      end
-      # get an unresolved issue, if any
-      issue = current_user.get_unresolved_issue true
-      if issue
-        # user is in the right page to fix problem, just inform about the issue
-        if params[:controller] == issue[:controller]
-          if issue[:message] and request.method != "POST" # only inform in the first request of the page
-            issue[:message].each { |type, text| flash.now[type] = t("issues."+text) }
-          end
-        # user wants to log out or edit his profile
-        elsif params[:controller] == 'devise/sessions' or params[:controller] == "registrations" or params[:controller].start_with? "admin/"
-        # user can't do anything else but fix the issue
+      if !current_user.is_verified? && online_verifications_enabled?
+        if params["controller"] == "sms_validator"
+          flash.now[:alert] = t("issues.confirm_sms")
         else
-          redirect_to issue[:path]
+          redirect_to sms_validator_step1_path
         end
-      else
-        # when everything is OK, stop checking issues
-        session[:no_unresolved_issues] = true
       end
     end
   end
@@ -121,5 +91,11 @@ class ApplicationController < ActionController::Base
 
   def sign_in_permitted_keys
     %i(login document_vatid email password remember_me)
+  end
+
+  def allowed_for_unverified?
+      params[:controller] == 'devise/sessions' or
+      params[:controller] == "registrations" or
+      params[:controller].start_with? "admin/"
   end
 end

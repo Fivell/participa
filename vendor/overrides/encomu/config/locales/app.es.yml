@@ -32,99 +32,6 @@ es:
       not_valid_nif: El DNI no es válido
       not_valid_cif: El CIF no es válido
       not_valid_nie: El NIE no es válido
-  activerecord:
-    models:
-      user: Usuario
-      users: Usuarios
-      collaboration: Colaboración económica
-      collaborations: Colaboraciones económicas
-      order: Orden de pago
-      orders: Órdenes de pago
-      election: Elección
-      elections: Elecciones
-      notice: Aviso
-      notices: Avisos
-      report: Reporte
-      reports: Reportes
-      verification_center: "Punto de Verificación"
-      verification_centers: "Puntos de Verificación"
-      verification/center: "Punto de Verificación"
-      verification/centers: "Puntos de Verificación"
-      verification/slot: "Horario"
-      verification/slots: "Horarios"
-    attributes:
-      verification/center:
-        name: Nombre
-        address: Dirección
-        latitude: Latitud
-        longitude: Longitud
-        created_at: "Creada el"
-        updated_at: "Actualizada el"
-      verification/slot:
-        starts_at: Empieza
-        ends_at: Termina
-        created_at: "Creada el"
-        updated_at: "Actualizada el"
-      collaboration:
-        user: "Usuario"
-        created_at: "Creada el"
-        updated_at: "Actualizada el"
-        amount: "Importe mensual"
-        frequency: "Frecuencia de pago"
-        frequency_name: "Frecuencia de pago"
-        minimal_year_old: "Edad mínima requerida"
-        terms_of_service: "Acuerdo legal"
-        order_id: "Número de orden en Redsys"
-        payment_type: "Método de pago"
-        payment_type_name: "Método de pago"
-        ccc_entity: "Entidad"
-        ccc_office: "Oficina"
-        ccc_dc: "DC"
-        ccc_account: "Número de cuenta"
-        iban_account: "IBAN"
-        iban_bic: "BIC/SWIFT"
-      order:
-        status: "Estado"
-        status_name: "Estado"
-        collaboration: "Colaboración"
-        user: "Usuario"
-        payable_at: "Ha cobrarse el"
-        payed_at: "Cobrada el"
-        created_at: "Creada el"
-        deleted_at: "Borrada el"
-        updated_at: "Actualizada el"
-      election:
-        title: "Título"
-        agora_election_id: "ID en AgoraVoting"
-        starts_at: "Empieza"
-        ends_at: "Termina"
-        close_message: "Mensaje de cierre"
-      notice:
-        title: "Título"
-        body: "Mensaje"
-      user:
-        login: "Correo electrónico o Nº de documento"
-        first_name: "Nombre"
-        last_name: "Apellidos"
-        document_type: "Tipo de documento"
-        document_vatid: "Nº de documento"
-        born_at: "Fecha de nacimiento"
-        gender_identity: "Identidad de género"
-        email: "Correo electrónico"
-        email_confirmation: "Correo electrónico (repetir)"
-        phone: "Teléfono móvil"
-        unconfirmed_phone: "Teléfono móvil"
-        address: "Dirección"
-        postal_code: "Código postal"
-        password: "Contraseña"
-        password_confirmation: "Contraseña (repetir)"
-        remember_me: "Recordarme"
-        wants_newsletter: 'Newsletter'
-        terms_of_service: "He leído las condiciones y acepto inscribirme"
-        age_restriction: "Declaro ser mayor de 16 años"
-        captcha: "Escribe el siguiente texto o número"
-        current_password: "Contraseña actual"
-
   formtastic:
     hints:
       user:
@@ -135,22 +42,6 @@ es:
     other_locales: "Otros idiomas"
     home_address: "Domicilio"
     unauthorized: "No tienes permisos para acceder a esa sección"
-    user:
-      general_data: "Datos generales"
-      collaborations: "Colaboraciones económicas"
-      personal_data: "Datos personales"
-      change_email: "Cambiar correo electrónico"
-      change_email_explain: "Si cambias tu correo electrónico te enviaremos otro correo para que lo confirmes."
-      change_phone: "Cambiar teléfono móvil"
-      change_phone_explain_html: "Ahora mismo tienes el móvil <b> %{phone} </b>"
-      change_password: "Cambiar contraseña"
-      cancel_account: "Darme de baja"
-      cancel_account_explain_html: "<p>Al pulsar el botón ‘Dame de baja’ dejarás de pertenecer a Un País En Comú y cancelaremos tus datos personales, de conformidad con lo dispuesto en la Ley Orgánica 15/1999 de Protección de Datos de Carácter Personal.</p>
-<p> A partir de este momento tu cuenta de acceso al portal de participación de Un País En Comú quedará eliminada.</p>
-<p>
-De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Protección de Datos, la cancelación dará lugar al bloqueo de los datos, conservándose únicamente a disposición de las Administraciones Públicas, Jueces y Tribunales, para la atención de las posibles responsabilidades nacidas del tratamiento, durante el plazo de prescripción de las mismas. Cumplido el citado plazo, se procederá a la supresión de los datos.
-</p>
-"
     devise:
       mailer:
         hello: "¡Hola %{user}!"
@@ -187,18 +78,6 @@ este mensaje. Si lo recibes varias veces, avísanos a %{mail}."
       p1: "Un País en Comú nace con la voluntad de construir una forma nueva de hacer política, y para ello necesitamos desarrollar estructuras organizativas diferentes de las tradicionales, para no repetir errores del pasado, para avanzar hacia una sociedad más democrática. Estamos construyendo una estructura transparente, ciudadana, abierta, democrática, eficaz. Una organización que responda al impulso democratizador de Un País en Comú, en la que discutamos, debatamos y decidamos entre todos y todas. "
       p2: "Pasar a formar parte del censo de inscritos de Un País en Comú, desde el que se realizarán a partir de ahora todas las votaciones. Es un procedimiento sencillo y rápido que te permitirá ser parte activa de la comunidad Un País en Comú."
     valid:
-      phone:
-        p1: "Introduce tu nuevo número de teléfono móvil."
-        p2: "Recibirás el código de verificación para validar el nuevo número en unos segundos."
-        p3: "Si ya has participado en alguna votación de Un País en Comú, te enviaremos el código por correo electrónico."
-        p4: "Introduce el texto que aparece en la imagen."
-        p5: "Introduce el código que hayas recibido por SMS para confirmarlo"
-        valid: "Has validado correctamente."
-        invalid: "El código que has puesto no corresponde con el que te enviamos por SMS."
-        captcha: "Validar Captcha"
-        token: Código SMS
-        button: "Comprobar"
-        captcha_invalid: "Captcha inválido"
       terms_of_service:
         title: 'Condiciones generales'
         p1_html: '
@@ -235,45 +114,6 @@ Al marcar la casilla “He leído y acepto las condiciones generales" el USUARIO
 <p> <b> Un País en Comú </b></p>
 <p> <b>Versión 7 de octubre de 2014 16:01 </b> </p>
 '
-    registration:
-      catalonia_resident: "Resido en Cataluña"
-      choose_province: "Elige una provincia"
-      choose_town: "Elige un municipio"
-      country: "País"
-      province: "Provincia"
-      town: "Municipio"
-      inscription_policy: Condiciones de inscripción
-      legends:
-        inscription_html: "Inscribirse en En Comú te da derecho a participar en todas las consultas y procesos participativos que se lancen en esta aplicación. No supone ninguna obligación económica, aunque puedes colaborar en este sentido si lo deseas. Aceptando, recibirás nuestros newsletters informativos.<br><br> EN COMÚ con personalidad jurídica propia, de acuerdo con la Ley Orgánica 6/2002, de 27 de junio, de Partidos Políticos, e inscrita en el Registro de Partidos Políticos con fecha 1 de abril de 2015, Folio 113, Tomo IX. Domicilio social: C. Or, 44 3º-2ª (CP 08012 BARCELONA). Telèfon: 935.321.796. "
-        legal0: Véanse las condiciones de inscripción
-        legal1: Véase la política de privacidad
-        legal2: Véase el aviso legal
-        legal3: Véase la política de Cookies
-        password_limits: Mínimo 6 caracteres
-        cant_modify: No puedes modificarlo
-        cis_key: CIS (cisgénero)
-        cis_definition: persona que se identifica con el género que le fue asignado al nacer
-        trans_key: TRANS (transgénero)
-        trans_definition: persona que no se identifica con el género que le fue asignado al nacer y por tanto vive en otra identidad de género
-        fluid_key: Género No-binario
-        fluid_definition: persona que no se identifica con ninguno de los dos géneros binarios establecidos de forma única
-      message:
-        dni: "El formato debe ser 8 números y una letra, sin guiones ni espacios."
-        nie: "El formato debe ser una letra, 7 números y una letra, sin guiones ni espacios."
-        passport: "Envía una copia de tu pasaporte a info@unpaisencomu.cat para validar la inscripción."
-        welcome_html: "
-          <p>
-            Apúntate al formulario para recibir información y para poder
-            participar en la construcción del nuevo espacio.
-          </p>
-
-          <p>
-            Para votar en las próximas votaciones te tienes que registrar
-            rellenando este formulario. Te llegará un correo para validarte. Si
-            no recibes el correo ponte en contacto con nosotros
-            <a href='http://unpaisencomu.cat/es/contact'>aquí</a>.
-          </p>
-          "
     legacy:
       password:
         title: "Cambiar contraseña antigua"
@@ -476,42 +316,8 @@ Un País en Comú cumple con todas las medidas de seguridad para la protección 
 </p>
 <p> <b> Un País en Comú Partido Político<br> CIF G66476136<br> Versión 25 de Febrero de 2015 12:00<br> </b> </p>
 '
-  issues:
-    confirm_sms: "Por seguridad, debes confirmar tu teléfono."
-    legacy_password: "Por seguridad, debes cambiar tu contraseña."
-    born_at: "Debes indicar tu fecha de nacimiento."
-    location: "Por favor, verifica que los datos de tu domicilio son correctos y guarda los datos."
-    country: "Debes indicar el país donde resides."
-    province: "Debes indicar la provincia donde resides."
-    town: "Debes indicar el municipio donde resides."
-
-  recaptcha:
-    errors:
-      incorrect-captcha-sol: "Hubo un error con el captcha, por favor complétalo de nuevo"
-      verification_failed: "Hubo un error con el captcha, por favor complétalo de nuevo"
-      recaptcha_unreachable: "Hubo un error con el captcha, por favor complétalo de nuevo"
   election:
     close_message: "Ha llegado la fecha límite para votar. La votación está cerrada."
-  active_admin:
-    scopes:
-      created: "Creados"
-      confirmed: "Confirmados"
-      deleted: "Borrados"
-      unconfirmed_mail: "Correo electrónico sin confirmar"
-      unconfirmed_phone: "Teléfono sin confirmar"
-      confirmed_mail: "Correo electrónico confirmado"
-      confirmed_phone: "Teléfono confirmado"
-      legacy_password: "Contraseña antigua (legacy)"
-      signed_in: "Ha iniciado sesión"
-      not_signed_in: "No ha iniciado sesión"
-      has_collaboration: "Con colaboración económica"
-      has_collaboration_credit_card: "Con colaboración económica (tarjeta de crédito)"
-      has_collaboration_bank_national: "Con colaboración económica (banco nacional)"
-      has_collaboration_bank_international: "Con colaboración económica (banco internacional)"
-      verified_presencial: "Verificado presencialmente"
-      unverified_presencial: "No verificado presencialmente"
-      verifications_admin: "Equipo de Verificación"
-      voting_right: "Con derecho a voto"
   page:
     faq:
       title: "Preguntas Frecuentes - Votaciones"
@@ -685,111 +491,6 @@ Un País en Comú cumple con todas las medidas de seguridad para la protección 
 <a target="_blank" href="https://barcelonaencomu.cat/es/aviso-legal">Véase el aviso legal</a><br>
 <a target="_blank" href="https://barcelonaencomu.cat/es/politica-de-cookies">Véase la política de Cookies</a></p>'
   welcome_count_html: "Usuarios inscritos: <span>%{count_all_users}</span><br>Usuarios inscritos y verificados: <span>%{count_verif_users}</span>"
-  voting:
-    title: "Bienvenido a Participa"
-    election_one: Hay una votación en curso.
-    election_none: No hay ninguna votación en curso. Cuando exista una votación te avisaremos por correo electrónico. Gracias por pertenecer a la comunidad de Barcelona En Comú.
-    election_use_one: La votación utiliza
-    election_use_mul: Las votaciones utilizan
-    secure_system: el sistema seguro de
-    remember_last: "."
-    participate: ""
-    button: Votar
-    upcoming_1: Las votaciones están a punto de empezar.
-    upcoming_2: Las urnas se abrirán el
-    finished_1: Las votaciones ya han finalizado. Gracias por participar.
-    continue: "seguir votando"
-  verification:
-    to: a
-    show:
-      title: "Mapa de puntos de verificación"
-      explain_html: "Aquí puedes ver todos los puntos y horarios habilitados para que vayas a verificarte."
-      no_points: "No hay ningún punto activo actualmente."
-      link_title: "inscribirte"
-    pending0_html: No has finalizado la verificación
-    pending1_html: Para acabar el proceso de verificación necesitas aportar documentación de forma presencial.
-    pending2_html: <b>Trae un DNI o NIE</b> que tenga la dirección de Barcelona
-    pending3_html: ¿No tienes dirección en Barcelona?
-    pending4_html: "<li>Trae el:</li><li><b>DNI/NIE</b> con dirección</li><li><li> de fuera de Barcelona </li><li> o el <b>Pasaporte</b></li><li> o el <b>Carnet de conducir</b></li>"
-    pending5_html: y también
-    pending6_html: "<li><b>Empadronamiento</b>,</li><li><b>tarjeta censal</b></li><li> o cualquier <b>recibo</b></li><li> (luz, agua o gas)</li><li> del último año.</li>"
-    pending7_html: "Trae la documentación a:"
-    user_verified: Usuario/a verificado/a
-    user_unverified: No te has verificado
-    title: Verificación
-    step1: Pedir documentos
-    step2: Pedir correo electrónico
-    step3: Comprobar
-    welcome_html: "<p>Pídele amablemente al usuario/a los documentos que debe haber traído y comprueba que sea <b>mayor de 16 años y que la dirección sea de Barcelona</b>. En caso de que el DNI o NIE no tenga dirección en Barcelona, o en le caso de pasaporte y carnet de conducir, que no pone dirección, se deberá aportar: <ul>
-      <li>
-   -Algún documento que acredite dirección en Barcelona:
-     </li>
-      <li>
-   -empadronamiento o
-     </li>
-      <li>
-   -tarjeta censal o
-     </li>
-      <li>
-   -recibo de suministro (luz, agua o gas) de los últimos 12 meses. Deberían cumplirse los siguientes requisitos:
-     </li>
-     </ul>
-   </p>"
-    next: Siguiente
-    next_user: Continuar con el siguiente usuario
-    confirm: Si, estos datos coinciden
-    no_confirm: No, estos datos no coinciden
-    new: "Pídele a la persona el correo electrónico con el que se inscribió y escríbelo aquí."
-    document: "DNI/NIE/Pasaporte"
-    full_name: Nombre completo
-    born_at: Fecha de nacimiento
-    document_type: Tipo y número de documento
-    email: Correo electrónico
-    result: Para finalizar el proceso tienes que comprobar que coincidan los datos con los que aquí se muestran.
-    sure: ¿Estás seguro/a que quieres confirmar este usuario/a?
-    admin: Gestor de verificaciones
-    alerts:
-      already_presencial: "El usuario/a con documento %{document} ya estaba verificado, por %{by}, el %{when}. El usuario/a ya podrá votar."
-      already_sms: "El usuario/a con documento %{document} ya estaba verificado, por SMS, el %{when}. El usuario/a ya podrá votar."
-      already: "El usuario/a con documento %{document} ya estaba verificado. El usuario/a ya podrá votar."
-      ok:
-        title: Se ha verificado al usuario correctamente
-        msg_html: "La persona ha sido verificada correctamente. Le hemos enviado un correo avisándole. Podrá votar en futuras votaciones. Puedes verificar al siguiente usuario."
-      ko:
-        title: No se ha verificado al usuario.
-        msg_html: "No va a poder votar en las próximas consultas. Envíale un Telegram al Coordinador de tu distrito con los datos (nombre, correo electrónico y DNI) del usuario para que lo revise. Informa al usuario que nos pondremos en contacto con él o ella lo más pronto posible."
-      not_found: "No hemos encontrado un usuario/a con este correo electrónico %{query1} %{query2}. Presta atención y vuelve a escribir el correo. Si vuelve a ocurrir puede ser que el usuario no esté creado en el sistema o haya algún problema con su cuenta. Enviale sus datos al Responsable de tu Distrito para que lo revisemos. Ya lo contactaremos. "
-      problem: "No está inscrito/a, se inscribió con otro correo o escribió mal el correo al inscribirse. Envía a tu verificador vía Telegram la siguiente información: DNI
-Número de teléfono y correo electrónico y comunícale que nos pondremos en contacto con el o ella."
-    mailer:
-      hello: "Hola %{user},"
-      bye: Saludos
-      finish:
-        subject: Un País en Comú - Fin del primer proceso de verificación
-      to_verify:
-        subject: Un País en Comú - Hace falta que te verifiques
-      verified_legacy:
-        subject: Un País en Comú - No hace falta que te verifiques
-      verified:
-        subject: Un País en Comú - Has sido verificado correctamente
-        message: "Enhorabuena!! Ya has sido verficado/a y formas parte de la comunidad de Un País en Comú.
-
-A partir de ahora ya no necesitas verificarte más y podrás participar de las futuras consultas.
-
-Cada vez que haya una votación te avisaremos por correo  para que puedas participar. Recuerda, ahora formas parte de la  comunidad y podrás participar en la toma colectiva de decisiones.
-
-Gracias por inscribirte en Un País en Comú."
-        message_html: "<p>Enhorabuena!! Ya has sido verficado/a y formas parte de la comunidad de Un País en Comú.</p>
-
-<p>A partir de ahora ya no necesitas verificarte más y podrás participar de las futuras consultas. </p>
-
-<p>Cada  vez que haya una consulta te avisaremos por correo electrónico  para que puedas  ejercer tu drecho a voto. Recuerda, ahora formas parte de la  comunidad y podrás  participar en la toma colectiva de decisiones. </p>
-
-<p>Gracias por inscribirte en Un País en Comú.</p>"
-    form:
-      document: He verificado el documento original del inscrito/a
-      age: El inscrito/a es mayor de 16 años - nacido/a antes de %{date}
-      town: He verificado un documento (DNI/NIE/Pasaporte, recibo de un suministro) que acredita que el inscrito/a vive en Barcelona
   podemos:
     error:
       title: "No se han podido actualizar los datos"

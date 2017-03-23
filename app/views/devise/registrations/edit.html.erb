@@ -1,4 +1,4 @@
-<%= content_for :title, t("bec.user.personal_data") %>
+<%= content_for :title, t("user.personal_data") %>
 
 <div class="content-content">
   <div class="row">
@@ -8,29 +8,29 @@
         <ul>
           <li <%= "class=active" if account_update_tab == "general" %>>
             <a href="#personal-data" class="js-change-tab">
-              <span><%= t("bec.user.personal_data")%></span>
+              <span><%= t("user.personal_data")%></span>
             </a>
           </li>
           <li <%= "class=active" if account_update_tab == "password" %>>
             <a href="#change-password" class="js-change-tab">
-              <span><%=t("bec.user.change_password") %></span>
+              <span><%=t("user.change_password") %></span>
             </a>
           </li>
           <li <%= "class=active" if account_update_tab == "email" %>>
             <a href="#change-email" class="js-change-tab">
-              <span><%=t("bec.user.change_email") %></span>
+              <span><%=t("user.change_email") %></span>
             </a>
           </li>
-          <% if Rails.application.secrets.features["verification_sms"] %>
+          <% if online_verifications_enabled? %>
             <li>
               <a href="#change-phone" class="js-change-tab">
-                <span><%=t("bec.user.change_phone") %></span>
+                <span><%=t("user.change_phone") %></span>
               </a>
             </li>
           <% end %>
           <li>
             <a href="#cancel-account" class="js-change-tab">
-              <span><%= t("bec.user.cancel_account") %></span>
+              <span><%= t("user.cancel_account") %></span>
             </a>
           </li>
         </ul>
@@ -50,7 +50,7 @@
              class="<%= 'invisible' unless account_update_tab == 'email' %> js-personal-content">
           <%= render partial: 'change_email' %>
         </div>
-        <% if Rails.application.secrets.features["verification_sms"] %>
+        <% if online_verifications_enabled? %>
           <div id="change-phone" class="invisible js-personal-content">
             <%= render partial: 'change_phone' %>
           </div>

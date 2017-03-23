@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106131451) do
+ActiveRecord::Schema.define(version: 20170322103431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20170106131451) do
     t.text     "body"
     t.string   "resource_id",   null: false
     t.string   "resource_type", null: false
-    t.integer  "author_id"
     t.string   "author_type"
+    t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
@@ -564,7 +564,6 @@ ActiveRecord::Schema.define(version: 20170106131451) do
     t.string   "sms_confirmation_token"
     t.datetime "confirmation_sms_sent_at"
     t.datetime "sms_confirmed_at"
-    t.boolean  "has_legacy_password"
     t.integer  "failed_attempts",          default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
@@ -596,11 +595,13 @@ ActiveRecord::Schema.define(version: 20170106131451) do
 
   create_table "verification_centers", force: :cascade do |t|
     t.string   "name"
-    t.string   "address"
+    t.string   "street"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "postalcode"
+    t.string   "city"
   end
 
   create_table "verification_slots", force: :cascade do |t|
@@ -609,6 +610,8 @@ ActiveRecord::Schema.define(version: 20170106131451) do
     t.integer  "verification_center_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_verification_slots_on_user_id", using: :btree
   end
 
   create_table "versions", force: :cascade do |t|
@@ -637,4 +640,5 @@ ActiveRecord::Schema.define(version: 20170106131451) do
   add_foreign_key "impulsa_project_topics", "impulsa_projects"
   add_foreign_key "impulsa_projects", "impulsa_edition_categories"
   add_foreign_key "impulsa_projects", "users"
+  add_foreign_key "verification_slots", "users"
 end

@@ -48,10 +48,7 @@ Rails.application.routes.draw do
     get '/vote/sms_check/:election_id', to: 'vote#sms_check', as: :sms_check_vote
     get '/vote/send_sms_check/:election_id', to: 'vote#send_sms_check', as: :send_sms_check_vote
     
-    devise_for :users, controllers: { 
-      registrations: 'registrations', 
-      passwords:     'passwords'
-    } 
+    devise_for :users, controllers: { registrations: 'registrations' }
 
     get '/microcreditos', to: 'microcredit#index', as: 'microcredit'
     get '/microcréditos', to: redirect('/microcreditos')
@@ -114,9 +111,6 @@ Rails.application.routes.draw do
 
       authenticated :user do
         root 'tools#index', as: :authenticated_root
-        get 'password/new', to: 'legacy_password#new', as: 'new_legacy_password'
-        post 'password/update', to: 'legacy_password#update', as: 'update_legacy_password'
-        delete 'password/recover', to: 'registrations#recover_and_logout'
       end
       unauthenticated do
         root 'devise/sessions#new', as: :root

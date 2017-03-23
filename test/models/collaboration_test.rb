@@ -3,7 +3,7 @@ require 'test_helper'
 class CollaborationTest < ActiveSupport::TestCase
 
   setup do
-    @collaboration = FactoryGirl.create(:collaboration, :ccc)
+    @collaboration = create(:collaboration, :ccc)
   end
 
   test "should validations on collaborations work" do
@@ -28,13 +28,13 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should national and international scopes work" do
-    c1 = FactoryGirl.create(:collaboration, :ccc)
-    c2 = FactoryGirl.create(:collaboration, :iban)
+    c1 = create(:collaboration, :ccc)
+    c2 = create(:collaboration, :iban)
     c2.iban_account = "ES0690000001210123456789"
     c2.iban_bic = "ESPBESMMXXX"
     c2.save
 
-    c3 = FactoryGirl.create(:collaboration, :iban)
+    c3 = create(:collaboration, :iban)
     c3.iban_account = "BE62510007547061"
     c3.iban_bic = "BEXXXXX"
     c3.save
@@ -61,13 +61,13 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should .validates_not_passport work" do
-    collaboration = FactoryGirl.build(:collaboration, :foreign_user)
+    collaboration = build(:collaboration, :foreign_user)
     assert_not collaboration.valid?
     assert(collaboration.errors[:user].include? "No puedes colaborar si no dispones de DNI o NIE.")
   end
 
   test "should .validates_age_over work" do
-    user = FactoryGirl.build(:user)
+    user = build(:user)
     user.update_attribute(:born_at, DateTime.now-10.years)
     @collaboration.user = user
     assert_not @collaboration.valid?
@@ -154,7 +154,7 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should .payment_type_name work" do
-    if Rails.application.secrets.features["collaborations_redsys"]
+    if available_features["collaborations_redsys"]
       @collaboration.update_attribute(:payment_type, 1)
       assert_equal( "Suscripción con Tarjeta de Crédito/Débito", @collaboration.payment_type_name )
     end
@@ -199,9 +199,9 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should .calculate_bic work" do
-    ccc = FactoryGirl.create(:collaboration, :ccc)
+    ccc = create(:collaboration, :ccc)
     assert_equal "ESPBESMMXXX", ccc.calculate_bic
-    iban = FactoryGirl.create(:collaboration, :iban)
+    iban = create(:collaboration, :iban)
     assert_equal "ESPBESMMXXX", iban.calculate_bic
   end
 
@@ -259,7 +259,7 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should .check_spanish_bic work" do
-    ccc = FactoryGirl.create(:collaboration, :ccc)
+    ccc = create(:collaboration, :ccc)
     assert_equal "ESPBESMMXXX", ccc.calculate_bic
   end
 
@@ -299,13 +299,13 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should .payment_identifier work" do
-    credit_card = FactoryGirl.create(:collaboration, :credit_card)
+    credit_card = create(:collaboration, :credit_card)
     credit_card.update_attribute(:redsys_identifier, "XXXXXX")
     assert_equal credit_card.payment_identifier, "XXXXXX"
-    iban = FactoryGirl.create(:collaboration, :iban)
+    iban = create(:collaboration, :iban)
     iban.update_attribute(:payment_type, 3)
     assert_equal iban.payment_identifier, "ES0690000001210123456789/ESPBESMMXXX"
-    ccc = FactoryGirl.create(:collaboration, :ccc)
+    ccc = create(:collaboration, :ccc)
     assert_equal ccc.payment_identifier, "ES0690000001210123456789/ESPBESMMXXX"
   end
 
@@ -326,8 +326,8 @@ class CollaborationTest < ActiveSupport::TestCase
     @collaboration.payment_processed! order
     assert_equal 1, @collaboration.status
 
-    if Rails.application.secrets.features["collaborations_redsys"]
-      credit_card = FactoryGirl.create(:collaboration, :credit_card)
+    if available_features["collaborations_redsys"]
+      credit_card = create(:collaboration, :credit_card)
       credit_card_order = credit_card.create_order Date.today
       credit_card_order.save
       credit_card.payment_processed! credit_card_order
@@ -416,9 +416,9 @@ class CollaborationTest < ActiveSupport::TestCase
     assert_equal @collaboration.ko_url, "http://localhost/colabora/KO"
   end
 
-  if Rails.application.secrets.features["collaborations_redsys"]
+  if available_features["collaborations_redsys"]
     test "should .charge! work" do
-      collaboration = FactoryGirl.create(:collaboration, :credit_card)
+      collaboration = create(:collaboration, :credit_card)
       collaboration.update_attribute(:status, 2)
       order = collaboration.create_order Date.today
       order.save
@@ -661,7 +661,7 @@ phone: '666666'"
   ##############################################
 
   test "should not save collaboration if userr is not over legal age (18 years old)" do
-    user = FactoryGirl.build(:user)
+    user = build(:user)
     user.update_attribute(:born_at, DateTime.now-10.years)
     @collaboration.user = user
     assert_not @collaboration.valid?

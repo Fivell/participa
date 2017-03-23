@@ -1,13 +1,11 @@
-
 <%= content_for :title, "#{t '.title'} | " %>
 
-<div class="content-content">
-  <div class="row">
-    <div class="col-md-6">
+<div class="content-content verification">
+  <div class="box-info">
+    <div class="row">
       <div class="verif-new-third">
-        <p class="title"><%= t('.title') %></p>
         <p><%= t('.explain_html', inscription_link: link_to(t('.link_title'), new_user_registration_path)) %> </p>
-        <%= render partial: "verification/map", locals: {centers: @centers} %>
+        <%= render partial: "verification/map" %>
       </div>
     </div>
   </div>

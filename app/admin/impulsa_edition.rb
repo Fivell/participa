@@ -54,7 +54,7 @@ ActiveAdmin.register ImpulsaEdition do
       end
     end
 
-    panel t "activerecord.models.impulsa_edition_categories" do
+    panel t "activerecord.models.impulsa_edition_category.other" do
       table_for resource.impulsa_edition_categories.order(:name) do
         column :name
         column :category_type_name do |impulsa_edition_category|
@@ -73,7 +73,7 @@ ActiveAdmin.register ImpulsaEdition do
       div link_to(t('active_admin.has_many_new', model: t("activerecord.models.impulsa_edition_category")), new_admin_impulsa_edition_impulsa_edition_category_path(resource))
     end
 
-    panel t "activerecord.models.impulsa_edition_topics" do
+    panel t "activerecord.models.impulsa_edition_topic.other" do
       table_for resource.impulsa_edition_topics do
         column :name
         column :actions do |topic|
@@ -81,7 +81,7 @@ ActiveAdmin.register ImpulsaEdition do
           span link_to(t('active_admin.delete'),  admin_impulsa_edition_impulsa_edition_topic_path(resource, topic), method: :delete, data: { confirm: "¿Estas segura de querer borrar esta temática?" })
         end
       end
-      div link_to(t('active_admin.has_many_new', model: t("activerecord.models.impulsa_edition_topics")), new_admin_impulsa_edition_impulsa_edition_topic_path(resource))
+      div link_to(t('active_admin.has_many_new', model: t("activerecord.models.impulsa_edition_topic")), new_admin_impulsa_edition_impulsa_edition_topic_path(resource))
     end
   end
 
@@ -129,7 +129,6 @@ end
 ActiveAdmin.register ImpulsaEditionTopic do
   menu false
   belongs_to :impulsa_edition
-  navigation_menu :default
 
   permit_params :impulsa_edition_id, :name
 

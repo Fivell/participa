@@ -22,7 +22,6 @@ gem 'spring',        group: :development
 gem 'sprockets-rails'
 
 gem 'pg'
-gem 'rb-readline'
 gem 'airbrake', group: :production
 
 gem 'devise'
@@ -32,12 +31,10 @@ gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem 'spanish_vat_validators', github: 'deivid-rodriguez/spanish_vat_validators',
                               branch: 'rails_5_deprecations'
-gem 'simple_captcha2', github: 'pludoni/simple-captcha',
-                       require: 'simple_captcha'
+gem 'simple_captcha2', require: 'simple_captcha'
 gem 'carmen-rails'
 gem 'esendex'
 gem 'activeadmin', github: 'activeadmin'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'active_skin'
 
 gem 'resque', github: 'resque/resque', require: 'resque/server'
@@ -82,13 +79,17 @@ group :development, :test do
 end
 
 group :test do
-  gem 'minitest-rails'
-  gem 'capybara'
+  gem 'capybara', '~> 2.13'
   gem 'transactional_capybara'
   gem 'poltergeist'
   gem 'launchy'
   gem 'database_cleaner'
-  gem 'minitest-rails-capybara'
+  gem 'minitest-hooks'
 end
 
 gem 'webmock', group: :development
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-flatpickr-calendar'
+  gem 'rails-assets-leaflet'
+end

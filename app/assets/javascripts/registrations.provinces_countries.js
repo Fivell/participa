@@ -67,9 +67,9 @@ $(function() {
   if ($country.length) {
     $.fn.disable_control = function( ) {
       if (this.data('select2'))
-        this.select2('enable', false).select2('val', '').attr('data-placeholder', '-').select2();
+        this.select2('readonly', true).select2('val', '').attr('data-placeholder', '-').select2();
       else
-        this.prop('disabled', true).val('').attr('placeholder', '-');
+        this.prop('readonly', true).val('').attr('placeholder', '-');
       return this;
     };
 

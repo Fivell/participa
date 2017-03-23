@@ -5,22 +5,35 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
   include Participa::Test::LoginHelpers
 
   setup do
-    @user = FactoryGirl.create(:user)
-    @user_foreign = FactoryGirl.create(:user, :foreigner)
+    @user = create(:user)
+    @user_foreign = create(:user, :foreigner)
   end
 
-  test "should default_url_options locale" do
+  test "sets locale from default_url_options by default" do
     get '/'
     assert_response :redirect
     assert_redirected_to '/es'
   end
 
-  test "should set_locale" do
-    get '/ca'
-    assert_equal(:ca, I18n.locale)
+  test "sets locale from url" do
+    I18n.with_locale(:es) do
+      get '/ca'
+      assert_equal(:ca, I18n.locale)
+    end
   end
 
-  test "should success when login with a foreign user" do
+  test "properly translates flash messages when changing locale" do
+    with_verifications(presential: false, sms: true) do
+      I18n.with_locale(:es) do
+        login @user
+        assert_text "Por seguridad, debes confirmar tu teléfono."
+        click_link "Català"
+        assert_text "Per seguretat, has de confirmar el teu telèfon."
+      end
+    end
+  end
+
+  test "logins successfully for foreign users" do
     @user.update_attribute(:country, "DE")
     @user.update_attribute(:province, "BE")
     @user.update_attribute(:town, nil)
@@ -29,7 +42,7 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should success when login with a rare foreign user (no provinces)" do
+  test "logins successfully for rare foreign users (no provinces)" do
     @user.update_attribute(:country, "PS")
     @user.update_attribute(:province, nil)
     @user.update_attribute(:town, nil)
@@ -39,68 +52,15 @@ class ApplicationIntegrationTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  if Rails.application.secrets.features["verification_sms"]
-    test "should set_phone if non sms confirmed user, but allow access to profile" do
-      @user.update_attribute(:sms_confirmed_at, nil)
+  if available_features["verification_sms"]
+    test "starts sms verification for unconfirmed users, allows access to profile" do
       login @user
+      assert_equal sms_validator_step1_path(locale: 'es'), current_path
       assert_text "Por seguridad, debes confirmar tu teléfono."
-      get '/es'
-      assert_response :redirect
-      assert_redirected_to sms_validator_step1_path, "User without confirmed phone should be redirected to verify it"
-      get '/es/users/edit'
-      assert_response :success, "User without confirmed phone should be allowed to access the profile page"
+
+      click_link 'Datos personales'
+      assert_title 'Datos personales'
+      assert_equal edit_user_registration_path(locale: 'es'), current_path
     end
-  end
-
-  test "should set_new_password, set_phone and check_born_at, but allow access to profile" do 
-    @user.update_attribute(:born_at, Date.civil(1900,1,1))
-    @user.update_attribute(:has_legacy_password, true)
-    @user.update_attribute(:sms_confirmed_at, nil)
-    login @user
-    assert_text "Debes indicar tu fecha de nacimiento."
-    assert_landed_in_profile_edition
-  end
-
-  test "should check_born_at if born_at is null" do
-    @user.update_attribute(:born_at, nil)
-    login @user
-    assert_text "Debes indicar tu fecha de nacimiento."
-    assert_landed_in_profile_edition
-  end
-
-  test "should check_born_at if born_at 1900,1,1" do
-    @user.update_attribute(:born_at, Date.civil(1900,1,1))
-    login @user
-    assert_text "Debes indicar tu fecha de nacimiento."
-    assert_landed_in_profile_edition
-  end
-
-  test "should redirect to profile and allow to change vote town to foreign users" do
-    @user_foreign.update_attribute(:vote_town, "NOTICE")
-    login @user_foreign
-    assert_text "Si lo deseas, puedes indicar el municipio en España donde deseas votar."
-    get '/es'
-    assert_response :success
-  end
-
-  test "should redirect to profile when has has_legacy_password and invalid profile" do
-    @user.update_attribute(:has_legacy_password, true)
-    @user.update_attribute(:postal_code, "as")
-    login @user
-    assert_landed_in_profile_edition
-  end
-
-  test "should not redirect to profile when has invalid profile but no issues" do
-    @user.update_attribute(:postal_code, "as")
-    login @user
-    get '/es'
-    assert_response :success
-  end
-
-  private
-
-  def assert_landed_in_profile_edition
-    assert_title 'Datos personales'
-    assert_equal edit_user_registration_path(locale: 'es'), current_path
   end
 end

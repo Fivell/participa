@@ -1,20 +1,20 @@
 <% content_for :title, t('verification.alerts.ok.title') %>
 
-<div class="content-content">
-  <div class="row">
+<div class="content-content verification">
+  <div class="box-info">
     <h2><%= t('verification.admin') %></h2>
-    <div class="col-md-6">
+
+    <div class="row">
       <%= alert_box "" do %>
         <div class="box-large">
           <span class="title"> <%= t('verification.alerts.ok.title') %> </span>
           <p>
           <%= t('verification.alerts.ok.msg_html') %>
           </p>
-          <br>
-          <br>
-          <br>
-          <br>
+
+          <div class="action">
           <%= link_to t('verification.next_user'), verification_step1_path, class: "button-primary" %>
+          </div>
         </div>
       <% end %>
     </div>
