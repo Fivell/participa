@@ -1555,13 +1555,9 @@ elementos
 
 .verif-new-third{
   padding: 3em;
-  margin-top: 1em;
 }
 .verif-new-third .title{
   font-weight: bold;
-}
-.verif-new-third li:not(.today) {
-  color: grey;
 }
 .verif-left {
   float: left;
@@ -2194,10 +2190,30 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   color: #cc2626;
 }
 
+.verification-centers {
+  overflow: auto;
+}
+
 .verification-center {
+  min-height: 90px;
   padding-bottom: 20px;
 
   .verification-center-name {
+    font-family: "Stag-Sans-Semibold";
+    font-size: 16px;
     margin: 0 0 5px 0;
+  }
+}
+
+@media (min-width: $grid-float-breakpoint) {
+  .verification-center {
+    float: left;
+    width: 33%;
+  }
+}
+
+@media (max-width: $grid-float-breakpoint - 1) {
+  .verification-center {
+    width: 100%;
   }
 }
