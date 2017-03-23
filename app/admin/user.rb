@@ -283,10 +283,8 @@ ActiveAdmin.register User do
     end
   end
 
-  if Rails.application.secrets.features["verification_presencial"]
-    action_item(:edit, :only => :show) do
-      link_to('Perfil de Verificador', edit_admin_verifier_profile_path(user))
-    end
+  action_item(:edit, :only => :show) do
+    link_to('Perfil de Verificador', edit_admin_verifier_profile_path(user))
   end
 
   action_item(:restore, only: :show) do
