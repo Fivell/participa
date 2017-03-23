@@ -1,11 +1,7 @@
 <% if Verification::Center.any? %>
 
-  <% if user_signed_in? %>
-    <ul class="js-verification-map-centers" data-user-postalcode="<%= current_user.postal_code %>">
-  <% else %>
-    <ul class="js-verification-map-centers">
-  <% end %>
-
+  <ul class="verification-centers js-verification-map-centers"
+      <%= (user_signed_in? ? "data-user-postalcode=#{current_user.postal_code}" : '') %>>
     <% Verification::Center.find_each do |center| %>
       <% slots = center.verification_slots.map(&:as_opening_time).join('. ') %>
 
@@ -26,8 +22,7 @@
         </div>
       </li>
     <% end %>
-
-    </ul>
+  </ul>
 
   <br>
 
