@@ -127,10 +127,11 @@ Rails.application.routes.draw do
         get '/ok', to: 'verification#result_ok', as: :verification_result_ok
         get '/ko', to: 'verification#result_ko', as: :verification_result_ko
       end
-      scope '/verificaciones' do 
-        get '/', to: 'verification#show', as: :verification_show
-      end
     end    
+
+    scope '/verificaciones' do 
+      get '/', to: 'verification#show', as: :verification_show
+    end
 
     %w(404 422 500).each do |code|
       get code, to: 'errors#show', code: code

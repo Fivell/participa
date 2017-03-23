@@ -26,6 +26,8 @@ class Ability
         cannot :manage, SpamFilter
         can :read, Election
       end
+
+      can :show, :verification
     else
       cannot :manage, :all
       cannot :manage, Resque
