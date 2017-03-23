@@ -47,21 +47,21 @@ class CensusMap
       @map.setView([this.coords().center.lat, this.coords().center.lon], 8)
       return
 
-    map = @map
+    censusMap = this
 
     this.search({ postalcode: postalcode }, (data) ->
       if data[0]
-        lat = data[0].lat
-        lon = data[0].lon
-        box = data[0].boundingbox
+        center = { lat: data[0].lat, lon: data[0].lon }
+        sw = { lat: data[0].boundingbox[0], lon: data[0].boundingbox[2] }
+        ne = { lat: data[0].boundingbox[1], lon: data[0].boundingbox[3] }
       else
-        lat = map.coords().center.lat
-        lon = map.coords().center.lon
-        box = viewbox
+        center = censusMap.coords().center
+        sw = censusMap.coords().sw
+        ne = censusMap.coords().ne
 
-      map.setView([lat, lon], 8)
-      map.fitBounds(
-        L.latLngBounds(L.latLng(box[0], box[3]), L.latLng(box[1], box[2]))
+      censusMap.map.setView([center.lat, center.lon], 8)
+      censusMap.map.fitBounds(
+        L.latLngBounds(L.latLng(sw.lat, sw.lon), L.latLng(ne.lat, ne.lon))
       )
     )
 
