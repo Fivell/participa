@@ -7,7 +7,7 @@ puts "Creating Users"
 
 admin = FactoryGirl.create(:user,
                            :admin,
-                           :verifiying_presentially,
+                           :verifying_presentially,
                            password: pw,
                            email: "admin@example.com") 
 puts "Creating admin user with email #{admin.email}"
