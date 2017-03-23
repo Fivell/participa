@@ -33,6 +33,7 @@ ca:
     formats:
       default: ! '%d/%m/%Y'
       long: ! '%d de %B de %Y'
+      medium: ! '%d de %B' 
       short: ! '%d de %b'
     month_names:
     -
@@ -189,5 +190,6 @@ ca:
       default: ! '%A, %d de %B de %Y %H:%M:%S %z'
       long: ! '%d de %B de %Y %H:%M'
       short: ! '%d de %b %H:%M'
+      date: ! '%d/%m/%Y'
       time: ! '%k:%M'
     pm: pm
