@@ -261,7 +261,6 @@ ActiveAdmin.register User do
 
   csv column_names: false do
     column :id
-    column :email
     column :town_idescat_code
     column :town_name
     column :comarca_code
@@ -389,9 +388,9 @@ ActiveAdmin.register User do
     end
   end
 
-  sidebar "CRUZAR DATOS", 'data-panel' => :collapsed, :only => :index, priority: 100 do  
-    render("admin/fill_csv_form")
-  end
+  #sidebar "CRUZAR DATOS", 'data-panel' => :collapsed, :only => :index, priority: 100 do  
+  #  render("admin/fill_csv_form")
+  #end
 
   collection_action :fill_csv, :method => :post do
     require 'podemos_export'
