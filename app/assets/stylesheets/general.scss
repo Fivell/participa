@@ -2196,7 +2196,7 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 .verification-center {
   min-height: 90px;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
 
   .verification-center-name {
     font-family: "Stag-Sans-Semibold";
@@ -2205,14 +2205,21 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   }
 }
 
-@media (min-width: $grid-float-breakpoint) {
+@media (min-width: 769px) {
   .verification-center {
     float: left;
     width: 33%;
   }
 }
 
-@media (max-width: $grid-float-breakpoint - 1) {
+@media (min-width: 600px) and (max-width: 769px) {
+  .verification-center {
+    float: left;
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
   .verification-center {
     width: 100%;
   }
