@@ -1,5 +1,9 @@
 <% if Verification::Center.any? %>
 
+  <div id="js-verification-map" style="width: 100%; height: 400px"></div>
+
+  <br>
+
   <ul class="verification-centers js-verification-map-centers"
       <%= (user_signed_in? ? "data-user-postalcode=#{current_user.postal_code}" : '') %>>
     <% Verification::Center.find_each do |center| %>
@@ -23,11 +27,6 @@
       </li>
     <% end %>
   </ul>
-
-  <br>
-
-  <div id="js-verification-map" style="width: 100%; height: 400px"></div>
-
 <% else %>
   <p>
     <%= t "verification.show.no_points" %>
