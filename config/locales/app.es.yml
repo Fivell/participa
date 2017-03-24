@@ -953,7 +953,10 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
         </p>
         "
   verification:
+    from: de
+    from_with_article: del
     to: a
+    to_with_article: al
     show:
       title: "Mapa de puntos de verificación"
       explain_html: "Aquí puedes ver todos los puntos y horarios habilitados para que vayas a verificarte."

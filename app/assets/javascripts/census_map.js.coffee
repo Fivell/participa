@@ -51,15 +51,12 @@ class CensusMap
 
     this.search({ postalcode: postalcode }, (data) ->
       if data[0]
-        center = { lat: data[0].lat, lon: data[0].lon }
         sw = { lat: data[0].boundingbox[0], lon: data[0].boundingbox[2] }
         ne = { lat: data[0].boundingbox[1], lon: data[0].boundingbox[3] }
       else
-        center = censusMap.coords().center
         sw = censusMap.coords().sw
         ne = censusMap.coords().ne
 
-      censusMap.map.setView([center.lat, center.lon], 8)
       censusMap.map.fitBounds(
         L.latLngBounds(L.latLng(sw.lat, sw.lon), L.latLng(ne.lat, ne.lon))
       )

@@ -304,6 +304,10 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
         </p>
         "
   verification:
+    from: de
+    from_with_article: del
+    to: a
+    to_with_article: al
     show:
       title: "Mapa de punts de verificació"
       explain_html: "Aquí pots veure tots els punts i horaris habilitats per a que puguis anar a verificar-te"
