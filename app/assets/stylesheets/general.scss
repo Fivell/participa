@@ -1554,7 +1554,7 @@ elementos
 }
 
 .verif-new-third{
-  padding: 3em;
+  padding: 1.5em;
 }
 .verif-new-third .title{
   font-weight: bold;
@@ -2195,7 +2195,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 }
 
 .verification-center {
-  min-height: 90px;
   padding: 0 20px 20px 20px;
 
   .verification-center-name {
@@ -2206,21 +2205,43 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 }
 
 @media (min-width: 769px) {
-  .verification-center {
-    float: left;
+  .verification-centers li {
     width: 33%;
+
+    &:nth-child(3n+1) {
+      clear: left;
+      float: left;
+    }
+
+    &:nth-child(3n+2) {
+      display: inline-block;
+    }
+
+    &:nth-child(3n) {
+      clear: right;
+      float: right;
+    }
   }
 }
 
 @media (min-width: 600px) and (max-width: 769px) {
-  .verification-center {
-    float: left;
+  .verification-centers li {
     width: 50%;
+
+    &:nth-child(2n+1) {
+      clear: left;
+      float: left;
+    }
+
+    &:nth-child(2n) {
+      clear: right;
+      float: right;
+    }
   }
 }
 
 @media (max-width: 600px) {
-  .verification-center {
+  .verification-centers li {
     width: 100%;
   }
 }
