@@ -2214,7 +2214,7 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
     }
 
     &:nth-child(3n+2) {
-      display: inline-block;
+      float: left;
     }
 
     &:nth-child(3n) {
