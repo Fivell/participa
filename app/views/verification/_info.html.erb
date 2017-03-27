@@ -1,0 +1,16 @@
+<p><%= t('verification.reasons') %></p>
+
+<p><%= t('verification.how_to_presential') %></p>
+
+<div class="requirements">
+  <p class="title"><%= t('verification.requirements.header') %></p>
+
+  <ol>
+    <li><%= t('verification.requirements.local_id') %></li>
+    <li><%= t('verification.requirements.foreign_id') %></li>
+  </ol>
+</div>
+
+<p class="title"><%= t('verification.bring_your_documents_to') %></p>
+
+<%= render partial: "verification/map" %>

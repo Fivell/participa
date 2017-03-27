@@ -2,11 +2,8 @@
 
 <div class="content-content verification">
   <div class="box-info">
-    <div class="row">
-      <div class="verif-new-third">
-        <p><%= t('.explain_html', inscription_link: link_to(t('.link_title'), new_user_registration_path)) %> </p>
-        <%= render partial: "verification/map" %>
-      </div>
+    <div class="row verification-info">
+      <%= render "info" %>
     </div>
   </div>
 </div>
