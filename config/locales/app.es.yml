@@ -962,14 +962,22 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
       explain_html: "Aquí puedes ver todos los puntos y horarios habilitados para que vayas a verificarte."
       no_points: "No hay ningún punto activo actualmente."
       link_title: "inscribirte"
-    pending0_html: No has finalizado la verificación
-    pending1_html: Para acabar el proceso de verificación necesitas aportar documentación de forma presencial.
-    pending2_html: <b>Trae un DNI o NIE</b> que tenga la dirección de Cataluña
-    pending3_html: ¿No tienes dirección en Cataluña?
-    pending4_html: "<li>Trae el:</li><li><b>DNI/NIE</b> con dirección</li><li><li> de fuera de Cataluña </li><li> o el <b>Pasaporte</b></li><li> o el <b>Carnet de conducir</b></li>"
-    pending5_html: y también
-    pending6_html: "<li><b>Empadronamiento</b>,</li><li><b>tarjeta censal</b></li><li> o cualquier <b>recibo</b></li><li> (luz, agua o gas)</li><li> del último año.</li>"
-    pending7_html: "Trae la documentación a:"
+    pending_title: ¡Sólo te queda una última verificación por hacer!
+    reasons: >
+      Para que nuestros procesos de votación sean lo más democráticos posible
+      necesitamos que aportes tu documentación de manera presencial.
+    how_to_presential: >
+      En el mapa encontrarás todos los puntos para verificarte en toda Cataluña.
+    requirements:
+      header: "Documentación requerida para la verificación:"
+      local_id: DNI o NIE con domicilio en Cataluña.
+      foreign_id: >
+        DNI o NIE con domicilio de fuera de Cataluña o pasaporte o permiso de
+        conducción + certificado de empadronamiento o recibo de un suministro
+        básico (agua, luz o gas) que no tenga más de tres meses de antigüedad y
+        en el cual aparezca la identidad de la persona y un domicilio en
+        Cataluña.
+    bring_your_documents_to: "Trae la documentación a:"
     user_verified: Usuario/a verificado/a
     user_unverified: No te has verificado
     title: Verificación
