@@ -34,7 +34,12 @@ gem 'spanish_vat_validators', github: 'deivid-rodriguez/spanish_vat_validators',
 gem 'simple_captcha2', require: 'simple_captcha'
 gem 'carmen-rails'
 gem 'esendex'
-gem 'activeadmin', github: 'activeadmin'
+
+#
+# @todo: activeadmin/activeadmin#4477 broke our "new verification center" page,
+# so I'm pinning AA to the commit prior to that change. Report the bug to AA.
+#
+gem 'activeadmin', github: 'activeadmin', ref: 'e7c3d8cfc7ec3aeaf6893588068dbcd9bd2744f7'
 gem 'active_skin'
 
 gem 'resque', github: 'resque/resque', require: 'resque/server'
