@@ -104,6 +104,7 @@ es:
               blank: "Tu apellido no puede estar en blanco" 
             document_type: 
               blank: "Tu tipo de documento no puede estar en blanco"
+              inclusion: "Tipo de documento no válido"
             document_vatid: 
               blank: "Tu documento no puede estar en blanco"
               taken: "Hubo un error al guardar este dato. Inténtalo de nuevo" 

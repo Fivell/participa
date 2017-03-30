@@ -39,6 +39,7 @@ ca:
               blank: "El teu cognom no pot estar en blanc"
             document_type:
               blank: "El teu tipus de document no pot estar en blanc"
+              inclusion: "Tipus de document no vàlid"
             document_vatid:
               blank: "El teu número de document no pot estar en blanc"
               taken: "Hi ha hagut un error a l'hora de desar aquesta dada. Torna-ho a provar"
