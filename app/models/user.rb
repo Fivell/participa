@@ -103,9 +103,10 @@ class User < ApplicationRecord
   end
 
   def validates_unconfirmed_phone_format
-    self.errors.add(:unconfirmed_phone, :invalid_phone) unless Phoner::Phone.valid?(self.unconfirmed_phone)
     if in_spain? and not (self.unconfirmed_phone.starts_with?('00346') or self.unconfirmed_phone.starts_with?('00347'))
       self.errors.add(:unconfirmed_phone, :bad_spanish_phone_number)
+    elsif !Phoner::Phone.valid?(self.unconfirmed_phone)
+      self.errors.add(:unconfirmed_phone, :invalid_phone)
     end
   end
 
