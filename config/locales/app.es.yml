@@ -100,6 +100,7 @@ es:
               taken: "Hubo un error al guardar este dato. Inténtalo de nuevo" 
             born_at: 
               blank: "Tu fecha de nacimiento no puede estar en blanco"
+              inclusion: "Debes ser mayor de 16 años"
               not_a_date: "No es una fecha válida. Comprueba que el formato con el que estás poniendo la fecha sea el correcto" 
             address:
               blank: "Tu dirección no puede estar en blanco"

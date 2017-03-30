@@ -35,6 +35,7 @@ ca:
               taken: "Hi ha hagut un error a l'hora de desar aquesta dada. Torna-ho a provar"
             born_at:
               blank: "La teva data de naixement no pot estar en blanc"
+              inclusion: "Has de ser més gran de 16 anys"
               not_a_date: "No és una data vàlida. Comprova que el format amb el qual estàs escrivint la data sigui el correcte"
             address:
               blank: "La teva adreça no pot estar en blanc"
