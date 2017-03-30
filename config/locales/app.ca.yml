@@ -355,7 +355,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
       problem: "Hi ha hagut un problema buscant aquest usuari/ària. Fes una foto al document, demana-li el seu correu electrònc i envia'l a  info@unpaisencomu.cat"
     mailer:
       hello: "Hola %{user},"
-      bye: Salutacions
+      bye: Salutacions.
       finish:
         subject: Un País en Comú - Fin del primer proceso de verificación
       to_verify:

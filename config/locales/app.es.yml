@@ -1013,7 +1013,7 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
 Número de teléfono y correo electrónico y comunícale que nos pondremos en contacto con el o ella."
     mailer:
       hello: "Hola %{user},"
-      bye: Saludos
+      bye: Saludos.
       finish:
         subject: Un País en Comú - Fin del primer proceso de verificación
       to_verify:
