@@ -1228,6 +1228,15 @@ body elements
   padding:1em 0;
 }
 
+.button-block {
+  @extend .button;
+
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
 /* -----------------------------------
 columns
 ----------------------------------- */
