@@ -984,21 +984,7 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
     step1: Pedir documentos
     step2: Pedir correo electrónico
     step3: Comprobar
-    welcome_html: "<p>Pídele amablemente al usuario/a los documentos que debe haber traído y comprueba que sea <b>mayor de 16 años y que la dirección sea de Barcelona</b>. En caso de que el DNI o NIE no tenga dirección en Barcelona, o en le caso de pasaporte y carnet de conducir, que no pone dirección, se deberá aportar: <ul>
-      <li>
-   -Algún documento que acredite dirección en Barcelona:
-     </li>
-      <li>
-   -empadronamiento o
-     </li>
-      <li>
-   -tarjeta censal o
-     </li>
-      <li>
-   -recibo de suministro (luz, agua o gas) de los últimos 12 meses. Deberían cumplirse los siguientes requisitos:
-     </li>
-     </ul>
-   </p>"
+    welcome_html: "<p>Pídele amablemente al usuario/a los documentos que debe haber traído. Se deben cumplir los siguientes requisitos:</p>"
     next: Siguiente
     next_user: Continuar con el siguiente usuario
     confirm: Si, estos datos coinciden
@@ -1027,7 +1013,7 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
 Número de teléfono y correo electrónico y comunícale que nos pondremos en contacto con el o ella."
     mailer:
       hello: "Hola %{user},"
-      bye: Saludos
+      bye: Saludos.
       finish:
         subject: Un País en Comú - Fin del primer proceso de verificación
       to_verify:

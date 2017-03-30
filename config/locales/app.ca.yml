@@ -334,7 +334,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     step1: Documents
     step2: Cerca
     step3: Comprova
-    welcome_html: "<p>Demana-li amablement a l'usuari/ària els documents  que ha d'haver portat. S'haurien de complir els requisits següents:</p>"
+    welcome_html: "<p>Demana-li amablement a l'usuari/ària els documents que ha d'haver portat. S'haurien de complir els requisits següents:</p>"
     next: Següent
     confirm: Confirma
     new: "Escriu en el fomulari següent el document o correu electrònic amb què s'ha inscrit"
@@ -355,14 +355,27 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
       problem: "Hi ha hagut un problema buscant aquest usuari/ària. Fes una foto al document, demana-li el seu correu electrònc i envia'l a  info@unpaisencomu.cat"
     mailer:
       hello: "Hola %{user},"
-      bye: Salutacions
+      bye: Salutacions.
       finish:
         subject: Un País en Comú - Fin del primer proceso de verificación
       to_verify:
         subject: Un País en Comú - Faltan 2 días para verificarte
       verified:
         subject: Un País en Comú - Has estat verificat correctament
-        message: "Has sigut verificat i ja formes part de la comunitat de Un País en Comú. A partir d'ara ja no necessites verificar-te més i podràs participar a les consultes futures. Cada cop que hi hagi una consulta t'avisarem per coreru electrònic perquè puguis participar. Recorda que ara formes part de la comunitat de Un País en Comú."
+        message: "Has sigut verificat i ja formes part de la comunitat d'Un País en Comú.
+
+A partir d'ara ja no necessites verificar-te més i podràs participar a les consultes futures.
+
+Cada cop que hi hagi una consulta t'avisarem per correu electrònic perquè puguis participar.
+
+Recorda que ara formes part de la comunitat d'Un País en Comú."
+        message_html: "<p>Has sigut verificat i ja formes part de la comunitat d'Un País en Comú.</p>
+
+<p>A partir d'ara ja no necessites verificar-te més i podràs participar a les consultes futures.</p>
+
+<p>Cada cop que hi hagi una consulta t'avisarem per correu electrònic perquè puguis participar.</p>
+
+<p>Recorda que ara formes part de la comunitat d'Un País en Comú.</p>"
     form:
       document: "He verificat el document original de l'inscrit/a"
       age: "L'inscrit/a és major de 16 anys - nascut abans de %{date}"
