@@ -93,6 +93,8 @@ es:
           El código postal no coincide con la provincia indicada
         duplicated_phone: Ya hay alguien con ese número de teléfono
         invalid_phone: Revisa el formato de tu teléfono
+        bad_spanish_phone_number: >-
+          Debes poner un teléfono móvil válido de España empezando por 6 o 7.
       models: 
         user:
           attributes: 

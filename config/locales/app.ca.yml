@@ -28,6 +28,8 @@ ca:
           El codi postal no coincideix amb la província indicada
         duplicated_phone: Ja hi ha algú amb aquest número de telèfon
         invalid_phone: Revisa el format del teu telèfon
+        bad_spanish_phone_number: >-
+          Has de posar un telèfon mòbil vàlid d'Espanya que comenci per 6 o 7
       models:
         user:
           attributes:
