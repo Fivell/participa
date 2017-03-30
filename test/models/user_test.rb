@@ -138,10 +138,10 @@ class UserTest < ActiveSupport::TestCase
   test "validates user is over 16 years old" do
     u = build(:user, born_at: Date.today - (16.years - 1.day))
     u.valid?
-    assert_includes u.errors[:born_at], "debes ser mayor de 16 años"
+    assert_includes u.errors[:born_at], "Debes ser mayor de 16 años"
     u = build(:user, born_at: Date.civil(1888, 2, 1))
     u.valid?
-    assert_includes u.errors[:born_at], "debes ser mayor de 16 años"
+    assert_includes u.errors[:born_at], "Debes ser mayor de 16 años"
     u = build(:user, born_at: Date.today - (16.years + 1.day))
     u.valid?
     assert(u.errors[:born_at], [])
