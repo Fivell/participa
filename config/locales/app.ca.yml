@@ -337,19 +337,47 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     add_another_document: Afegir-hi un altre document
     remove_document: Eliminar document
     label:
-      invalid_id:
-      unverifiable_id:
-      unmatched_identity:
-      non_local_id_with_missing_residence_proof:
-      non_local_id_with_invalid_residence_proof:
-      non_local_id_with_outdated_residence_proof:
-      non_local_id_with_unmatched_residence_proof:
-      non_local_id_with_unverifiable_residence_proof:
+      invalid_id: >
+        El document d'identitat no és vàlid. Ha de ser DNI, NIE o passaport.
+      unverifiable_id: >
+        El document d'identitat no es pot verificar. A la foto el teu nom s'ha
+        de poder distingir clarament. Comprova que no estigui borrosa.
+      unmatched_identity: >
+        El document d'identitat no coincideix amb la identitat del sol·licitant.
+        Comprova que la persona registrada és la mateixa que el titular del
+        document que envies.
+      non_local_id_with_missing_residence_proof: >
+        El document és de fora de Catalunya i no s'inclou un document extra amb
+        una prova de residència a Catalunya mitjançant una factura recent de
+        subministrament bàsic.
+      non_local_id_with_invalid_residence_proof: >
+        El document és de fora de Catalunya i la prova de residència que
+        s'inclou no és vàlida. Ha de ser un rebut d'aigua, llum o gas.
+      non_local_id_with_outdated_residence_proof: >
+        El document és de fora de Catalunya i la prova de residència que
+        s'inclou no és recent. Ha de ser un rebut dels últims tres mesos.
+      non_local_id_with_unmatched_residence_proof: >
+        El document és de fora de Catalunya i la prova de residència que
+        s'inclou no està a nom del sol·licitant.
+      non_local_id_with_unverifiable_residence_proof: >
+        El document és de fora de Catalunya i la prova de residència que
+        s'inclou no es pot verificar. A la foto s'ha de poder distingir
+        clarament la data, el tipus i titular del rebut. Comprova que no estigui
+        borrosa.
     mailer:
-      subject:
-      introduction:
-      suggested_action:
-      suggested_action_text_only:
+      subject: >-
+        Revisa la teva sol·licitud de verificació digital en Un País en Comú
+      introduction: >
+        Hola, hem revisat la teva sol·licitud de verificació digital i hem
+        detectat els següents problemes amb els documents que hi has carregat.
+      suggested_action: >
+        Si us plau, clica el següent enllaç per carregar els documents
+        corregits. D'aquesta manera podrem verificar la teva identitat i podràs
+        votar en les properes consultes.
+      suggested_action_text_only: >
+       Si us plau, visita la següent adreça url per carregar els documents
+       corregits. D'aquesta manera podrem verificar la teva identitat i podràs
+       votar en les properes consultes.
     index:
       title: Interfície de Verificació Digital
       welcome: >
@@ -368,8 +396,19 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
         Assenyales que es tracta d'una sol·licitud fraudulenta. La persona
         usuària serà proscrita i no podrà accedir més a la plataforma de
         participació.
-      report_title:
-      report_description:
+      report_title: Assenyalar un problema (botó taronja)
+      report_description: >
+        Si la sol·licitud és vàlida però està incompleta. Per exemple, si falten
+        documents, les fotografies estan borroses i no permeten llegir les
+        dades, etcètera. Aquesta opció permet assenyalar els problemes detectats
+        entre diverses opcions predefinides i envia un correu electrònic a la
+        persona usuària informant-la dels problemes i de com solucionar-los
+        mitjançant la càrrega de nous documents. Es recomana complementar l'ús
+        d'aquesta opció amb una trucada telefònica directa per informar del cas.
+        Els temps són molt ajustats i no volem que ningú no es quedi sense votar
+        perquè no va poder llegir un correu. L'ús d'aquest botó queda registrat
+        en la sol·licitud perquè qui ho verifiqui pugui comprovar fàcilment si
+        la persona usuària va solucionar els problemes originals.
       get_started: Començar
       no_pending_users: >
         Hores d'ara no hi ha persones usuàries pendents de verificar.
@@ -378,16 +417,16 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     reject:
       success:
     report:
-      success:
+      success: Sol·licitud actualitzada correctament
     report_modal:
-      title:
-      button:
+      title: Assenyalar un problema amb la sol·licitud de %{name}
+      button: Informar la persona usuària
     show:
       title: Verificació digital
       change:
       accept: Acceptar
       reject: Refusar
-      report:
+      report: Assenyalar un problema
     user_uploaded:
     verifier_reported:
     you_are_done: >
