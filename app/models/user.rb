@@ -107,11 +107,11 @@ class User < ActiveRecord::Base
   end
 
   def validates_phone_format
-    self.errors.add(:phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.phone)
+    self.errors.add(:phone, :invalid_phone) unless Phoner::Phone.valid?(self.phone)
   end
 
   def validates_unconfirmed_phone_format
-    self.errors.add(:unconfirmed_phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.unconfirmed_phone)
+    self.errors.add(:unconfirmed_phone, :invalid_phone) unless Phoner::Phone.valid?(self.unconfirmed_phone)
     if in_spain? and not (self.unconfirmed_phone.starts_with?('00346') or self.unconfirmed_phone.starts_with?('00347'))
       self.errors.add(:unconfirmed_phone, "Debes poner un teléfono móvil válido de España empezando por 6 o 7.")
     end

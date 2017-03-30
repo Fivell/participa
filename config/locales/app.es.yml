@@ -92,6 +92,7 @@ es:
         bad_spanish_postal_code_province: >-
           El código postal no coincide con la provincia indicada
         duplicated_phone: Ya hay alguien con ese número de teléfono
+        invalid_phone: Revisa el formato de tu teléfono
       models: 
         user:
           attributes: 

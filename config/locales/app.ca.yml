@@ -27,6 +27,7 @@ ca:
         bad_spanish_postal_code_province: >-
           El codi postal no coincideix amb la província indicada
         duplicated_phone: Ja hi ha algú amb aquest número de telèfon
+        invalid_phone: Revisa el format del teu telèfon
       models:
         user:
           attributes:
