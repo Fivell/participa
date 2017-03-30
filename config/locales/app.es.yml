@@ -89,6 +89,8 @@ es:
       messages:
         bad_spanish_postal_code_length: >-
           El código postal debe ser un número de 5 cifras
+        bad_spanish_postal_code_province: >-
+          El código postal no coincide con la provincia indicada
       models: 
         user:
           attributes: 

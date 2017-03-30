@@ -24,6 +24,8 @@ ca:
       messages:
         bad_spanish_postal_code_length: >-
           El codi postal ha de ser un nombre de 5 xifres
+        bad_spanish_postal_code_province: >-
+          El codi postal no coincideix amb la província indicada
       models:
         user:
           attributes:
