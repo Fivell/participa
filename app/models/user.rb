@@ -102,7 +102,7 @@ class User < ActiveRecord::Base
 
   def validates_unconfirmed_phone_uniqueness
     if User.verified_online.where(phone: self.unconfirmed_phone).exists?
-      self.errors.add(:phone, "Ya hay alguien con ese número de teléfono")
+      self.errors.add(:phone, :duplicated_phone)
     end
   end
 

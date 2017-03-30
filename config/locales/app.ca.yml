@@ -26,6 +26,7 @@ ca:
           El codi postal ha de ser un nombre de 5 xifres
         bad_spanish_postal_code_province: >-
           El codi postal no coincideix amb la província indicada
+        duplicated_phone: Ja hi ha algú amb aquest número de telèfon
       models:
         user:
           attributes:
