@@ -183,6 +183,13 @@ class UserTest < ActiveSupport::TestCase
                  u.errors[:postal_code]
   end
 
+  test "validates Spanish postal code length" do
+    u = User.new(country: 'ES', postal_code: '333333')
+    u.valid?
+    assert_equal ["El código postal debe ser un número de 5 cifras"],
+                 u.errors[:postal_code]
+  end
+
   test ".full_name" do
     user = create(:user)
     u = User.new(first_name: "Juan", last_name: "Perez")
