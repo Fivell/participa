@@ -190,6 +190,13 @@ class UserTest < ActiveSupport::TestCase
                  u.errors[:postal_code]
   end
 
+  test "validates Spanish postal code correctness" do
+    u = User.new(country: 'ES', province: 'B', postal_code: '99999')
+    u.valid?
+    assert_equal ["El código postal no coincide con la provincia indicada"],
+                 u.errors[:postal_code]
+  end
+
   test ".full_name" do
     user = create(:user)
     u = User.new(first_name: "Juan", last_name: "Perez")
