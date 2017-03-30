@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
   def validates_postal_code
     if in_spain?
       if (self.postal_code =~ /^\d{5}$/) != 0
-        self.errors.add(:postal_code, "El código postal debe ser un número de 5 cifras")
+        self.errors.add(:postal_code, :bad_spanish_postal_code_length)
       else
         province = spanish_regions.coded(self.province)
         if province and self.postal_code[0...2] != province.subregions[0].code[2...4]

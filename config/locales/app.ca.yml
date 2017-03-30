@@ -21,6 +21,9 @@ ca:
         one: Avís
         other: Avisos
     errors:
+      messages:
+        bad_spanish_postal_code_length: >-
+          El codi postal ha de ser un nombre de 5 xifres
       models:
         user:
           attributes:

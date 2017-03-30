@@ -86,6 +86,9 @@ es:
         other: "Horarios"
       verifier_profile: "Perfil de Verificador"
     errors:
+      messages:
+        bad_spanish_postal_code_length: >-
+          El código postal debe ser un número de 5 cifras
       models: 
         user:
           attributes: 
