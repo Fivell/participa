@@ -334,7 +334,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     step1: Documents
     step2: Cerca
     step3: Comprova
-    welcome_html: "<p>Demana-li amablement a l'usuari/ària els documents  que ha d'haver portat. S'haurien de complir els requisits següents:</p>"
+    welcome_html: "<p>Demana-li amablement a l'usuari/ària els documents que ha d'haver portat. S'haurien de complir els requisits següents:</p>"
     next: Següent
     confirm: Confirma
     new: "Escriu en el fomulari següent el document o correu electrònic amb què s'ha inscrit"
