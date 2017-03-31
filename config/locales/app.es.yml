@@ -978,6 +978,7 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
       Gracias, %{full_name}. Para poder participar es necesario que nos escribas
       un correo electrónico a soporte@unpaisencomu.cat.
   online_verifications:
+    menu_link: Verifícate aquí
     admin: Gestor de verificaciones digitales
     add_another_document: Añadir otro documento
     remove_document: Eliminar documento
@@ -1093,10 +1094,7 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
       presential: >
         En el mapa encontrarás todos los puntos para verificarte en toda
         Cataluña.
-      online_html: >
-        A través de la web de verificación digital (accede desde %{link}). Un
-        equipo de personas comprobarán después que todo esté correcto.
-      here: aquí
+      online: Un equipo de personas comprobarán después que todo esté correcto.
     presential_name: Verificación presencial
     online_name: Verificación digital
     requirements:

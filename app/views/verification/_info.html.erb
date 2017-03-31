@@ -20,11 +20,8 @@
       </li>
 
       <li>
-        <% link = link_to t('verification.how_to.here'),
-                          sms_validator_step1_path %>
-
-                        <strong><%= t('verification.online_name') %>:</strong><br />
-        <%= t('verification.how_to.online_html', link: link) %>
+        <strong><%= t('verification.online_name') %>:</strong><br />
+        <%= t('verification.how_to.online') %>
       </li>
     </ol>
   <% else %>

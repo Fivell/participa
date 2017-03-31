@@ -333,6 +333,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
       Gràcies, %{full_name}. Per poder participar-hi cal que ens escriguis un
       correu electrònic a soporte@unpaisencomu.cat
   online_verifications:
+    menu_link: Verifica't aquí
     admin: Gestor de verificacions digitals
     add_another_document: Afegir-hi un altre document
     remove_document: Eliminar document
@@ -454,10 +455,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
         Posem a la teva disposició dues maneres de verificar la teva identitat:
       presential: >
         Al mapa trobaràs tots els punts per verificar-te a tot Catalunya.
-      online_html: >
-        A través del web de verificació digital (accedeix des d'%{link}). Un
-        equip de persones comprovaran després que tot està correcte.
-      here: aquí
+      online: Un equip de persones comprovaran després que tot està correcte.
     presential_name: Verificació presencial
     online_name: Verificació digital
     requirements:
