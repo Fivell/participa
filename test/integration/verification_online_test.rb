@@ -74,40 +74,4 @@ class VerificationOnlineTest < JsFeatureTest
 
     assert_content "No hay usuarias pendientes de verificar en este momento."
   end
-
-  test "allows verifying users" do
-    user2 = create(:user, :confirmed_by_sms, first_name: "Miguel",
-                                             last_name: "Miguelez")
-    login create(:user, :verifying_online)
-    visit online_verifications_path
-
-    click_link('Comenzar')
-    assert_content "Miguel Miguelez"
-
-    click_link('Aceptar')
-    assert_content "No quedan usuarias pendientes de verificación. ¡Buen trabajo!"
-    logout
-
-    # should see the OK verification message
-    login(user2)
-    assert_content I18n.t('voting.election_none')
-  end
-
-  test "allows banning users" do
-    user2 = create(:user, :confirmed_by_sms, first_name: "Miguel",
-                                             last_name: "Miguelez")
-    login create(:user, :verifying_online)
-    visit online_verifications_path
-
-    click_link('Comenzar')
-    assert_content "Miguel Miguelez"
-
-    click_link('Expulsar')
-    assert_content "No quedan usuarias pendientes de verificación. ¡Buen trabajo!"
-    logout
-
-    # should see the banned message
-    login(user2)
-    assert_content I18n.t("unauthorized.banned", full_name: user2.full_name)
-  end
 end
