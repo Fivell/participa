@@ -64,7 +64,7 @@ class Ability
 
       if Features.online_verifications?
         if user.verifying_online?
-          can [:show, :search, :accept, :reject, :index], :online_verifications
+          can [:show, :search, :accept, :reject, :report, :index], :online_verifications
         end
 
         if user.online_verification_pending_docs?
