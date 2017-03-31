@@ -370,7 +370,7 @@ class UserTest < ActiveSupport::TestCase
     assert(u.banned?)
     comment = ActiveAdmin::Comment.last
     assert_equal u, comment.resource
-    assert_equal "Usuario baneado automáticamente por el filtro: #{spam.name}", comment.body
+    assert_equal "Usuario expulsado automáticamente por el filtro: #{spam.name}", comment.body
   end
   
   test ".document_type_name" do 

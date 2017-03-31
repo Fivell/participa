@@ -102,7 +102,7 @@ class VerificationOnlineTest < JsFeatureTest
     click_link('Comenzar')
     assert_content "Miguel Miguelez"
 
-    click_link('Rechazar')
+    click_link('Expulsar')
     assert_content "No quedan usuarias pendientes de verificación. ¡Buen trabajo!"
     logout
 

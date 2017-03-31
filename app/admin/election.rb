@@ -107,7 +107,7 @@ ActiveAdmin.register Election do
     ul do
       li "Votos totales: #{election.votes.count}"
       li "Censo actual: #{election.current_total_census}"
-      li "Votos de usuarios baneados: #{election.votes.joins(:user).merge(User.banned).count}"
+      li "Votos de usuarios expulsados: #{election.votes.joins(:user).merge(User.banned).count}"
       a 'Descargar voter ids', href: download_voter_ids_admin_election_path(election)
     end
   end

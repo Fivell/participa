@@ -99,7 +99,7 @@ module Verificable
           filter = SpamFilter.any? self
           if filter
             update_attribute(:banned, true)
-            add_comment("Usuario baneado automáticamente por el filtro: #{filter}")
+            add_comment("Usuario expulsado automáticamente por el filtro: #{filter}")
           end
         end
       end

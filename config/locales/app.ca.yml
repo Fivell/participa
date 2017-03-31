@@ -392,10 +392,10 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
         Confirmes la veracitat de la persona usuària i la validesa dels
         documents que hi ha carregat. Els vots que hagi emès o emeti en el futur
         seran considerats vàlids.
-      reject_title: Refusar (botó vermell)
+      reject_title: Expulsar (botó vermell)
       reject_description: >
         Assenyales que es tracta d'una sol·licitud fraudulenta. La persona
-        usuària serà proscrita i no podrà accedir més a la plataforma de
+        usuària serà expulsada i no podrà accedir més a la plataforma de
         participació.
       report_title: Assenyalar un problema (botó taronja)
       report_description: >
@@ -427,7 +427,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
       pending_counter: "%{number} verificacions pendents"
       change:
       accept: Acceptar
-      reject: Refusar
+      reject: Expulsar
       skip: Següent
       report: Assenyalar un problema
     user_uploaded:
