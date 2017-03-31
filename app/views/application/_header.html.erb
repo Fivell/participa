@@ -11,17 +11,13 @@
           <%= link_to t("devise.links.sign_out"), destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
-        <% unless current_page?(new_user_registration_path) %>
-          <li class="nav-right">
-            <%= link_to t("devise.buttons.sign_up"), new_user_registration_path %>
-          </li>
-        <% end %>
+        <li class="nav-right">
+          <%= nav_menu_link_to t("devise.buttons.sign_up"), new_user_registration_path, [new_user_registration_path] %>
+        </li>
 
-        <% unless current_page?(new_user_session_path) %>
-          <li class="nav-right">
-            <%= link_to t("devise.buttons.sign_in"), new_user_session_path %>
-          </li>
-        <% end %>
+        <li class="nav-right">
+          <%= nav_menu_link_to t("devise.buttons.sign_in"), new_user_session_path, [new_user_session_path] %>
+        </li>
       <% end %>
 
       <% if user_signed_in? && Features.verifications? %>
