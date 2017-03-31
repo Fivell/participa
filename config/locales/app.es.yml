@@ -1064,7 +1064,9 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
       button: Informar a la usuaria
     show:
       title: Verificación Digital
-      pending_counter: "%{number} verificaciones pendientes"
+      pending_counter:
+        one: "%{count} verificación pendiente"
+        other: "%{count} verificaciones pendientes"
       change: Cambiar
       accept: Aceptar
       reject: Expulsar
