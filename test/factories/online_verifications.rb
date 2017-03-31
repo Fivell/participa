@@ -7,4 +7,8 @@ FactoryGirl.define do
     association :verified, factory: [:user, :confirmed_by_sms]
     association :verifier, factory: [:user, :verifying_online]
   end
+
+  factory :online_verification_upload, class: OnlineVerifications::Upload do
+    association :verified, factory: [:user, :confirmed_by_sms]
+  end
 end

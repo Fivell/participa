@@ -88,6 +88,23 @@ FactoryGirl.define do
     sms_confirmed_at { DateTime.now }
   end
 
+  trait :online_verification_pending_moderation do
+    confirmed_by_sms
+
+    after(:create) do |u, _|
+      u.uploads << create(:online_verification_upload, verified: u)
+    end
+  end
+
+  trait :online_verification_pending_docs do
+    confirmed_by_sms
+
+    after(:create) do |u, _|
+      u.verification_events << create(:online_verification_upload, verified: u, created_at: 1.minute.ago)
+      u.verification_events << create(:online_verification_report, verified: u)
+    end
+  end
+
   trait :not_verified_presentially do
     verified_by_id nil
   end

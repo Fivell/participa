@@ -629,7 +629,7 @@ class UserTest < ActiveSupport::TestCase
       [confirmed_by_sms, verified_presentially, verified_online, verified_both_ways],
       User.voting_right
 
-    assert_matches_array [confirmed_by_sms], User.online_verification_pending
+    assert_matches_array [confirmed_by_sms], User.confirmed_by_sms_but_still_unverified
   end
 
   test ".created work" do 
@@ -716,6 +716,21 @@ class UserTest < ActiveSupport::TestCase
     user = create(:user, :verifying_presentially, starts_at: 1.day.from_now,
                                                   ends_at: 2.days.from_now)
     assert_equal false, user.verifying_presentially?
+  end
+
+  test "online verification process status" do
+    # pathologic, shouldn't happen in real life but data is data, you never know
+    confirmed_by_sms_only = create(:user, :confirmed_by_sms)
+    assert_equal true, confirmed_by_sms_only.online_verification_pending_docs?
+    assert_equal false, confirmed_by_sms_only.online_verification_pending_moderation?
+
+    ready_for_review = create(:user, :online_verification_pending_moderation)
+    assert_equal false, ready_for_review.online_verification_pending_docs?
+    assert_equal true, ready_for_review.online_verification_pending_moderation?
+
+    pending_doc_reupload = create(:user, :online_verification_pending_docs)
+    assert_equal true, pending_doc_reupload.online_verification_pending_docs?
+    assert_equal false, pending_doc_reupload.online_verification_pending_moderation?
   end
 
   test "#verifying_online?" do

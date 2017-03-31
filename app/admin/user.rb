@@ -32,7 +32,7 @@ ActiveAdmin.register User do
   scope :unverified
 
   scope :voting_right
-  scope :online_verification_pending
+  scope :confirmed_by_sms_but_still_unverified
 
   permit_params :email, :password, :password_confirmation, :first_name, :last_name, :document_type, :document_vatid, :born_at, :address, :town, :postal_code, :province, :country, :vote_province, :vote_town, :wants_newsletter, :phone, :unconfirmed_phone
 

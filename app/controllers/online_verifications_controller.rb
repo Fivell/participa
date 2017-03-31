@@ -38,8 +38,7 @@ class OnlineVerificationsController < ApplicationController
     # @todo Handle failures gracefully
     OnlineVerificationMailer.report(event).deliver_now
 
-    redirect_to online_verification_path(@user),
-                notice: I18n.t("online_verifications.report.success")
+    pick_next('report')
   end
 
   def index
@@ -54,6 +53,8 @@ class OnlineVerificationsController < ApplicationController
   private
 
   def pick_next(action)
+    @pending_users.delete(@user)
+
     if @pending_users.any?
       redirect_to online_verification_path(next_user),
                   notice: I18n.t("online_verifications.#{action}.success")
@@ -64,13 +65,13 @@ class OnlineVerificationsController < ApplicationController
   end
 
   def next_user
-    @pending_users.order("RANDOM()").first
+    @pending_users.shuffle.first
   end
 
   helper_method :next_user
 
   def load_pending_users
-    @pending_users = User.online_verification_pending
+    @pending_users = User.online_verification_pending_moderation
   end
 
   def load_user

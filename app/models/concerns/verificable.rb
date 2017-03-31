@@ -10,6 +10,7 @@ module Verificable
 
     has_many :verificated_users, class_name: "User", foreign_key: :verified_by_id
     has_many :verification_slots, class_name: "Verification::Slot"
+    has_many :verification_events, class_name: "OnlineVerifications::Event", foreign_key: :verified_id
 
     has_many :uploads, class_name: "OnlineVerifications::Upload", foreign_key: :verified_id
 
@@ -39,12 +40,21 @@ module Verificable
     scope :unverified_online, -> { where(verified_online_by: nil) }
 
     scope :voting_right, -> { verified_presentially.or(confirmed_by_sms) }
-    scope :online_verification_pending, -> { confirmed_by_sms.unverified_online }
+    scope :confirmed_by_sms_but_still_unverified, -> { confirmed_by_sms.unverified_online }
   end
 
   class_methods do
     def sms_confirmation_period
       3.months
+    end
+
+    #
+    # @todo Transform the to a proper scope, because it's faster and chainable.
+    # So, for example, can be paginated and works in the admin.
+    #
+    def online_verification_pending_moderation
+      confirmed_by_sms_but_still_unverified
+        .select(&:online_verification_pending_moderation?)
     end
   end
 
@@ -118,10 +128,16 @@ module Verificable
     is_verified_online? || is_verified_presentially?
   end
 
-  def online_verification_pending?
+  def online_verification_pending_docs?
     return false unless Features.online_verifications? && not_banned?
 
-    confirmed_by_sms? && verified_online_by.nil?
+    verification_events.none? || verification_events.last_was_report?
+  end
+
+  def online_verification_pending_moderation?
+    return false unless Features.online_verifications? && not_banned?
+
+    confirmed_by_sms? && verification_events.last_was_upload?
   end
 
   def is_verified_online?

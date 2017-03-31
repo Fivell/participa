@@ -8,7 +8,7 @@ class VerificationOnlineManagerTest < JsFeatureTest
 
   around do |&block|
     with_verifications(online: true) do
-      @user = create(:user, :confirmed_by_sms,
+      @user = create(:user, :online_verification_pending_moderation,
                             first_name: "Miguel",
                             last_name: "Miguelez")
 
@@ -41,5 +41,21 @@ class VerificationOnlineManagerTest < JsFeatureTest
     # should see the banned message
     login(@user)
     assert_content I18n.t("unauthorized.banned", full_name: @user.full_name)
+  end
+
+  test "allows giving feedback to users" do
+    click_button('Señalar un problema')
+
+    click_button('Informar a la usuaria')
+    assert_content "No quedan usuarias pendientes de verificación. ¡Buen trabajo!"
+    logout
+
+    # should be able to upload more documents
+    login(@user)
+    visit edit_user_registration_path(anchor: 'change-documents')
+    assert_content <<~EOM.squish
+      Esta es la lista de imágenes que nos has facilitado para el proceso de
+      verificación digital.
+    EOM
   end
 end

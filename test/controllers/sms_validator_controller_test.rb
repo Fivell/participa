@@ -36,8 +36,15 @@ class SmsValidatorControllerTest < ActionController::TestCase
     end
   end
 
-  test "allows document upload while user not yet verified online" do
-    user = create(:user, :confirmed_by_sms)
+  test "allows document upload while user has not yet confirmed by sms" do
+    user = create(:user, :not_confirmed_by_sms)
+    sign_in user
+    get :step1
+    assert_response :success
+  end
+
+  test "allows document upload when user needs to upload pending documents" do
+    user = create(:user, :online_verification_pending_docs)
     sign_in user
     get :step1
     assert_response :success
