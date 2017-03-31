@@ -1138,8 +1138,6 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
     admin: Gestor de verificaciones presenciales
     alerts:
       already_presencial: "El usuario/a con documento %{document} ya estaba verificado, por %{by}, el %{when}. El usuario/a ya podrá votar."
-      already_sms: "El usuario/a con documento %{document} ya estaba verificado, por SMS, el %{when}. El usuario/a ya podrá votar."
-      already: "El usuario/a con documento %{document} ya estaba verificado. El usuario/a ya podrá votar."
       ok:
         title: Se ha verificado al usuario correctamente
         msg_html: "La persona ha sido verificada correctamente. Le hemos enviado un correo avisándole. Podrá votar en futuras votaciones. Puedes verificar al siguiente usuario."

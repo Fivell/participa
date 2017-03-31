@@ -495,8 +495,6 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     admin: Gestor de verificacions presencials
     alerts:
       already_presencial: "L'usuari/ària amb document %{document} ja estava  verificat, per %{by}, el %{when}. L'usuari/ària ja podrà votar."
-      already_sms: "L'usuari/ària amb document %{document} ja estava verificat, per SMS, el %{when}. L'usuari/ària ja podrà votar."
-      already: "L'usuari/ària amb document %{document} ja estava verificat. L'usuari/ària ja podrà votar."
       ok: "S'ha verificat l'usuari/ària correctament. Li hem enviat un  correu avisant-lo. Podrà votar en les pròximes votacions. Pots  continuar amb el següent usuari/ària."
       not_found: "No hem trobat un usuari/ària amb aquest document o correu electrònic. Búsqueda: %{query1} %{query2}"
       problem: "Hi ha hagut un problema buscant aquest usuari/ària. Fes una foto al document, demana-li el seu correu electrònc i envia'l a  info@unpaisencomu.cat"
