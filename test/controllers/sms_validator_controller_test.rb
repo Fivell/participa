@@ -55,14 +55,14 @@ class SmsValidatorControllerTest < ActionController::TestCase
   test "allows sms confirmation when not confirmed by sms" do
     user = create(:user, :not_confirmed_by_sms)
     sign_in user
-    get :step1
+    get :step2
     assert_response :success
   end
 
   test "allows sms confirmation when sms confirmation expired" do
     user = create(:user, :previously_confirmed_by_sms)
     sign_in user
-    get :step1
+    get :step2
     assert_response :success
   end
 
