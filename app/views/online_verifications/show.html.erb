@@ -76,9 +76,11 @@
                   method: :post,
                   class: 'main-action-btn btn-danger' %>
 
-      <%= link_to t('.skip'),
-                  online_verification_path(next_user),
-                  class: 'secondary-action-btn btn-info' %>
+      <% if next_user %>
+        <%= link_to t('.skip'),
+                    online_verification_path(next_user),
+                    class: 'secondary-action-btn btn-info' %>
+      <% end %>
 
       <button type="button" class="secondary-action-btn btn-warning" data-toggle="modal" data-target="#issue-modal">
         <%= t('.report') %>
