@@ -984,31 +984,36 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
     remove_document: Eliminar documento
     label:
       invalid_id: >
-        El documento de identidad no es válido. Debe ser DNI, NIE o pasaporte.
+        El documento de identidad que has adjuntado no es válido. Debe ser DNI,
+        NIE o pasaporte.
       unverifiable_id: >
-        El documento de identidad no es verificable. En la foto debe poder
-        distinguirse claramente tu nombre. Comprueba que no esté borrosa.
+        El documento de identidad que has adjuntado no es verificable. En la
+        foto debe poder distinguirse claramente tu nombre. Comprueba que no esté
+        borrosa.
       unmatched_identity: >
-        El documento de identidad no coincide con la identidad del solicitante.
-        Comprueba que la persona registrada es la misma que el titular del
-        documento que envías.
+        El documento de identidad que has adjuntado no coincide con la identidad
+        del solicitante. Comprueba que la persona registrada es la misma que el
+        titular del documento que envías.
       non_local_id_with_missing_residence_proof: >
-        El documento es de fuera de Cataluña y no se incluye un documento extra
-        con una prueba de residencia en Cataluña mediante factura reciente de
-        suministro básico.
+        El documento de identidad que has adjuntado es de fuera de Cataluña y no
+        has incluído un documento extra con una prueba de residencia en Cataluña
+        mediante factura reciente de suministro básico.
       non_local_id_with_invalid_residence_proof: >
-        El documento es de fuera de Cataluña y la prueba de residencia que se
-        incluye no es válida. Debe ser un recibo de agua, luz o gas.
+        El documento de identidad que has adjuntado es de fuera de Cataluña y la
+        prueba de residencia que se incluye no es válida. Debe ser un recibo
+        de agua, luz o gas.
       non_local_id_with_outdated_residence_proof: >
-        El documento es de fuera de Cataluña y la prueba de residencia que se
-        incluye no es reciente. Debe ser un recibo de los últimos tres meses.
+        El documento de identidad que has adjuntado es de fuera de Cataluña y la
+        prueba de residencia que se incluye no es reciente. Debe ser un recibo
+        de los últimos tres meses.
       non_local_id_with_unmatched_residence_proof: >
-        El documento es de fuera de Cataluña y la prueba de residencia que se
-        incluye no está a nombre del solicitante.
+        El documento de identidad que has adjuntado es de fuera de Cataluña y la
+        prueba de residencia que se incluye no está a nombre del solicitante.
       non_local_id_with_unverifiable_residence_proof: >
-        El documento es de fuera de Cataluña y la prueba de residencia que se
-        incluye no es verificable. En la foto debe poder distinguirse claramente
-        la fecha, tipo y titular del recibo. Comprueba que no esté borrosa.
+        El documento de identidad que has adjuntado es de fuera de Cataluña y la
+        prueba de residencia que se incluye no es verificable. En la foto debe
+        poder distinguirse claramente la fecha, tipo y titular del recibo.
+        Comprueba que no esté borrosa.
     mailer:
       subject: Revisa tu solicitud de verificación digital en Un País En Comú
       introduction: >

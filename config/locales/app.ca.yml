@@ -339,32 +339,36 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     remove_document: Eliminar document
     label:
       invalid_id: >
-        El document d'identitat no és vàlid. Ha de ser DNI, NIE o passaport.
+        El document d'identitat que has adjuntat no és vàlid. Ha de ser DNI, NIE
+        o passaport.
       unverifiable_id: >
-        El document d'identitat no es pot verificar. A la foto el teu nom s'ha
-        de poder distingir clarament. Comprova que no estigui borrosa.
-      unmatched_identity: >
-        El document d'identitat no coincideix amb la identitat del sol·licitant.
-        Comprova que la persona registrada és la mateixa que el titular del
-        document que envies.
-      non_local_id_with_missing_residence_proof: >
-        El document és de fora de Catalunya i no s'inclou un document extra amb
-        una prova de residència a Catalunya mitjançant una factura recent de
-        subministrament bàsic.
-      non_local_id_with_invalid_residence_proof: >
-        El document és de fora de Catalunya i la prova de residència que
-        s'inclou no és vàlida. Ha de ser un rebut d'aigua, llum o gas.
-      non_local_id_with_outdated_residence_proof: >
-        El document és de fora de Catalunya i la prova de residència que
-        s'inclou no és recent. Ha de ser un rebut dels últims tres mesos.
-      non_local_id_with_unmatched_residence_proof: >
-        El document és de fora de Catalunya i la prova de residència que
-        s'inclou no està a nom del sol·licitant.
-      non_local_id_with_unverifiable_residence_proof: >
-        El document és de fora de Catalunya i la prova de residència que
-        s'inclou no es pot verificar. A la foto s'ha de poder distingir
-        clarament la data, el tipus i titular del rebut. Comprova que no estigui
+        El document d'identitat que has adjuntat no es pot verificar. A la foto
+        el teu nom s'ha de poder distingir clarament. Comprova que no estigui
         borrosa.
+      unmatched_identity: >
+        El document d'identitat que has adjuntat no coincideix amb la identitat
+        del sol·licitant. Comprova que la persona registrada és la mateixa que
+        el titular del document que envies.
+      non_local_id_with_missing_residence_proof: >
+        El document d'identitat que has adjuntat és de fora de Catalunya i no
+        has inclòs un document extra amb una prova de residència a Catalunya
+        mitjançant una factura recent de subministrament bàsic.
+      non_local_id_with_invalid_residence_proof: >
+        El document d'identitat que has adjuntat és de fora de Catalunya i la
+        prova de residència que s'inclou no és vàlida. Ha de ser un rebut
+        d'aigua, llum o gas.
+      non_local_id_with_outdated_residence_proof: >
+        El document d'identitat que has adjuntat és de fora de Catalunya i la
+        prova de residència que s'inclou no és recent. Ha de ser un rebut dels
+        últims tres mesos.
+      non_local_id_with_unmatched_residence_proof: >
+        El document d'identitat que has adjuntat és de fora de Catalunya i la
+        prova de residència que s'inclou no està a nom del sol·licitant.
+      non_local_id_with_unverifiable_residence_proof: >
+        El document d'identitat que has adjuntat és de fora de Catalunya i la
+        prova de residència que s'inclou no es pot verificar. A la foto s'ha de
+        poder distingir clarament la data, el tipus i titular del rebut.
+        Comprova que no estigui borrosa.
     mailer:
       subject: >-
         Revisa la teva sol·licitud de verificació digital en Un País en Comú
