@@ -11,8 +11,8 @@ class VerificationSlotTest < ActiveSupport::TestCase
   end
 
   test "validates correctness of time interval" do
-    starts_at = DateTime.now + 1.day
-    ends_at = DateTime.now
+    starts_at = Time.zone.now + 1.day
+    ends_at = Time.zone.now
     verification_slot = build(:verification_slot, starts_at: starts_at,
                                                   ends_at: ends_at)
 

@@ -56,7 +56,7 @@ class Collaboration < ApplicationRecord
   scope :active, -> { created.where(status: 3)}
   scope :warnings, -> { created.where(status: 4)}
   scope :errors, -> { created.where(status: 1)}
-  scope :suspects, -> { banks.active.where("(select count(*) from orders o where o.parent_id=collaborations.id and o.payable_at>? and o.status=5)>2",Date.today-8.months) }
+  scope :suspects, -> { banks.active.where("(select count(*) from orders o where o.parent_id=collaborations.id and o.payable_at>? and o.status=5)>2",Date.current-8.months) }
   scope :legacy, -> { created.where.not(non_user_data: nil)}
   scope :non_user, -> { created.where(user_id: nil)}
   scope :deleted, -> { only_deleted }
@@ -89,7 +89,7 @@ class Collaboration < ApplicationRecord
   end
 
   def validates_age_over
-    if self.user and self.user.born_at and self.user.born_at > Date.today-18.years
+    if self.user and self.user.born_at and self.user.born_at > Date.current-18.years
       self.errors.add(:user, "No puedes colaborar si eres menor de edad.")
     end
   end
@@ -272,13 +272,13 @@ class Collaboration < ApplicationRecord
       elsif warn
         self.set_warning! "Marcada como alerta porque se ha devuelto una orden con código asociado a alerta en la colaboración."
       elsif self.order.count >= MAX_RETURNED_ORDERS
-        last_order = self.last_order_for(Date.today)
+        last_order = self.last_order_for(Date.current)
         if last_order
           last_month = last_order.payable_at.unique_month 
         else
           last_month = self.created_at.unique_month
         end
-        self.set_error! "Marcada como error porque se ha superado el límite de órdenes devueltas consecutivas." if Date.today.unique_month - 1 - last_month >= self.frequency*MAX_RETURNED_ORDERS
+        self.set_error! "Marcada como error porque se ha superado el límite de órdenes devueltas consecutivas." if Date.current.unique_month - 1 - last_month >= self.frequency*MAX_RETURNED_ORDERS
       end
     end
   end
@@ -310,7 +310,7 @@ class Collaboration < ApplicationRecord
   end
 
   def must_have_order? date
-    this_month = Date.today.unique_month
+    this_month = Date.current.unique_month
 
     # first order not created yet, must have order this month, or next if its paid by bank and was created this month after payment day
     if self.first_order.nil?
@@ -328,13 +328,13 @@ class Collaboration < ApplicationRecord
     # calculate next order month based on last paid order
     else
       next_order = self.last_order_for(date-1.month).payable_at.unique_month + self.frequency
-      next_order = Date.today.unique_month if next_order<Date.today.unique_month  # update next order when a payment was missed
+      next_order = Date.current.unique_month if next_order<Date.current.unique_month  # update next order when a payment was missed
     end
 
     (date.unique_month >= next_order) and (date.unique_month-next_order) % self.frequency == 0
   end
 
-  def get_orders date_start=Date.today, date_end=Date.today, create_orders = true
+  def get_orders date_start=Date.current, date_end=Date.current, create_orders = true
     saved_orders = Hash.new {|h,k| h[k] = [] }
 
     self.order.select {|o| o.payable_at > date_start.beginning_of_month and o.payable_at < date_end.end_of_month} .each do |o|

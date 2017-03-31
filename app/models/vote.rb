@@ -16,7 +16,7 @@ class Vote < ApplicationRecord
   end
 
   def generate_message
-    "#{self.voter_id}:AuthEvent:#{self.scoped_agora_election_id}:vote:#{Time.now.to_i}"
+    "#{self.voter_id}:AuthEvent:#{self.scoped_agora_election_id}:vote:#{Time.zone.now.to_i}"
   end
 
   def generate_hash(message)

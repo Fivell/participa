@@ -81,7 +81,7 @@ module Verificable
 
   def can_change_phone?
     unconfirmed_by_sms? or
-      sms_confirmed_at < DateTime.now-self.class.sms_confirmation_period
+      sms_confirmed_at < Time.zone.now-self.class.sms_confirmation_period
   end
 
   def generate_sms_token
@@ -94,7 +94,7 @@ module Verificable
 
   def send_sms_token!
     require 'sms'
-    update_attribute(:confirmation_sms_sent_at, DateTime.now)
+    update_attribute(:confirmation_sms_sent_at, Time.zone.now)
     SMS::Sender.send_message(unconfirmed_phone, sms_confirmation_token)
   end
 
@@ -112,7 +112,7 @@ module Verificable
           end
         end
       end
-      update_attribute(:sms_confirmed_at, DateTime.now)
+      update_attribute(:sms_confirmed_at, Time.zone.now)
       true
     else
       false
@@ -152,11 +152,11 @@ module Verificable
   end
 
   def verify! user
-    update(verified_at: DateTime.now, verified_by: user)
+    update(verified_at: Time.zone.now, verified_by: user)
     VerificationMailer.verified(self).deliver_now
   end
 
   def verify_online! user
-    update(verified_online_at: DateTime.now, verified_online_by: user)
+    update(verified_online_at: Time.zone.now, verified_online_by: user)
   end
 end

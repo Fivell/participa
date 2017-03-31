@@ -70,7 +70,7 @@ class CollaborationTest < ActiveSupport::TestCase
 
   test "should .validates_age_over work" do
     user = build(:user)
-    user.update_attribute(:born_at, DateTime.now-10.years)
+    user.update_attribute(:born_at, Time.zone.now-10.years)
     @collaboration.user = user
     assert_not @collaboration.valid?
     assert(@collaboration.errors[:user].include? "No puedes colaborar si eres menor de edad.")
@@ -222,7 +222,7 @@ class CollaborationTest < ActiveSupport::TestCase
     assert @collaboration.is_payable?
     @collaboration.update_attribute(:status, 4)
     assert_not @collaboration.is_payable?
-    @collaboration.update_attribute(:deleted_at, DateTime.now)
+    @collaboration.update_attribute(:deleted_at, Time.zone.now)
     assert_not @collaboration.is_payable?
     @collaboration.update_attribute(:status, 2)
     @collaboration.update_attribute(:deleted_at, nil)
@@ -242,7 +242,7 @@ class CollaborationTest < ActiveSupport::TestCase
     assert @collaboration.is_active?
     @collaboration.update_attribute(:status, 4)
     assert @collaboration.is_active?
-    @collaboration.update_attribute(:deleted_at, DateTime.now)
+    @collaboration.update_attribute(:deleted_at, Time.zone.now)
     @collaboration.update_attribute(:status, 4)
     assert_not @collaboration.is_active?
   end
@@ -270,13 +270,13 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should .first_order work" do
-    order1 = @collaboration.create_order DateTime.now-6.months, true
+    order1 = @collaboration.create_order Time.zone.now-6.months, true
     order1.save
     @collaboration.reload
-    order2 = @collaboration.create_order DateTime.now-5.months, true
-    order3 = @collaboration.create_order DateTime.now-4.months, true
-    order4 = @collaboration.create_order DateTime.now-3.months, true
-    order5 = @collaboration.create_order DateTime.now+3.months, true
+    order2 = @collaboration.create_order Time.zone.now-5.months, true
+    order3 = @collaboration.create_order Time.zone.now-4.months, true
+    order4 = @collaboration.create_order Time.zone.now-3.months, true
+    order5 = @collaboration.create_order Time.zone.now+3.months, true
     order2.save
     order3.save
     order4.save
@@ -287,13 +287,13 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should .create_order work" do
-    order1 = @collaboration.create_order DateTime.now-1.month
+    order1 = @collaboration.create_order Time.zone.now-1.month
     assert order1.save
     assert_equal(order1, @collaboration.first_order)
     assert_equal "Domiciliación en cuenta bancaria (formato IBAN)", order1.payment_type_name
     assert_equal "Domiciliación en cuenta bancaria (formato CCC)", @collaboration.payment_type_name
     assert_equal(order1.amount, @collaboration.amount)
-    order2 = @collaboration.create_order DateTime.now
+    order2 = @collaboration.create_order Time.zone.now
     assert order2.save
     assert_equal "Domiciliación en cuenta bancaria (formato IBAN)", order2.payment_type_name
     assert_equal "Domiciliación en cuenta bancaria (formato CCC)", @collaboration.payment_type_name
@@ -312,7 +312,7 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should .payment_processed! work" do
-    order = @collaboration.create_order Date.today
+    order = @collaboration.create_order Date.current
     order.save
     assert_equal 0, @collaboration.status
 
@@ -320,7 +320,7 @@ class CollaborationTest < ActiveSupport::TestCase
     assert_equal 0, @collaboration.status
 
     order.update_attribute(:status, 2)
-    order.update_attribute(:payed_at, Date.today)
+    order.update_attribute(:payed_at, Date.current)
     @collaboration.payment_processed! order
     assert_equal 3, @collaboration.status
 
@@ -330,7 +330,7 @@ class CollaborationTest < ActiveSupport::TestCase
 
     if Features.redsys_collaborations?
       credit_card = create(:collaboration, :credit_card)
-      credit_card_order = credit_card.create_order Date.today
+      credit_card_order = credit_card.create_order Date.current
       credit_card_order.save
       credit_card.payment_processed! credit_card_order
 
@@ -372,41 +372,41 @@ class CollaborationTest < ActiveSupport::TestCase
   end
 
   test "should .must_have_order? work" do
-    assert_not @collaboration.must_have_order? Date.today-1.year
-    assert_not @collaboration.must_have_order? Date.today-1.month
-    assert @collaboration.must_have_order? Date.today+1.month
-    assert @collaboration.must_have_order? Date.today+1.year
+    assert_not @collaboration.must_have_order? Date.current-1.year
+    assert_not @collaboration.must_have_order? Date.current-1.month
+    assert @collaboration.must_have_order? Date.current+1.month
+    assert @collaboration.must_have_order? Date.current+1.year
 
     date = @collaboration.created_at
     date = date.change(day: Order.payment_day)
 
     @collaboration.created_at = date - 1.day
-    assert @collaboration.must_have_order? Date.today
+    assert @collaboration.must_have_order? Date.current
 
     @collaboration.created_at = date + 1.day
-    assert_not @collaboration.must_have_order? Date.today
+    assert_not @collaboration.must_have_order? Date.current
 
   end
 
   test "should .must_have_order? work for trimestral" do
     @collaboration.update_attribute(:payment_type, 1)
     @collaboration.update_attribute(:frequency, 3)
-    assert @collaboration.must_have_order? Date.today
-    order = @collaboration.create_order Date.today
+    assert @collaboration.must_have_order? Date.current
+    order = @collaboration.create_order Date.current
     assert order.valid?
     # FIXME: check another time on trimestral basis                                                 
     #skip "Should not have collaboration another time on a trimestral basis"
-    #assert_not @collaboration.must_have_order? Date.today+15.days
+    #assert_not @collaboration.must_have_order? Date.current+15.days
   end
 
   test "should .get_orders work" do
-    order1 = @collaboration.create_order DateTime.now-1.month
+    order1 = @collaboration.create_order Time.zone.now-1.month
     order1.save
-    order2 = @collaboration.create_order DateTime.now
+    order2 = @collaboration.create_order Time.zone.now
     order2.save
-    order3 = @collaboration.create_order DateTime.now+1.month
+    order3 = @collaboration.create_order Time.zone.now+1.month
     order3.save
-    orders = @collaboration.get_orders(DateTime.now-2.month, DateTime.now)
+    orders = @collaboration.get_orders(Time.zone.now-2.month, Time.zone.now)
     assert_equal(2, orders.count)
   end
 
@@ -422,7 +422,7 @@ class CollaborationTest < ActiveSupport::TestCase
     test "should .charge! work" do
       collaboration = create(:collaboration, :credit_card)
       collaboration.update_attribute(:status, 2)
-      order = collaboration.create_order Date.today
+      order = collaboration.create_order Date.current
       order.save
       assert_equal "Nueva", order.status_name
       assert_nil order.payment_response
@@ -603,11 +603,11 @@ phone: '666666'"
   end
 
   test "should .bank_filename work" do
-    date = Date.today
+    date = Date.current
     filename = "podemos.orders.#{date.year.to_s}.#{date.month.to_s}"
     full_filename = "#{Rails.root}/db/podemos/#{filename}.csv"
-    assert_equal full_filename, Collaboration.bank_filename(Date.today)
-    assert_equal filename, Collaboration.bank_filename(Date.today, false)
+    assert_equal full_filename, Collaboration.bank_filename(Date.current)
+    assert_equal filename, Collaboration.bank_filename(Date.current, false)
   end
 
   test "should .bank_file_lock work" do
@@ -619,13 +619,13 @@ phone: '666666'"
   end
 
   test "should Collaboration.has_bank_file? work" do
-    assert Collaboration.has_bank_file? Date.today
+    assert Collaboration.has_bank_file? Date.current
     #@collaboration.BANK_FILE_LOCK
   end
 
   test "should update_paid_unconfirmed_bank_collaborations orders work" do
-    date = Date.today
-    start_date = Date.today - 4.month
+    date = Date.current
+    start_date = Date.current - 4.month
     @collaboration.create_order(date - 1.month ).save
     @collaboration.create_order(date - 2.month ).save
     @collaboration.create_order(date - 3.month ).save
@@ -664,7 +664,7 @@ phone: '666666'"
 
   test "should not save collaboration if userr is not over legal age (18 years old)" do
     user = build(:user)
-    user.update_attribute(:born_at, DateTime.now-10.years)
+    user.update_attribute(:born_at, Time.zone.now-10.years)
     @collaboration.user = user
     assert_not @collaboration.valid?
     assert(@collaboration.errors[:user].include? "No puedes colaborar si eres menor de edad.")
@@ -701,16 +701,16 @@ phone: '666666'"
   end
 
   #test "should .get_orders work with collaboration created but not paid the same month" do
-  #  @collaboration.update_attribute(:created_at, Date.today)
+  #  @collaboration.update_attribute(:created_at, Date.current)
   #  order = @collaboration.get_orders
   #  assert_equal "order", order
   #end
 
   #test "should .get_orders work after and before payment day." do
-  #  @collaboration.update_attribute(:created_at, Date.today)
-  #  orders = @collaboration.get_orders(Date.today-2.month, Date.today-1.month)
+  #  @collaboration.update_attribute(:created_at, Date.current)
+  #  orders = @collaboration.get_orders(Date.current-2.month, Date.current-1.month)
   #  assert_equal 0, orders.count
-  #  orders = @collaboration.get_orders(Date.today, Date.today+1.month)
+  #  orders = @collaboration.get_orders(Date.current, Date.current+1.month)
   #  assert_equal 1, orders.count
   #end
 

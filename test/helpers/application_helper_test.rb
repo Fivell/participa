@@ -66,7 +66,7 @@ class ApplicationHelperTest < ActionView::TestCase
 
   test "should errors_in_form work" do 
     user = create(:user)
-    user.born_at = DateTime.now
+    user.born_at = Time.zone.now
     result = errors_in_form user
     assert_equal "", result
   end

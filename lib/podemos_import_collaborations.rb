@@ -17,7 +17,7 @@ class PodemosImportCollaborations
       payment_type: row["Método de pago"],
       amount: row["Total"].to_i * 100.0,
       frequency: row["Frecuencia de pago"],  # 1 3 12
-      created_at: DateTime.parse(row["Creado"]),
+      created_at: Time.zone.parse(row["Creado"]),
       row: row
     }
 

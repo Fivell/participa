@@ -7,7 +7,7 @@
   </thead>
   <tbody>
   <% (0..12).each do |i| 
-    date = Date.today - (12-i).months %>
+    date = Date.current - (12-i).months %>
     <%= render "row_month", month: date.month, year: date.year %>
   <% end %>
   </tbody>

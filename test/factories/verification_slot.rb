@@ -1,8 +1,8 @@
 FactoryGirl.define do
 
   factory :verification_slot, class: Verification::Slot do
-    starts_at { DateTime.now }
-    ends_at { DateTime.now + 1.day }
+    starts_at { Time.zone.now }
+    ends_at { Time.zone.now + 1.day }
 
     trait :online do
       verification_center nil

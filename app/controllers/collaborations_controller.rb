@@ -56,7 +56,7 @@ class CollaborationsController < ApplicationController
     redirect_to new_collaboration_path and return unless @collaboration
     redirect_to edit_collaboration_path if @collaboration.has_payment?
     # ensure credit card order is not persisted, to allow create a new id for each payment try
-    @order = @collaboration.create_order Time.now, true if @collaboration.is_credit_card?
+    @order = @collaboration.create_order Time.zone.now, true if @collaboration.is_credit_card?
   end
 
   def OK
@@ -79,7 +79,7 @@ class CollaborationsController < ApplicationController
     @collaboration = current_user.collaboration
 
     if @collaboration
-      start_date = [@collaboration.created_at, Date.today - 6.months].max
+      start_date = [@collaboration.created_at, Date.current - 6.months].max
       @orders = @collaboration.get_orders(start_date, start_date + 12.months)[0..(12/@collaboration.frequency-1)]
       @order = @orders[0][-1]
     end

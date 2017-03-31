@@ -10,7 +10,7 @@ class OrderTest < ActiveSupport::TestCase
 
   around do |&block|
     @collaboration = create(:collaboration, :ccc)
-    @order = @collaboration.create_order Date.today, true
+    @order = @collaboration.create_order Date.current, true
 
     with_features(collaborations: true, collaborations_redsys: true) do
       super(&block)
@@ -21,9 +21,9 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal( Date.civil(2013,1,1).unique_month, 24157 )
     assert_equal( Date.civil(2014,1,1).unique_month, 24169 )
     assert_equal( Date.civil(2015,1,1).unique_month, 24181 )
-    assert_equal( Time.new(2013,1,1).unique_month, 24157 )
-    assert_equal( Time.new(2014,1,1).unique_month, 24169 )
-    assert_equal( Time.new(2015,1,1).unique_month, 24181 )
+    assert_equal( Time.zone.local(2013,1,1).unique_month, 24157 )
+    assert_equal( Time.zone.local(2014,1,1).unique_month, 24169 )
+    assert_equal( Time.zone.local(2015,1,1).unique_month, 24181 )
     assert_equal( DateTime.civil(2013,1,1).unique_month, 24157 )
     assert_equal( DateTime.civil(2014,1,1).unique_month, 24169 )
     assert_equal( DateTime.civil(2015,1,1).unique_month, 24181 )
@@ -47,11 +47,11 @@ class OrderTest < ActiveSupport::TestCase
 
   test "should Order.by_date work" do
     @order.save
-    order1 = @collaboration.create_order Date.today+10.years
+    order1 = @collaboration.create_order Date.current+10.years
     order1.save
-    order2 = @collaboration.create_order Date.today+1.years
+    order2 = @collaboration.create_order Date.current+1.years
     order2.save
-    orders = Order.by_date(Date.today, Date.today+5.years)
+    orders = Order.by_date(Date.current, Date.current+5.years)
     assert_equal(2, orders.count)
   end
 
@@ -80,12 +80,12 @@ class OrderTest < ActiveSupport::TestCase
 
   test "should .is_paid? work" do
     @order.save
-    @order.update_attribute(:payed_at, DateTime.now)
+    @order.update_attribute(:payed_at, Time.zone.now)
     @order.update_attribute(:status, 2)
     assert(@order.is_paid?)
     @order.update_attribute(:payed_at, nil)
     assert_not(@order.is_paid?)
-    @order.update_attribute(:payed_at, DateTime.now)
+    @order.update_attribute(:payed_at, Time.zone.now)
     @order.update_attribute(:status, 1)
     assert_not(@order.is_paid?)
   end
@@ -154,13 +154,13 @@ class OrderTest < ActiveSupport::TestCase
 
   test "should .by_month_count work" do
     @order.save
-    count = Order.by_month_count( DateTime.now )
+    count = Order.by_month_count( Time.zone.now )
     assert_equal(count, 1)
   end
 
   test "should .by_month_amount work" do
     @order.save
-    amount = Order.by_month_amount( DateTime.now )
+    amount = Order.by_month_amount( Time.zone.now )
     assert_equal(amount, 10)
   end
 
@@ -188,7 +188,7 @@ class OrderTest < ActiveSupport::TestCase
   end
 
   test "should .mark_as_paid! work" do
-    now = DateTime.now
+    now = Time.zone.now
     @order.mark_as_paid! now
     assert_equal( 2, @order.status )
     assert( @order.payed_at.is_a? Time )
@@ -203,41 +203,41 @@ class OrderTest < ActiveSupport::TestCase
 
   test "should .mark_bank_orders_as_charged! work" do
     collaboration1 = create(:collaboration, :credit_card)
-    order1 = collaboration1.create_order Date.today, true
+    order1 = collaboration1.create_order Date.current, true
     order1.save
-    Order.mark_bank_orders_as_charged! Date.today
+    Order.mark_bank_orders_as_charged! Date.current
     order1.reload
     # shouldnt mark as charged ccc type collaboration order
     assert_equal(0, order1.status)
 
     # shouldnt mark as charged iban type collaboration order
     collaboration2 = create(:collaboration, :iban)
-    order2 = collaboration2.create_order Date.today, true
+    order2 = collaboration2.create_order Date.current, true
     order2.save
-    Order.mark_bank_orders_as_charged! Date.today+1.hour
+    Order.mark_bank_orders_as_charged! Date.current+1.hour
     order2.reload
     assert_equal(1, order2.status)
   end
 
   test "should .mark_bank_orders_as_paid! work" do
     @order.save
-    Order.mark_bank_orders_as_paid! Date.today
+    Order.mark_bank_orders_as_paid! Date.current
     @order.reload
     # shouldnt mark as charged ccc type collaboration order
     assert_equal(0, @order.status)
 
     collaboration2 = create(:collaboration, :iban)
-    order2 = collaboration2.create_order Date.today, true
+    order2 = collaboration2.create_order Date.current, true
     order2.save
 
     # shouldnt mark as charged on bank no status charging
-    Order.mark_bank_orders_as_paid! Date.today
+    Order.mark_bank_orders_as_paid! Date.current
     order2.reload
     assert_equal(0, order2.status)
 
     # should mark as charged on bank on status charging
     order2.update_attribute(:status, 1)
-    Order.mark_bank_orders_as_paid! Date.today
+    Order.mark_bank_orders_as_paid! Date.current
     order2.reload
     assert_equal(2, order2.status)
   end
@@ -260,7 +260,7 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal 12, @order.redsys_order_id.length
 
     # reusing Ds_Order from redsys response
-    order2 = @collaboration.create_order Date.today, true
+    order2 = @collaboration.create_order Date.current, true
     order2_id = "000000#{order2.id}Caaaa"
     order2.payment_response = {"Ds_Order" => order2_id}.to_json
     order2.save
@@ -344,7 +344,7 @@ class OrderTest < ActiveSupport::TestCase
     @order.update_attribute(:payment_response, {"Ds_Response" => 0}.to_json)
     assert_equal("0: Transacción autorizada para pagos y preautorizaciones", @order.redsys_text_status)
 
-    order1 = @collaboration.create_order Date.today+1.month, true
+    order1 = @collaboration.create_order Date.current+1.month, true
     order1.save
 #    @order.update_attribute(:payment_response, {"Ds_Response" => 111111}.to_json)
 #    assert_equal("Transacción denegada", @order.redsys_text_status)

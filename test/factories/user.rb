@@ -17,7 +17,7 @@ FactoryGirl.define do
     first_name "Perez"
     email 
     password '123456789'
-    confirmed_at Time.now
+    confirmed_at Time.zone.now
     born_at Date.civil(1983, 2, 1) 
     wants_newsletter true
     document_type 1
@@ -85,7 +85,7 @@ FactoryGirl.define do
   end
 
   trait :confirmed_by_sms do
-    sms_confirmed_at { DateTime.now }
+    sms_confirmed_at { Time.zone.now }
   end
 
   trait :pending_moderation do
@@ -110,7 +110,7 @@ FactoryGirl.define do
   end
 
   trait :verified_presentially do
-    verified_at { DateTime.now }
+    verified_at { Time.zone.now }
     verified_by_id 1
   end
 
@@ -121,13 +121,13 @@ FactoryGirl.define do
   trait :verified_online do
     confirmed_by_sms
 
-    verified_online_at { DateTime.now }
+    verified_online_at { Time.zone.now }
     verified_online_by_id 1
   end
 
   trait :previously_confirmed_by_sms do
     sms_confirmed_at do
-      DateTime.now - User.sms_confirmation_period - 1.day
+      Time.zone.now - User.sms_confirmation_period - 1.day
     end
   end
 

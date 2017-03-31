@@ -9,7 +9,7 @@ class PodemosCollaborationSepaWorker
   
   # XXX se necesita esto?? 
   def self.read_collaborations
-    today = Date.today
+    today = Date.current
     collaborations = Collaboration.joins(:order)
                      .includes(:user)
                      .where(payment_type: 2..3)

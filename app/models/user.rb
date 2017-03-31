@@ -57,7 +57,7 @@ class User < ApplicationRecord
   validates :document_vatid, valid_nif: true, if: :is_document_dni?
   validates :document_vatid, valid_nie: true, if: :is_document_nie?
   validates :born_at, date: true, allow_blank: true # gem date_validator
-  validates :born_at, inclusion: { in: Date.civil(1900, 1, 1)..Date.today-16.years }, allow_blank: true
+  validates :born_at, inclusion: { in: Date.civil(1900, 1, 1)..Date.current-16.years }, allow_blank: true
   validates :phone, numericality: true, allow_blank: true
   validates :unconfirmed_phone, numericality: true, allow_blank: true
 
@@ -535,25 +535,25 @@ class User < ApplicationRecord
   end
 
   def can_request_sms_check?
-    DateTime.now > next_sms_check_request_at
+    Time.zone.now > next_sms_check_request_at
   end
   
   def can_check_sms_check?
-    sms_check_at.present? && (DateTime.now < (sms_check_at + eval(Rails.application.secrets.users["sms_check_valid_interval"])))
+    sms_check_at.present? && (Time.zone.now < (sms_check_at + eval(Rails.application.secrets.users["sms_check_valid_interval"])))
   end
 
   def next_sms_check_request_at
     if sms_check_at.present?
       sms_check_at + eval(Rails.application.secrets.users["sms_check_request_interval"])
     else
-      DateTime.now - 1.second
+      Time.zone.now - 1.second
     end
   end
   
   def send_sms_check!
     require 'sms'
     if can_request_sms_check?
-      self.update_attribute(:sms_check_at, DateTime.now)
+      self.update_attribute(:sms_check_at, Time.zone.now)
       SMS::Sender.send_message(self.phone, self.sms_check_token)
       true
     else

@@ -6,7 +6,7 @@ class Notice < ApplicationRecord
 
   def broadcast!
     self.broadcast_gcm(title, body, link)
-    self.update_attribute(:sent_at, DateTime.now)
+    self.update_attribute(:sent_at, Time.zone.now)
   end
 
   def broadcast_gcm(title, message, link) 

@@ -223,7 +223,7 @@ ActiveAdmin.register MicrocreditLoan do
   member_action :count, :method => [:post] do
     m = MicrocreditLoan.find(params[:id])
     if request.post? and m.counted_at.nil?
-      m.counted_at = DateTime.now
+      m.counted_at = Time.zone.now
     
       if m.save
         flash[:notice] = "El microcrédito ha sido modificado y ahora se cuenta en la web."

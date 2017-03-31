@@ -389,7 +389,7 @@ ActiveAdmin.register User do
     if subaction == "Descargar CSV"
       send_data csv["results"],
         type: 'text/csv; charset=utf-8; header=present',
-        disposition: "attachment; filename=participa.podemos.#{Date.today.to_s}.csv"
+        disposition: "attachment; filename=participa.podemos.#{Date.current.to_s}.csv"
     else
       flash[:notice] = "Usuarios procesados: #{csv['processed'].join(',')}. Total: #{csv['processed'].count}"
       redirect_to action: :index, "[q][id_in]": "#{csv['processed'].join(' ')}"
@@ -436,7 +436,7 @@ ActiveAdmin.register User do
     if params[:date].nil? or params[:date].empty?
       date = DateTime.civil(1900,1,1)
     else  
-      date = DateTime.parse(params[:date])
+      date = Time.zone.parse(params[:date])
     end
 
     csv = CSV.generate(encoding: 'utf-8', col_sep: "\t") do |csv|
@@ -448,7 +448,7 @@ ActiveAdmin.register User do
 
     send_data csv.encode('utf-8'),
       type: 'text/tsv; charset=utf-8; header=present',
-      disposition: "attachment; filename=podemos.participationteams.#{Date.today.to_s}.csv"
+      disposition: "attachment; filename=podemos.participationteams.#{Date.current.to_s}.csv"
   end
 
   sidebar :report, only: :index do

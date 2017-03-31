@@ -17,8 +17,8 @@ def show_order o, html_output = true
 end
 
 def show_collaboration_orders(collaboration, html_output = true)
-  today = Date.today.unique_month
-  output = (collaboration.get_orders(Date.today-6.months, Date.today+6.months).map do |orders|
+  today = Date.current.unique_month
+  output = (collaboration.get_orders(Date.current-6.months, Date.current+6.months).map do |orders|
     odate = orders[0].payable_at
     month = odate.month.to_s
     month = (html_output ? content_tag(:strong, month).html_safe : "|"+month+"|") if odate.unique_month==today
@@ -101,9 +101,9 @@ ActiveAdmin.register Collaboration do
       status_tag("Errores", :error) if collaboration.has_errors?
       collaboration.deleted? ? status_tag("Borrado", :error) : ""
       if collaboration.redsys_expiration
-        if collaboration.redsys_expiration<Date.today
+        if collaboration.redsys_expiration<Date.current
           status_tag("Caducada", :error)
-        elsif collaboration.redsys_expiration<Date.today+1.month
+        elsif collaboration.redsys_expiration<Date.current+1.month
           status_tag("Caducará", :warn) 
         end
       end
@@ -112,7 +112,7 @@ ActiveAdmin.register Collaboration do
   end
 
   sidebar "Acciones", 'data-panel' => :collapsed, only: :index, priority: 0 do
-    status = Collaboration.has_bank_file? Date.today
+    status = Collaboration.has_bank_file? Date.current
 
     h4 "Pagos con tarjeta" 
     ul do
@@ -130,19 +130,19 @@ ActiveAdmin.register Collaboration do
       li link_to 'Generar fichero en formato SEPA (xml)', params.merge(:action => :generate_sepa_xml) 
       li link_to 'Generar fichero en formato SEPA (xls)', params.merge(:action => :generate_sepa_xls)
       li do
-        this_month = Order.banks.by_date(Date.today, Date.today).to_be_charged.count
-        prev_month = Order.banks.by_date(Date.today-1.month, Date.today-1.month).to_be_charged.count
+        this_month = Order.banks.by_date(Date.current, Date.current).to_be_charged.count
+        prev_month = Order.banks.by_date(Date.current-1.month, Date.current-1.month).to_be_charged.count
         """Marcar como enviadas:
-        #{link_to Date.today.strftime("%b (#{this_month})").downcase, params.merge(action: :mark_as_charged, date: Date.today), data: { confirm: "Esta acción no se puede deshacer. ¿Deseas continuar?" } }
-        #{link_to (Date.today-1.month).strftime("%b (#{prev_month})").downcase, params.merge(action: :mark_as_charged, date: Date.today-1.month), data: { confirm: "Esta acción no se puede deshacer. ¿Deseas continuar?" } }
+        #{link_to Date.current.strftime("%b (#{this_month})").downcase, params.merge(action: :mark_as_charged, date: Date.current), data: { confirm: "Esta acción no se puede deshacer. ¿Deseas continuar?" } }
+        #{link_to (Date.current-1.month).strftime("%b (#{prev_month})").downcase, params.merge(action: :mark_as_charged, date: Date.current-1.month), data: { confirm: "Esta acción no se puede deshacer. ¿Deseas continuar?" } }
         """.html_safe
       end
       li do
-        this_month = Order.banks.by_date(Date.today, Date.today).charging.count
-        prev_month = Order.banks.by_date(Date.today-1.month, Date.today-1.month).charging.count
+        this_month = Order.banks.by_date(Date.current, Date.current).charging.count
+        prev_month = Order.banks.by_date(Date.current-1.month, Date.current-1.month).charging.count
         """Marcar como pagadas:
-        #{link_to Date.today.strftime("%b (#{this_month})").downcase, params.merge(action: :mark_as_paid, date: Date.today), data: { confirm: "Esta acción no se puede deshacer. ¿Deseas continuar?" } }
-        #{link_to (Date.today-1.month).strftime("%b (#{prev_month})").downcase, params.merge(action: :mark_as_paid, date: Date.today-1.month), data: { confirm: "Esta acción no se puede deshacer. ¿Deseas continuar?" } }
+        #{link_to Date.current.strftime("%b (#{this_month})").downcase, params.merge(action: :mark_as_paid, date: Date.current), data: { confirm: "Esta acción no se puede deshacer. ¿Deseas continuar?" } }
+        #{link_to (Date.current-1.month).strftime("%b (#{prev_month})").downcase, params.merge(action: :mark_as_paid, date: Date.current-1.month), data: { confirm: "Esta acción no se puede deshacer. ¿Deseas continuar?" } }
         """.html_safe
       end
     end
@@ -151,20 +151,20 @@ ActiveAdmin.register Collaboration do
     ul do
       li do
         """Autonómica:
-        #{link_to Date.today.strftime("%b").downcase, params.merge(action: :download_for_autonomy, date: Date.today) }
-        #{link_to (Date.today-1.month).strftime("%b").downcase, params.merge(action: :download_for_autonomy, date: Date.today-1.month) }
+        #{link_to Date.current.strftime("%b").downcase, params.merge(action: :download_for_autonomy, date: Date.current) }
+        #{link_to (Date.current-1.month).strftime("%b").downcase, params.merge(action: :download_for_autonomy, date: Date.current-1.month) }
         """.html_safe
       end
       li do
         """Municipal:
-        #{link_to Date.today.strftime("%b").downcase, params.merge(action: :download_for_town, date: Date.today) }
-        #{link_to (Date.today-1.month).strftime("%b").downcase, params.merge(action: :download_for_town, date: Date.today-1.month) }
+        #{link_to Date.current.strftime("%b").downcase, params.merge(action: :download_for_town, date: Date.current) }
+        #{link_to (Date.current-1.month).strftime("%b").downcase, params.merge(action: :download_for_town, date: Date.current-1.month) }
         """.html_safe
       end
       li do
         """Insular:
-        #{link_to Date.today.strftime("%b").downcase, params.merge(action: :download_for_island, date: Date.today) }
-        #{link_to (Date.today-1.month).strftime("%b").downcase, params.merge(action: :download_for_island, date: Date.today-1.month) }
+        #{link_to Date.current.strftime("%b").downcase, params.merge(action: :download_for_island, date: Date.current) }
+        #{link_to (Date.current-1.month).strftime("%b").downcase, params.merge(action: :download_for_island, date: Date.current-1.month) }
         """.html_safe
       end
     end
@@ -246,9 +246,9 @@ ActiveAdmin.register Collaboration do
         status_tag("Errores", :error) if collaboration.has_errors?
         collaboration.deleted? ? status_tag("Borrado", :error) : ""
         if collaboration.redsys_expiration
-          if collaboration.redsys_expiration<Date.today
+          if collaboration.redsys_expiration<Date.current
             status_tag("Caducada", :error)
-          elsif collaboration.redsys_expiration<Date.today+1.month
+          elsif collaboration.redsys_expiration<Date.current+1.month
             status_tag("Caducará", :warn) 
           end
         end
@@ -373,9 +373,9 @@ ActiveAdmin.register Collaboration do
   end
 
   collection_action :download_csv, :method => :get do
-    status = Collaboration.has_bank_file? Date.today
+    status = Collaboration.has_bank_file? Date.current
     if status[1]
-      send_file Collaboration.bank_filename Date.today
+      send_file Collaboration.bank_filename Date.current
     else
       flash[:notice] = "El fichero no existe aún"
       redirect_to :admin_collaborations
@@ -510,7 +510,7 @@ ActiveAdmin.register Collaboration do
     end
     column :amount_current do |collaboration|
       collaboration.skip_queries_validations = true
-      if collaboration.is_payable? and collaboration.must_have_order? Date.today
+      if collaboration.is_payable? and collaboration.must_have_order? Date.current
         (collaboration.amount/100 * collaboration.frequency) 
       else
         0
@@ -538,7 +538,7 @@ ActiveAdmin.register Collaboration do
 
     send_data csv.encode('utf-8'),
       type: 'text/tsv; charset=utf-8; header=present',
-      disposition: "attachment; filename=podemos.for_autonomy_cc.#{Date.today.to_s}.csv"
+      disposition: "attachment; filename=podemos.for_autonomy_cc.#{Date.current.to_s}.csv"
   end
 
   collection_action :download_for_town, :method => :get do
@@ -563,7 +563,7 @@ ActiveAdmin.register Collaboration do
 
     send_data csv.encode('utf-8'),
       type: 'text/tsv; charset=utf-8; header=present',
-      disposition: "attachment; filename=podemos.for_town_cc.#{Date.today.to_s}.csv"
+      disposition: "attachment; filename=podemos.for_town_cc.#{Date.current.to_s}.csv"
   end
 
   collection_action :download_for_island, :method => :get do
@@ -590,7 +590,7 @@ ActiveAdmin.register Collaboration do
 
     send_data csv.encode('utf-8'),
       type: 'text/tsv; charset=utf-8; header=present',
-      disposition: "attachment; filename=podemos.for_island_cc.#{Date.today.to_s}.csv"
+      disposition: "attachment; filename=podemos.for_island_cc.#{Date.current.to_s}.csv"
   end
 
   batch_action :error_batch, if: proc{ params[:scope]=="suspects" } do |ids|

@@ -49,7 +49,7 @@ class ImpulsaProject < ApplicationRecord
 
   validates :authority_email, allow_blank: true, email: true
   validates :organization_web, :video_link, allow_blank: true, url: true
-  validates :organization_year, allow_blank: true, numericality: { only_integer: true, greater_than_or_equal_to: 1000, less_than_or_equal_to: Date.today.year }
+  validates :organization_year, allow_blank: true, numericality: { only_integer: true, greater_than_or_equal_to: 1000, less_than_or_equal_to: Date.current.year }
 
   validates :terms_of_service, :data_truthfulness, :content_rights, acceptance: true, unless: :check_validation
 

@@ -71,7 +71,7 @@ class MicrocreditTest < ActiveSupport::TestCase
     assert_equal resp, @microcredit.campaign_status
 
     # if confirmed loans increase, then the status should change
-    #create_loans(@microcredit, 5, {user: @user3, amount: 100, confirmed_at: DateTime.now})
+    #create_loans(@microcredit, 5, {user: @user3, amount: 100, confirmed_at: Time.zone.now})
     #@microcredit = Microcredit.find @microcredit.id
     #resp = [[100, true, true, false, 5], [100, false, false, false, 7], [500, false, false, false, 2]]
     #assert_equal resp, @microcredit.campaign_status
@@ -94,11 +94,11 @@ class MicrocreditTest < ActiveSupport::TestCase
 
   test "should .remaining_percent work" do
     assert_equal "1.00", '%.2f' % @microcredit.remaining_percent
-    @microcredit.update_attributes(starts_at: DateTime.now, ends_at: DateTime.now+1.hour)
+    @microcredit.update_attributes(starts_at: Time.zone.now, ends_at: Time.zone.now+1.hour)
     assert_equal "1.00", '%.2f' % @microcredit.remaining_percent
-    @microcredit.update_attributes(starts_at: DateTime.now-1.hour, ends_at: DateTime.now+1.hour)
+    @microcredit.update_attributes(starts_at: Time.zone.now-1.hour, ends_at: Time.zone.now+1.hour)
     assert_equal "0.50", '%.2f' % @microcredit.remaining_percent
-    @microcredit.update_attributes(starts_at: DateTime.now-1.hour, ends_at: DateTime.now+6.minutes)
+    @microcredit.update_attributes(starts_at: Time.zone.now-1.hour, ends_at: Time.zone.now+6.minutes)
     assert_equal "0.09", '%.2f' % @microcredit.remaining_percent
   end
 
@@ -111,7 +111,7 @@ class MicrocreditTest < ActiveSupport::TestCase
 
     assert @microcredit.has_amount_available? 100
     # remove 100s
-    create_loans(@microcredit, 5, {user: @user1, amount: 100, counted_at: DateTime.now, confirmed_at: DateTime.now})
+    create_loans(@microcredit, 5, {user: @user1, amount: 100, counted_at: Time.zone.now, confirmed_at: Time.zone.now})
     @microcredit = Microcredit.find @microcredit.id
     assert_not @microcredit.has_amount_available? 100
     assert @microcredit.has_amount_available? 500
@@ -126,7 +126,7 @@ class MicrocreditTest < ActiveSupport::TestCase
     expected = [[100, 100], [500, 22], [1000, 10]]
     assert_equal expected, result
 
-    create_loans(@microcredit, 5, {user: @user1, amount: 100, counted_at: DateTime.now, confirmed_at: DateTime.now})
+    create_loans(@microcredit, 5, {user: @user1, amount: 100, counted_at: Time.zone.now, confirmed_at: Time.zone.now})
     result = @microcredit.phase_remaining
     expected = [[100, 100], [500, 22], [1000, 10]]
     assert_equal expected, result
@@ -154,11 +154,11 @@ class MicrocreditTest < ActiveSupport::TestCase
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 0, @microcredit.phase_counted_amount
 
-    create_loans(@microcredit, 3, {user: @user3, amount: 500, confirmed_at: DateTime.now})
+    create_loans(@microcredit, 3, {user: @user3, amount: 500, confirmed_at: Time.zone.now})
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 1500, @microcredit.phase_counted_amount
 
-    create_loans(@microcredit, 3, {user: @user3, amount: 500, counted_at: DateTime.now})
+    create_loans(@microcredit, 3, {user: @user3, amount: 500, counted_at: Time.zone.now})
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 3000, @microcredit.phase_counted_amount
 
@@ -174,7 +174,7 @@ class MicrocreditTest < ActiveSupport::TestCase
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 0, @microcredit.campaign_confirmed_amount
 
-    create_loans(@microcredit, 4, {user: @user2, amount: 100, confirmed_at: DateTime.now})
+    create_loans(@microcredit, 4, {user: @user2, amount: 100, confirmed_at: Time.zone.now})
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 400, @microcredit.campaign_confirmed_amount
 
@@ -182,7 +182,7 @@ class MicrocreditTest < ActiveSupport::TestCase
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 400, @microcredit.campaign_confirmed_amount
 
-    create_loans(@microcredit, 2, {user: @user4, amount: 500, confirmed_at: DateTime.now})
+    create_loans(@microcredit, 2, {user: @user4, amount: 500, confirmed_at: Time.zone.now})
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 1400, @microcredit.campaign_confirmed_amount
   end
@@ -199,7 +199,7 @@ class MicrocreditTest < ActiveSupport::TestCase
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 2500, @microcredit.campaign_counted_amount
 
-    create_loans(@microcredit, 5, {user: @user3, amount: 500, counted_at: DateTime.now})
+    create_loans(@microcredit, 5, {user: @user3, amount: 500, counted_at: Time.zone.now})
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 5000, @microcredit.campaign_counted_amount
   end
@@ -213,7 +213,7 @@ class MicrocreditTest < ActiveSupport::TestCase
   end
 
   test "friendly id slug candidates work" do
-    now = DateTime.now
+    now = Time.zone.now
     microcredit1 = create(:microcredit, title: "Barna")
     assert_equal("barna", microcredit1.slug)
     microcredit2 = create(:microcredit, title: "Barna")
@@ -227,7 +227,7 @@ class MicrocreditTest < ActiveSupport::TestCase
   test "should .check_limits_with_phase work" do
     @microcredit.limits[300] = 10
     @microcredit.save
-    create_loans(@microcredit, 10, {user: @user1, amount: 300, counted_at: DateTime.now})
+    create_loans(@microcredit, 10, {user: @user1, amount: 300, counted_at: Time.zone.now})
     @microcredit = Microcredit.find @microcredit.id
 
     @microcredit.limits[300] = 1

@@ -14,7 +14,7 @@
         <Cell><Data ss:Type="String">Concepto</Data></Cell>
         <Cell><Data ss:Type="String">Importe</Data></Cell>
       </Row>
-      <% year=Time.now.year %>
+      <% year=Time.zone.now.year %>
       <% PodemosCollaborationSepaWorker.read_orders.each do |order| %>
       <% id = order.id.to_s.rjust(7, '0') %>
       <Row>

@@ -19,9 +19,9 @@ class ImpulsaEdition < ApplicationRecord
   validates_attachment_content_type :requested_budget_model, content_type: [ "application/vnd.ms-excel", "application/msexcel", "application/x-msexcel", "application/x-ms-excel", "application/x-excel", "application/x-dos_ms_excel", "application/xls", "application/x-xls", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.oasis.opendocument.spreadsheet" ]
   validates_attachment_content_type :monitoring_evaluation_model, content_type: [ "application/vnd.ms-excel", "application/msexcel", "application/x-msexcel", "application/x-ms-excel", "application/x-excel", "application/x-dos_ms_excel", "application/xls", "application/x-xls", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.oasis.opendocument.spreadsheet" ]
 
-  #scope :active, -> { where("? BETWEEN start_at AND ends_at", DateTime.now) }
-  scope :active, -> { where("start_at < ?", DateTime.now) }
-  scope :upcoming, -> { where("start_at > ?", DateTime.now) }
+  #scope :active, -> { where("? BETWEEN start_at AND ends_at", Time.zone.now) }
+  scope :active, -> { where("start_at < ?", Time.zone.now) }
+  scope :upcoming, -> { where("start_at > ?", Time.zone.now) }
 
   def self.current
     active.first
@@ -38,7 +38,7 @@ class ImpulsaEdition < ApplicationRecord
     publish_results: 7
   }
   def current_phase
-    now = DateTime.now
+    now = Time.zone.now
     if now < self.start_at
       EDITION_PHASES[:not_started]
     elsif now < self.new_projects_until

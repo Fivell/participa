@@ -91,7 +91,7 @@ class CollaborationsTest < ActionDispatch::IntegrationTest
     assert_content "Ya tienes una colaboración"
 
     collaboration = Collaboration.all.last
-    order = collaboration.create_order Date.today+1.day
+    order = collaboration.create_order Date.current+1.day
     assert order.save
     assert_equal 1, Order.all.count
 

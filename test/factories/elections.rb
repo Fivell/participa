@@ -12,13 +12,13 @@ FactoryGirl.define do
   end
 
   trait :closed do
-    starts_at { DateTime.now - 2.weeks }
-    ends_at { DateTime.now - 1.week }
+    starts_at { Time.zone.now - 2.weeks }
+    ends_at { Time.zone.now - 1.week }
   end
 
   trait :opened do
-    starts_at { DateTime.now - 1.week }
-    ends_at { DateTime.now + 1.week }
+    starts_at { Time.zone.now - 1.week }
+    ends_at { Time.zone.now + 1.week }
   end
 
   trait :autonomy do
