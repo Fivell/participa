@@ -44,6 +44,11 @@ class OnlineVerificationsController < ApplicationController
 
   def index
     authorize! :index, :online_verifications
+
+    if @pending_users.empty?
+      redirect_to root_path,
+                  notice: I18n.t('online_verifications.index.no_pending_users')
+    end
   end
 
   private
@@ -53,7 +58,7 @@ class OnlineVerificationsController < ApplicationController
       redirect_to online_verification_path(next_user),
                   notice: I18n.t("online_verifications.#{action}.success")
     else
-      redirect_to online_verifications_path,
+      redirect_to root_path,
                   notice: I18n.t("online_verifications.you_are_done")
     end
   end
