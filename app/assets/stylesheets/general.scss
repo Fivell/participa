@@ -37,6 +37,7 @@ $color-primary4: #E65C56;
 $color-secondary1: #269283;
 $color-secondary2: #97c2b8;
 
+$classic-blue: #337ab7;
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------
 base
@@ -47,7 +48,7 @@ body{color:#333;}
 li,dt,dd{list-style:none;}
 img{border:0;}
 a img, a.img, h1 a{border:none;}
-a{color:#716E6B}
+a{color:$classic-blue}
 a:hover{text-decoration:none;}
 :focus{outline:0;}
 caption,th,td {text-align:left;font-weight:normal;}
