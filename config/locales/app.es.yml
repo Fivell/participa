@@ -86,6 +86,15 @@ es:
         other: "Horarios"
       verifier_profile: "Perfil de Verificador"
     errors:
+      messages:
+        bad_spanish_postal_code_length: >-
+          El código postal debe ser un número de 5 cifras
+        bad_spanish_postal_code_province: >-
+          El código postal no coincide con la provincia indicada
+        duplicated_phone: Ya hay alguien con ese número de teléfono
+        invalid_phone: Revisa el formato de tu teléfono
+        bad_spanish_phone_number: >-
+          Debes poner un teléfono móvil válido de España empezando por 6 o 7.
       models: 
         user:
           attributes: 
@@ -95,11 +104,13 @@ es:
               blank: "Tu apellido no puede estar en blanco" 
             document_type: 
               blank: "Tu tipo de documento no puede estar en blanco"
+              inclusion: "Tipo de documento no válido"
             document_vatid: 
               blank: "Tu documento no puede estar en blanco"
               taken: "Hubo un error al guardar este dato. Inténtalo de nuevo" 
             born_at: 
               blank: "Tu fecha de nacimiento no puede estar en blanco"
+              inclusion: "Debes ser mayor de 16 años"
               not_a_date: "No es una fecha válida. Comprueba que el formato con el que estás poniendo la fecha sea el correcto" 
             address:
               blank: "Tu dirección no puede estar en blanco"

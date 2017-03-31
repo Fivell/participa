@@ -58,15 +58,11 @@ class User < ActiveRecord::Base
   validates :catalan_town, presence: { if: :in_catalonia? }, absence: { unless: :in_catalonia? }
   validates :terms_of_service, acceptance: true
   validates :age_restriction, acceptance: true
-  validates :document_type,
-            inclusion: { in: [1, 2, 3],
-            message: "Tipo de documento no válido" },
-            allow_blank: true
+  validates :document_type, inclusion: { in: [1, 2, 3] }, allow_blank: true
   validates :document_vatid, valid_nif: true, if: :is_document_dni?
   validates :document_vatid, valid_nie: true, if: :is_document_nie?
   validates :born_at, date: true, allow_blank: true # gem date_validator
-  validates :born_at, inclusion: { in: Date.civil(1900, 1, 1)..Date.today-16.years,
-    message: "debes ser mayor de 16 años" }, allow_blank: true
+  validates :born_at, inclusion: { in: Date.civil(1900, 1, 1)..Date.today-16.years }, allow_blank: true
   validates :phone, numericality: true, allow_blank: true
   validates :unconfirmed_phone, numericality: true, allow_blank: true
 
@@ -91,11 +87,11 @@ class User < ActiveRecord::Base
   def validates_postal_code
     if in_spain?
       if (self.postal_code =~ /^\d{5}$/) != 0
-        self.errors.add(:postal_code, "El código postal debe ser un número de 5 cifras")
+        self.errors.add(:postal_code, :bad_spanish_postal_code_length)
       else
         province = spanish_regions.coded(self.province)
         if province and self.postal_code[0...2] != province.subregions[0].code[2...4]
-          self.errors.add(:postal_code, "El código postal no coincide con la provincia indicada")
+          self.errors.add(:postal_code, :bad_spanish_postal_code_province)
         end
       end
     end
@@ -103,18 +99,18 @@ class User < ActiveRecord::Base
 
   def validates_unconfirmed_phone_uniqueness
     if User.verified_online.where(phone: self.unconfirmed_phone).exists?
-      self.errors.add(:phone, "Ya hay alguien con ese número de teléfono")
+      self.errors.add(:phone, :duplicated_phone)
     end
   end
 
   def validates_phone_format
-    self.errors.add(:phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.phone)
+    self.errors.add(:phone, :invalid_phone) unless Phoner::Phone.valid?(self.phone)
   end
 
   def validates_unconfirmed_phone_format
-    self.errors.add(:unconfirmed_phone, "Revisa el formato de tu teléfono") unless Phoner::Phone.valid?(self.unconfirmed_phone)
+    self.errors.add(:unconfirmed_phone, :invalid_phone) unless Phoner::Phone.valid?(self.unconfirmed_phone)
     if in_spain? and not (self.unconfirmed_phone.starts_with?('00346') or self.unconfirmed_phone.starts_with?('00347'))
-      self.errors.add(:unconfirmed_phone, "Debes poner un teléfono móvil válido de España empezando por 6 o 7.")
+      self.errors.add(:unconfirmed_phone, :bad_spanish_phone_number)
     end
   end
 

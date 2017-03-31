@@ -33,7 +33,8 @@ require 'capybara/poltergeist'
 
 # Poltergeist customization
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, url_whitelist: ['127.0.0.1'])
+  Capybara::Poltergeist::Driver.new(app, timeout: 1.minute,
+                                         url_whitelist: ['127.0.0.1'])
 end
 
 Capybara.javascript_driver = :poltergeist

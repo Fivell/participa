@@ -138,10 +138,10 @@ class UserTest < ActiveSupport::TestCase
   test "validates user is over 16 years old" do
     u = build(:user, born_at: Date.today - (16.years - 1.day))
     u.valid?
-    assert_includes u.errors[:born_at], "debes ser mayor de 16 años"
+    assert_includes u.errors[:born_at], "Debes ser mayor de 16 años"
     u = build(:user, born_at: Date.civil(1888, 2, 1))
     u.valid?
-    assert_includes u.errors[:born_at], "debes ser mayor de 16 años"
+    assert_includes u.errors[:born_at], "Debes ser mayor de 16 años"
     u = build(:user, born_at: Date.today - (16.years + 1.day))
     u.valid?
     assert(u.errors[:born_at], [])
@@ -180,6 +180,20 @@ class UserTest < ActiveSupport::TestCase
     u = User.new(country: 'ES', postal_code: '')
     u.valid?
     assert_equal ["Tu código postal no puede estar en blanco"],
+                 u.errors[:postal_code]
+  end
+
+  test "validates Spanish postal code length" do
+    u = User.new(country: 'ES', postal_code: '333333')
+    u.valid?
+    assert_equal ["El código postal debe ser un número de 5 cifras"],
+                 u.errors[:postal_code]
+  end
+
+  test "validates Spanish postal code correctness" do
+    u = User.new(country: 'ES', province: 'B', postal_code: '99999')
+    u.valid?
+    assert_equal ["El código postal no coincide con la provincia indicada"],
                  u.errors[:postal_code]
   end
 
