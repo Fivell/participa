@@ -3,7 +3,9 @@
 <div class="content-content verification">
   <div class="box-info">
     <nav class="online-verification-nav">
-      <%= render "paginator" %>
+      <div class="pending-counter">
+        <%= t('.pending_counter', number: @pending_users.size) %>
+      </div>
 
       <div class="verification-search">
         <%= form_tag search_online_verification_path, method: :get, enforce_utf8: false do %>
@@ -67,14 +69,18 @@
       <%= link_to t('.accept'),
                   accept_online_verification_path(@user),
                   method: :post,
-                  class: 'btn btn-lg btn-success' %>
+                  class: 'main-action-btn btn-success' %>
 
       <%= link_to t('.reject'),
                   reject_online_verification_path(@user),
                   method: :post,
-                  class: 'btn btn-lg btn-danger' %>
+                  class: 'main-action-btn btn-danger' %>
 
-      <button type="button" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#issue-modal">
+      <%= link_to t('.skip'),
+                  online_verification_path(next_user),
+                  class: 'secondary-action-btn btn-info' %>
+
+      <button type="button" class="secondary-action-btn btn-warning" data-toggle="modal" data-target="#issue-modal">
         <%= t('.report') %>
       </button>
     </div>

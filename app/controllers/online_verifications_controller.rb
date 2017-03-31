@@ -50,7 +50,7 @@ class OnlineVerificationsController < ApplicationController
 
   def pick_next(action)
     if @pending_users.any?
-      redirect_to online_verification_path(@pending_users.first),
+      redirect_to online_verification_path(next_user),
                   notice: I18n.t("online_verifications.#{action}.success")
     else
       redirect_to online_verifications_path,
@@ -58,15 +58,11 @@ class OnlineVerificationsController < ApplicationController
     end
   end
 
-  def current_index
-    @current_index ||= @pending_users.index(@user)
+  def next_user
+    @pending_users.order("RANDOM()").first
   end
 
-  def total_count
-    @total_count ||= @pending_users.size
-  end
-
-  helper_method :current_index, :total_count
+  helper_method :next_user
 
   def load_pending_users
     @pending_users = User.online_verification_pending

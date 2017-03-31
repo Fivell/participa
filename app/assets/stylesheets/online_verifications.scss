@@ -67,6 +67,22 @@ fieldset .inputlabel-box .doc-upload input {
 
 .online-verification-actions {
   padding: 20px;
+
+  .main-action-btn {
+    @extend .btn;
+    @extend .btn-lg;
+
+    float: left;
+    margin-right: 2px;
+  }
+
+  .secondary-action-btn {
+    @extend .btn;
+    @extend .btn-lg;
+
+    float: right;
+    margin-left: 2px;
+  }
 }
 
 .pending-counter {

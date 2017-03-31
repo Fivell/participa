@@ -424,9 +424,11 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
       button: Informar la persona usuària
     show:
       title: Verificació digital
+      pending_counter: "%{number} verificacions pendents"
       change:
       accept: Acceptar
       reject: Refusar
+      skip: Següent
       report: Assenyalar un problema
     user_uploaded:
     verifier_reported:

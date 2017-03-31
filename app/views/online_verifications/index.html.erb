@@ -34,7 +34,7 @@
     <div class="row online-verification-actions">
       <% if @pending_users.any? %>
         <%= link_to t('.get_started'),
-                    online_verification_path(@pending_users.first),
+                    online_verification_path(next_user),
                     class: 'button-block' %>
       <% else %>
         <%= t('.no_pending_users') %>
