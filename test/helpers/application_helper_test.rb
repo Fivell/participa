@@ -13,20 +13,20 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test "should nav_menu_link_to work" do 
-    response = nav_menu_link_to "Salir", "sign-out", destroy_user_session_path, [destroy_user_session_path], method: :delete, title: "Cerrar sesión"
-    expected = "<a title=\"Cerrar sesión\" class=\"\" rel=\"nofollow\" data-method=\"delete\" href=\"/users/sign_out\"><i class=\"fa fa-sign-out\"></i><span>Salir</span></a>"
+    response = nav_menu_link_to "Salir", destroy_user_session_path, [destroy_user_session_path], method: :delete, title: "Cerrar sesión"
+    expected = "<a title=\"Cerrar sesión\" class=\"\" rel=\"nofollow\" data-method=\"delete\" href=\"/users/sign_out\">Salir</a>"
     assert_equal expected, response
-    response = nav_menu_link_to "Inicio", "home", root_path, [root_path], title: "Inicio"
-    expected = "<a title=\"Inicio\" class=\"\" href=\"/\"><i class=\"fa fa-home\"></i><span>Inicio</span></a>"
+    response = nav_menu_link_to "Inicio", root_path, [root_path], title: "Inicio"
+    expected = "<a title=\"Inicio\" class=\"\" href=\"/\">Inicio</a>"
     assert_equal expected, response
-    response = nav_menu_link_to "Equipos de Participación", "users", participation_teams_path, [participation_teams_path], title: "Equipos de Participación"
-    expected = "<a title=\"Equipos de Participación\" class=\"\" href=\"/equipos-de-accion-participativa\"><i class=\"fa fa-users\"></i><span>Equipos de Participación</span></a>"
+    response = nav_menu_link_to "Equipos de Participación", participation_teams_path, [participation_teams_path], title: "Equipos de Participación"
+    expected = "<a title=\"Equipos de Participación\" class=\"\" href=\"/equipos-de-accion-participativa\">Equipos de Participación</a>"
     assert_equal expected, response
-    response = nav_menu_link_to "Colaboración económica", "euro", new_collaboration_path, [new_collaboration_path], title: "Colaboración económica"
-    expected = "<a title=\"Colaboración económica\" class=\"\" href=\"/colabora\"><i class=\"fa fa-euro\"></i><span>Colaboración económica</span></a>"
+    response = nav_menu_link_to "Colaboración económica", new_collaboration_path, [new_collaboration_path], title: "Colaboración económica"
+    expected = "<a title=\"Colaboración económica\" class=\"\" href=\"/colabora\">Colaboración económica</a>"
     assert_equal expected, response
-    response = nav_menu_link_to "Datos personales", "user", edit_user_registration_path, [edit_user_registration_path], title: "Datos personales"
-    expected = "<a title=\"Datos personales\" class=\"\" href=\"/users/edit\"><i class=\"fa fa-user\"></i><span>Datos personales</span></a>"
+    response = nav_menu_link_to "Datos personales", edit_user_registration_path, [edit_user_registration_path], title: "Datos personales"
+    expected = "<a title=\"Datos personales\" class=\"\" href=\"/users/edit\">Datos personales</a>"
     assert_equal expected, response
   end
 
