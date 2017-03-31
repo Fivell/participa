@@ -4,7 +4,8 @@
 
 hideSingleRemoveLink = ->
   if $('.doc-remove-link:visible').length == 1
-    $('.doc-remove-link').hide()
+    # @todo: why does hide not work?
+    $('.doc-remove-link')[0].style.display = "none"
 
 showMultipleRemoveLinks = ->
   if $('.doc-remove-link').length > 1
