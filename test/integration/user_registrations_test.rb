@@ -25,6 +25,27 @@ class UserRegistrationsTest < JsFeatureTest
     assert User.first.vegueria_code, 'AT01'
   end
 
+  test "allows the youngest (16 years old) to register" do
+    user = build(:user, born_at: 16.years.ago)
+    visit new_user_registration_path
+    fill_in('Nombre', with: user.first_name)
+    fill_in('Apellidos', with: user.last_name)
+    select("Pasaporte", from: "Tipo de documento")
+    fill_in('DNI', with: user.document_vatid)
+
+    fill_in_born_date(user.born_at.year,
+                      I18n.l(user.born_at, format: "%B"),
+                      user.born_at.day)
+
+    fill_in_location_data(user)
+    fill_in_login_data(user, user.email)
+    acknowledge_stuff
+    click_button "Inscribirse"
+
+    assert_content \
+      I18n.t("devise.registrations.signed_up_but_unconfirmed")
+  end
+
   test "create a user outside of Catalonia" do
     @user = build(:user, :spanish, province: 'AB',
                                    town: 'm_02_003_0',
