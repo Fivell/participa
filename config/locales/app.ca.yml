@@ -418,9 +418,9 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
       no_pending_users: >
         Hores d'ara no hi ha persones usuàries pendents de verificar.
     accept:
-      success:
+      success: Persona usuària verificada correctament
     reject:
-      success:
+      success: Persona usuària expulsada correctament
     report:
       success: Sol·licitud actualitzada correctament
     report_modal:
@@ -431,13 +431,13 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
       pending_counter:
         one: "%{count} verificació pendent"
         other: "%{count} verificacions pendents"
-      change:
+      change: Canviar
       accept: Acceptar
       reject: Expulsar
       skip: Següent
       report: Assenyalar un problema
-    user_uploaded:
-    verifier_reported:
+    user_uploaded: "%{name} va carregar els següents documents"
+    verifier_reported: "%{name} va informar dels següents problemes"
     you_are_done: >
       No resten persones usuàries pendents de verificació. Bona feina!
   verification:
