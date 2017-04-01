@@ -4,6 +4,10 @@ class SmsValidatorController < ApplicationController
 
   def step1 
     authorize! :step1, :sms_validator
+
+    if current_user.uploads.any?
+      redirect_to sms_validator_step2_path
+    end
   end
 
   def step2

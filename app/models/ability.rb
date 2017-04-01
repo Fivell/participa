@@ -67,7 +67,7 @@ class Ability
           can [:show, :search, :accept, :reject, :report, :index], :online_verifications
         end
 
-        if user.pending_docs?
+        if user.unconfirmed_by_sms? || user.pending_docs?
           can [:step1, :documents], :sms_validator
         end
 

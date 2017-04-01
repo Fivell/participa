@@ -43,11 +43,38 @@ class SmsValidatorControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "allows document upload when user needs to upload pending documents" do
+  test "redirects to second step when user has already uploaded documents but starts again" do
     user = create(:user, :pending_docs)
     sign_in user
     get :step1
-    assert_response :success
+    assert_redirected_to sms_validator_step2_path
+  end
+
+  test "allows document upload when user needs to upload pending documents" do
+    user = create(:user, :pending_docs)
+    sign_in user
+
+    image = fixture_file_upload(
+      Rails.root.join('test', 'fixtures', 'test.png'),
+      'image/png'
+    )
+
+    online_verifications_upload = { documents_attributes: {
+        "0" => {
+          scanned_picture: image
+        }
+      }
+    }
+
+    post :documents,
+         params: { online_verifications_upload: online_verifications_upload }
+
+    events = OnlineVerifications::Event.where(verified: user)
+    assert_equal 3, events.count # initial + moderator + reupload
+
+    event = events.last
+    assert_equal 1, event.documents.count
+    assert_redirected_to root_path
   end
 
   test "does not allow sms confirmation when confirmed by sms recently" do
