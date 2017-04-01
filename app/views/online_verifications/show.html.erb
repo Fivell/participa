@@ -15,12 +15,12 @@
       </div>
     </nav>
 
-    <h2>
+    <h2 class="online-verification-title">
       <%= @user.full_name_and_id %>
     </h2>
 
     <div class="row">
-      <div class="info-section--separator">
+      <div class="info-section">
         <ul class="info-list">
           <li>
             <strong><%= t('activerecord.attributes.user.born_at') %></strong>:
@@ -58,7 +58,7 @@
     </div>
 
     <div class="row">
-      <div class="info-section">
+      <div class="info-section--separator">
         <ol class="activity-feed">
           <%= render @events %>
         </ol>

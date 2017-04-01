@@ -337,6 +337,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     admin: Gestor de verificacions digitals
     add_another_document: Afegir-hi un altre document
     remove_document: Eliminar document
+    reupload_documents: Selecciona i envia els documents corregits
     label:
       invalid_id: >
         El document d'identitat que has adjuntat no és vàlid. Ha de ser DNI, NIE
@@ -436,8 +437,12 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
       reject: Expulsar
       skip: Següent
       report: Assenyalar un problema
-    user_uploaded: "%{name} va carregar els següents documents"
+    user_uploaded_images: "%{name} va carregar les següents imatges"
+    user_uploaded_images_self: Has carregat les següents imatges"
+    user_uploaded_pdfs: "%{name} va carregar els següents PDF's"
+    user_uploaded_pdfs_self: "Has carregat els següents PDF's"
     verifier_reported: "%{name} va informar dels següents problemes"
+    verifier_reported_self: Es van informar dels següents problemes
     you_are_done: >
       No resten persones usuàries pendents de verificació. Bona feina!
   verification:

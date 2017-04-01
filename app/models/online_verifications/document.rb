@@ -9,5 +9,13 @@ module OnlineVerifications
     validates :upload, presence: true
 
     belongs_to :upload
+
+    def pdf?
+      scanned_picture_content_type == "application/pdf"
+    end
+
+    def image?
+      scanned_picture_content_type =~ /\Aimage\/.*\z/
+    end
   end
 end

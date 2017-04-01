@@ -1,13 +1,51 @@
-<li class="feed-item">
-  <time class="date" datetime="<%= upload.created_at %>">
-    <%= upload.created_at.to_s(:short) %>
-  </time>
+<% if upload.pdfs.any? %>
+  <li class="feed-item">
+    <time class="date" datetime="<%= upload.created_at %>">
+      <%= upload.created_at.to_s(:short) %>
+    </time>
 
-  <span class="text">
-    <%= t('online_verifications.user_uploaded', name: upload.verified.first_name) %>
-  </span>
+    <span class="text">
+      <% if current_user == upload.verified %>
+        <%= t('online_verifications.user_uploaded_pdfs_self') %>
+      <% else %>
+        <%= t('online_verifications.user_uploaded_pdfs',
+              name: upload.verified.first_name) %>
+      <% end %>
+    </span>
 
-  <ul id=<%= "images-#{upload.id}" %> class="image-list">
-    <%= render 'application/documents', upload: upload %>
-  </ul>
-</li>
+    <ul class="pdf-list">
+      <% upload.pdfs.each do |pdf| %>
+        <li>
+          <%= link_to pdf.scanned_picture_file_name,
+                      pdf.scanned_picture.url(:original) %>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+<% end %>
+
+<% if upload.images.any? %>
+  <li class="feed-item">
+    <time class="date" datetime="<%= upload.created_at %>">
+      <%= upload.created_at.to_s(:short) %>
+    </time>
+
+    <span class="text">
+      <% if current_user == upload.verified %>
+        <%= t('online_verifications.user_uploaded_images_self') %>
+      <% else %>
+        <%= t('online_verifications.user_uploaded_images',
+               name: upload.verified.first_name) %>
+      <% end %>
+    </span>
+
+    <ul id=<%= "images-#{upload.id}" %> class="image-list">
+      <% upload.images.each do |image| %>
+        <li>
+          <%= image_tag image.scanned_picture.url(:thumb),
+                        data: { original: image.scanned_picture.url(:original) } %>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+<% end %>

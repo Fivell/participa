@@ -982,6 +982,7 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
     admin: Gestor de verificaciones digitales
     add_another_document: Añadir otro documento
     remove_document: Eliminar documento
+    reupload_documents: Selecciona y envía los documentos corregidos
     label:
       invalid_id: >
         El documento de identidad que has adjuntado no es válido. Debe ser DNI,
@@ -1077,8 +1078,12 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
       reject: Expulsar
       skip: Siguiente
       report: Señalar un problema
-    user_uploaded: "%{name} subió los siguientes documentos"
+    user_uploaded_images: "%{name} subió las siguientes imágenes"
+    user_uploaded_images_self: "Subiste las siguientes imágenes"
+    user_uploaded_pdfs: "%{name} subió los siguientes PDF's"
+    user_uploaded_pdfs_self: "Subiste los siguientes PDF's"
     verifier_reported: "%{name} reportó los siguientes problemas"
+    verifier_reported_self: "Se reportaron los siguientes problemas"
     you_are_done: No quedan usuarias pendientes de verificación. ¡Buen trabajo!
   verification:
     from: de

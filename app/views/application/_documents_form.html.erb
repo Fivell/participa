@@ -5,12 +5,18 @@
     <legend class="invisible">Introduce tu documentación</legend>
 
     <div class="row">
-      <div class="info-section">
-        <ul class="info-list">
-          <li><%= t('sms_validator.documents.local_id') %></li>
-          <li><%= t('sms_validator.documents.foreign_id') %></li>
-        </ul>
-      </div>
+      <% unless current_user.uploads.any? %>
+        <div class="info-section">
+          <ul class="info-list">
+            <li><%= t('sms_validator.documents.local_id') %></li>
+            <li><%= t('sms_validator.documents.foreign_id') %></li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="info-section--separator">
+          <%= t('online_verifications.reupload_documents') %>
+        </div>
+      <% end %>
     </div>
 
     <div id="doc-field-container" class="inputlabel-box">

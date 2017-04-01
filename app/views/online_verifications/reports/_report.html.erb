@@ -4,8 +4,12 @@
   </time>
 
   <span class="text">
-    <%= t('online_verifications.verifier_reported',
-          name: report.verifier.first_name) %>
+    <% if current_user == report.verified %>
+      <%= t('online_verifications.verifier_reported_self') %>
+    <% else %>
+      <%= t('online_verifications.verifier_reported',
+            name: report.verifier.first_name) %>
+    <% end %>
   </span>
 
   <ul class="info-list">
