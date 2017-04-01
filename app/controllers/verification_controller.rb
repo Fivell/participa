@@ -37,7 +37,7 @@ class VerificationController < ApplicationController
       @user = User.find_by_email(params[:user][:email])
       if @user
         if @user.is_verified_presentially? 
-          flash.now[:notice] = t('verification.alerts.already_presencial', document: @user.document_vatid, by: @user.verified_by.full_name, when: @user.verified_at)
+          flash.now[:notice] = already_verified_alert
           render :step2
         else
           render :step3
@@ -62,4 +62,11 @@ class VerificationController < ApplicationController
     end
   end
 
+  private
+
+  def already_verified_alert
+    t('verification.alerts.already_presencial', document: @user.document_vatid,
+                                                by: @user.verified_by.full_name,
+                                                when: @user.verified_at)
+  end
 end
