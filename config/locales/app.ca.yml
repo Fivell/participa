@@ -329,6 +329,7 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     menu_link: Verifica't aquí
     admin: Gestor de verificacions digitals
     add_another_document: Afegir-hi un altre document
+    max_size: "Mida màxima del documents 10 MB. Formats: JPG, PNG, PDF"
     remove_document: Eliminar document
     reupload_documents: Selecciona i envia els documents corregits
     label:

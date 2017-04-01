@@ -718,6 +718,7 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
     menu_link: Verifícate aquí
     admin: Gestor de verificaciones digitales
     add_another_document: Añadir otro documento
+    max_size: "Tamaño máximo de los documentos 10 MB. Formatos: JPG, PNG, PDF"
     remove_document: Eliminar documento
     reupload_documents: Selecciona y envía los documentos corregidos
     label:
