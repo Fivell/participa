@@ -34,7 +34,7 @@ class VerificationController < ApplicationController
   def search
     authorize! :search, :verification
     if params[:user]
-      @user = User.find_by_email(params[:user][:email]) # || User.find_by_document_vatid(params[:user][:document_vatid])
+      @user = User.find_by_email(params[:user][:email])
       if @user
         if @user.is_verified_presentially? 
           flash.now[:notice] = t('verification.alerts.already_presencial', document: @user.document_vatid, by: @user.verified_by.full_name, when: @user.verified_at)
