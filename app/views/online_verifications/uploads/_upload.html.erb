@@ -17,7 +17,8 @@
       <% upload.pdfs.each do |pdf| %>
         <li>
           <%= link_to pdf.scanned_picture_file_name,
-                      pdf.scanned_picture.url(:original) %>
+                      pdf.scanned_picture.url(:original),
+                      target: '_blank' %>
         </li>
       <% end %>
     </ul>
