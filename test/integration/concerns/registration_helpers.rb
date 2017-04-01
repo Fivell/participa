@@ -83,9 +83,13 @@ module Participa
         fill_in('Apellidos', :with => user.last_name)
         select("Pasaporte", from: "Tipo de documento")
         fill_in('DNI', :with => document_vatid)
-        select("1970", from: "user[born_at(1i)]")
-        select("enero", from: "user[born_at(2i)]")
-        select("1", from: "user[born_at(3i)]")
+        fill_in_born_date("1970", "enero", "1")
+      end
+
+      def fill_in_born_date(year, month, day)
+        select(year, from: "user[born_at(1i)]")
+        select(month, from: "user[born_at(2i)]")
+        select(day, from: "user[born_at(3i)]")
       end
     end
   end
