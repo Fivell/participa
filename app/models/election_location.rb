@@ -1,4 +1,4 @@
-class ElectionLocation < ActiveRecord::Base
+class ElectionLocation < ApplicationRecord
   belongs_to :election
   has_many :election_location_questions, -> { order(:id) }, dependent: :destroy
 
@@ -87,11 +87,11 @@ class ElectionLocation < ActiveRecord::Base
   end
 
   def link
-    "#{election.server_url}election/#{vote_id}/vote"
+    "#{election.server_url}booth/#{vote_id}/vote"
   end
 
   def new_link
-    "#{election.server_url}election/#{new_vote_id}/vote"
+    "#{election.server_url}booth/#{new_vote_id}/vote"
   end
 
   def election_layout

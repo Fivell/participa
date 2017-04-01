@@ -3,7 +3,9 @@ class ToolsController < ApplicationController
   before_action :user_elections
 
   def index
-    redirect_to edit_user_registration_path unless verifications_enabled?
+    authorize! :index, :tools
+
+    redirect_to edit_user_registration_path unless Features.verifications?
   end
 
   private

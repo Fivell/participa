@@ -55,7 +55,7 @@ ActiveAdmin.register SpamFilter do
       end
       if users.length>0
         para do
-          a 'Banear bloque',  href: ban_admin_spam_filter_path(id: id, users: users, data: {confirm:"¿Estas segura de querer banear a estos usuarios?"})
+          a 'Expulsar bloque',  href: ban_admin_spam_filter_path(id: id, users: users, data: {confirm:"¿Estas segura de querer expulsar a estos usuarios?"})
         end
       end
     end
@@ -69,7 +69,7 @@ ActiveAdmin.register SpamFilter do
     filter = SpamFilter.find(id)
     User.ban_users(users, true)
     User.where(id:users).each do |user|
-      ActiveAdmin::Comment.create(author:current_user,resource:user,namespace:'admin',body:"Usuario baneado en bloque por el filtro: #{filter.name}")
+      ActiveAdmin::Comment.create(author:current_user,resource:user,namespace:'admin',body:"Usuario expulsado en bloque por el filtro: #{filter.name}")
     end
     redirect_to admin_spam_filter_path(id: id)
   end

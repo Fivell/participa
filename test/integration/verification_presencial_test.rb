@@ -1,32 +1,26 @@
 require "test_helper"
+require "integration/concerns/login_helpers"
+require "integration/concerns/verification_helpers"
 
 class VerificationPresencialTest < JsFeatureTest
+  include Participa::Test::LoginHelpers
+  include Participa::Test::VerificationHelpers
 
   around do |&block|
-    with_verifications(presential: true) do
-      # Routes are defined conditionally on the presence of this feature
-      Rails.application.reload_routes!
-
-      super(&block)
-    end
-
-    # Leave routes as they were previously
-    Rails.application.reload_routes!
+    with_verifications(presential: true) { super(&block) }
   end
 
-  test "users need to be verified to access other tools" do
-
-    # cant access as anon
+  test "anonymous users can't verify presentially" do
     visit verification_step1_path
-    assert_equal page.current_path, root_path(locale: :es)
+    assert_equal root_path(locale: :es), page.current_path
+  end
 
+  test "presential verificators have normal access to other sections" do
     # initialize
-    user = create(:user)
     election = create(:election)
 
     # should see the pending verification message if isn't verified
-    login_as(user)
-    visit root_path
+    login create(:user)
     assert_content pending_verification_message
 
     # can't access verification admin
@@ -36,40 +30,49 @@ class VerificationPresencialTest < JsFeatureTest
     # can't access vote
     visit create_vote_path(election_id: election.id)
     assert_content pending_verification_message
-
   end
 
-  test "users verified presentially are not bothered with sms confirmations" do
+  test "users verified presentially are not bothered with online confirmations" do
     # initialize
     user = create(:user, :verified_presentially)
-    election = create(:election)
 
     # should see the pending verification message if isn't verified
-    login_as(user)
-    visit root_path
+    login(user)
     refute_content "Por seguridad, debes confirmar tu teléfono."
 
     # can't access verification admin
     visit verification_step1_path
     assert_equal root_path(locale: "es"), page.current_path
+  end
+
+  test "users verified presentially can't vote page if voting is closed" do
+    # initialize
+    user = create(:user, :verified_presentially)
+    election = create(:election, :closed)
+    login(user)
 
     # can't access vote
     visit create_vote_path(election_id: election.id)
     assert_equal root_path(locale: "es"), page.current_path
   end
 
-  test "presential verifiers can verify users presentially" do
+  test "users verified presentially can vote page if voting is opened" do
+    # initialize
+    user = create(:user, :verified_presentially)
+    election = create(:election, :opened)
+    login(user)
 
-    # should see the pending verification message if isn't verified
+    # can't access vote
+    visit create_vote_path(election_id: election.id)
+    assert_equal create_vote_path(election_id: election.id), page.current_path
+  end
+
+  test "presential verifiers can verify users presentially" do
     user2 = create(:user)
-    login_as(user2)
-    visit root_path
-    assert_content pending_verification_message
-    logout(user2)
 
     # user1 can verify user2
-    user1 = create(:user, :verifying_presentially, :confirmed_by_sms)
-    login_as(user1)
+    user1 = create(:user, :verifying_presentially)
+    login(user1)
     visit verification_step1_path
     assert_content I18n.t('verification.form.document')
     check('user_document')
@@ -81,30 +84,10 @@ class VerificationPresencialTest < JsFeatureTest
     assert_content I18n.t('verification.result')
     click_button('Si, estos datos coinciden')
     assert_content I18n.t('verification.alerts.ok.title')
-    logout(user1)
+    logout
 
     # should see the OK verification message
-    login_as(user2)
-    visit root_path
+    login(user2)
     assert_content I18n.t('voting.election_none')
-    logout(user2)
-  end
-
-  private
-
-  def pending_verification_message
-    if available_features["verification_sms"]
-      "Por seguridad, debes confirmar tu teléfono."
-    else
-      "No has finalizado la verificación"
-    end
-  end
-
-  def pending_verification_path
-    if available_features["verification_sms"]
-      sms_validator_step1_path(locale: "es")
-    else
-      root_path(locale: "es")
-    end
   end
 end

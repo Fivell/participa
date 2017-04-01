@@ -6,21 +6,27 @@ class ApplicationHelperTest < ActionView::TestCase
 
   attr_reader :request 
 
+  around do |&block|
+    with_features(participation_teams: true, collaborations: true) do
+      super(&block)
+    end
+  end
+
   test "should nav_menu_link_to work" do 
-    response = nav_menu_link_to "Salir", "sign-out", destroy_user_session_path, [destroy_user_session_path], method: :delete, title: "Cerrar sesión"
-    expected = "<a title=\"Cerrar sesión\" class=\"\" rel=\"nofollow\" data-method=\"delete\" href=\"/users/sign_out\"><i class=\"fa fa-sign-out\"></i><span>Salir</span></a>"
+    response = nav_menu_link_to "Salir", destroy_user_session_path, [destroy_user_session_path], method: :delete, title: "Cerrar sesión"
+    expected = "<a title=\"Cerrar sesión\" class=\"\" rel=\"nofollow\" data-method=\"delete\" href=\"/users/sign_out\">Salir</a>"
     assert_equal expected, response
-    response = nav_menu_link_to "Inicio", "home", root_path, [root_path], title: "Inicio"
-    expected = "<a title=\"Inicio\" class=\"\" href=\"/\"><i class=\"fa fa-home\"></i><span>Inicio</span></a>"
+    response = nav_menu_link_to "Inicio", root_path, [root_path], title: "Inicio"
+    expected = "<a title=\"Inicio\" class=\"\" href=\"/\">Inicio</a>"
     assert_equal expected, response
-    response = nav_menu_link_to "Equipos de Participación", "users", participation_teams_path, [participation_teams_path], title: "Equipos de Participación"
-    expected = "<a title=\"Equipos de Participación\" class=\"\" href=\"/equipos-de-accion-participativa\"><i class=\"fa fa-users\"></i><span>Equipos de Participación</span></a>"
+    response = nav_menu_link_to "Equipos de Participación", participation_teams_path, [participation_teams_path], title: "Equipos de Participación"
+    expected = "<a title=\"Equipos de Participación\" class=\"\" href=\"/equipos-de-accion-participativa\">Equipos de Participación</a>"
     assert_equal expected, response
-    response = nav_menu_link_to "Colaboración económica", "euro", new_collaboration_path, [new_collaboration_path], title: "Colaboración económica"
-    expected = "<a title=\"Colaboración económica\" class=\"\" href=\"/colabora\"><i class=\"fa fa-euro\"></i><span>Colaboración económica</span></a>"
+    response = nav_menu_link_to "Colaboración económica", new_collaboration_path, [new_collaboration_path], title: "Colaboración económica"
+    expected = "<a title=\"Colaboración económica\" class=\"\" href=\"/colabora\">Colaboración económica</a>"
     assert_equal expected, response
-    response = nav_menu_link_to "Datos personales", "user", edit_user_registration_path, [edit_user_registration_path], title: "Datos personales"
-    expected = "<a title=\"Datos personales\" class=\"\" href=\"/users/edit\"><i class=\"fa fa-user\"></i><span>Datos personales</span></a>"
+    response = nav_menu_link_to "Datos personales", edit_user_registration_path, [edit_user_registration_path], title: "Datos personales"
+    expected = "<a title=\"Datos personales\" class=\"\" href=\"/users/edit\">Datos personales</a>"
     assert_equal expected, response
   end
 
@@ -36,19 +42,19 @@ class ApplicationHelperTest < ActionView::TestCase
 
   test "should alert_box work" do 
     result = alert_box("Alerta") do "bla" end
-    expected = "<div class=\"box\">\n  <div class=\"box-ok\">\n    <p><strong>Alerta</strong></p>\n      <p></p>\n    <a class=\"box-close\" href=\"#\">\n      <span></span>\n    </a>\n  </div>\n</div>\n"
+    expected = "<div class=\"box\">\n  <div class=\"box-ok\">\n    <p><strong>Alerta</strong></p>\n      <p></p>\n  </div>\n</div>\n"
     assert_equal expected, result
   end
 
   test "should error_box work" do 
     result = error_box("title") do "bla" end
-    expected = "<div class=\"box\">\n  <div class=\"box-ko\">\n    <p><strong>title</strong></p>\n\n    <p></p>\n\n        <a class=\"box-close\" href=\"#\">\n          <span></span>\n        </a>\n  </div>\n</div>\n"
+    expected = "<div class=\"box\">\n  <div class=\"box-ko\">\n    <p><strong>title</strong></p>\n\n    <p></p>\n  </div>\n</div>\n"
     assert_equal expected, result
   end
 
   test "should render_flash work" do 
-    result = render_flash "application/error", "Error", "" do "bla" end 
-    expected = "<div class=\"box\">\n  <div class=\"box-ko\">\n    <p><strong>Error</strong></p>\n\n    <p></p>\n\n        <a class=\"box-close\" href=\"#\">\n          <span></span>\n        </a>\n  </div>\n</div>\n"
+    result = render_flash "application/error", "Error" do "bla" end 
+    expected = "<div class=\"box\">\n  <div class=\"box-ko\">\n    <p><strong>Error</strong></p>\n\n    <p></p>\n  </div>\n</div>\n"
     assert_equal expected, result
   end
 
@@ -67,7 +73,7 @@ class ApplicationHelperTest < ActionView::TestCase
 1
   test "should steps_nav work" do 
     result = steps_nav(1, ["primero", "segundo", "tercero"])
-    expected = "<nav class=\"steps3\">\n  <ul>\n    <li class=active>\n      <span class=\"block\">\n        <span class=\"tab-number\">1)</span>\n        <span class=\"tab-text\">[&quot;primero&quot;, &quot;segundo&quot;, &quot;tercero&quot;]</span>\n      </span>\n    </li>\n    <li >\n      <span class=\"block\">\n        <span class=\"tab-number\">2)</span>\n        <span class=\"tab-text\"></span>\n      </span>\n    </li>\n    <li >\n      <span class=\"block\">\n        <span class=\"tab-number\">3)</span>\n        <span class=\"tab-text\"></span>\n      </span>\n    </li>\n  </ul>\n</nav>\n\n<h3>\n  <span>[&quot;primero&quot;, &quot;segundo&quot;, &quot;tercero&quot;]</span>\n</h3>\n"
+    expected = "<nav class=\"steps3\">\n  <ul>\n    <li class=active>\n      <span class=\"block\">\n        <span class=\"tab-number\">1</span>\n        <span class=\"tab-text\">[&quot;primero&quot;, &quot;segundo&quot;, &quot;tercero&quot;]</span>\n      </span>\n    </li>\n    <li >\n      <span class=\"block\">\n        <span class=\"tab-number\">2</span>\n        <span class=\"tab-text\"></span>\n      </span>\n    </li>\n    <li >\n      <span class=\"block\">\n        <span class=\"tab-number\">3</span>\n        <span class=\"tab-text\"></span>\n      </span>\n    </li>\n  </ul>\n</nav>\n\n<h3>\n  <span>[&quot;primero&quot;, &quot;segundo&quot;, &quot;tercero&quot;]</span>\n</h3>\n"
     assert_equal expected, result
   end
 

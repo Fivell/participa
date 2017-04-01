@@ -1,9 +1,4 @@
 class VerificationController < ApplicationController
-
-  # TODO: checkbox TOS
-  # TODO: mail TOS
-  # TODO: confirm mail TOS
- 
   # GET /verificaciones
   def show
     authorize! :show, :verification
@@ -41,14 +36,8 @@ class VerificationController < ApplicationController
     if params[:user]
       @user = User.find_by_email(params[:user][:email]) # || User.find_by_document_vatid(params[:user][:document_vatid])
       if @user
-        if @user.is_verified? 
-          if @user.verified_by_id?
-            flash.now[:notice] = t('verification.alerts.already_presencial', document: @user.document_vatid, by: @user.verified_by.full_name, when: @user.verified_at)
-          elsif @user.confirmed_by_sms? 
-            flash.now[:notice] = t('verification.alerts.already_sms', document: @user.document_vatid, when: @user.sms_confirmed_at)
-          else 
-            flash.now[:notice] = t('verification.alerts.already', document: @user.document_vatid)
-          end
+        if @user.is_verified_presentially? 
+          flash.now[:notice] = t('verification.alerts.already_presencial', document: @user.document_vatid, by: @user.verified_by.full_name, when: @user.verified_at)
           render :step2
         else
           render :step3

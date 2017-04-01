@@ -1,20 +1,12 @@
 class ApplicationController < ActionController::Base
-  include Featurable
-
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
   before_action :set_locale
   before_action :banned_user
-  before_action :verified_user
   before_action :configure_sign_in_params, if: :devise_controller?
-  before_action :allow_iframe_requests
   before_action :admin_logger
-
-  def allow_iframe_requests
-    response.headers.delete('X-Frame-Options')
-  end
 
   def admin_logger
     if params["controller"].starts_with? "admin/"
@@ -47,26 +39,16 @@ class ApplicationController < ActionController::Base
     if current_user and current_user.banned?
       name = current_user.full_name
       sign_out_and_redirect current_user
-      flash[:notice] = t("podemos.banned", full_name: name)
-    end
-  end
-
-  def verified_user
-    if current_user
-      return nil if allowed_for_unverified?
-
-      if !current_user.is_verified? && online_verifications_enabled?
-        if params["controller"] == "sms_validator"
-          flash.now[:alert] = t("issues.confirm_sms")
-        else
-          redirect_to sms_validator_step1_path
-        end
-      end
+      flash[:notice] = t("unauthorized.banned", full_name: name)
     end
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    if Features.online_verifications_only? && current_user && current_user.unconfirmed_by_sms?
+      redirect_to sms_validator_step1_url, :alert => t("issues.confirm_sms")
+    else
+      redirect_to root_url, :alert => exception.message
+    end
   end
 
   def access_denied exception
@@ -75,7 +57,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin_user!
     unless signed_in? && (current_user.is_admin? || current_user.finances_admin? || current_user.impulsa_admin?)
-      redirect_to root_url, flash: { error: t('podemos.unauthorized') }
+      redirect_to root_url, flash: { error: t('unauthorized.default') }
     end
   end 
 
@@ -91,11 +73,5 @@ class ApplicationController < ActionController::Base
 
   def sign_in_permitted_keys
     %i(login document_vatid email password remember_me)
-  end
-
-  def allowed_for_unverified?
-      params[:controller] == 'devise/sessions' or
-      params[:controller] == "registrations" or
-      params[:controller].start_with? "admin/"
   end
 end

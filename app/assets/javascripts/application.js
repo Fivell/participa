@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery.sidr.min
 //= require jquery.slicknav
-//= require iframeSizer.min
 //= require leaflet
 //= require select2
 //= require cookie_policy
@@ -27,13 +26,10 @@
 
 //= require organization
 
-//= require box_close
 //= require collaborations
 //= require credits
 //= require faq
-//= require formview_iframe
 //= require hamburger_menu
-//= require iframeSize_impl
 //= require impulsa
 //= require microcredit
 //= require mobile
@@ -44,3 +40,4 @@
 //= require select2_impl
 //= require slicknav_menu
 //= require verifications_map
+//= require documents

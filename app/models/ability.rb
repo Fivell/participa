@@ -33,29 +33,51 @@ class Ability
       cannot :manage, Resque
       cannot :manage, ActiveAdmin
 
-      can [:read], MicrocreditLoan if user.finances_admin?
-      can [:read, :update], Microcredit if user.finances_admin?
+      if user.finances_admin?
+        can [:read], MicrocreditLoan if user.finances_admin?
+        can [:read, :update], Microcredit if user.finances_admin?
+      end
 
-      can [:show, :read], ImpulsaEdition if user.impulsa_admin?
-      can [:show, :read, :update], ImpulsaProject if user.impulsa_admin?
+      if user.impulsa_admin?
+        can [:show, :read], ImpulsaEdition
+        can [:show, :read, :update], ImpulsaProject
+      end
       
-      can [:read, :create], ActiveAdmin::Comment if user.finances_admin? || user.impulsa_admin?
+      if user.finances_admin? || user.impulsa_admin?
+        can [:read, :create], ActiveAdmin::Comment
+      end
 
       can [:show, :update], User, id: user.id
       can :show, Notice
 
-      if Rails.application.secrets.features["verification_presencial"]
-        can [:step1, :step2, :step3, :confirm, :search, :result_ok, :result_ko], :verification if user.verifying_presentially?
+      if !Features.online_verifications_only? || user.voting_right?
+        can :index, :tools
+      end
+
+      if Features.presential_verifications?
+        if user.verifying_presentially?
+          can [:step1, :step2, :step3, :confirm, :search, :result_ok, :result_ko], :verification
+        end
+
         can :show, :verification
       end
 
-      if Rails.application.secrets.features["verification_sms"]
-        can [:step1, :step2, :step3, :phone, :captcha, :valid], :sms_validator
+      if Features.online_verifications?
+        if user.verifying_online?
+          can [:show, :search, :accept, :reject, :report, :index], :online_verifications
+        end
+
+        if user.unconfirmed_by_sms? || user.pending_docs?
+          can [:step1, :documents], :sms_validator
+        end
+
+        if user.unconfirmed_by_sms? || user.can_change_phone?
+          can [:step2, :step3, :phone, :valid], :sms_validator
+        end
       end
 
-      if Rails.application.secrets.features["verification_presencial"] ||
-         Rails.application.secrets.features["verification_sms"]
-        can [:create, :create_token, :check], :vote if user.is_verified?
+      if Features.verifications? && user.voting_right?
+        can [:create, :create_token, :check, :sms_check, :send_sms_check], :vote
       end
 
       cannot :admin, :all

@@ -21,12 +21,22 @@
               <span><%=t("user.change_email") %></span>
             </a>
           </li>
-          <% if online_verifications_enabled? %>
-            <li>
-              <a href="#change-phone" class="js-change-tab">
-                <span><%=t("user.change_phone") %></span>
-              </a>
-            </li>
+          <% if Features.online_verifications? %>
+            <% if resource.can_change_phone? %>
+              <li>
+                <a href="#change-phone" class="js-change-tab">
+                  <span><%=t("user.change_phone") %></span>
+                </a>
+              </li>
+            <% end %>
+
+            <% if resource.pending_docs? %>
+              <li>
+                <a href="#change-documents" class="js-change-tab">
+                  <span><%=t("user.change_documents") %></span>
+                </a>
+              </li>
+            <% end %>
           <% end %>
           <li>
             <a href="#cancel-account" class="js-change-tab">
@@ -50,9 +60,13 @@
              class="<%= 'invisible' unless account_update_tab == 'email' %> js-personal-content">
           <%= render partial: 'change_email' %>
         </div>
-        <% if online_verifications_enabled? %>
+        <% if Features.online_verifications? %>
           <div id="change-phone" class="invisible js-personal-content">
             <%= render partial: 'change_phone' %>
+          </div>
+
+          <div id="change-documents" class="invisible js-personal-content">
+            <%= render partial: 'change_documents' %>
           </div>
         <% end %>
         <div id="cancel-account" class="invisible js-personal-content">

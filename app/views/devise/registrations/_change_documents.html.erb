@@ -1,0 +1,13 @@
+<h2>
+  <%= t("user.change_documents") %>
+</h2>
+
+<div class="info-section">
+  <%= t("user.change_documents_explain") %>
+
+  <ol class="activity-feed">
+    <%= render current_user.verification_events %>
+  </ol>
+</div>
+
+<%= render "application/documents_form" %>

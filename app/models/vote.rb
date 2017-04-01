@@ -1,4 +1,4 @@
-class Vote < ActiveRecord::Base
+class Vote < ApplicationRecord
 
   acts_as_paranoid
 
@@ -32,7 +32,7 @@ class Vote < ActiveRecord::Base
     key = self.election.server_shared_key
     message =  self.generate_message
     hash = self.generate_hash message
-    "#{self.election.server_url}#/election/#{self.scoped_agora_election_id}/vote/#{hash}/#{message}"
+    "#{self.election.server_url}#/booth/#{self.scoped_agora_election_id}/vote/#{hash}/#{message}"
   end
 
   def test_url

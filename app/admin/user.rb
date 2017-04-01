@@ -18,23 +18,21 @@ ActiveAdmin.register User do
   scope :banned
   scope :admins
 
-  if Rails.application.secrets.features["verification_sms"]
-    scope :verifying_online
-    scope :verified_online
-    scope :unverified_online
-  end
+  scope :confirmed_by_sms
 
-  if Rails.application.secrets.features["verification_presencial"]
-    scope :verifying_presentially
-    scope :verified_presentially
-    scope :unverified_presentially
-  end
+  scope :verifying_online
+  scope :verified_online
+  scope :unverified_online
 
-  if Rails.application.secrets.features["verification_presencial"] ||
-     Rails.application.secrets.features["verification_sms"]
-    scope :verified
-    scope :unverified
-  end
+  scope :verifying_presentially
+  scope :verified_presentially
+  scope :unverified_presentially
+
+  scope :verified
+  scope :unverified
+
+  scope :voting_right
+  scope :confirmed_by_sms_but_still_unverified
 
   permit_params :email, :password, :password_confirmation, :first_name, :last_name, :document_type, :document_vatid, :born_at, :address, :town, :postal_code, :province, :country, :vote_province, :vote_town, :wants_newsletter, :phone, :unconfirmed_phone
 
@@ -57,7 +55,7 @@ ActiveAdmin.register User do
 
     column :validations do |user|
       status_tag("Verificado", :ok) + br if user.is_verified?
-      status_tag("Baneado", :error) + br if user.banned?
+      status_tag("Expulsado", :error) + br if user.banned?
       user.confirmed_at? ? status_tag("Email", :ok) : status_tag("Email", :error)
       user.confirmed_by_sms? ? status_tag("Tel", :ok) : status_tag("Tel", :error)
       user.valid? ? status_tag("Val", :ok) : status_tag("Val", :error)
@@ -73,7 +71,7 @@ ActiveAdmin.register User do
       row :status do
         render partial: "admin/verification_status", partials: { user: user }
         status_tag("Verificado", :ok) if user.is_verified?
-        status_tag("Baneado", :error) if user.banned?
+        status_tag("Expulsado", :error) if user.banned?
         user.deleted? ? status_tag("¡Atención! este usuario está borrado, no podrá iniciar sesión", :error) : ""
         if user.verified_by_id?
           status_tag("El usuario ha sido verificado de forma presencial", :ok)
@@ -95,14 +93,6 @@ ActiveAdmin.register User do
             b attribute
             span message
           end
-        end
-      end
-      row :esendex_status do
-        if user.phone?
-          span link_to("Ver en panel de Elementos Enviados de Esendex (confirmado)", "https://www.esendex.com/echo/a/#{Rails.application.secrets.esendex[:account_reference]}/Sent/Messages?FilterRecipientValue=#{user.phone.sub(/^00/,'')}")
-        end
-        if user.unconfirmed_phone? 
-          span link_to("Ver en panel de Elementos Enviados de Esendex (no confirmado)", "https://www.esendex.com/echo/a/#{Rails.application.secrets.esendex[:account_reference]}/Sent/Messages?FilterRecipientValue=#{user.unconfirmed_phone.sub(/^00/,'')}")
         end
       end
       row :validations_status do
@@ -174,9 +164,6 @@ ActiveAdmin.register User do
       row :sms_confirmation_token
       row :confirmation_sms_sent_at
       row :sms_confirmed_at
-      #row :sms_confirmation do
-      #  link_to "Ver en Esendex (proveedor SMS)", "https://www.esendex.com/echo/a/EX0145806/Sent/Messages?FilterRecipientValue="
-      #end
       row :failed_attempts
       row :locked_at
       row :sign_in_count
@@ -187,7 +174,7 @@ ActiveAdmin.register User do
       row :remember_created_at
       row :deleted_at
       row :participation_team_at
-      if Rails.application.secrets.features["verification_presencial"]
+      if Features.presential_verifications?
         row :verified_by
         row :verified_at
       end
@@ -253,7 +240,7 @@ ActiveAdmin.register User do
   filter :wants_participation
   filter :participation_team_id, as: :select, collection: ParticipationTeam.all
   filter :votes_election_id, as: :select, collection: Election.all
-  if Rails.application.secrets.features["verification_presencial"]
+  if Features.presential_verifications?
     filter :verified_by_id, as: :select, collection: User.presential_verifier_ever
   end
 
@@ -276,7 +263,7 @@ ActiveAdmin.register User do
   action_item(:edit, :only => :show) do
     unless user.is_verified?
       msg = "¿Estas segura de querer verificar a este usuario?"
-      if Rails.application.secrets.features["verification_presencial"]
+      if Features.presential_verifications?
         msg += " Recuerda revisar su documento y domicilio."
       end
       link_to('Verificar usuario', verify_admin_user_path(user), method: :post, data: { confirm: msg })
@@ -294,16 +281,16 @@ ActiveAdmin.register User do
   action_item(:ban, only: :show) do
     if can? :ban, User
       if user.banned?
-        link_to('Desbanear usuario', ban_admin_user_path(user), method: :delete) 
+        link_to('Readmitir usuario', ban_admin_user_path(user), method: :delete) 
       else
-        link_to('Banear usuario', ban_admin_user_path(user), method: :post, data: { confirm: "¿Estas segura de querer banear a este usuario?" }) 
+        link_to('Expulsar usuario', ban_admin_user_path(user), method: :post, data: { confirm: "¿Estas segura de querer expulsar a este usuario?" }) 
       end
     end
   end
 
   batch_action :ban, if: proc{ can? :ban, User } do |ids|
     User.ban_users(ids, true)
-    redirect_to collection_path, alert: "Los usuarios han sido baneados."
+    redirect_to collection_path, alert: "Los usuarios han sido expulsados."
   end
 
   member_action :ban, if: proc{ can? :ban, User }, :method => [:post, :delete] do

@@ -5,7 +5,7 @@ class SmsValidatorControllerTest < ActionController::TestCase
   around do |&block|
     @user = create(:user, :not_confirmed_by_sms)
 
-    with_verifications(sms: true) { super(&block) }
+    with_verifications(online: true, presential: false) { super(&block) }
   end
 
   test "redirects to login page when anonymous" do
@@ -21,7 +21,7 @@ class SmsValidatorControllerTest < ActionController::TestCase
   end
 
   test "redirects to root page when feature not enabled" do
-    with_verifications(sms: false) do
+    with_verifications(online: false) do
       user = create(:user)
       sign_in user
       get :step1
@@ -36,45 +36,102 @@ class SmsValidatorControllerTest < ActionController::TestCase
     end
   end
 
-  test "does not allow sms confirmation when confirmed by sms recently" do
-    user = create(:user, :confirmed_by_sms)
-    sign_in user
-    get :step1
-    assert_response :redirect
-    assert_redirected_to root_url 
-    assert_equal "Ya has confirmado tu número en los últimos meses.", flash[:error]
-  end
-
-  test "allows sms confirmation when not confirmed by sms" do
+  test "allows document upload while user has not yet confirmed by sms" do
     user = create(:user, :not_confirmed_by_sms)
     sign_in user
     get :step1
     assert_response :success
   end
 
-  test "allows sms confirmation when sms confirmation expired" do
-    user = create(:user, :previously_confirmed_by_sms)
+  test "redirects to second step when user has already uploaded documents but starts again" do
+    user = create(:user, :pending_docs)
     sign_in user
     get :step1
+    assert_redirected_to sms_validator_step2_path
+  end
+
+  test "allows document upload when user needs to upload pending documents" do
+    user = create(:user, :pending_docs)
+    sign_in user
+
+    image = fixture_file_upload(
+      Rails.root.join('test', 'fixtures', 'test.png'),
+      'image/png'
+    )
+
+    online_verifications_upload = { documents_attributes: {
+        "0" => {
+          scanned_picture: image
+        }
+      }
+    }
+
+    post :documents,
+         params: { online_verifications_upload: online_verifications_upload }
+
+    events = OnlineVerifications::Event.where(verified: user)
+    assert_equal 3, events.count # initial + moderator + reupload
+
+    event = events.last
+    assert_equal 1, event.documents.count
+    assert_redirected_to root_path
+  end
+
+  test "does not allow sms confirmation when confirmed by sms recently" do
+    user = create(:user, :confirmed_by_sms)
+    sign_in user
+    get :step2
+    assert_response :redirect
+    assert_redirected_to root_url 
+    assert_equal "Ya has confirmado tu número en los últimos meses.", flash[:alert]
+  end
+
+  test "allows sms confirmation when not confirmed by sms" do
+    user = create(:user, :not_confirmed_by_sms)
+    sign_in user
+    get :step2
     assert_response :success
   end
 
-  test "advances to second step after setting phone for first time" do
-    phone = '666666666'
+  test "allows sms confirmation when sms confirmation expired" do
+    user = create(:user, :previously_confirmed_by_sms)
+    sign_in user
+    get :step2
+    assert_response :success
+  end
+
+  test "advances to second step after uploading documents" do
     sign_in @user
-    post :phone, params: { user: { unconfirmed_phone: phone } } 
-    @user = User.find @user.id # relaod @user data
-    assert_equal "0034#{phone}", @user.unconfirmed_phone
+
+    image = fixture_file_upload(
+      Rails.root.join('test', 'fixtures', 'test.png'),
+      'image/png'
+    )
+
+    online_verifications_upload = { documents_attributes: {
+        "0" => {
+          scanned_picture: image
+        }
+      }
+    }
+
+    post :documents,
+         params: { online_verifications_upload: online_verifications_upload }
+
+    events = OnlineVerifications::Event.where(verified: @user)
+    assert_equal 1, events.count
+
+    event = events.first
+    assert_equal 1, event.documents.count
     assert_redirected_to sms_validator_step2_path
   end
 
-  test "advances to second step after updating an unconfirmed phone" do
+  test "advances to third step after updating an unconfirmed phone" do
     phone = '666666666'
     sign_in @user
     post :phone, params: { user: { unconfirmed_phone: phone } }
-    @user = User.find @user.id # relaod @user data
-    assert_equal "0034#{phone}", @user.unconfirmed_phone
-    assert_redirected_to sms_validator_step2_path
+    assert_equal "0034#{phone}", @user.reload.unconfirmed_phone
+    assert_redirected_to sms_validator_step3_path
   end
 
   test "allows step2 directly when phone is set" do
@@ -84,21 +141,21 @@ class SmsValidatorControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "does not allow step2 directly when phone not set yet" do
-    @user.update_attribute(:phone, nil)
-    @user.update_attribute(:unconfirmed_phone, nil)
-    sign_in @user
-    get :step2 
-    assert_response :redirect
-    assert_redirected_to sms_validator_step1_path
-  end
-
   test "does not allow step3 directly when phone not set yet" do
+    @user.update_attribute(:phone, nil)
     @user.update_attribute(:unconfirmed_phone, nil)
     sign_in @user
     get :step3 
     assert_response :redirect
-    assert_redirected_to sms_validator_step1_path
+    assert_redirected_to sms_validator_step2_path
+  end
+
+  test "does not allow step3 directly when unconfirmed phone not set yet" do
+    @user.update_attribute(:unconfirmed_phone, nil)
+    sign_in @user
+    get :step3 
+    assert_response :redirect
+    assert_redirected_to sms_validator_step2_path
   end
 
   test "does not allow step3 directly when no sms confirmation token yet" do

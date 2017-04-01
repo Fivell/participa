@@ -1,0 +1,39 @@
+<%= semantic_form_for(OnlineVerifications::Upload.new,
+                      url: sms_validator_documents_path,
+                      html: {method: :post, multipart: true}) do |f| %>
+  <fieldset>
+    <legend class="invisible">Introduce tu documentación</legend>
+
+    <div class="row">
+      <% unless current_user.uploads.any? %>
+        <div class="info-section">
+          <ul class="info-list">
+            <li><%= t('sms_validator.documents.local_id') %></li>
+            <li><%= t('sms_validator.documents.foreign_id') %></li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="info-section--separator">
+          <%= t('online_verifications.reupload_documents') %>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="doc-field-container" class="inputlabel-box">
+      <%= f.semantic_fields_for :documents, f.object.documents.build do |doc_form| %>
+        <%= render 'document_fields', f: doc_form %>
+      <% end %>
+
+      <div class="doc-link">
+        <%= link_to_add_association t("online_verifications.add_another_document"),
+                                    f,
+                                    :documents %>
+      </div>
+    </div>
+
+    <%= f.actions do %>
+      <%= f.action :submit, label: t("helpers.button.send_docs"),
+                            button_html: {class: "button"} %>
+    <% end %>
+  </fieldset>
+<% end %>

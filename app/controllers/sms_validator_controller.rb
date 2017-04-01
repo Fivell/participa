@@ -1,35 +1,23 @@
 class SmsValidatorController < ApplicationController
-  include SimpleCaptcha::ControllerHelpers
-  
   before_action :authenticate_user! 
-  before_action :can_change_phone
+  before_action :can_change_phone, except: [:step1, :documents]
 
-  def can_change_phone
-    unless current_user.can_change_phone?
-      redirect_to root_path, flash: {error: "Ya has confirmado tu número en los últimos meses." }
+  def step1 
+    authorize! :step1, :sms_validator
+
+    if current_user.uploads.any?
+      redirect_to sms_validator_step2_path
     end
   end
 
-  # GET /validator/step1
-  def step1 
-    authorize! :step1, :sms_validator
-  end
-
-  # GET /validator/step2
   def step2
     authorize! :step2, :sms_validator
-    redirect_to sms_validator_step1_path if current_user.unconfirmed_phone.nil? 
     @user = current_user
   end
 
-  # GET /validator/step3
   def step3
     authorize! :step3, :sms_validator
-    if current_user.unconfirmed_phone.nil? 
-      redirect_to sms_validator_step1_path 
-      return
-    end
-    if current_user.sms_confirmation_token.nil? 
+    if current_user.unconfirmed_phone.nil? || current_user.sms_confirmation_token.nil? 
       redirect_to sms_validator_step2_path
       return
     end
@@ -37,48 +25,52 @@ class SmsValidatorController < ApplicationController
     render action: "step3"
   end
 
-  # POST /validator/phone
   def phone
     authorize! :phone, :sms_validator
-    begin 
-      phone = current_user.phone_normalize(phone_params[:unconfirmed_phone])
-    rescue
-      current_user.errors.add(:unconfirmed_phone, "Revisa el formato")
-    end
-    if phone.nil? 
-      current_user.unconfirmed_phone = phone_params[:unconfirmed_phone]
-    else
-      current_user.unconfirmed_phone = phone
-    end
+
+    phone = begin
+              current_user.phone_normalize(phone_params[:unconfirmed_phone])
+            rescue
+              phone_params[:unconfirmed_phone]
+            end
+
+    current_user.unconfirmed_phone = phone
+
     if current_user.save
       current_user.set_sms_token!
-      redirect_to sms_validator_step2_path
-    else
-      render action: "step1"
-    end
-  end
-
-  # POST /validator/captcha
-  def captcha 
-    authorize! :captcha, :sms_validator
-    if simple_captcha_valid?
       current_user.send_sms_token!
-      render action: "step3"
+      redirect_to sms_validator_step3_path
     else
-      flash.now[:error] = t('sms_validator.phone.captcha_invalid') 
       render action: "step2"
     end
   end
 
-  # POST /validator/valid
+  def documents 
+    authorize! :documents, :sms_validator
+
+    event = OnlineVerifications::Upload.new(upload_params)
+
+    if event.save
+      if current_user.confirmed_by_sms?
+        redirect_back fallback_location: root_path,
+                      notice: t('sms_validator.documents.updated')
+      else
+        redirect_to sms_validator_step2_path
+      end
+    else
+      flash.now[:error] = t('sms_validator.documents.invalid')
+      render action: "step1"
+    end
+  end
+
   def valid
     authorize! :valid, :sms_validator
     #if current_user.check_sms_token(params[:sms_token][:sms_user_token])
     if current_user.check_sms_token(sms_token_params[:sms_user_token_given])
-      flash.now[:notice] = t('sms_validator.phone.valid')
+      flash[:notice] = t('sms_validator.phone.valid')
 
       if current_user.apply_previous_user_vote_location
-        flash.now[:alert] = t('registration.message.existing_user_location')        
+        flash[:alert] = t('registration.message.existing_user_location')        
       end
       redirect_to authenticated_root_path
     else
@@ -89,6 +81,13 @@ class SmsValidatorController < ApplicationController
 
   private
 
+  def upload_params
+    params
+      .require(:online_verifications_upload)
+      .permit(documents_attributes: [:scanned_picture])
+      .merge(verified_id: current_user.id)
+  end
+
   def phone_params
     params.require(:user).permit(:unconfirmed_phone)
   end
@@ -97,4 +96,11 @@ class SmsValidatorController < ApplicationController
     params.require(:user).permit(:sms_user_token_given)
   end
 
+  def can_change_phone
+    unless current_user.can_change_phone?
+      msg = "Ya has confirmado tu número en los últimos meses."
+
+      raise CanCan::AccessDenied.new(msg, params[:action], :sms_validator)
+    end
+  end
 end

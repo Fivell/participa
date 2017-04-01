@@ -33,7 +33,7 @@ gem 'spanish_vat_validators', github: 'deivid-rodriguez/spanish_vat_validators',
                               branch: 'rails_5_deprecations'
 gem 'simple_captcha2', require: 'simple_captcha'
 gem 'carmen-rails'
-gem 'esendex'
+gem 'savon', '~> 2.11.0'
 
 #
 # @todo: activeadmin/activeadmin#4477 broke our "new verification center" page,
@@ -97,4 +97,5 @@ gem 'webmock', group: :development
 source 'https://rails-assets.org' do
   gem 'rails-assets-flatpickr-calendar'
   gem 'rails-assets-leaflet'
+  gem 'rails-assets-img-viewerjs'
 end

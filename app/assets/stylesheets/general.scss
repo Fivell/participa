@@ -57,7 +57,6 @@ fieldset{padding:0;}
 .hidden, .invisible, legend.invisible{display:none;}
 hr{}
 object{border:none;margin-bottom:1em;}
-iframe{}
 .clear{float:none;clear:both;width:100%;}
 
 em.bec{font-style:normal;font-weight:bold;}
@@ -145,17 +144,7 @@ general
 .logged-out .content-content{
   padding: 0;
 }
-.content-text{
-  width: 100%;
-  clear:both;
-  float:none;
-  overflow:hidden;
-  padding:1em 0;
 
-  p {
-    margin-bottom: .9em;
-  }
-}
 /* -----------------------------------
 home
 ----------------------------------- */
@@ -303,118 +292,6 @@ background: none repeat scroll 0 0 #ffc5c1;
   }
 }
 
-/*
-
-.menu-logout{
-  background:image-url("bg.purple-divide-v.png") 0 0 no-repeat;
-  margin-left: 5px;
-}
-.menu-hamb a{
-  background:image-url("ico.menu-hamb-on.svg") 0 0 no-repeat;
-}
-.menu-hamb a.active,
-.menu-hamb a:hover{
-  background:image-url("ico.menu-hamb-on.svg") 0 0 no-repeat;
-}
-.menu-logout a{
-  background:image-url("ico.menu-logout-off.svg") 0 0 no-repeat;
-}
-.menu-logout a.active,
-.menu-logout a:hover{
-  background:image-url("ico.menu-logout-on.svg") 0 0 no-repeat;
-}
-.menu-world a{
-  background:image-url("ico.menu-world-off.svg") 0 0 no-repeat;
-}
-.menu-world a.active,
-.menu-world a:hover{
-  background:image-url("ico.menu-world-on.svg") 0 0 no-repeat;
-}
-.menu-credit a{
-  background:image-url("ico.menu-credit-off.svg") 0 0 no-repeat;
-}
-.menu-credit a.active,
-.menu-credit a:hover{
-  background:image-url("ico.menu-credit-on.svg") 0 0 no-repeat;
-}
-.menu-people a{
-  background:image-url("ico.menu-people-off.svg") 0 0 no-repeat;
-}
-.menu-people a.active,
-.menu-people a:hover{
-  background:image-url("ico.menu-people-on.svg") 0 0 no-repeat;
-}
-.menu-thumbup a{
-  background:image-url("ico.menu-thumbup-off.svg") 0 0 no-repeat;
-}
-.menu-thumbup a.active,
-.menu-thumbup a:hover{
-  background:image-url("ico.menu-thumbup-on.svg") 0 0 no-repeat;
-}
-.menu-tools a{
-  background:image-url("ico.menu-tools-off.svg") 0 0 no-repeat;
-}
-.menu-tools a.active,
-.menu-tools a:hover{
-  background:image-url("ico.menu-tools-on.svg") 0 0 no-repeat;
-}
-.menu-verif a{
-  background:image-url("ico.menu-verif-off.svg") 0 0 no-repeat;
-}
-.menu-verif a.active,
-.menu-verif a:hover{
-  background:image-url("ico.menu-verif-on.svg") 0 0 no-repeat;
-}
-.menu-notif a{
-  background:image-url("ico.menu-notif-off.png") 0 0 no-repeat;
-}
-.menu-notif a.active,
-.menu-notif a:hover{
-  background:image-url("ico.menu-notif-on.png") 0 0 no-repeat;
-}
-.menu-notif a.claim{
-  background:image-url("ico.menu-notif-claim-off.png") 0 0 no-repeat;
-}
-.menu-notif a.claim.active,
-.menu-notif a.claim:hover{
-  background:image-url("ico.menu-notif-claim-on.png") 0 0 no-repeat;
-}
-.menu-profile a{
-  background:image-url("ico.menu-profile-on.svg") 0 0 no-repeat;
-}
-.menu-profile a.active,
-.menu-profile a:hover{
-  background:image-url("ico.menu-profile-off.svg") 0 0 no-repeat;
-}
-.menu-social a{
-  background:image-url("ico.menu-social-off.svg") 0 0 no-repeat;
-}
-.menu-social a.active,
-.menu-social a:hover{
-  background:image-url("ico.menu-social-on.svg") 0 0 no-repeat;
-}
-.menu-map a{
-  background:image-url("ico.menu-map-off.svg") 0 0 no-repeat;
-}
-.menu-map a.active,
-.menu-map a:hover{
-  background:image-url("ico.menu-map-on.svg") 0 0 no-repeat;
-}
-.menu-calendar a{
-  background:image-url("ico.menu-calendar-off.svg") 0 0 no-repeat;
-}
-.menu-calendar a.active,
-.menu-calendar a:hover{
-  background:image-url("ico.menu-calendar-on.svg") 0 0 no-repeat;
-}
-.menu-econ a{
-  background:image-url("ico.menu-econ-off.svg") 0 0 no-repeat;
-}
-.menu-econ a.active,
-.menu-econ a:hover{
-  background:image-url("ico.menu-econ-on.svg") 0 0 no-repeat;
-}
-*/
 .menu li.menu-name a span{
   display:block;
   float:right;
@@ -475,14 +352,16 @@ submenu
 steps
 ----------------------------------- */
 
+.steps3{
+  padding:30px 10px;
+}
 .steps3 ul{
   display:block;
-  margin:0 0 1.5em;
+  margin:0;
   overflow:hidden;
   width:100%;
 }
 .steps3 li{
-  text-transform:lowercase;
   display:block;
   float:left;
   clear:none;
@@ -490,77 +369,50 @@ steps
   margin:0;
   padding:0;
   overflow:hidden;
-  background:#EB5A59;
-}
-.steps3 li:nth-child(1),
-.steps3 li:nth-child(2){
-  background:#EB5A59 image-url("bg.steps-tip-right.png") right 50% no-repeat;
-}
-.steps3 li:nth-child(2) span.block,
-.steps3 li:nth-child(3) span.block{
-  background:image-url("bg.steps-tip-left.png") -5em 50% no-repeat;
-}
-.steps3 li span.block{
-  display:block;
-  color:#fff;
-  width:100%;
-  overflow:hidden;
 }
 .steps3 li span.block span.tab-number{
+  border:4px solid black;
+  border-radius: 50%;
   display:block;
-  width:15%;
+  line-height:52px;
+  font-size:30px;
+  font-weight:bold;
+  text-align:center;
+  width:60px;
+  height:60px;
+  margin-right:20px;
+  padding:0 10px;
   float:left;
+}
+.steps3 li.active span.block span.tab-number{
+  background:black;
+  color:white;
 }
 .steps3 li span.block span.tab-text{
-  padding-top:0.15em;
-  display:block;
-  width:85%;
-  float:left;
-  margin-top:3%;
   font-weight:bold;
+  font-size:1.5em;
 }
-.steps3 li:nth-child(1) span.block span.tab-number{
-  margin-left:5%;
+.steps3 li span.block{
+  height:60px;
+  display:table;
 }
-.steps3 li:nth-child(2) span.block span.tab-number,
-.steps3 li:nth-child(3) span.block span.tab-number{
-  margin-left:15%;
+.steps3 li span.block span.tab-text{
+  display:table-cell;
+  vertical-align:middle;
 }
-.steps3 li:nth-child(1) span.block span.tab-text{
-  width:65%;
-  margin-right:15%;
+@media only screen and (max-width: 600px) {
+  .steps3 li span.block span.tab-text{
+    display:none;
+  }
 }
-.steps3 li:nth-child(2) span.block span.tab-text{
-  width:55%;
-  margin-right:15%;
+@media only screen and (min-width: 600px) {
+  .steps3 li:nth-child(2) span.block span.tab-number{
+    margin-left: 40px;
+  }
+  .steps3 li:nth-child(3) span.block span.tab-number{
+    margin-left: 40px;
+  }
 }
-.steps3 li:nth-child(3) span.block span.tab-text{
-  width:70%;
-}
-.steps3 li:nth-child(1).active{
-  background:#716e6b image-url("bg.steps-tip-right.png") right 50% no-repeat;
-  float:left;
-}
-.steps3 li:nth-child(1).active span.block{
-  color:#fff;
-}
-.steps3 li:nth-child(2).active{
-  background:#716e6b image-url("bg.steps-tip-right.png") right 50% no-repeat;
-  float:left;
-}
-.steps3 li:nth-child(2).active span.block{
-  background:image-url("bg.steps-tip-left.png") -5em 50% no-repeat;
-  color:#fff;
-}
-.steps3 li:nth-child(3).active{
-  background:#716e6b;
-  float:left;
-}
-.steps3 li:nth-child(3).active span.block{
-  background:image-url("bg.steps-tip-left.png") -5em 50% no-repeat;
-  color:#fff;
-}
-
 
 /* -----------------------------------
 pagination
@@ -599,7 +451,6 @@ tools
   margin:0 0 1.5em
 }
 .content-content .box-vote h3{
-  color: #e4251d;
   margin: 0 0 .5em;
   border: 0;
 }
@@ -611,7 +462,7 @@ tools
   overflow: hidden;
   margin: 0 0 2em;
   padding: 1.5em;
-  background: #e1cac1;
+  background: lightgrey;
   border-radius: 3px;
 }
 .box-poll div{
@@ -668,40 +519,6 @@ tools
 .box-large .action {
   margin-top: 30px;
 }
-.tools ul{
-  position:relative;
-}
-.tools li{
-  width:97%;
-  position:relative;
-  display:block;
-  float:left;
-  padding:1.5%;
-  margin-bottom:1.5em;
-}
-.tools li:nth-child(3n+0){
-  margin-right:0;
-  clear:right;
-}
-.tools li h3{
-  position: absolute;
-  width: 75%;
-  top: 0;
-  right: 0;
-  border-bottom:0;
-}
-.tools li .button{
-  display:block;
-  width: 100%;
-  padding:1em 0;
-  text-align:center;
-}
-.tools li .buttonbox{
-  padding-bottom:0;
-}
-
-
-
 
 /* -----------------------------------
 microcredits
@@ -1371,9 +1188,7 @@ info page
 body elements
 ----------------------------------- */
 
-.button,
-a.button,
-input.button{
+.button{
   padding:.7em 3em;
   background:#000;
   color:#fff;
@@ -1385,15 +1200,11 @@ input.button{
   margin-top:5px;
   text-decoration:none;
 }
-.button:hover,
-a.button:hover,
-input.button:hover{
+.button:hover{
   background:#269283;
 }
 
-.button-primary,
-a.button-primary,
-input.button-primary{
+.button-primary{
   padding:1em 3em;
   background:#716E6B;
   color:#fff;
@@ -1406,9 +1217,7 @@ input.button-primary{
   cursor:hand;
   text-decoration:none;
 }
-.button-primary:hover,
-a.button-primary:hover,
-input.button-primary:hover{
+.button-primary:hover{
   background:#269283;
 }
 
@@ -1416,6 +1225,15 @@ input.button-primary:hover{
   border:0;
   clear:both;
   padding:1em 0;
+}
+
+.button-block {
+  @extend .button;
+
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
 }
 
 /* -----------------------------------
@@ -1446,24 +1264,6 @@ elementos
 }
 .menu ul li.menu-hamb{
   display:block;
-}
-.steps3 li span.block{
-  height:3em;
-}
-.steps3 li span.block span.tab-text{
-  display:none;
-}
-.steps3 li:nth-child(1) span.block span.tab-number{
-  width:70%;
-  text-align:center;
-}
-.steps3 li:nth-child(2) span.block span.tab-number,
-.steps3 li:nth-child(3) span.block span.tab-number{
-  width:70%;
-  text-align:center;
-}
-.tools li h3{
-  width:75%;
 }
 .subtitle {
   margin:1em 0;
@@ -1530,14 +1330,8 @@ font sizes
 .login-box form input,
 .login-box form div.remember label,
 .submenu li a,
-.steps3 li span.block span.tab-text{
-  font-size:1.2em;
-}
 .content .intro p {
   font-size:1.6em;
-}
-.steps3 li span.block span.tab-number{
-  font-size:2em;
 }
 .content .login-box p,
 .pagination li a{
@@ -1597,25 +1391,6 @@ layout 2: 460-600 (intermedia 1) # # # # # # # # # # # # # # # # # # # # # # # #
   .menu ul li.menu-hamb{
     display:block;
   }
-  .steps3 li span.block{
-    height:3em;
-  }
-  .steps3 li span.block span.tab-text{
-    display:none;
-  }
-  .steps3 li:nth-child(1) span.block span.tab-number{
-    width:70%;
-    text-align:center;
-  }
-  .steps3 li:nth-child(2) span.block span.tab-number,
-  .steps3 li:nth-child(3) span.block span.tab-number{
-    width:70%;
-    text-align:center;
-  }
-  .tools li h3{
-    width:80%;
-  }
-
   .subtitle-welcome ol li {
     margin: 0 0 4em;
   }
@@ -1631,14 +1406,8 @@ layout 2: 460-600 (intermedia 1) # # # # # # # # # # # # # # # # # # # # # # # #
   .login-box form input,
   .login-box form div.remember label,
   .submenu li a,
-  .steps3 li span.block span.tab-text{
-    font-size:1.2em;
-  }
   .content .intro p {
     font-size:1.6em;
-  }
-  .steps3 li span.block span.tab-number{
-    font-size:2em;
   }
   .content .login-box p,
   .pagination li a{
@@ -1684,23 +1453,6 @@ layout 3: 600-768 (intermedia 2) # # # # # # # # # # # # # # # # # # # # # # # #
     position:relative;
     overflow:hidden;
   }
-  .steps3 li span.block{
-    height:3.75em;
-  }
-  .steps3 li span.block span.tab-text{
-    display:block;
-    line-height:1.1em;
-  }
-  .steps3 li:nth-child(1) span.block span.tab-number{
-    width:15%;
-    text-align:left;
-  }
-  .steps3 li:nth-child(2) span.block span.tab-number,
-  .steps3 li:nth-child(3) span.block span.tab-number{
-    width:15%;
-    text-align:left;
-  }
-
 
   /*
   elementos
@@ -1721,19 +1473,6 @@ layout 3: 600-768 (intermedia 2) # # # # # # # # # # # # # # # # # # # # # # # #
   .menu ul li.menu-hamb{
     display:none;
   }
-  .steps3 li:nth-child(1) span.block span.tab-number{
-    width:12%;
-  }
-  .steps3 li:nth-child(1) span.block span.tab-text{
-    width:68%;
-  }
-  .steps3 li:nth-child(2) span.block span.tab-number,
-  .steps3 li:nth-child(3) span.block span.tab-number{
-    width:15%;
-  }
-  .tools li h3{
-    width:85%;
-  }
   .subtitle-welcome ol li {
     margin: 0 0 4em;
   }
@@ -1753,14 +1492,8 @@ layout 3: 600-768 (intermedia 2) # # # # # # # # # # # # # # # # # # # # # # # #
   .login-box form input,
   .login-box form div.remember label,
   .submenu li a,
-  .steps3 li span.block span.tab-text{
-    font-size:1.3em;
-  }
   .content .intro p {
     font-size:1.6em;
-  }
-  .steps3 li span.block span.tab-number{
-    font-size:2.4em;
   }
   .content .login-box p,
   .pagination li a{
@@ -1836,29 +1569,6 @@ layout 4: 769-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   .menu ul li.menu-hamb{
     display:none;
   }
-  .steps3 li span.block{
-    height:5.2em;
-  }
-  .steps3 li span.block span.tab-text{
-    display:block;
-    line-height:1.3em;
-  }
-  .steps3 li:nth-child(1) span.block span.tab-number{
-    width:15%;
-    text-align:left;
-  }
-  .steps3 li:nth-child(2) span.block span.tab-number,
-  .steps3 li:nth-child(3) span.block span.tab-number{
-    width:15%;
-    text-align:left;
-  }
-  .tools li{
-    width:29%;
-    margin-right:2%;
-  }
-  .tools li h3{
-    width:75%;
-  }
   .subtitle-welcome ol li {
     margin: 0 0 4em;
   }
@@ -1878,14 +1588,8 @@ layout 4: 769-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   .login-box form input,
   .login-box form div.remember label,
   .submenu li a,
-  .steps3 li span.block span.tab-text{
-    font-size:1.2em;
-  }
   .content .intro p {
     font-size:1.6em;
-  }
-  .steps3 li span.block span.tab-number{
-    font-size:2.8em;
   }
   .content .login-box p,
   .pagination li a{
@@ -1947,29 +1651,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   .menu ul li.menu-hamb{
     display:none;
   }
-  .steps3 li span.block{
-    height:6.2em;
-  }
-  .steps3 li span.block span.tab-text{
-    display:block;
-    line-height:1.3em;
-  }
-  .steps3 li:nth-child(1) span.block span.tab-number{
-    width:15%;
-    text-align:left;
-  }
-  .steps3 li:nth-child(2) span.block span.tab-number,
-  .steps3 li:nth-child(3) span.block span.tab-number{
-    width:15%;
-    text-align:left;
-  }
-  .tools li{
-    width:45%;
-    margin-right:2%;
-  }
-  .tools li h3{
-    width:75%;
-  }
   .content-content-home{
     margin: auto;
     width: 96%;
@@ -2004,14 +1685,8 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   .login-box form input,
   .login-box form div.remember label,
   .submenu li a,
-  .steps3 li span.block span.tab-text{
-    font-size:1.5em;
-  }
   .content .intro p {
     font-size:1.6em;
-  }
-  .steps3 li span.block span.tab-number{
-    font-size:3em;
   }
   .content .login-box p,
   .pagination li a{
@@ -2029,12 +1704,6 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
     font-size:1.6em;
   }
 }
-.tools li {
- margin-left: -10px;
- text-align: left;
- width: 90%;
-}
-
 .img3 {
  max-width: 100%;
  height: auto;
@@ -2097,10 +1766,12 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   color: #cc2626;
 }
 
-.requirements {
+.requirements,
+.how-to {
   margin: 0 0 3em;
 
-  .title {
+  .title,
+  ol li {
     margin-bottom: 1em;
   }
 
@@ -2109,8 +1780,15 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
     li {
       list-style-position: inside;
-      list-style-type: lower-alpha;
     }
+  }
+
+  .lettered li {
+    list-style-type: lower-alpha;
+  }
+
+  .numbered li {
+    list-style-type: decimal;
   }
 }
 

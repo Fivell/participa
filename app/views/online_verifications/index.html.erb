@@ -1,0 +1,40 @@
+<% content_for :title, t('.title') %>
+
+<div class="content-content verification">
+  <div class="box-info">
+
+    <h2><%= t('.title') %></h2>
+
+    <div class="row online-verification-intro">
+      <p><%= t('.welcome') %></p>
+
+      <div class="info-section">
+        <ul class="info-list">
+          <li>
+            <strong><%= t('.accept_title') %></strong>.
+
+            <%= t('.accept_description') %>
+          </li>
+
+          <li>
+            <strong><%= t('.reject_title') %></strong>.
+
+            <%= t('.reject_description') %>
+          </li>
+
+          <li>
+            <strong><%= t('.report_title') %></strong>.
+
+            <%= t('.report_description') %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row online-verification-actions">
+      <%= link_to t('.get_started'),
+                  online_verification_path(next_user),
+                  class: 'button-block' %>
+    </div>
+  </div>
+</div>

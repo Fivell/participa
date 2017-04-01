@@ -67,7 +67,17 @@ FactoryGirl.define do
   end
 
   trait :superadmin do
+    admin
+
     superadmin true
+  end
+
+  trait :not_banned do
+    banned false
+  end
+
+  trait :banned do
+    banned true
   end
 
   trait :not_confirmed_by_sms do
@@ -75,8 +85,24 @@ FactoryGirl.define do
   end
 
   trait :confirmed_by_sms do
-    verified_at { DateTime.now }
     sms_confirmed_at { DateTime.now }
+  end
+
+  trait :pending_moderation do
+    confirmed_by_sms
+
+    after(:create) do |u, _|
+      u.uploads << create(:online_verification_upload, verified: u)
+    end
+  end
+
+  trait :pending_docs do
+    confirmed_by_sms
+
+    after(:create) do |u, _|
+      u.verification_events << create(:online_verification_upload, verified: u, created_at: 1.minute.ago)
+      u.verification_events << create(:online_verification_report, verified: u)
+    end
   end
 
   trait :not_verified_presentially do
@@ -86,6 +112,17 @@ FactoryGirl.define do
   trait :verified_presentially do
     verified_at { DateTime.now }
     verified_by_id 1
+  end
+
+  trait :not_verified_online do
+    verified_online_by_id nil
+  end
+
+  trait :verified_online do
+    confirmed_by_sms
+
+    verified_online_at { DateTime.now }
+    verified_online_by_id 1
   end
 
   trait :previously_confirmed_by_sms do

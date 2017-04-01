@@ -1,4 +1,4 @@
-class Order < ActiveRecord::Base
+class Order < ApplicationRecord
 
   include Rails.application.routes.url_helpers
 
@@ -6,14 +6,14 @@ class Order < ActiveRecord::Base
   has_paper_trail
 
   belongs_to :parent, -> { with_deleted }, polymorphic: true
-  belongs_to :collaboration, -> { with_deleted.joins(:order).where(orders: {parent_type: 'Collaboration'}) }, foreign_key: 'parent_id'
+  belongs_to :collaboration, -> { with_deleted.joins(:order).where(orders: {parent_type: 'Collaboration'}) }, foreign_key: :parent_id
   belongs_to :user, -> { with_deleted }
 
   attr_accessor :raw_xml
   validates :payment_type, :amount, :payable_at, presence: true
 
   STATUS = {"Nueva" => 0, "Sin confirmar" => 1, "OK" => 2, "Alerta" => 3, "Error" => 4, "Devuelta" => 5}
-  if Rails.application.secrets.features["collaborations_redsys"]
+  if Features.redsys_collaborations?
     PAYMENT_TYPES = {
       I18n.t('podemos.collaboration.order.cc') => 1, 
       I18n.t('podemos.collaboration.order.ccc') => 2, 

@@ -206,7 +206,11 @@ ca:
     change_email_explain: "Si canvies el teu correu electrònic t'enviarem un altre correu perquè el confirmis."
     change_phone: "Canvia el telèfon mòbil"
     change_phone_explain_html: "T'has validat amb el telèfon mòbil <b>%{unprefixed_phone}</b> de <b>%{phone_country}</b> (prefix internacional %{phone_prefix})."
-    cannot_change_phone: "L'has confirmat fa menys de tres mesos, així que encara no pots canviar-lo."
+    change_documents: "Els meus documents"
+    change_documents_explain: >
+      Aquesta és la llista d'imatges que ens has facilitat per al procés de
+      verificació digital. Si hi ha errors a la teva sol·licitud inicial, o et
+      manca qualsevol document, aquí pots carregar les imatges que necessitis.
     change_password: "Canvia contrasenya"
     cancel_account: "Dóna'm de baixa"
     cancel_account_explain_html: "<p>Si cliques \"Dóna'm de baixa\" deixaràs de ser membre de Un País En Comú i cancel·larem les teves dades personals conforme a allò convingut a la Llei Orgànica 15/1999 de Protecció de Dades de Caràcter Personal.</p>
@@ -254,22 +258,31 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     message:
       default: "El text introductori no es correspon amb el de la imatge"
   sms_validator:
+    documents:
+      local_id: >
+        Para la verificación necesitas enviarnos un DNI o NIE amb domicili a
+        Catalunya.
+      foreign_id: >
+        Alternativamente, puedes enviarnos un DNI o NIE amb domicili de fora de
+        Catalunya (o Passaport, o Permís de Conducció) y un certificat
+        d'empadronament o rebut d'un suministrament bàsic (aigua, llum o gas)
+        que no tingui més de tres meses d'antiguitat i en el qual aparegui la
+        identitat de la persona i un domicili a Catalunya.
+      invalid: Hi ha hagut un error en carregar els documents.
+      updated: Documents carregats correctament. Els revisarem aviat.
     steps:
-      step1: "Introdueix el teu número de telèfon mòbil"
-      step2: "Emplena el codi de la imatge"
+      step1: "Envia'ns la documentació"
+      step2: "Introdueix el teu número de telèfon mòbil"
       step3: "Introdueix el codi rebut per SMS"
     phone:
       p1: "Introdueix el teu nou número de telèfon mòbil."
       p2: "Rebràs el codi de verificació per validar el nou número en uns segons."
       p3: "Si ja has participat en alguna votació de Un País En Comú, t'enviarem el codi per correu electrònic."
-      p4: "Introdueix el text que apareix a la imatge."
       p5: "Introdueix el codi que hagis rebut per SMS per confirmar-lo"
-      valid: "Has validat correctament el teu nou número de telèfon."
+      valid: "T'hem verificat correctament. Si els teus documents són correctes, tindràs l'autorització per votar."
       invalid: "El codi que has posat no correspon amb el que t'hem enviar per SMS."
-      captcha: "Validar Captcha"
       token: Codi SMS
       button: "Comprova"
-      captcha_invalid: "Captcha invàlid"
       information_html: "Has d'ingressar un telèfon mòbil vàlid per al país on et trobes, sense prefix internacional, només amb números (sense espais ni guions). Segons el formulari que has emplenat et trobes a <b>%{country}</b> (prefix internacional +%{prefix})."
   static:
     privacy: Política de privacitat
@@ -314,6 +327,124 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
           <a href='http://unpaisencomu.cat/contact'>aquí</a>.
         </p>
         "
+  unauthorized:
+    default: "No tens permisos per accedir a aquesta secció"
+    banned: >
+      Gràcies, %{full_name}. Per poder participar-hi cal que ens escriguis un
+      correu electrònic a soporte@unpaisencomu.cat
+  online_verifications:
+    menu_link: Verifica't aquí
+    admin: Gestor de verificacions digitals
+    add_another_document: Afegir-hi un altre document
+    remove_document: Eliminar document
+    reupload_documents: Selecciona i envia els documents corregits
+    label:
+      invalid_id: >
+        El document d'identitat que has adjuntat no és vàlid. Ha de ser DNI, NIE
+        o passaport.
+      unverifiable_id: >
+        El document d'identitat que has adjuntat no es pot verificar. A la foto
+        el teu nom s'ha de poder distingir clarament. Comprova que no estigui
+        borrosa.
+      unmatched_identity: >
+        El document d'identitat que has adjuntat no coincideix amb la identitat
+        del sol·licitant. Comprova que la persona registrada és la mateixa que
+        el titular del document que envies.
+      non_local_id_with_missing_residence_proof: >
+        El document d'identitat que has adjuntat és de fora de Catalunya i no
+        has inclòs un document extra amb una prova de residència a Catalunya
+        mitjançant una factura recent de subministrament bàsic.
+      non_local_id_with_invalid_residence_proof: >
+        El document d'identitat que has adjuntat és de fora de Catalunya i la
+        prova de residència que s'inclou no és vàlida. Ha de ser un rebut
+        d'aigua, llum o gas.
+      non_local_id_with_outdated_residence_proof: >
+        El document d'identitat que has adjuntat és de fora de Catalunya i la
+        prova de residència que s'inclou no és recent. Ha de ser un rebut dels
+        últims tres mesos.
+      non_local_id_with_unmatched_residence_proof: >
+        El document d'identitat que has adjuntat és de fora de Catalunya i la
+        prova de residència que s'inclou no està a nom del sol·licitant.
+      non_local_id_with_unverifiable_residence_proof: >
+        El document d'identitat que has adjuntat és de fora de Catalunya i la
+        prova de residència que s'inclou no es pot verificar. A la foto s'ha de
+        poder distingir clarament la data, el tipus i titular del rebut.
+        Comprova que no estigui borrosa.
+    mailer:
+      subject: >-
+        Revisa la teva sol·licitud de verificació digital en Un País en Comú
+      introduction: >
+        Hola, hem revisat la teva sol·licitud de verificació digital i hem
+        detectat els següents problemes amb els documents que hi has carregat.
+      suggested_action: >
+        Si us plau, clica el següent enllaç per carregar els documents
+        corregits. D'aquesta manera podrem verificar la teva identitat i podràs
+        votar en les properes consultes.
+      suggested_action_text_only: >
+       Si us plau, visita la següent adreça url per carregar els documents
+       corregits. D'aquesta manera podrem verificar la teva identitat i podràs
+       votar en les properes consultes.
+    index:
+      title: Interfície de Verificació Digital
+      welcome: >
+        Et donem la benvinguda a la interfície de verificació. A cada pantalla
+        podràs veure les dades d'una persona usuària que ha iniciat el procés de
+        verificació digital, així com els documents que ha carregat. Les
+        possibles accions que pots prendre després d'analitzar la sol·licitud
+        són les següents.
+      accept_title: Acceptar (botó verd)
+      accept_description: >
+        Confirmes la veracitat de la persona usuària i la validesa dels
+        documents que hi ha carregat. Els vots que hagi emès o emeti en el futur
+        seran considerats vàlids.
+      reject_title: Expulsar (botó vermell)
+      reject_description: >
+        Assenyales que es tracta d'una sol·licitud fraudulenta. La persona
+        usuària serà expulsada i no podrà accedir més a la plataforma de
+        participació.
+      report_title: Assenyalar un problema (botó taronja)
+      report_description: >
+        Si la sol·licitud és vàlida però està incompleta. Per exemple, si falten
+        documents, les fotografies estan borroses i no permeten llegir les
+        dades, etcètera. Aquesta opció permet assenyalar els problemes detectats
+        entre diverses opcions predefinides i envia un correu electrònic a la
+        persona usuària informant-la dels problemes i de com solucionar-los
+        mitjançant la càrrega de nous documents. Es recomana complementar l'ús
+        d'aquesta opció amb una trucada telefònica directa per informar del cas.
+        Els temps són molt ajustats i no volem que ningú no es quedi sense votar
+        perquè no va poder llegir un correu. L'ús d'aquest botó queda registrat
+        en la sol·licitud perquè qui ho verifiqui pugui comprovar fàcilment si
+        la persona usuària va solucionar els problemes originals.
+      get_started: Començar
+      no_pending_users: >
+        Hores d'ara no hi ha persones usuàries pendents de verificar.
+    accept:
+      success: Persona usuària verificada correctament
+    reject:
+      success: Persona usuària expulsada correctament
+    report:
+      success: Sol·licitud actualitzada correctament
+    report_modal:
+      title: Assenyalar un problema amb la sol·licitud de %{name}
+      button: Informar la persona usuària
+    show:
+      title: Verificació digital
+      pending_counter:
+        one: "%{count} verificació pendent"
+        other: "%{count} verificacions pendents"
+      change: Canviar
+      accept: Acceptar
+      reject: Expulsar
+      skip: Següent
+      report: Assenyalar un problema
+    user_uploaded_images: "%{name} va carregar les següents imatges"
+    user_uploaded_images_self: Has carregat les següents imatges"
+    user_uploaded_pdfs: "%{name} va carregar els següents PDF's"
+    user_uploaded_pdfs_self: "Has carregat els següents PDF's"
+    verifier_reported: "%{name} va informar dels següents problemes"
+    verifier_reported_self: Es van informar dels següents problemes
+    you_are_done: >
+      No resten persones usuàries pendents de verificació. Bona feina!
   verification:
     from: de
     from_with_article: del
@@ -325,19 +456,29 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
       no_points: "No hi ha cap punt actiu actualment"
       link_title: "inscriure't"
     pending_title: Només et queda una última verificació per fer!
-    reasons: >
-      Perquè els nostres processos de votació siguin tan democràtics com sigui
-      possible necessitem que aportis la teva documentació de manera presencial.
-    how_to_presential: >
-      Al mapa trobaràs tots els punts per verificar-te a tot Catalunya.
+    reasons_presential: >
+      Perquè els nostres processos de votació resultin tan democràtics com sigui
+      possible ens cal que hi aportis la teva documentació de manera presencial.
+    reasons_both_html: >
+      Perquè els nostres processos de votació resultin tan democràtics com sigui
+      possible ens cal que hi aportis la teva documentació de manera presencial
+      o mitjançant la %{form}.
+    how_to:
+      header: >
+        Posem a la teva disposició dues maneres de verificar la teva identitat:
+      presential: >
+        Al mapa trobaràs tots els punts per verificar-te a tot Catalunya.
+      online: Un equip de persones comprovaran després que tot està correcte.
+    presential_name: Verificació presencial
+    online_name: Verificació digital
     requirements:
       header: "Documentació requerida per la verificació:"
       local_id: DNI o NIE amb domicili a Catalunya.
       foreign_id: >
         DNI o NIE amb domicili de fora de Catalunya o passaport o permís de
         conduir + certificat d'empadronament o rebut d'un subministrament bàsic
-        (aigua, llum o gas) que no tingui més de tres meses d'antiguitat i en la
-        que aparegui la identitat de la persona i un domicili a Catalunya.
+        (aigua, llum o gas) que no tingui més de tres meses d'antiguitat i on
+        aparegui la identitat de la persona i un domicili a Catalunya.
     bring_your_documents_to: "Porta la documentació a:"
     user_verified: Usuari verificat
     user_unverified: No t'has verificat
@@ -356,21 +497,15 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     result: Per acabar el procés has de comprovar que les dades siguin les mateixes que ha donat l'inscrit/a.
     other: Verifica un altre usuari/ària.
     sure: ¿Estàs segur/a que vols confirmar aquest usuari/ària?
-    admin: Gestor de verificacions
+    admin: Gestor de verificacions presencials
     alerts:
       already_presencial: "L'usuari/ària amb document %{document} ja estava  verificat, per %{by}, el %{when}. L'usuari/ària ja podrà votar."
-      already_sms: "L'usuari/ària amb document %{document} ja estava verificat, per SMS, el %{when}. L'usuari/ària ja podrà votar."
-      already: "L'usuari/ària amb document %{document} ja estava verificat. L'usuari/ària ja podrà votar."
       ok: "S'ha verificat l'usuari/ària correctament. Li hem enviat un  correu avisant-lo. Podrà votar en les pròximes votacions. Pots  continuar amb el següent usuari/ària."
       not_found: "No hem trobat un usuari/ària amb aquest document o correu electrònic. Búsqueda: %{query1} %{query2}"
       problem: "Hi ha hagut un problema buscant aquest usuari/ària. Fes una foto al document, demana-li el seu correu electrònc i envia'l a  info@unpaisencomu.cat"
     mailer:
       hello: "Hola %{user},"
       bye: Salutacions.
-      finish:
-        subject: Un País en Comú - Fin del primer proceso de verificación
-      to_verify:
-        subject: Un País en Comú - Faltan 2 días para verificarte
       verified:
         subject: Un País en Comú - Has estat verificat correctament
         message: "Has sigut verificat i ja formes part de la comunitat d'Un País en Comú.
