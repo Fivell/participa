@@ -52,9 +52,8 @@ module Verificable
     # @todo Transform the to a proper scope, because it's faster and chainable.
     # So, for example, can be paginated and works in the admin.
     #
-    def online_verification_pending_moderation
-      confirmed_by_sms_but_still_unverified
-        .select(&:online_verification_pending_moderation?)
+    def pending_moderation
+      confirmed_by_sms_but_still_unverified.select(&:pending_moderation?)
     end
   end
 
@@ -128,13 +127,13 @@ module Verificable
     is_verified_online? || is_verified_presentially?
   end
 
-  def online_verification_pending_docs?
+  def pending_docs?
     return false unless Features.online_verifications? && not_banned?
 
     verification_events.none? || verification_events.last_was_report?
   end
 
-  def online_verification_pending_moderation?
+  def pending_moderation?
     return false unless Features.online_verifications? && not_banned?
 
     confirmed_by_sms? && verification_events.last_was_upload?

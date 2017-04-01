@@ -71,7 +71,7 @@ class OnlineVerificationsController < ApplicationController
   helper_method :next_user
 
   def load_pending_users
-    @pending_users = User.online_verification_pending_moderation
+    @pending_users = User.pending_moderation
   end
 
   def load_user

@@ -721,16 +721,16 @@ class UserTest < ActiveSupport::TestCase
   test "online verification process status" do
     # pathologic, shouldn't happen in real life but data is data, you never know
     confirmed_by_sms_only = create(:user, :confirmed_by_sms)
-    assert_equal true, confirmed_by_sms_only.online_verification_pending_docs?
-    assert_equal false, confirmed_by_sms_only.online_verification_pending_moderation?
+    assert_equal true, confirmed_by_sms_only.pending_docs?
+    assert_equal false, confirmed_by_sms_only.pending_moderation?
 
-    ready_for_review = create(:user, :online_verification_pending_moderation)
-    assert_equal false, ready_for_review.online_verification_pending_docs?
-    assert_equal true, ready_for_review.online_verification_pending_moderation?
+    ready_for_review = create(:user, :pending_moderation)
+    assert_equal false, ready_for_review.pending_docs?
+    assert_equal true, ready_for_review.pending_moderation?
 
-    pending_doc_reupload = create(:user, :online_verification_pending_docs)
-    assert_equal true, pending_doc_reupload.online_verification_pending_docs?
-    assert_equal false, pending_doc_reupload.online_verification_pending_moderation?
+    pending_doc_reupload = create(:user, :pending_docs)
+    assert_equal true, pending_doc_reupload.pending_docs?
+    assert_equal false, pending_doc_reupload.pending_moderation?
   end
 
   test "#verifying_online?" do

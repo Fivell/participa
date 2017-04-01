@@ -5,7 +5,7 @@ class OnlineVerificationMailerPreview < ActionMailer::Preview
   #
   def report
     event = OnlineVerifications::Report.create! \
-              verified: User.online_verification_pending_moderation.first,
+              verified: User.pending_moderation.first,
               verifier: User.verifying_presentially.first,
               label_ids: OnlineVerifications::Label.where(id: [1, 2]).pluck(:id)
 

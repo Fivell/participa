@@ -88,7 +88,7 @@ FactoryGirl.define do
     sms_confirmed_at { DateTime.now }
   end
 
-  trait :online_verification_pending_moderation do
+  trait :pending_moderation do
     confirmed_by_sms
 
     after(:create) do |u, _|
@@ -96,7 +96,7 @@ FactoryGirl.define do
     end
   end
 
-  trait :online_verification_pending_docs do
+  trait :pending_docs do
     confirmed_by_sms
 
     after(:create) do |u, _|

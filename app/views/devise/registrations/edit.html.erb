@@ -30,7 +30,7 @@
               </li>
             <% end %>
 
-            <% if resource.online_verification_pending_docs? %>
+            <% if resource.pending_docs? %>
               <li>
                 <a href="#change-documents" class="js-change-tab">
                   <span><%=t("user.change_documents") %></span>

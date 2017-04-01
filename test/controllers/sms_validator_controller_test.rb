@@ -44,7 +44,7 @@ class SmsValidatorControllerTest < ActionController::TestCase
   end
 
   test "allows document upload when user needs to upload pending documents" do
-    user = create(:user, :online_verification_pending_docs)
+    user = create(:user, :pending_docs)
     sign_in user
     get :step1
     assert_response :success
