@@ -811,20 +811,20 @@ class UserTest < ActiveSupport::TestCase
     {
       %i(not_banned not_verified_online not_confirmed_by_sms not_verified_presentially) => false,
       %i(not_banned not_verified_online not_confirmed_by_sms verified_presentially) => presential,
-      %i(not_banned not_verified_online confirmed_by_sms not_verified_presentially) => online,
-      %i(not_banned not_verified_online confirmed_by_sms verified_presentially) => presential || online,
-      %i(not_banned verified_online not_confirmed_by_sms not_verified_presentially) => false,
-      %i(not_banned verified_online not_confirmed_by_sms verified_presentially) => presential,
-      %i(not_banned verified_online confirmed_by_sms not_verified_presentially) => online,
-      %i(not_banned verified_online confirmed_by_sms verified_presentially) => presential || online,
-      %i(banned not_verified_online not_confirmed_by_sms not_verified_presentially) => false,
-      %i(banned not_verified_online not_confirmed_by_sms verified_presentially) => false,
-      %i(banned not_verified_online confirmed_by_sms not_verified_presentially) => false,
-      %i(banned not_verified_online confirmed_by_sms verified_presentially) => false,
-      %i(banned verified_online not_confirmed_by_sms not_verified_presentially) => false,
-      %i(banned verified_online not_confirmed_by_sms verified_presentially) => false,
-      %i(banned verified_online confirmed_by_sms not_verified_presentially) => false,
-      %i(banned verified_online confirmed_by_sms verified_presentially) => false
+      %i(not_banned not_verified_online confirmed_by_sms     not_verified_presentially) => online,
+      %i(not_banned not_verified_online confirmed_by_sms     verified_presentially) => presential || online,
+      %i(not_banned verified_online     not_confirmed_by_sms not_verified_presentially) => false,
+      %i(not_banned verified_online     not_confirmed_by_sms verified_presentially) => presential,
+      %i(not_banned verified_online     confirmed_by_sms     not_verified_presentially) => online,
+      %i(not_banned verified_online     confirmed_by_sms     verified_presentially) => presential || online,
+      %i(banned     not_verified_online not_confirmed_by_sms not_verified_presentially) => false,
+      %i(banned     not_verified_online not_confirmed_by_sms verified_presentially) => false,
+      %i(banned     not_verified_online confirmed_by_sms     not_verified_presentially) => false,
+      %i(banned     not_verified_online confirmed_by_sms     verified_presentially) => false,
+      %i(banned     verified_online     not_confirmed_by_sms not_verified_presentially) => false,
+      %i(banned     verified_online     not_confirmed_by_sms verified_presentially) => false,
+      %i(banned     verified_online     confirmed_by_sms     not_verified_presentially) => false,
+      %i(banned     verified_online     confirmed_by_sms     verified_presentially) => false
     }
   end
 
@@ -832,20 +832,20 @@ class UserTest < ActiveSupport::TestCase
     {
       %i(not_banned not_verified_online not_confirmed_by_sms not_verified_presentially) => false,
       %i(not_banned not_verified_online not_confirmed_by_sms verified_presentially) => presential,
-      %i(not_banned not_verified_online confirmed_by_sms not_verified_presentially) => false,
-      %i(not_banned not_verified_online confirmed_by_sms verified_presentially) => presential,
-      %i(not_banned verified_online not_confirmed_by_sms not_verified_presentially) => false,
-      %i(not_banned verified_online not_confirmed_by_sms verified_presentially) => presential,
-      %i(not_banned verified_online confirmed_by_sms not_verified_presentially) => online,
-      %i(not_banned verified_online confirmed_by_sms verified_presentially) => presential || online,
-      %i(banned not_verified_online not_confirmed_by_sms not_verified_presentially) => false,
-      %i(banned not_verified_online not_confirmed_by_sms verified_presentially) => false,
-      %i(banned not_verified_online confirmed_by_sms not_verified_presentially) => false,
-      %i(banned not_verified_online confirmed_by_sms verified_presentially) => false,
-      %i(banned verified_online not_confirmed_by_sms not_verified_presentially) => false,
-      %i(banned verified_online not_confirmed_by_sms verified_presentially) => false,
-      %i(banned verified_online confirmed_by_sms not_verified_presentially) => false,
-      %i(banned verified_online confirmed_by_sms verified_presentially) => false
+      %i(not_banned not_verified_online confirmed_by_sms     not_verified_presentially) => false,
+      %i(not_banned not_verified_online confirmed_by_sms     verified_presentially) => presential,
+      %i(not_banned verified_online     not_confirmed_by_sms not_verified_presentially) => false,
+      %i(not_banned verified_online     not_confirmed_by_sms verified_presentially) => presential,
+      %i(not_banned verified_online     confirmed_by_sms     not_verified_presentially) => online,
+      %i(not_banned verified_online     confirmed_by_sms     verified_presentially) => presential || online,
+      %i(banned     not_verified_online not_confirmed_by_sms not_verified_presentially) => false,
+      %i(banned     not_verified_online not_confirmed_by_sms verified_presentially) => false,
+      %i(banned     not_verified_online confirmed_by_sms     not_verified_presentially) => false,
+      %i(banned     not_verified_online confirmed_by_sms     verified_presentially) => false,
+      %i(banned     verified_online     not_confirmed_by_sms not_verified_presentially) => false,
+      %i(banned     verified_online     not_confirmed_by_sms verified_presentially) => false,
+      %i(banned     verified_online     confirmed_by_sms     not_verified_presentially) => false,
+      %i(banned     verified_online     confirmed_by_sms     verified_presentially) => false
     }
   end
 end
