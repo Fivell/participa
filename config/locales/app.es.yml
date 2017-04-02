@@ -525,7 +525,7 @@ es:
     change_email_explain: "Si cambias tu correo electrónico te enviaremos otro correo para que lo confirmes."
     change_phone: "Cambiar teléfono móvil"
     change_phone_explain_html: "Te has validado con el teléfono móvil <b>%{unprefixed_phone}</b> de <b>%{phone_country}</b> (prefijo internacional %{phone_prefix})."
-    change_documents: "Mis Documentos"
+    change_documents: "Mis documentos"
     change_documents_explain: >
       Esta es la lista de imágenes que nos has facilitado para el proceso de
       verificación digital. Si hay errores en tu solicitud inicial, o te falta
