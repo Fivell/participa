@@ -98,11 +98,11 @@ class MicrocreditLoan < ApplicationRecord
   end
 
   before_save do
-    if user
-      self.user_data = nil
-    else
-      self.user_data = {first_name: first_name, last_name: last_name, email: email, address: address, postal_code: postal_code, town: town, province: province, country: country}.to_yaml
-    end
+    self.user_data = if user
+                       nil
+                     else
+                       {first_name: first_name, last_name: last_name, email: email, address: address, postal_code: postal_code, town: town, province: province, country: country}.to_yaml
+                     end
     if self.document_vatid
       self.document_vatid.upcase!
       self.document_vatid.strip!
@@ -117,11 +117,11 @@ class MicrocreditLoan < ApplicationRecord
       if not replacement and not self.confirmed_at.nil?
         replacement = self.microcredit.loans.where(amount: self.amount).counted.not_confirmed.order(created_at: :asc).first
       end
-      if replacement
-        must_count = true
-      else
-        must_count = self.microcredit.should_count?(amount, !self.confirmed_at.nil?)
-      end
+      must_count = if replacement
+                     true
+                   else
+                     self.microcredit.should_count?(amount, !self.confirmed_at.nil?)
+                   end
     end
 
     if must_count
