@@ -90,4 +90,31 @@ class VerificationPresencialTest < JsFeatureTest
     login(user)
     assert_content I18n.t('voting.election_none')
   end
+
+  test "presential verifiers cannot verify unconfirmed users" do
+    unconfirmed_user = create(:user, confirmed_at: nil)
+
+    verificator = create(:user, :verifying_presentially)
+    login(verificator)
+    visit verification_step1_path
+    assert_content I18n.t('verification.form.document')
+    check('user_document')
+    check('user_town')
+    check('user_age_restriction')
+    click_button('Siguiente')
+    fill_in(:user_email, with: unconfirmed_user.email)
+
+    assert_difference -> { ActionMailer::Base.deliveries.count }, 1 do
+      click_button('Siguiente')
+    end
+
+    assert_content <<~MSG.squish
+      La persona con email #{unconfirmed_user.email} no ha confirmado su
+      correo electrónico. Le acabamos de enviar un nuevo correo de confirmación
+      para que pueda confirmar su correo, verificarse y votar.
+    MSG
+
+    refute unconfirmed_user.reload.is_verified_presentially?,
+          "User shouldn't be verified presentially but it is"
+  end
 end

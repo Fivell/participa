@@ -39,6 +39,10 @@ class VerificationController < ApplicationController
         if @user.is_verified_presentially? 
           flash.now[:notice] = already_verified_alert
           render :step2
+        elsif @user.confirmed_at.nil?
+          @user.send_confirmation_instructions
+          flash.now[:alert] = unconfirmed_email_alert
+          render :step2
         else
           render :step3
         end
@@ -68,5 +72,9 @@ class VerificationController < ApplicationController
     t('verification.alerts.already_presencial', document: @user.document_vatid,
                                                 by: @user.verified_by.full_name,
                                                 when: @user.verified_at)
+  end
+
+  def unconfirmed_email_alert
+    t('verification.alerts.unconfirmed_html', email: @user.email).html_safe
   end
 end
