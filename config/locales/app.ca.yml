@@ -482,7 +482,9 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     step3: Comprova
     welcome_html: "<p>Demana-li amablement a l'usuari/ària els documents que ha d'haver portat. S'haurien de complir els requisits següents:</p>"
     next: Següent
-    confirm: Confirma
+    next_user: Continuar amb el següent usuari
+    confirm: Sí, aquestes dades coincideixen
+    no_confirm: No, aquestes dades no coincideixen
     new: "Escriu en el fomulari següent el document o correu electrònic amb què s'ha inscrit"
     document: "DNI/NIE/Passaport"
     full_name: Nom complet
@@ -494,7 +496,12 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
     admin: Gestor de verificacions presencials
     alerts:
       already_presencial: "L'usuari/ària amb document %{document} ja estava  verificat, per %{by}, el %{when}. L'usuari/ària ja podrà votar."
-      ok: "S'ha verificat l'usuari/ària correctament. Li hem enviat un  correu avisant-lo. Podrà votar en les pròximes votacions. Pots  continuar amb el següent usuari/ària."
+      ok:
+        title: "S'ha verificat l'usuari/ària correctament"
+        msg_html: "La persona ha estat verificada correctament. Li hem enviat un correu avisant-li. Podrà votar en futures votacions. Pots verificar al següent usuari."
+      ko:
+        title: "No s'ha verificat a l'usuari."
+        msg_html: "No podrà votar en les properes consultes. Envia-li un Telegram al Coordinador del teu districte amb les dades (nom, correu electrònic i DNI) de l'usuari perquè ho revisi. Informa a l'usuari que ens posarem en contacte amb ell o ella al més aviat possible."
       unconfirmed_html: >
         La persona amb l'email <b>%{email}</b> no ha confirmat el seu correu
         electrònic. Li acabem d'enviar un mail de confirmació ara mateix
