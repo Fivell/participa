@@ -34,10 +34,14 @@ class VerificationController < ApplicationController
   def search
     authorize! :search, :verification
     if params[:user]
-      @user = User.find_by_email(params[:user][:email]) # || User.find_by_document_vatid(params[:user][:document_vatid])
+      @user = User.find_by_email(params[:user][:email])
       if @user
         if @user.is_verified_presentially? 
-          flash.now[:notice] = t('verification.alerts.already_presencial', document: @user.document_vatid, by: @user.verified_by.full_name, when: @user.verified_at)
+          flash.now[:notice] = already_verified_alert
+          render :step2
+        elsif @user.confirmed_at.nil?
+          @user.send_confirmation_instructions
+          flash.now[:alert] = unconfirmed_email_alert
           render :step2
         else
           render :step3
@@ -62,4 +66,15 @@ class VerificationController < ApplicationController
     end
   end
 
+  private
+
+  def already_verified_alert
+    t('verification.alerts.already_presencial', document: @user.document_vatid,
+                                                by: @user.verified_by.full_name,
+                                                when: @user.verified_at)
+  end
+
+  def unconfirmed_email_alert
+    t('verification.alerts.unconfirmed_html', email: @user.email).html_safe
+  end
 end
