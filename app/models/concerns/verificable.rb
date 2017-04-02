@@ -80,7 +80,7 @@ module Verificable
   end
 
   def can_change_phone?
-    unconfirmed_by_sms? or
+    confirmed_by_sms? &&
       sms_confirmed_at < Time.zone.now-self.class.sms_confirmation_period
   end
 

@@ -298,9 +298,9 @@ class UserTest < ActiveSupport::TestCase
     assert user.can_change_phone?
   end
 
-  test ".can_change_phone? is true for users without a phone" do
+  test ".can_change_phone? is false for users without a phone" do
     user = create(:user, sms_confirmed_at: nil)
-    assert user.can_change_phone?
+    refute user.can_change_phone?
   end
 
   test ".phone_normalize" do 

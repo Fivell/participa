@@ -23,6 +23,13 @@ class ProfileEditionsTest < JsFeatureTest
     assert_equal "Mi nueva casa", @user.reload.address
   end
 
+  test "users without a phone can visit profile edition" do
+    @user.update(sms_confirmed_at: nil, phone: nil)
+    click_link "Datos personales"
+
+    assert_title "Datos personales"
+  end
+
   test "form errors preserve changed data" do
     click_link "Datos personales"
     select "Brasil", from: "País"

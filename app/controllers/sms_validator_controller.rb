@@ -97,7 +97,7 @@ class SmsValidatorController < ApplicationController
   end
 
   def can_change_phone
-    unless current_user.can_change_phone?
+    unless current_user.unconfirmed_by_sms? || current_user.can_change_phone?
       msg = "Ya has confirmado tu número en los últimos meses."
 
       raise CanCan::AccessDenied.new(msg, params[:action], :sms_validator)
