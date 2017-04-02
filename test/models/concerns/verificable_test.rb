@@ -71,7 +71,6 @@ class VerifiableTest < ActiveSupport::TestCase
   end
 
   test "online verification process status" do
-    # pathologic, shouldn't happen in real life but data is data, you never know
     confirmed_by_sms_only = create(:user, :confirmed_by_sms)
     assert_equal true, confirmed_by_sms_only.pending_docs?
     assert_equal false, confirmed_by_sms_only.pending_moderation?
