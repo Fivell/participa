@@ -590,10 +590,6 @@ class UserTest < ActiveSupport::TestCase
     user.update(country: "US", province: "AL", town: "Jefferson County")
     assert_not_equal user.town, user.vote_town, "User has changed his town (from Spain to a foreign country) and vote town changed"
   end
-  
-  # actualizar vote_town cuando se guarda
-   # español
-   # extranjero
 
   test "verification scopes" do
     banned = create(:user, :banned)
