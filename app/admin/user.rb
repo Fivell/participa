@@ -254,6 +254,11 @@ ActiveAdmin.register User do
     column :document_type_name if current_active_admin_user.superadmin?
     column :document_vatid if current_active_admin_user.superadmin?
     column :postal_code
+    column :created_at
+    column :confirmed_at
+    column :deleted_at
+    column :verified_at
+    column :verified_online_at
     column :town_idescat_code
     column :town_name
     column :comarca_code
