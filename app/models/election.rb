@@ -9,7 +9,7 @@ class Election < ApplicationRecord
   has_many :votes
   has_many :election_locations, dependent: :destroy
  
-  scope :active, -> { where("? BETWEEN starts_at AND ends_at", Time.now).order(priority: :asc)}
+  scope :active, -> { where("? BETWEEN starts_at AND ends_at", Time.zone.now).order(priority: :asc)}
   scope :upcoming_finished, -> { where("ends_at > ? AND starts_at < ?", 2.days.ago, 12.hours.from_now).order(priority: :asc)}
 
   def to_s
@@ -17,15 +17,15 @@ class Election < ApplicationRecord
   end
 
   def is_active?
-    ( self.starts_at .. self.ends_at ).cover? DateTime.now
+    ( self.starts_at .. self.ends_at ).cover? Time.zone.now
   end
 
   def is_upcoming?
-    self.starts_at > DateTime.now and self.starts_at < 12.hours.from_now
+    self.starts_at > Time.zone.now and self.starts_at < 12.hours.from_now
   end
 
   def recently_finished?
-    self.ends_at > 2.days.ago and self.ends_at < DateTime.now 
+    self.ends_at > 2.days.ago and self.ends_at < Time.zone.now 
   end
 
   def scope_name

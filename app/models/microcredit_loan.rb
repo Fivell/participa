@@ -98,11 +98,11 @@ class MicrocreditLoan < ApplicationRecord
   end
 
   before_save do
-    if user
-      self.user_data = nil
-    else
-      self.user_data = {first_name: first_name, last_name: last_name, email: email, address: address, postal_code: postal_code, town: town, province: province, country: country}.to_yaml
-    end
+    self.user_data = if user
+                       nil
+                     else
+                       {first_name: first_name, last_name: last_name, email: email, address: address, postal_code: postal_code, town: town, province: province, country: country}.to_yaml
+                     end
     if self.document_vatid
       self.document_vatid.upcase!
       self.document_vatid.strip!
@@ -117,11 +117,11 @@ class MicrocreditLoan < ApplicationRecord
       if not replacement and not self.confirmed_at.nil?
         replacement = self.microcredit.loans.where(amount: self.amount).counted.not_confirmed.order(created_at: :asc).first
       end
-      if replacement
-        must_count = true
-      else
-        must_count = self.microcredit.should_count?(amount, !self.confirmed_at.nil?)
-      end
+      must_count = if replacement
+                     true
+                   else
+                     self.microcredit.should_count?(amount, !self.confirmed_at.nil?)
+                   end
     end
 
     if must_count
@@ -132,7 +132,7 @@ class MicrocreditLoan < ApplicationRecord
           self.save if replacement.save
         end
       else
-        self.counted_at = DateTime.now
+        self.counted_at = Time.zone.now
         self.save
       end
     end
@@ -149,7 +149,7 @@ class MicrocreditLoan < ApplicationRecord
   end
 
   def validates_age_over
-    if self.user and self.user.born_at > Date.today-18.years
+    if self.user and self.user.born_at > Date.current-18.years
       self.errors.add(:user, "No puedes suscribir un microcrédito si eres menor de edad.")
     end
   end
@@ -235,10 +235,10 @@ class MicrocreditLoan < ApplicationRecord
   def renew! new_campaign
     new_loan = self.dup
     new_loan.microcredit = new_campaign
-    new_loan.counted_at = DateTime.now
+    new_loan.counted_at = Time.zone.now
     new_loan.save!
     self.transferred_to = new_loan
-    self.returned_at = DateTime.now
+    self.returned_at = Time.zone.now
     save!
   end
 
@@ -248,7 +248,7 @@ class MicrocreditLoan < ApplicationRecord
 
   def return!
     return false if self.confirmed_at.nil? || !self.returned_at.nil?
-    self.returned_at = DateTime.now
+    self.returned_at = Time.zone.now
     save!
     return true
   end
@@ -256,7 +256,7 @@ class MicrocreditLoan < ApplicationRecord
   def confirm!
     return false if !self.confirmed_at.nil?
     self.discarded_at = nil
-    self.confirmed_at = DateTime.now
+    self.confirmed_at = Time.zone.now
     self.save!
     self.update_counted_at
     return true
@@ -271,7 +271,7 @@ class MicrocreditLoan < ApplicationRecord
 
   def discard!
     return false if !self.discarded_at.nil?
-    self.discarded_at = DateTime.now
+    self.discarded_at = Time.zone.now
     self.confirmed_at = nil
     self.save!
     return true

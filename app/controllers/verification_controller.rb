@@ -75,6 +75,6 @@ class VerificationController < ApplicationController
   end
 
   def unconfirmed_email_alert
-    t('verification.alerts.unconfirmed_html', email: @user.email).html_safe
+    view_context.raw t('verification.alerts.unconfirmed_html', email: @user.email)
   end
 end

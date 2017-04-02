@@ -34,26 +34,26 @@ class MicrocreditLoanTest < ActiveSupport::TestCase
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 0, @microcredit.loans.counted.count
 
-    create_loans(@microcredit, 5, {user: @user1, amount: 1000, counted_at: DateTime.now})
+    create_loans(@microcredit, 5, {user: @user1, amount: 1000, counted_at: Time.zone.now})
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 5, @microcredit.loans.counted.count
 
-    create_loans(@microcredit, 5, {user: @user1, amount: 100, counted_at: DateTime.now})
+    create_loans(@microcredit, 5, {user: @user1, amount: 100, counted_at: Time.zone.now})
     @microcredit = Microcredit.find @microcredit.id
     assert_equal 5, @microcredit.loans.counted.count
   end
 
   test "should confirmed scope work" do
     create_loans(@microcredit, 2, {user: @user1, amount: 100, counted_at: nil})
-    create_loans(@microcredit, 3, {user: @user1, amount: 100, counted_at: DateTime.now})
-    create_loans(@microcredit, 4, {user: @user1, amount: 100, confirmed_at: DateTime.now})
+    create_loans(@microcredit, 3, {user: @user1, amount: 100, counted_at: Time.zone.now})
+    create_loans(@microcredit, 4, {user: @user1, amount: 100, confirmed_at: Time.zone.now})
     assert_equal 4, @microcredit.loans.confirmed.count
   end
 
   test "should phase scope work" do
     create_loans(@microcredit, 2, {user: @user1, amount: 100, counted_at: nil})
-    create_loans(@microcredit, 3, {user: @user1, amount: 100, counted_at: DateTime.now-1.day})
-    create_loans(@microcredit, 4, {user: @user1, amount: 100, confirmed_at: DateTime.now-1.day})
+    create_loans(@microcredit, 3, {user: @user1, amount: 100, counted_at: Time.zone.now-1.day})
+    create_loans(@microcredit, 4, {user: @user1, amount: 100, confirmed_at: Time.zone.now-1.day})
     assert_equal 9, @microcredit.loans.phase.count
 
     @microcredit.change_phase!
@@ -102,7 +102,7 @@ class MicrocreditLoanTest < ActiveSupport::TestCase
   end
 
   test "should validates age over on loans work" do
-    @user1.born_at = DateTime.now-17.years
+    @user1.born_at = Time.zone.now-17.years
     @user1.save
     microcredit_loan = build(:microcredit_loan, user: @user1)
     assert_not microcredit_loan.valid?
@@ -113,22 +113,22 @@ class MicrocreditLoanTest < ActiveSupport::TestCase
   test "should validates check amount on microcredits loans work" do
     @microcredit.limits = "100€: 5\r500€: 10"
     @microcredit.save
-    create_loans(@microcredit, 5, {user: @user1, amount: 100, counted_at: DateTime.now, confirmed_at: DateTime.now})
+    create_loans(@microcredit, 5, {user: @user1, amount: 100, counted_at: Time.zone.now, confirmed_at: Time.zone.now})
     @microcredit = Microcredit.find @microcredit.id
-    loan = MicrocreditLoan.create(microcredit: @microcredit, user: @user1, amount: 100, counted_at: DateTime.now, confirmed_at: DateTime.now)
+    loan = MicrocreditLoan.create(microcredit: @microcredit, user: @user1, amount: 100, counted_at: Time.zone.now, confirmed_at: Time.zone.now)
     assert loan.valid?
   end
 
   test "should validates check user limits on microcredits loans work" do
     create_loans(@microcredit, 15, {user: @user1, amount: 100})
-    loan = MicrocreditLoan.create(microcredit: @microcredit, user: @user1, amount: 100, counted_at: DateTime.now, confirmed_at: DateTime.now)
+    loan = MicrocreditLoan.create(microcredit: @microcredit, user: @user1, amount: 100, counted_at: Time.zone.now, confirmed_at: Time.zone.now)
     assert_not loan.valid?
     error = "Lamentablemente, no es posible suscribir este microcrédito."
     assert_equal error, loan.errors.messages[:user].first
   end
 
   test "should .check_microcredit_active" do
-    @microcredit.ends_at = DateTime.now-1.day
+    @microcredit.ends_at = Time.zone.now-1.day
     @microcredit.save
     data = {user: @user1, amount: 100, counted_at: nil}
     loan = @microcredit.loans.create(data)
@@ -148,14 +148,14 @@ class MicrocreditLoanTest < ActiveSupport::TestCase
 
     # Ending campaign
     microcredit = create(:microcredit)
-    microcredit.starts_at = DateTime.now-3.month
-    microcredit.ends_at = DateTime.now+10.minute
+    microcredit.starts_at = Time.zone.now-3.month
+    microcredit.ends_at = Time.zone.now+10.minute
     microcredit.save
 
-    l1 = microcredit.loans.create user: @user1, amount: 100, counted_at: DateTime.now
+    l1 = microcredit.loans.create user: @user1, amount: 100, counted_at: Time.zone.now
     l2 = microcredit.loans.create user: @user1, amount: 100, counted_at: nil
 
-    l2.confirmed_at = DateTime.now
+    l2.confirmed_at = Time.zone.now
     l2.update_counted_at
 
     # reload l1 from database

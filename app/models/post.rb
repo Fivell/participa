@@ -22,9 +22,9 @@ class Post < ApplicationRecord
   def slug_candidates
     [
       :title,
-      [:title, DateTime.now.year],
-      [:title, DateTime.now.year, DateTime.now.month],
-      [:title, DateTime.now.year, DateTime.now.month, DateTime.now.day]
+      [:title, Time.zone.now.year],
+      [:title, Time.zone.now.year, Time.zone.now.month],
+      [:title, Time.zone.now.year, Time.zone.now.month, Time.zone.now.day]
     ]
   end
 

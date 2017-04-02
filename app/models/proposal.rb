@@ -51,7 +51,7 @@ class Proposal < ApplicationRecord
   end
 
   def finishes_at
-    created_at + 3.months + (DateTime.now.to_i-Proposal.now.to_i).seconds
+    created_at + 3.months + (Time.zone.now.to_i-Proposal.now.to_i).seconds
   end
 
   def supported?(user)
@@ -82,7 +82,7 @@ class Proposal < ApplicationRecord
     if freeze_date 
       Date.civil(*freeze_date).to_datetime
     else
-      DateTime.now
+      Time.zone.now
     end
   end
 end

@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     redsys_order_id = request_params["Ds_Order"]
     parent = Order.parent_from_order_id redsys_order_id
 
-    order = parent.create_order Time.now, true
+    order = parent.create_order Time.zone.now, true
     if order.first and order.is_payable?
       order.redsys_parse_response! request_params, raw_xml
     end

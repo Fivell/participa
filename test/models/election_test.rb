@@ -4,7 +4,7 @@ class ElectionTest < ActiveSupport::TestCase
 
   test "should validate presence on election" do
     e = Election.new
-    e1 = Election.new(title: "hola mundo", agora_election_id: 1, starts_at: DateTime.now, ends_at: DateTime.now + 2.weeks, scope: 0)
+    e1 = Election.new(title: "hola mundo", agora_election_id: 1, starts_at: Time.zone.now, ends_at: Time.zone.now + 2.weeks, scope: 0)
     e.valid?
     assert(e.errors[:title].include? "no puede estar en blanco")
     assert(e.errors[:agora_election_id].include? "no puede estar en blanco")
@@ -18,32 +18,32 @@ class ElectionTest < ActiveSupport::TestCase
     e1 = create(:election, starts_at: DateTime.civil(1999, 2, 2, 12, 12), ends_at: DateTime.civil(2001, 2, 2, 12, 12))
     assert e1.valid?
     assert_equal(Election.active.count, 0)
-    e2 = create(:election, starts_at: DateTime.civil, ends_at: DateTime.now + 2.weeks)
+    e2 = create(:election, starts_at: DateTime.civil, ends_at: Time.zone.now + 2.weeks)
     assert e2.valid?
     assert_equal(Election.active.count, 1)
   end
 
   test "should .is_active? work" do
     # votacion ya cerrada
-    e1 = create(:election, starts_at: DateTime.now-30.days, ends_at: DateTime.now-7.days)
+    e1 = create(:election, starts_at: Time.zone.now-30.days, ends_at: Time.zone.now-7.days)
     assert_not e1.is_active?
 
     # votacion activa
-    e2 = create(:election, starts_at: DateTime.now-30.days, ends_at: DateTime.now+7.days)
+    e2 = create(:election, starts_at: Time.zone.now-30.days, ends_at: Time.zone.now+7.days)
     assert e2.is_active?
 
     # votacion del futuro, todavia no esta activada
-    e3 = create(:election, starts_at: DateTime.now+30.days, ends_at: DateTime.now+90.days)
+    e3 = create(:election, starts_at: Time.zone.now+30.days, ends_at: Time.zone.now+90.days)
     assert_not e3.is_active?
   end
 
   test "should recently_finished? work" do
     e = create(:election)
-    e.update_attributes(starts_at: DateTime.now-90.days, ends_at: DateTime.now+7.days)
+    e.update_attributes(starts_at: Time.zone.now-90.days, ends_at: Time.zone.now+7.days)
     assert_not e.recently_finished?
-    e.update_attributes(ends_at: DateTime.now-30.days)
+    e.update_attributes(ends_at: Time.zone.now-30.days)
     assert_not e.recently_finished?
-    e.update_attributes(ends_at: DateTime.now-36.hours)
+    e.update_attributes(ends_at: Time.zone.now-36.hours)
     assert e.recently_finished?
   end
 

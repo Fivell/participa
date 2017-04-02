@@ -156,7 +156,7 @@
       <% if @project.errors.include?(:organization_year) %>
       <%= field_notice_box %>
       <% end %>
-      <%= f.input :organization_year, input_html: {disabled: !@project.user_edit_field?(:organization_year), class: 'input-s', min: 1000, max: Date.today.year+1} %>
+      <%= f.input :organization_year, input_html: {disabled: !@project.user_edit_field?(:organization_year), class: 'input-s', min: 1000, max: Date.current.year+1} %>
     </div>
   <% end %>
   <% if @project.user_view_field? :organization_legal_name %>

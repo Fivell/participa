@@ -193,11 +193,11 @@ class Order < ApplicationRecord
     end
   end
 
-  def self.mark_bank_orders_as_charged!(date=Date.today)
+  def self.mark_bank_orders_as_charged!(date=Date.current)
     Order.banks.by_date(date, date).to_be_charged.update_all(status:1)
   end
   
-  def self.mark_bank_orders_as_paid!(date=Date.today)
+  def self.mark_bank_orders_as_paid!(date=Date.current)
     Collaboration.update_paid_unconfirmed_bank_collaborations(Order.banks.by_date(date, date).charging)
     Order.banks.by_date(date, date).charging.update_all(status:2, payed_at: date)
   end
@@ -267,7 +267,7 @@ class Order < ApplicationRecord
         if self.persisted?
           self.id.to_s.rjust(12, "0")
         else
-          self.parent.id.to_s.rjust(7, "0") + Order::PARENT_CLASSES[parent.class] + Time.now.to_i.to_s(36)[-4..-1]
+          self.parent.id.to_s.rjust(7, "0") + Order::PARENT_CLASSES[parent.class] + Time.zone.now.to_i.to_s(36)[-4..-1]
         end
       end
   end
@@ -326,11 +326,11 @@ class Order < ApplicationRecord
     self.raw_xml = xml
 
     if params["Ds_Response"].to_i < 100
-      self.payed_at = Time.now
+      self.payed_at = Time.zone.now
       begin
         payment_date = REDSYS_SERVER_TIME_ZONE.parse "#{params["Fecha"] or params["Ds_Date"]} #{params["Hora"] or params["Ds_Hour"]}"
-        redsys_logger.info("Validation data: #{payment_date}, #{Time.now}, #{params["user_id"]}, #{self.user_id}, #{params["Ds_Signature"]}, #{self.redsys_merchant_response_signature}")
-        if (payment_date-1.hours) < Time.now and Time.now < (payment_date+1.hours) #and params["user_id"].to_i == self.user_id and params["Ds_Signature"] == self.redsys_merchant_response_signature
+        redsys_logger.info("Validation data: #{payment_date}, #{Time.zone.now}, #{params["user_id"]}, #{self.user_id}, #{params["Ds_Signature"]}, #{self.redsys_merchant_response_signature}")
+        if (payment_date-1.hours) < Time.zone.now and Time.zone.now < (payment_date+1.hours) #and params["user_id"].to_i == self.user_id and params["Ds_Signature"] == self.redsys_merchant_response_signature
           redsys_logger.info("Status: OK")
           self.status = 2
         else
@@ -404,7 +404,7 @@ class Order < ApplicationRecord
     info = (response.body.scan /<!--\W*(\w*)\W*-->/).flatten
     self.payment_response = info.to_json
     if info[0] == "RSisReciboOK"
-      self.payed_at = Time.now
+      self.payed_at = Time.zone.now
       self.status = 2
     else
       self.status = 4

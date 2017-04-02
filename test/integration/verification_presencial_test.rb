@@ -114,7 +114,8 @@ class VerificationPresencialTest < JsFeatureTest
       para que pueda confirmar su correo, verificarse y votar.
     MSG
 
-    refute unconfirmed_user.reload.is_verified_presentially?,
-          "User shouldn't be verified presentially but it is"
+    refute \
+      unconfirmed_user.reload.is_verified_presentially?,
+      "User shouldn't be verified presentially but it is"
   end
 end

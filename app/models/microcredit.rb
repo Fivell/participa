@@ -14,25 +14,25 @@ class Microcredit < ApplicationRecord
   validates :limits, format: { with: /\A(\D*\d+\D*\d+\D*)+\z/, message: "Introduce pares (monto, cantidad)"}
   validate :check_limits_with_phase
 
-  scope :active, -> {where("? between starts_at and ends_at", DateTime.now)}
+  scope :active, -> {where("? between starts_at and ends_at", Time.zone.now)}
   scope :upcoming_finished, -> { where("ends_at > ? AND starts_at < ?", 7.days.ago, 1.day.from_now).order(:title)}
-  scope :non_finished, -> { where("ends_at > ?", DateTime.now) }
+  scope :non_finished, -> { where("ends_at > ?", Time.zone.now) }
   scope :renewables, -> { where.not( renewal_terms_file_name: nil ) }
 
   def is_active?
-    ( self.starts_at .. self.ends_at ).cover? DateTime.now
+    ( self.starts_at .. self.ends_at ).cover? Time.zone.now
   end
 
   def is_upcoming?
-    self.starts_at > DateTime.now and self.starts_at < 1.day.from_now
+    self.starts_at > Time.zone.now and self.starts_at < 1.day.from_now
   end
 
   def has_finished?
-    self.ends_at < DateTime.now
+    self.ends_at < Time.zone.now
   end
 
   def recently_finished?
-    self.ends_at > 7.days.ago and self.ends_at < DateTime.now 
+    self.ends_at > 7.days.ago and self.ends_at < Time.zone.now 
   end
 
   def limits
@@ -74,7 +74,7 @@ class Microcredit < ApplicationRecord
   end
 
   def remaining_percent
-    time = 1-[ [(DateTime.now.to_f-starts_at.to_f) / (ends_at.to_f-starts_at.to_f), 0.0].max, 1.0].min
+    time = 1-[ [(Time.zone.now.to_f-starts_at.to_f) / (ends_at.to_f-starts_at.to_f), 0.0].max, 1.0].min
     progress = 1-[ [1.0*self.campaign_counted_amount / self.total_goal, 0.0].max, 1.0].min
     progress*time
   end
@@ -185,7 +185,7 @@ class Microcredit < ApplicationRecord
   end
 
   def change_phase!
-    if self.update_attribute(:reset_at, DateTime.now)
+    if self.update_attribute(:reset_at, Time.zone.now)
       @phase_status = nil # resets phase status
       self.loans.where.not(confirmed_at:nil).where(counted_at:nil).each do |loan|
         loan.update_counted_at
@@ -196,9 +196,9 @@ class Microcredit < ApplicationRecord
   def slug_candidates
     [
       :title,
-      [:title, DateTime.now.year],
-      [:title, DateTime.now.year, DateTime.now.month],
-      [:title, DateTime.now.year, DateTime.now.month, DateTime.now.day]
+      [:title, Time.zone.now.year],
+      [:title, Time.zone.now.year, Time.zone.now.month],
+      [:title, Time.zone.now.year, Time.zone.now.month, Time.zone.now.day]
     ]
   end
 

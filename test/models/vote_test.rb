@@ -57,7 +57,7 @@ class VoteTest < ActiveSupport::TestCase
     assert_equal(message.split(':')[2], v.scoped_agora_election_id.to_s)
     # es un timestamp que no podemos comprobar mas que sea epoch valido de hoy
     timestamp = message.split(':')[4].to_i
-    assert(Time.at(timestamp).to_date == Date.today)
+    assert(Time.zone.at(timestamp).to_date == Date.current)
   end
 
   test "should .generate_hash work" do

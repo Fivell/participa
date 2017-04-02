@@ -136,13 +136,13 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "validates user is over 16 years old" do
-    u = build(:user, born_at: Date.today - (16.years - 1.day))
+    u = build(:user, born_at: Date.current - (16.years - 1.day))
     u.valid?
     assert_includes u.errors[:born_at], "Debes ser mayor de 16 años"
     u = build(:user, born_at: Date.civil(1888, 2, 1))
     u.valid?
     assert_includes u.errors[:born_at], "Debes ser mayor de 16 años"
-    u = build(:user, born_at: Date.today - (16.years + 1.day))
+    u = build(:user, born_at: Date.current - (16.years + 1.day))
     u.valid?
     assert(u.errors[:born_at], [])
   end
@@ -289,9 +289,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test ".can_change_phone?" do 
-    user = create(:user, sms_confirmed_at: DateTime.now-1.month )
+    user = create(:user, sms_confirmed_at: Time.zone.now-1.month )
     assert_not user.can_change_phone?
-    user.update_attribute(:sms_confirmed_at, DateTime.now-7.month )
+    user.update_attribute(:sms_confirmed_at, Time.zone.now-7.month )
     assert user.can_change_phone?
     user.update_attribute(:sms_confirmed_at, nil)
     assert user.can_change_phone?
@@ -347,7 +347,7 @@ class UserTest < ActiveSupport::TestCase
     user = create(:user)
     user.send_sms_token!
     # comprobamos que el SMS se haya enviado en los últimos 10 segundos
-    assert( user.confirmation_sms_sent_at - DateTime.now  > -10 )
+    assert( user.confirmation_sms_sent_at - Time.zone.now  > -10 )
   end
 
   test ".check_sms_token" do
