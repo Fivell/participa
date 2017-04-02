@@ -68,18 +68,18 @@ class VerificationPresencialTest < JsFeatureTest
   end
 
   test "presential verifiers can verify users presentially" do
-    user2 = create(:user)
+    user = create(:user)
 
-    # user1 can verify user2
-    user1 = create(:user, :verifying_presentially)
-    login(user1)
+    # verification can verify user
+    verificator = create(:user, :verifying_presentially)
+    login(verificator)
     visit verification_step1_path
     assert_content I18n.t('verification.form.document')
     check('user_document')
     check('user_town')
     check('user_age_restriction')
     click_button('Siguiente')
-    fill_in(:user_email, with: user2.email)
+    fill_in(:user_email, with: user.email)
     click_button('Siguiente')
     assert_content I18n.t('verification.result')
     click_button('Si, estos datos coinciden')
@@ -87,7 +87,7 @@ class VerificationPresencialTest < JsFeatureTest
     logout
 
     # should see the OK verification message
-    login(user2)
+    login(user)
     assert_content I18n.t('voting.election_none')
   end
 end
