@@ -61,13 +61,17 @@
           <%= render partial: 'change_email' %>
         </div>
         <% if Features.online_verifications? %>
-          <div id="change-phone" class="invisible js-personal-content">
-            <%= render partial: 'change_phone' %>
-          </div>
+          <% if resource.can_change_phone? %>
+            <div id="change-phone" class="invisible js-personal-content">
+              <%= render partial: 'change_phone' %>
+            </div>
+          <% end %>
 
-          <div id="change-documents" class="invisible js-personal-content">
-            <%= render partial: 'change_documents' %>
-          </div>
+          <% if resource.pending_docs? %>
+            <div id="change-documents" class="invisible js-personal-content">
+              <%= render partial: 'change_documents' %>
+            </div>
+          <% end %>
         <% end %>
         <div id="cancel-account" class="invisible js-personal-content">
           <%= render partial: 'cancel_account' %>
