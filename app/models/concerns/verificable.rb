@@ -130,7 +130,7 @@ module Verificable
   def pending_docs?
     return false unless Features.online_verifications? && not_banned?
 
-    verification_events.none? || verification_events.last_was_report?
+    verification_events.any? && verification_events.last_was_report?
   end
 
   def pending_moderation?

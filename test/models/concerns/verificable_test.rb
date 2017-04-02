@@ -72,7 +72,7 @@ class VerifiableTest < ActiveSupport::TestCase
 
   test "online verification process status" do
     confirmed_by_sms_only = create(:user, :confirmed_by_sms)
-    assert_equal true, confirmed_by_sms_only.pending_docs?
+    assert_equal false, confirmed_by_sms_only.pending_docs?
     assert_equal false, confirmed_by_sms_only.pending_moderation?
 
     ready_for_review = create(:user, :pending_moderation)
