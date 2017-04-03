@@ -5,7 +5,6 @@ ca:
     language_name: "Català"
   home:
     signup_title: Inscriu-te per poder votar
-    signup_button: Inscriu-te
   activerecord:
     models:
       user:
