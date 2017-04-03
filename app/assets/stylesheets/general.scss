@@ -146,69 +146,6 @@ general
 }
 
 /* -----------------------------------
-home
------------------------------------ */
-@media (min-width: $screen-sm-min) {
-  .login-box{
-    padding: 0 0 0 $grid-gutter-width;
-    display:block;
-  }
-}
-@media (max-width: $screen-sm-min - 1) {
-  .login-box {
-    margin-top: 15px;
-    padding-left: 0;
-  }
-}
-.login-box p{
-  margin-bottom:0.2em;
-  text-align:right;
-}
-.login-box a{
-  width:100%;
-}
-.login-box .button{
-  float:right;
-  clear:both;
-}
-.login-box form legend{
-  clear:both;
-  margin-bottom:1em;
-  border:0;
-  text-transform:uppercase;
-  font-weight:bold;
-}
-.login-box form div{
-  clear:both;
-}
-.login-box form div input[type=text],
-.login-box form div input[type=email],
-.login-box form div input[type=checkbox],
-.login-box form div input[type=password]{
-  width:100%;
-  padding:0.5em;
-  margin-bottom:1em;
-  border:0;
-}
-.login-box form div.enter input.button{
-  width:auto;
-}
-.login-box form div.remember{
-  margin-bottom:1em;
-  overflow:hidden;
-}
-.login-box form div.remember input.checkbox{
-  width:auto;
-  margin:0.2em 0 0 0.3em;
-  float:right;
-}
-.login-box form div.remember label{
-  width:90%;
-  float:left;
-  text-align:right;
-}
-
-/* -----------------------------------
 footer
 ----------------------------------- */
 
@@ -1327,21 +1264,12 @@ font sizes
 */
 .content p,
 .button,
-.login-box form input,
-.login-box form div.remember label,
 .submenu li a,
 .content .intro p {
   font-size:1.6em;
 }
 .pagination li a{
   font-size:1.3em;
-}
-.login-box form legend{
-  font-size:1.4em;
-  line-height:1em;
-}
-.login-box form legend{
-  display:block;
 }
 .content-content h2{
   font-size:1.6em;
@@ -1402,18 +1330,12 @@ layout 2: 460-600 (intermedia 1) # # # # # # # # # # # # # # # # # # # # # # # #
   */
   .content p,
   .button,
-  .login-box form input,
-  .login-box form div.remember label,
   .submenu li a,
   .content .intro p {
     font-size:1.6em;
   }
   .pagination li a{
     font-size:1.3em;
-  }
-  .login-box form legend{
-    display:block;
-    font-size:1.4em;
   }
   .content-content h2{
     font-size:1.6em;
@@ -1487,20 +1409,12 @@ layout 3: 600-768 (intermedia 2) # # # # # # # # # # # # # # # # # # # # # # # #
   */
   .content p,
   .button,
-  .login-box form input,
-  .login-box form div.remember label,
   .submenu li a,
   .content .intro p {
     font-size:1.6em;
   }
   .pagination li a{
     font-size:1.3em;
-  }
-  .login-box form legend{
-    display:block;
-    font-size:1.5em;
-    line-height:1em;
-    text-align: left;
   }
   .content-content h2{
     font-size:1.8em;
@@ -1582,20 +1496,12 @@ layout 4: 769-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   */
   .content p,
   .button,
-  .login-box form input,
-  .login-box form div.remember label,
   .submenu li a,
   .content .intro p {
     font-size:1.6em;
   }
   .pagination li a{
     font-size:1.4em;
-  }
-  .login-box form legend{
-    display:block;
-    font-size:1.5em;
-    line-height:1em;
-    text-align:left;
   }
   .content-content h2{
     font-size:2em;
@@ -1678,19 +1584,12 @@ layout 4+: 978-...+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   */
   .content p,
   .button,
-  .login-box form input,
-  .login-box form div.remember label,
   .submenu li a,
   .content .intro p {
     font-size:1.6em;
   }
   .pagination li a{
     font-size:1.4em;
-  }
-  .login-box form legend{
-    display:block;
-    font-size:1.8em;
-    line-height:1em;
   }
   .content-content h2{
     font-size:2.4em;

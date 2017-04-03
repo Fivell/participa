@@ -1,0 +1,140 @@
+@media (min-width: $screen-sm-min) {
+  .login-box {
+    padding: 0 0 0 $grid-gutter-width;
+    display: block;
+  }
+}
+
+@media (max-width: $screen-sm-min - 1) {
+  .login-box {
+    margin-top: 15px;
+    padding-left: 0;
+  }
+}
+
+.login-box p {
+  margin-bottom: 0.2em;
+  text-align: right;
+}
+
+.login-box a {
+  width: 100%;
+}
+
+.login-box .button {
+  float: right;
+  clear: both;
+}
+
+.login-box form legend {
+  clear: both;
+  margin-bottom: 1em;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.login-box form div {
+  clear: both;
+}
+
+.login-box form div input[type=text],
+.login-box form div input[type=email],
+.login-box form div input[type=checkbox],
+.login-box form div input[type=password] {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 0;
+}
+
+.login-box form div.enter input.button {
+  width: auto;
+}
+
+.login-box form div.remember {
+  margin-bottom: 1em;
+  overflow: hidden;
+}
+
+.login-box form div.remember input.checkbox {
+  width: auto;
+  margin: 0.2em 0 0 0.3em;
+  float: right;
+}
+
+.login-box form div.remember label {
+  width: 90%;
+  float: left;
+  text-align: right;
+}
+
+/*
+font sizes
+ */
+.login-box form input,
+.login-box form div.remember label {
+  font-size: 1.6em;
+}
+
+.login-box form legend {
+  font-size: 1.4em;
+  line-height: 1em;
+}
+
+.login-box form legend {
+  display: block;
+}
+
+@media only screen and (min-width: 460px) and (max-width: 600px) {
+  .login-box form input,
+  .login-box form div.remember label {
+    font-size: 1.6em;
+  }
+
+  .login-box form legend {
+    display: block;
+    font-size: 1.4em;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .login-box form input,
+  .login-box form div.remember label {
+    font-size: 1.6em;
+  }
+
+  .login-box form legend {
+    display: block;
+    font-size: 1.5em;
+    line-height: 1em;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .login-box form input,
+  .login-box form div.remember label {
+    font-size: 1.6em;
+  }
+
+  .login-box form legend {
+    display: block;
+    font-size: 1.5em;
+    line-height: 1em;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 978px) {
+  .login-box form input,
+  .login-box form div.remember label {
+    font-size: 1.6em;
+  }
+
+  .login-box form legend {
+    display: block;
+    font-size: 1.8em;
+    line-height: 1em;
+  }
+}
