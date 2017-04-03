@@ -217,7 +217,6 @@ ActiveAdmin.register User do
   filter :first_name
   filter :last_name
   filter :phone
-  filter :created_at
   filter :born_at
   filter :address
   filter :town
