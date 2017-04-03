@@ -364,6 +364,9 @@ Conforme a allò convingut a l'article 16.3 de la Llei Orgànica de Protecció d
         prova de residència que s'inclou no es pot verificar. A la foto s'ha de
         poder distingir clarament la data, el tipus i titular del rebut.
         Comprova que no estigui borrosa.
+      non_visible_id: >
+        Has adjuntat només una de les cares del document d'identitat, 
+        necessitem que adjuntis les dues 
     mailer:
       subject: >-
         Revisa la teva sol·licitud de verificació digital en Un País en Comú
