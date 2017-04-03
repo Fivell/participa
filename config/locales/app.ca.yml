@@ -3,6 +3,8 @@ ca:
     flatpickr_code: "cat"
     language: "Idioma"
     language_name: "Català"
+  home:
+    signup_title: Inscriu-te per poder votar
   activerecord:
     models:
       user:

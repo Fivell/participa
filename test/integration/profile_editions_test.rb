@@ -10,7 +10,7 @@ class ProfileEditionsTest < JsFeatureTest
     visit root_path
     fill_in 'Correo electrónico o Nº de documento', with: 'pepe@example.org'
     fill_in 'Contraseña', with: '111111'
-    click_button 'Iniciar sesión'
+    click_button 'Inicia sesión'
   end
 
   test "can edit profile" do

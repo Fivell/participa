@@ -17,7 +17,7 @@ module Participa
       def create_user_registration(user, document_vatid, email)
         visit new_user_registration_path
         fill_in_user_registration(user, document_vatid, email)
-        click_button "Inscribirse"
+        click_button "Inscríbete"
       end
 
       def fill_in_user_registration(user, document_vatid, email)

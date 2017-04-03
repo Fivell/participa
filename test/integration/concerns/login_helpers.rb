@@ -7,7 +7,7 @@ module Participa
         visit new_user_session_path
         fill_in 'user[login]', with: user.email
         fill_in 'user[password]', with: password || user.password
-        click_button 'Iniciar sesión'
+        click_button 'Inicia sesión'
       end
 
       def logout

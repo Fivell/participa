@@ -10,21 +10,17 @@
 
     <div class="col-md-4 col-sm-4 col-xs-6">
       <div class="box-info login-box">
+        <h2><%= t("devise.titles.confirmation_instructions") %></h2>
+
         <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: {method: :post}) do |f| %>
-          <fieldset>
-            <legend>
-              <%= t("devise.titles.confirmation_instructions") %>
-            </legend>
+          <div>
+            <%= f.label :email, class: 'invisible' %>
+            <%= f.email_field :email, autofocus: true, class: 'input-100', placeholder: t('activerecord.attributes.user.email') %>
+          </div>
 
-            <div>
-              <%= f.label :email, class: 'invisible' %>
-              <%= f.email_field :email, autofocus: true, class: 'input-100', placeholder: t('activerecord.attributes.user.email') %>
-            </div>
-
-            <div class="enter">
-              <%= f.submit t("devise.buttons.confirmation_instructions"), class: "button" %>
-            </div>
-          </fieldset>
+          <div class="enter">
+            <%= f.submit t("devise.buttons.confirmation_instructions"), class: "button" %>
+          </div>
         <% end %>
       </div>
     </div>

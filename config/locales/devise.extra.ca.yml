@@ -3,7 +3,7 @@ ca:
     registrations: 
       ok: "T'has inscrit correctament. Rebràs un correu que hauràs de confirmar per continuar amb el procés. Revisa el teu correu."
     buttons:
-      sign_in: "Iniciar sessió"
+      sign_in: "Inicia sessió"
       sign_up: "Inscriu-te"
       edit: "Actualitza dades" 
       cancel_account: "Dóna'm de baixa"
@@ -19,7 +19,7 @@ ca:
       new_password_confirmation: "Confirma contrasenya nova"
     links:
       home: "Inici"
-      sign_in: "Iniciar sessió"
+      sign_in: "Inicia sessió"
       sign_in_with: "Iniciar sessió amb %{provider}"
       sign_up: "Inscriure's"
       sign_out: "Tanca sessió"

@@ -40,7 +40,7 @@ class UserRegistrationsTest < JsFeatureTest
     fill_in_location_data(user)
     fill_in_login_data(user, user.email)
     acknowledge_stuff
-    click_button "Inscribirse"
+    click_button "Inscríbete"
 
     assert_content \
       I18n.t("devise.registrations.signed_up_but_unconfirmed")
@@ -79,7 +79,7 @@ class UserRegistrationsTest < JsFeatureTest
 
     visit new_user_registration_path
     fill_in_location_data(@user)
-    click_button 'Inscribirse'
+    click_button 'Inscríbete'
 
     assert_select 'País', selected: 'Estados Unidos'
     assert_select 'Provincia', selected: 'Alabama'
@@ -91,7 +91,7 @@ class UserRegistrationsTest < JsFeatureTest
     visit new_user_registration_path
     fill_in_user_registration(@user, @user.document_vatid, @user.email)
     select 'Mujer (cis)', from: 'Identidad de género'
-    click_button 'Inscribirse'
+    click_button 'Inscríbete'
 
     assert_content \
       I18n.t("devise.registrations.signed_up_but_unconfirmed")
@@ -108,7 +108,7 @@ class UserRegistrationsTest < JsFeatureTest
     fill_in_login_data(@user, @user.email)
     acknowledge_terms
     acknowledge_age
-    click_button 'Inscribirse'
+    click_button 'Inscríbete'
     assert_text 'El texto introducido no corresponde con el de la imagen'
   end
 
@@ -121,7 +121,7 @@ class UserRegistrationsTest < JsFeatureTest
     fill_in_login_data(@user, @user.email)
     acknowledge_age
     # Investigate and fix
-    find_button('Inscribirse').trigger('click')
+    find_button('Inscríbete').trigger('click')
     assert_text 'El texto introducido no corresponde con el de la imagen'
     assert_text 'He leído las condiciones y acepto inscribirme'
   end
@@ -135,7 +135,7 @@ class UserRegistrationsTest < JsFeatureTest
     yield
     fill_in_login_data(user, user.email)
     acknowledge_stuff
-    click_button "Inscribirse"
+    click_button "Inscríbete"
 
     assert_content \
       I18n.t("devise.registrations.signed_up_but_unconfirmed")
