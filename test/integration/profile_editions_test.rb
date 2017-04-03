@@ -30,6 +30,14 @@ class ProfileEditionsTest < JsFeatureTest
     assert_title "Datos personales"
   end
 
+  test "users not having started online verification can't see documents tab" do
+    with_verifications(online: true) do
+      click_link "Datos personales"
+
+      refute_content "MIS DOCUMENTOS"
+    end
+  end
+
   test "form errors preserve changed data" do
     click_link "Datos personales"
     select "Brasil", from: "País"
