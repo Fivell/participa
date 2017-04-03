@@ -247,11 +247,15 @@ ActiveAdmin.register User do
 
   csv column_names: false do
     column :id
-    column(:email) if current_active_admin_user.superadmin?
-    column :first_name if current_active_admin_user.superadmin?
-    column :last_name if current_active_admin_user.superadmin?
-    column :document_type_name if current_active_admin_user.superadmin?
-    column :document_vatid if current_active_admin_user.superadmin?
+
+    if current_active_admin_user.superadmin?
+      column :email
+      column :first_name
+      column :last_name
+      column :document_type_name
+      column :document_vatid
+    end
+
     column :postal_code
     column :created_at
     column :confirmed_at
