@@ -9,38 +9,42 @@
     </div>
 
     <div class="col-md-4 col-sm-4 col-xs-6">
+      <div class="box-info signup-box">
+        <h2><%= t('home.signup_title') %></h2>
+
+        <div class="enter">
+          <%= link_to t('home.signup_button'), new_user_registration_path, class: 'button' %>
+        </div>
+      </div>
+
       <div class="box-info login-box">
+        <h2><%= t('devise.links.sign_in') %></h2>
+
         <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
-          <fieldset>
-            <legend>
-              <%= t('devise.links.sign_in') %>
-            </legend>
-            <div>
-              <%= f.label :login, class: 'invisible' %>
-              <%= f.text_field :login, autofocus: true, class: 'input-100', placeholder: t('devise.links.email') %>
-            </div>
-            <div>
-              <%= f.label :password, class: 'invisible' %>
-              <%= f.password_field :password, class: 'input-100', placeholder: t('devise.links.passw') %>
-            </div>
+          <div>
+            <%= f.label :login, class: 'invisible' %>
+            <%= f.text_field :login, autofocus: true, class: 'input-100', placeholder: t('devise.links.email') %>
+          </div>
+          <div>
+            <%= f.label :password, class: 'invisible' %>
+            <%= f.password_field :password, class: 'input-100', placeholder: t('devise.links.passw') %>
+          </div>
 
-            <% if devise_mapping.rememberable? %>
-              <div class="remember">
-                <%= f.label :remember_me %>
-                <%= f.check_box :remember_me, class: 'remember checkbox' %>
-              </div>
-            <% end %>
-
-            <div class="enter">
-              <%= f.submit t('devise.buttons.sign_in'), class: 'button' %>
+          <% if devise_mapping.rememberable? %>
+            <div class="remember">
+              <%= f.label :remember_me %>
+              <%= f.check_box :remember_me, class: 'remember checkbox' %>
             </div>
-          </fieldset>
-          <p>
+          <% end %>
+
+          <div class="enter">
+            <%= f.submit t('devise.buttons.sign_in'), class: 'button' %>
+          </div>
+
+          <div class="links">
             <%= link_to t("devise.links.forgot_password"), new_password_path(resource_name) %>
-          </p>
-          <p>
             <%= link_to t("devise.links.forgot_mail"), new_confirmation_path(resource_name) %>
-          </p>
+          </div>
         <% end %>
       </div>
     </div>

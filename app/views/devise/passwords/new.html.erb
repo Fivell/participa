@@ -10,18 +10,17 @@
 
     <div class="col-md-4 col-sm-4 col-xs-6">
       <div class="box-info login-box">
-        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
-          <fieldset>
-            <legend><%= t("devise.titles.forgot_password") %></legend>
-            <div>
-              <%= f.label :email, class: 'invisible' %>
-              <%= f.email_field :email, autofocus: true, class: 'input-100', placeholder: t('activerecord.attributes.user.email') %>
-            </div>
+       <h2><%= t("devise.titles.forgot_password") %></h2>
 
-            <div class="enter">
-              <%= f.submit t("devise.buttons.reset_password"), class: "button" %>
-            </div>
-          </fieldset>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
+          <div>
+            <%= f.label :email, class: 'invisible' %>
+            <%= f.email_field :email, autofocus: true, class: 'input-100', placeholder: t('activerecord.attributes.user.email') %>
+          </div>
+
+          <div class="enter">
+            <%= f.submit t("devise.buttons.reset_password"), class: "button" %>
+          </div>
         <% end %>
       </div>
     </div>

@@ -8,6 +8,9 @@ es:
       es: "español"
       eu: "vasco"
       ga: "gallego"
+  home:
+    signup_title: Inscríbete para poder votar
+    signup_button: Inscríbete
   errors:
     show:
       "404":

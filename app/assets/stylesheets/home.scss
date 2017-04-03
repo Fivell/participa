@@ -12,30 +12,23 @@
   }
 }
 
-.login-box p {
-  margin-bottom: 0.2em;
+.login-box .links {
+  font-size: 1.5em;
+  margin-top: 0.5em;
   text-align: right;
+
+  a {
+    display: block;
+  }
 }
 
-.login-box a {
-  width: 100%;
-}
-
-.login-box .button {
-  float: right;
-  clear: both;
-}
-
-.login-box form legend {
+.box-info.login-box h2 {
   clear: both;
   margin-bottom: 1em;
+  margin-top: 0;
   border: 0;
   text-transform: uppercase;
   font-weight: bold;
-}
-
-.login-box form div {
-  clear: both;
 }
 
 .login-box form div input[type=text],
@@ -48,8 +41,18 @@
   border: 0;
 }
 
-.login-box form div.enter input.button {
-  width: auto;
+.login-box div.enter {
+  &::after {
+    content: "";
+    clear: right;
+    display: table;
+  }
+
+  .button {
+    float: right;
+    margin-bottom: 0;
+    width: auto;
+  }
 }
 
 .login-box form div.remember {
@@ -77,13 +80,9 @@ font sizes
   font-size: 1.6em;
 }
 
-.login-box form legend {
+.box-info.login-box h2 {
   font-size: 1.4em;
   line-height: 1em;
-}
-
-.login-box form legend {
-  display: block;
 }
 
 @media only screen and (min-width: 460px) and (max-width: 600px) {
@@ -92,8 +91,7 @@ font sizes
     font-size: 1.6em;
   }
 
-  .login-box form legend {
-    display: block;
+  .box-info.login-box h2 {
     font-size: 1.4em;
   }
 }
@@ -104,8 +102,7 @@ font sizes
     font-size: 1.6em;
   }
 
-  .login-box form legend {
-    display: block;
+  .box-info.login-box h2 {
     font-size: 1.5em;
     line-height: 1em;
     text-align: left;
@@ -118,23 +115,14 @@ font sizes
     font-size: 1.6em;
   }
 
-  .login-box form legend {
-    display: block;
-    font-size: 1.5em;
-    line-height: 1em;
-    text-align: left;
-  }
-}
-
-@media only screen and (min-width: 978px) {
-  .login-box form input,
-  .login-box form div.remember label {
-    font-size: 1.6em;
-  }
-
-  .login-box form legend {
-    display: block;
+  .box-info.login-box h2 {
     font-size: 1.8em;
     line-height: 1em;
   }
+}
+
+.signup-box {
+  @extend .login-box;
+
+  margin-bottom: 20px;
 }

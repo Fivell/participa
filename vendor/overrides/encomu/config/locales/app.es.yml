@@ -64,8 +64,6 @@ este mensaje. Si lo recibes varias veces, avísanos a %{mail}."
           p2: "Esta cuenta de correo electrónico no acepta respuestas. Si tienes cualquier problema con el registro, por favor, contacta con contacte@unpaisencomu.cat"
           p3: "Si no has sido tú, por favor, no hagas caso de este mensaje. Tu contraseña no cambiará hasta que valides este enlace y crees una nueva."
           link: 'Cambiar contraseña'
-    home:
-      button: "¿No estás inscrito? ¡Inscríbete!"
   election:
     close_message: "Ha llegado la fecha límite para votar. La votación está cerrada."
   page:
