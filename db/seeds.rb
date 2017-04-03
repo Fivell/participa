@@ -41,6 +41,8 @@ end
   non_local_id_with_outdated_residence_proof
   non_local_id_with_unmatched_residence_proof
   non_local_id_with_unverifiable_residence_proof
+  non_local_id_with_unverifiable_residence_proof
+  non_visible_id
 ).each do |code|
   OnlineVerifications::Label.find_or_create_by!(code: code)
 end

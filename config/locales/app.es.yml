@@ -753,6 +753,9 @@ De conformidad con lo dispuesto en el artículo 16.3 de la Ley Orgánica de Prot
         prueba de residencia que se incluye no es verificable. En la foto debe
         poder distinguirse claramente la fecha, tipo y titular del recibo.
         Comprueba que no esté borrosa.
+      non_visible_id: >
+        Has adjuntado sólo una de las caras del documento de identidad, 
+        necesitamos que adjuntes las dos
     mailer:
       subject: Revisa tu solicitud de verificación digital en Un País En Comú
       introduction: >
