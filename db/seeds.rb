@@ -33,6 +33,7 @@ puts "Creating superadmin user with email #{superadmin.email}"
   puts "Creating user confirmed_by_sms with email #{user.email}"
 end
 
+puts "Creating default online verification issue labels"
 %w(
   invalid_id
   unverifiable_id
