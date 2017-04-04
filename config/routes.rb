@@ -57,7 +57,8 @@ Rails.application.routes.draw do
     get '/vote/sms_check/:election_id', to: 'vote#sms_check', as: :sms_check_vote
     get '/vote/send_sms_check/:election_id', to: 'vote#send_sms_check', as: :send_sms_check_vote
     
-    devise_for :users, controllers: { registrations: 'registrations' }
+    devise_for :users, controllers: { registrations: 'registrations',
+                                      confirmations: 'confirmations' }
 
     if Features.microcredits?
       get '/microcreditos', to: 'microcredit#index', as: 'microcredit'
