@@ -1,9 +1,9 @@
 es:
   devise:
     confirmations:
-      confirmed: "Tu dirección de correo electrónico ya ha sido confirmada."
+      confirmed: "Tu dirección de correo electrónico ha sido confirmada. Puedes iniciar sesión."
       send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo restablecer tu contraseña."
-      send_paranoid_instructions: "Hemos enviado a %{email} los pasos para recuperar tu contraseña. Si no recibes nuestro correo en unos minutos, es posible que usaras una cuenta de email diferente cuando te inscribiste en Un Pais en Comú: prueba con otras cuentas que tengas, y si no lo consigues con ninguna, envía un correo a contacte@unpaisencomu.cat para recibir ayuda."
+      send_paranoid_instructions: "Si tu correo electrónico existe en nuestra base de datos recibirás un correo electrónico en unos minutos con instrucciones sobre cómo reiniciar tu contraseña."
     failure:
       already_authenticated: "Ya estás identificado."
       inactive: "Tu cuenta aún no ha sido activada."
@@ -18,18 +18,18 @@ es:
       last_attempt: "Tienes un intento más antes que tu cuenta quede bloqueada."
     mailer:
       confirmation_instructions:
-        subject: "[participa.unpaisencomu.cat] Instrucciones de confirmación"
+        subject: "Un País en Comú - Instrucciones de confirmación"
       reset_password_instructions:
-        subject: "[participa.unpaisencomu.cat] Instrucciones para restablecer tu contraseña"
+        subject: "Un País en Comú - Instrucciones para restablecer tu contraseña"
       unlock_instructions:
-        subject: "[participa.unpaisencomu.cat] Instrucciones de desbloqueo"
+        subject: "Un País en Comú - Instrucciones de desbloqueo"
     omniauth_callbacks:
       failure: "No se te pudo autorizar de %{kind} debido a \"%{reason}\"."
       success: "Identificado correctamente de %{kind}."
     passwords:
       no_token: "No puedes acceder a esta página sino es por medio de un enlace para restablecer contraseña. Si accediste desde el enlace para restablecer la contraseña, asegúrate de que la URL está completa."
       send_instructions: "Recibirás un correo electrónico con instrucciones sobre cómo restablecer tu contraseña en unos minutos."
-      send_paranoid_instructions: "Hemos enviado a %{email} los pasos para recuperar tu contraseña. Si no recibes nuestro correo en unos minutos, es posible que usaras una cuenta de email diferente cuando te inscribiste en Un País en Comú: prueba con otras cuentas que tengas, y si no lo consigues con ninguna, envía un correo a contacte@unpaisencomu.cat para recibir ayuda."
+      send_paranoid_instructions: "Si tu correo electrónico existe en nuestra base de datos, recibirás un enlace para restablecer la contraseña en unos minutos."
       updated: "Tu contraseña se cambió correctamente. Has sido identificado."
       updated_not_active: "Tu contraseña se cambió correctamente."
     registrations:
@@ -41,15 +41,21 @@ es:
       update_needs_confirmation: "Actualizaste tu cuenta correctamente, sin embargo necesitamos verificar tu nueva cuenta de correo. Por favor revisa tu correo electrónico y visita el enlace para finalizar la confirmación de tu nueva dirección de correo electrónico."
       updated: "Has actualizado tu cuenta correctamente."
     sessions:
-      signed_in: ""
-      signed_out: ""
+      signed_in: "Has iniciado sesión satisfactoriamente."
+      signed_out: "Has cerrado la sesión satisfactoriamente."
     unlocks:
       send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo desbloquear tu cuenta."
-      send_paranoid_instructions: "Hemos enviado al correo que has indicado los pasos para desbloquear tu cuenta. Si no recibes nuestro correo en unos minutos, es posible que usaras una cuenta de email diferente cuando te inscribiste en Un País en Comú: prueba con otras cuentas que tengas, y si no lo consigues con ninguna, envía un correo a contacte@unpaisencomu.cat para recibir ayuda."
+      send_paranoid_instructions: "Si tu cuenta existe, recibirás un correo electrónico en unos minutos con instrucciones sobre cómo desbloquear tu cuenta."
       unlocked: "Tu cuenta ha sido desbloqueada. Por favor inicia sesión para continuar."
-    labels:
-      new_password: "Contraseña nueva"
-      new_password_confirmation: "Contraseña nueva (repetir)"
+    links:
+      forgot_way: "Problemas con la inscripción"
+      forgot_manual: "Ver el manual de inscripción"
+      forgot_manual_vot: "Ver el manual de votación"
+      forgot_mail: "No he recibido el correo de confirmación"
+      insc: "Inscripción"
+    new_email: "Correo electrónico nuevo"
+    new_password: "Contraseña nueva"
+    new_password_confirmation: "Contraseña nueva (repetir)"
   errors:
     messages:
       confirmation: "El valor no coincide con la confirmación."
