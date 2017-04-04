@@ -60,7 +60,7 @@ es:
     messages:
       confirmation: "El valor no coincide con la confirmación."
       invalid: "El valor no es correcto."
-      already_confirmed: "ya ha sido confirmado, por favor intenta iniciar sesión."
+      already_confirmed: "Ya estás confirmado, por favor intenta iniciar sesión."
       confirmation_period_expired: "necesita ser confirmado en %{period}, por favor vuelve a solicitarla."
       expired: "ha expirado, por favor vuelve a solicitarla."
       not_found: "no se encontró."

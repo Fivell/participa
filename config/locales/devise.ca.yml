@@ -58,7 +58,7 @@ ca:
     new_password_confirmation: "Contrasenya nova (repetir)"
   errors:
     messages:
-      already_confirmed: "ja ha estat confirmat, sisplau intenta iniciar sessió."
+      already_confirmed: "Ja estàs confirmat, sisplau intenta iniciar sessió."
       confirmation_period_expired: "necessita ser confirmat d'aquí %{period}, sisplau torna a sol·licitar-la."
       expired: "ha expirat, sisplau torna a sol·licitar-la."
       not_found: "no s'ha trobat."
