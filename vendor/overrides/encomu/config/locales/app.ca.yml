@@ -116,11 +116,6 @@ i que pots canviar la contrasenya %{here}."
           negative_action_html: "En cas que no hagis estat tu post ignorar
 aquest missatge. Si ho reps diverses vegades, avisa'ns a %{mail}."
           here: aquí
-        lock:
-          p1: "El teu compte ha estat bloquejat per un nombre excessiu d'intents d'inici de sessió fallits. Si no has estat tu, avisa'ns a través de contacte@unpaisencomu.cat."
-          p2: "Clica a l'enllaç d'aquí sota per desbloquejar el teu compte:"
-          link: 'Desbloqueja el meu compte'
-          p3: "Aquesta adreça electrònica no permet respostes. Si tens qualsevol problema amb el registre, si us plau, contacta amb contacte@unpaisencomu.cat"
         confirm:
           p1: "T'has donat d'alta o has canviat el teu correu electrònic a l'entorn Un País en Comú. Si no és així, no facis cas d'aquest missatge. Pots confirmar que aquesta és la teva adreça de correu a través de l'enllaç següent:"
           link: 'Confirma el meu compte'
