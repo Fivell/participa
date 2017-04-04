@@ -1,18 +1,18 @@
 <p>
-  <%= t('bec.devise.mailer.remember_email.greeting', user: @user.first_name) %>
+  <%= t('devise.mailer.remember_email.greeting', user: @user.first_name) %>
 </p>
 
 <p>
-  <%= t('bec.devise.mailer.remember_email.did_you_try') %>
+  <%= t('devise.mailer.remember_email.did_you_try') %>
 </p>
 
 <p>
-  <% here = t('bec.devise.mailer.remember_email.here') %>
-  <%= t('bec.devise.mailer.remember_email.affirmative_action_html',
+  <% here = t('devise.mailer.remember_email.here') %>
+  <%= t('devise.mailer.remember_email.affirmative_action_html',
         here: link_to(here, new_user_password_url)) %>
 </p>
 
 <p>
-  <%= t('bec.devise.mailer.remember_email.negative_action_html',
+  <%= t('devise.mailer.remember_email.negative_action_html',
         mail: mail_to('contacte@unpaisencomu.cat')) %>
 </p>

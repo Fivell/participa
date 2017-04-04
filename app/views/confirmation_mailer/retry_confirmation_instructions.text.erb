@@ -6,7 +6,7 @@
   <%= t('.explanation', locale: locale) %>
 
   <%= link_to \
-        t('bec.devise.mailer.confirm.link', locale: locale),
+        t('devise.mailer.confirm.link', locale: locale),
         confirmation_url(@user, confirmation_token: @token, locale: locale) %>
 
   <%= confirmation_url(@user, confirmation_token: @token, locale: locale) %>
