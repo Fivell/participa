@@ -47,3 +47,6 @@ puts "Creating default online verification issue labels"
 ).each do |code|
   OnlineVerifications::Label.find_or_create_by!(code: code)
 end
+
+puts "Importing Catalonia geographical information"
+Rake::Task['encomu:import_catalan_towns'].invoke
