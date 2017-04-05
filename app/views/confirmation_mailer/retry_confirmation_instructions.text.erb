@@ -5,11 +5,10 @@
 
   <%= t('.explanation', locale: locale) %>
 
-  <%= link_to \
-        t('bec.devise.mailer.confirm.link', locale: locale),
-        confirmation_url(@user, confirmation_token: @token, locale: locale) %>
+  <% url = confirmation_url(@user, confirmation_token: @token, locale: locale) %>
+  <%= link_to url, url %>
 
-  <%= confirmation_url(@user, confirmation_token: @token, locale: locale) %>
+  <%= url.to_s %>
 
   <%= t('.ignore', locale: locale) %>
 

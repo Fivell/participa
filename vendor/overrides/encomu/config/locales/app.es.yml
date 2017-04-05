@@ -36,34 +36,6 @@ es:
     hints:
       user:
         wants_newsletter: "Desmarca esta casilla si no quieres recibir nuestra newsletter. Solo enviamos información importante."
-  bec:
-    devise:
-      mailer:
-        hello: "¡Hola %{user}!"
-        welcome: "¡Bienvenido/a %{user}!"
-        remember_email:
-          title: "Nuevo intento de registro con tu cuenta de email"
-          greeting: "Hola %{user}!"
-          did_you_try: ¿Has intentado crear una nueva cuenta con tus datos?
-          affirmative_action_html: "En caso afirmativo, recuerda que ya tienes
-una y que puedes cambiar tu contraseña %{here}."
-          negative_action_html: "En caso de que no hayas sido tú, puedes ignorar
-este mensaje. Si lo recibes varias veces, avísanos a %{mail}."
-          here: aquí
-        lock:
-          p1: "Tu cuenta ha sido bloqueada por un número excesivo de intentos de inicio de sesión fallidos. Si no has sido tú, avísanos a través de contacte@unpaisencomu.cat."
-          p2: "Haz click en el enlace de aquí abajo para desbloquear tu cuenta:"
-          link: 'Desbloquear mi cuenta'
-          p3: "Esta dirección de correo no permite respuesta. Si tienes cualquier problema con el registro, por favor, contacta con contacte@unpaisencomu.cat"
-        confirm:
-          p1: "Te has dado de alta o has cambiado tu correo electrónico en el entorno Un País en Comú. Si no es ese el caso, ignora este correo. Puedes confirmar que esta es tu dirección de correo a través del siguiente enlace:"
-          link: 'Confirmar mi cuenta'
-          p2: "Esta dirección de correo no permite respuesta. Si tienes cualquier problema con el registro, por favor, contacta con contacte@unpaisencomu.cat"
-        password:
-          p1: "Alguien ha pedido que cambies tu contraseña. Puedes hacerlo mediante el siguiente enlace:"
-          p2: "Esta cuenta de correo electrónico no acepta respuestas. Si tienes cualquier problema con el registro, por favor, contacta con contacte@unpaisencomu.cat"
-          p3: "Si no has sido tú, por favor, no hagas caso de este mensaje. Tu contraseña no cambiará hasta que valides este enlace y crees una nueva."
-          link: 'Cambiar contraseña'
   election:
     close_message: "Ha llegado la fecha límite para votar. La votación está cerrada."
   page:

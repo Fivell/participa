@@ -1,7 +1,10 @@
-<%= t('bec.devise.mailer.welcome', user: @resource.first_name) %>
+<%= t('devise.mailer.welcome', user: @resource.first_name) %>
 
-<%= t('bec.devise.mailer.confirm.p1') %>
+<%= t('devise.mailer.confirm.p1') %>
 
-<%= link_to t('bec.devise.mailer.confirm.link'), confirmation_url(@resource, confirmation_token: @token, locale: I18n.locale) %>
+<% url = confirmation_url(@resource, confirmation_token: @token, locale: I18n.locale) %>
+<%= link_to url, url %>
 
-<%= confirmation_url(@resource, confirmation_token: @token, locale: I18n.locale) %>
+<%= t('devise.mailer.confirm.text_only_instructions') %>
+
+<%= url.to_s %>

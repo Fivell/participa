@@ -36,12 +36,12 @@ class VerificationController < ApplicationController
     if params[:user]
       @user = User.find_by_email(params[:user][:email])
       if @user
-        if @user.is_verified_presentially? 
-          flash.now[:notice] = already_verified_alert
-          render :step2
-        elsif @user.confirmed_at.nil?
+        if @user.confirmed_at.nil?
           @user.send_confirmation_instructions
           flash.now[:alert] = unconfirmed_email_alert
+          render :step2
+        elsif @user.is_verified_presentially? 
+          flash.now[:notice] = already_verified_alert
           render :step2
         else
           render :step3

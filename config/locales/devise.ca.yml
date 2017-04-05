@@ -17,6 +17,26 @@ ca:
       unconfirmed: "Has de confirmar el teu compte per continuar."
       last_attempt: "Tens un intent més abans que el teu compte quedi bloquejat."
     mailer:
+      hello: "Hola %{user}!"
+      welcome: "Benvingut/uda %{user}!"
+      remember_email:
+        title: "Nou intent de registre amb el teu compte d'email"
+        greeting: "Hola %{user}!"
+        did_you_try: Has intentat crear de no un compte amb les teves dades?
+        affirmative_action_html: "En cas afirmatiu, recorda que ja en tens un
+i que pots canviar la contrasenya %{here}."
+        negative_action_html: "En cas que no hagis estat tu post ignorar
+aquest missatge. Si ho reps diverses vegades, avisa'ns a %{mail}."
+        here: aquí
+      confirm:
+        p1: "T'has donat d'alta o has canviat el teu correu electrònic a l'entorn Un País en Comú. Si no és així, no facis cas d'aquest missatge. Pots confirmar que aquesta és la teva adreça de correu a través de l'enllaç següent:"
+        p2: "Si tens qualsevol problema amb el registre, si us plau, contacta amb contacte@unpaisencomu.cat"
+        text_only_instructions: "O copia la següent adreça i enganxa-la en el teu navegador:"
+      password:
+        p1: "Algú ha demanat que canviïs la teva contrasenya. Pots fer-ho a través de l'enllaç següent:"
+        p2: "Si tens qualsevol problema amb el registre, si et plau, contacta amb contacte@unpaisencomu.cat"
+        p3: "Si no has estat tu, si et plau, no facis cas d'aquest missatge. La teva contrasenya no canviarà fins que validis aquest enllaç i en creïs una de nova."
+        link: 'Canvia contrasenya'
       confirmation_instructions:
         subject: "Un País en Comú - Instruccions de confirmació"
       reset_password_instructions:
@@ -58,7 +78,7 @@ ca:
     new_password_confirmation: "Contrasenya nova (repetir)"
   errors:
     messages:
-      already_confirmed: "ja ha estat confirmat, sisplau intenta iniciar sessió."
+      already_confirmed: "Ja estàs confirmat, sisplau intenta iniciar sessió."
       confirmation_period_expired: "necessita ser confirmat d'aquí %{period}, sisplau torna a sol·licitar-la."
       expired: "ha expirat, sisplau torna a sol·licitar-la."
       not_found: "no s'ha trobat."

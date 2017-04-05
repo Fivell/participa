@@ -33,6 +33,7 @@ puts "Creating superadmin user with email #{superadmin.email}"
   puts "Creating user confirmed_by_sms with email #{user.email}"
 end
 
+puts "Creating default online verification issue labels"
 %w(
   invalid_id
   unverifiable_id
@@ -46,3 +47,6 @@ end
 ).each do |code|
   OnlineVerifications::Label.find_or_create_by!(code: code)
 end
+
+puts "Importing Catalonia geographical information"
+Rake::Task['encomu:import_catalan_towns'].invoke
