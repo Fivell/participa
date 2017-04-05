@@ -9,7 +9,7 @@
     <% url = confirmation_url(@user,
                               confirmation_token: @token,
                               locale: locale) %>
-    <%= link_to t('devise.mailer.confirm.link', locale: locale), url %>
+    <%= link_to url, url %>
   </p>
 
   <p><%= t('.ignore', locale: locale) %></p>

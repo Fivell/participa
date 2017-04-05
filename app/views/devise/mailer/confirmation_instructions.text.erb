@@ -2,8 +2,9 @@
 
 <%= t('devise.mailer.confirm.p1') %>
 
-<%= link_to t('devise.mailer.confirm.link'), confirmation_url(@resource, confirmation_token: @token, locale: I18n.locale) %>
+<% url = confirmation_url(@resource, confirmation_token: @token, locale: I18n.locale) %>
+<%= link_to url, url %>
 
 <%= t('devise.mailer.confirm.text_only_instructions') %>
 
-<%= confirmation_url(@resource, confirmation_token: @token, locale: I18n.locale) %>
+<%= url.to_s %>

@@ -30,7 +30,6 @@ este mensaje. Si lo recibes varias veces, avísanos a %{mail}."
         here: aquí
       confirm:
         p1: "Te has dado de alta o has cambiado tu correo electrónico en el entorno Un País en Comú. Si no es ese el caso, ignora este correo. Puedes confirmar que esta es tu dirección de correo a través del siguiente enlace:"
-        link: 'Confirmar mi cuenta'
         p2: "Si tienes cualquier problema con el registro, por favor, contacta con contacte@unpaisencomu.cat"
         text_only_instructions: "O copia la siguiente dirección y pégala en tu navegador:"
       password:
